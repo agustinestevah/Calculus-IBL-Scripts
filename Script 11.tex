@@ -1,0 +1,629 @@
+
+\documentclass[openany, amssymb, psamsfonts]{amsart}
+\usepackage{mathrsfs,comment}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[normalem]{ulem}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{lipsum}
+\usepackage[all,arc,2cell]{xy}
+\UseAllTwocells
+\usepackage{enumerate}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+
+\renewcommand{\phi}{\varphi}
+\renewcommand{\emptyset}{\O}
+
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\sm}{\setminus}
+
+
+\newcommand{\sarr}{\rightarrow}
+\newcommand{\arr}{\longrightarrow}
+
+\newcommand{\hide}[1]{{\color{red} #1}} % for instructor version
+%\newcommand{\hide}[1]{} % for student version
+\newcommand{\com}[1]{{\color{blue} #1}} % for instructor version
+%\newcommand{\com}[1]{} % for student version
+\newcommand{\meta}[1]{{\color{green} #1}} % for making notes about the script that are not intended to end up in the script
+%\newcommand{\meta}[1]{} % for removing meta comments in the script
+
+\DeclareMathOperator{\ext}{ext}
+\DeclareMathOperator{\ho}{hole}
+%%% hyperref stuff is taken from AGT style file
+\usepackage{hyperref}  
+\hypersetup{%
+  bookmarksnumbered=true,%
+  bookmarks=true,%
+  colorlinks=true,%
+  linkcolor=blue,%
+  citecolor=blue,%
+  filecolor=blue,%
+  menucolor=blue,%
+  pagecolor=blue,%
+  urlcolor=blue,%
+  pdfnewwindow=true,%
+  pdfstartview=FitBH}   
+  
+\let\fullref\autoref
+%
+%  \autoref is very crude.  It uses counters to distinguish environments
+%  so that if say {lemma} uses the {theorem} counter, then autrorefs
+%  which should come out Lemma X.Y in fact come out Theorem X.Y.  To
+%  correct this give each its own counter eg:
+%                 \newtheorem{theorem}{Theorem}[section]
+%                 \newtheorem{lemma}{Lemma}[section]
+%  and then equate the counters by commands like:
+%                 \makeatletter
+%                   \let\c@lemma\c@theorem
+%                  \makeatother
+%
+%  To work correctly the environment name must have a corrresponding 
+%  \XXXautorefname defined.  The following command does the job:
+%
+\def\makeautorefname#1#2{\expandafter\def\csname#1autorefname\endcsname{#2}}
+%
+%  Some standard autorefnames.  If the environment name for an autoref 
+%  you need is not listed below, add a similar line to your TeX file:
+%  
+%\makeautorefname{equation}{Equation}%
+\def\equationautorefname~#1\null{(#1)\null}
+\makeautorefname{footnote}{footnote}%
+\makeautorefname{item}{item}%
+\makeautorefname{figure}{Figure}%
+\makeautorefname{table}{Table}%
+\makeautorefname{part}{Part}%
+\makeautorefname{appendix}{Appendix}%
+\makeautorefname{chapter}{Chapter}%
+\makeautorefname{section}{Section}%
+\makeautorefname{subsection}{Section}%
+\makeautorefname{subsubsection}{Section}%
+\makeautorefname{theorem}{Theorem}%
+\makeautorefname{thm}{Theorem}%
+\makeautorefname{excercise}{Exercise}%
+\makeautorefname{cor}{Corollary}%
+\makeautorefname{lem}{Lemma}%
+\makeautorefname{prop}{Proposition}%
+\makeautorefname{pro}{Property}
+\makeautorefname{conj}{Conjecture}%
+\makeautorefname{defn}{Definition}%
+\makeautorefname{notn}{Notation}
+\makeautorefname{notns}{Notations}
+\makeautorefname{rem}{Remark}%
+\makeautorefname{quest}{Question}%
+\makeautorefname{exmp}{Example}%
+\makeautorefname{ax}{Axiom}%
+\makeautorefname{claim}{Claim}%
+\makeautorefname{ass}{Assumption}%
+\makeautorefname{asss}{Assumptions}%
+\makeautorefname{con}{Construction}%
+\makeautorefname{prob}{Problem}%
+\makeautorefname{warn}{Warning}%
+\makeautorefname{obs}{Observation}%
+\makeautorefname{conv}{Convention}%
+
+
+%
+%                  *** End of hyperref stuff ***
+
+%theoremstyle{plain} --- default
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{exercise}{Exercise}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{prob}{Problem}[section]
+\newtheorem{conj}{Conjecture}[section]
+%\newtheorem{ass}{Assumption}[section]
+%\newtheorem{asses}{Assumptions}[section]
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ass}{Assumption}[section]
+\newtheorem{asss}{Assumptions}[section]
+\newtheorem{ax}{Axiom}[section]
+\newtheorem{con}{Construction}[section]
+\newtheorem{exmp}{Example}[section]
+\newtheorem{notn}{Notation}[section]
+\newtheorem{notns}{Notations}[section]
+\newtheorem{pro}{Property}[section]
+\newtheorem{quest}{Question}[section]
+\newtheorem{rem}{Remark}[section]
+\newtheorem{warn}{Warning}[section]
+\newtheorem{sch}{Scholium}[section]
+\newtheorem{obs}{Observation}[section]
+\newtheorem{conv}{Convention}[section]
+
+%%%% hack to get fullref working correctly
+\makeatletter
+\let\c@obs=\c@thm
+\let\c@cor=\c@thm
+\let\c@prop=\c@thm
+\let\c@lem=\c@thm
+\let\c@prob=\c@thm
+\let\c@con=\c@thm
+\let\c@conj=\c@thm
+\let\c@defn=\c@thm
+\let\c@notn=\c@thm
+\let\c@notns=\c@thm
+\let\c@exmp=\c@thm
+\let\c@ax=\c@thm
+\let\c@pro=\c@thm
+\let\c@ass=\c@thm
+\let\c@warn=\c@thm
+\let\c@rem=\c@thm
+\let\c@sch=\c@thm
+\let\c@equation\c@thm
+\numberwithin{equation}{section}
+\makeatother
+
+\bibliographystyle{plain}
+
+%--------Meta Data: Fill in your info------
+\title{University of Chicago Calculus IBL Course}
+
+\author{Agustin Esteva}
+
+\date{Mar 1. 2024}
+
+\begin{document}
+
+\begin{abstract}
+
+16210's Script 11.\\ Let me know if you see any errors! Contact me at aesteva@uchicago.edu.
+
+
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+\setcounter{section}{11}
+Throughout this sheet, we let $f, g\colon A \to \bbR$
+be real-valued functions with domain $A \subset \bbR$, unless otherwise specified.
+\section*{Definition 11.1}
+
+\begin{defn}
+\label{11.1}
+	Let $a \in LP(A) \subset \bbR$. A \emph{limit} of $f$ at $a$ is a number $L \in \bbR$ satisfying the following condition: for every $\epsilon > 0$, there exists a $\delta > 0$ such that
+	\begin{center}
+		if $x \in A$ and $0 < \abs{x - a} < \delta$, \quad then $\abs{f(x) - L} < \epsilon$.
+	\end{center}
+{\em (See Additional Exercise 2 for one-sided limits.)}
+\end{defn}
+\section*{Lemma 11.2}
+\begin{lem}
+\label{11.2}
+	Limits are unique: if $L$ and $L'$ are both limits of $f$ at a point $a$, then $L = L'$. 
+\end{lem}
+ \vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+ Assume, for the sake of contradiction, that if $L$ and $L'$ are both limits of $f$ at a point $a$< then $L \neq L'$
+ \begin{itemize}
+\item  Since $L$ is a limit of $f$ at $a$, then for some $\epsilon = \frac{\epsilon}{2}$, there exists a $\delta_1>0$ such that if $x\in A$ and $0< |x-a| < \delta$, then $|f(x) - L|<\frac{\epsilon}{2}$
+\item Since $L'$ is a limit of $f$ at $a$, then for some $\epsilon = \frac{\epsilon}{2}$, there exists a $\delta_2>0$ such that if $x\in A$ and $0< |x-a| < \delta$, then $|f(x) - L'|<\frac{\epsilon}{2}$
+ \end{itemize}
+Thus, for all $\epsilon>0$, there exists a $\delta = \min(\delta_1, \delta_2)$ such that if $x\in A$ and $0< |x-a|< \delta$, then:
+\begin{align*}
+|f(x) - L| + |f(x) - L'|&< \frac{\epsilon}{2} + \frac{\epsilon}{2}\\
+|f(x) - L| + |f(x) - L'|&< \epsilon\\
+|L - f(x)| + |f(x) - L'| &< \epsilon\\
+|L - L'| &\leq |f(x) - L| + |f(x) - L'|\\
+|L - L'| &< \epsilon
+\end{align*}
+Thus, assume $|L-L'| \neq 0$. $|L - L'|> 0$ and thus there exists some $\epsilon>0$ such that if $x\in A$ and $0< |x-a|<\delta$, then $0<\epsilon< |L - L'|$, which is a contradiction. Thus, $|L - L'| = 0$, which implies that $L - L' = 0$, which implies that $L = L'$, which is a contradiction.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Definition 11.3}
+\begin{defn}
+\label{11.3}
+	If $L$ is the limit of $f$ at $a$, we write
+	\[
+		\lim_{x \to a} f(x) = L.
+	\]
+\end{defn}
+
+
+\section*{Example 11.4}
+\begin{exmp}
+\label{11.4}
+Give an example of a set $A \subset \bbR$, a function $f\colon A \to \bbR$, and a point $a \in LP(A)$ such that $\lim\limits_{x \to a} f(x)$ does not exist.
+\end{exmp}
+ \vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+\begin{itemize}
+\item Let $A = \bbR$
+\item Let $f\colon \bbR \arr \bbR$ where \[f(x) = \begin{cases} 
+          0 & x \leq \frac{1}{2} ; x\in A \\
+          1 & x> \frac{1}{2} ; x\in A
+       \end{cases}
+    \] 
+\item Let $a = \frac{1}{2}$. Because $\frac{1}{2}\in \bbR$, then by Corollary 5.3, $\frac{1}{2}\in LP(\bbR)$. Thus, let $A = \bbR$, then $\frac{1}{2}\in LP(A)$.
+\end{itemize}
+If $\epsilon = \frac{1}{2}$, then for any $\delta >0$ where $0<|x-\frac{1}{2}|<\delta$:
+\begin{enumerate}
+\item If $0<\frac{1}{2}-x<\delta$, then $x<\frac{1}{2}$, and so $f(x) = 0$ and therefore $|0-0|<\frac{1}{2}$. Thus, by Additional Exercise 2, $\lim\limits_{x\to a^-}f(x) = 0$
+\item If $0<x-\frac{1}{2}<\delta$, then $\frac{1}{2} > x$, so then $f(x) = 1$, and therefore $|1-0| = 1 \not < \frac{1}{2}$, and so $\lim\limits_{x\to a^+}f(x)$ does not exist. 
+\end{enumerate}
+Thus, by additional exercise 2, since $\lim\limits_{x\to a^+}f(x)$ does not exist, then $\lim\limits_{x\to a}f(x)$ does not exist.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Theorem 11.5}
+\begin{thm}
+\label{11.5}
+	Let $x\in A$. Then the following are equivalent:
+	\begin{enumerate}[(i)]
+		\item $f$ is continuous at $x$.
+		\item For every $\epsilon > 0$, there exists $\delta > 0$ such that 
+		\begin{center}
+			if $y \in A$ and $\abs{y - x} < \delta$,\qquad then $\abs{f(y) - f(x)} < \epsilon$.
+		\end{center}
+		\item Either $x \notin LP(A)$ or $\displaystyle \lim_{y \to x} f(y) = f(x)$.
+	\end{enumerate}
+\end{thm}
+ \vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+\begin{enumerate}
+\item If $f$ is continuous at $x$, then by Theorem 9.9, for all $R$ containing $f(x)$, there exists an open set $S$ containing $x$ such that $S\cap A \subset f^{-1}(R)$. Therefore, for any $\epsilon >0$, because $(f(x)-\epsilon, f(x)+ \epsilon)$ is a region containing $f(x)$, then, by Theorem 8.11, there will exist some $\delta >0$ such that $(x-\delta, x+ \delta) \subset S$ containing $x$ and therefore $(x-\delta, x+ \delta)\cap A \subset f^{-1}(f(x)-\epsilon, f(x)+ \epsilon)$. Thus, for every $y\in A$ where $|y-x|<\delta$, $y\in ((x-\delta, x+ \delta)\cap A)$ and thus, $y\in f^{-1}(R)$. Thus, $f(y) \in (f(x) - \epsilon, f(x) + \epsilon)$, and so $|f(y)- f(x)|< \epsilon$. Therefore, for every $\epsilon >0$, there exists some $\delta>0$ such that if $y\in A$ and $|y-x| < \delta$, then $|f(y)-f(x)|<\epsilon$. 
+\item For every $\epsilon >0$, there exists some $\delta>0$ such that if $y\in A$ and $|y-x| < \delta$, then $|f(y)-f(x)|<\epsilon$. Thus:
+\begin{enumerate}
+\item If $x\notin LP(A)$, then $x\notin LP(A)$
+\item If $x\in LP(A)$, then for all $y\in A$ where $0<|y-x|< \delta$, then by Definition \ref{11.1}, $\lim\limits_{y\to x}f(y) = f(x)$. (Remark: one can "transfer" from $|y-x|< \delta$ to $0<|y-x|<\delta$ because for all $y\in (x-\delta, x+\delta)\sm\{x\}$, $y\in (x-\delta, x+ \delta)$, and so $|f(y) - f(x)|< \epsilon$)
+\end{enumerate}
+\item \begin{enumerate}
+\item If $x\notin LP(A)$, then because $x\in A$, then there exists some region $(a,b)$ containing $x$ such that $(a,b) \cap A\sm \{x\} = \emptyset$. It follows that $(a,b)\cap A = \{x\}$. Thus, for any region $R$ containing $f(x)$, $x\in f^{-1}(R)$, and therefore, there exists the region $(a,b)$ such that $(a,b)\cap A = \{x\} \subset f^{-1}(R)$. Thus, by Theorem 9.9, $f$ is continuous at $x$.
+\item If $\displaystyle \lim_{y \to x} f(y) = f(x)$, Definition \ref{11.1}, For every $\epsilon >0$, there exists some $\delta>0$ such that if $y\in A$ and $0<|y-x| < \delta$, then $|f(y)-f(x)|<\epsilon$. Thus, for any region $R = (f(x) - \epsilon, f(x) + \epsilon)$ containing $f(x)$, then there exists a $\delta>0$ such that $S = (x-\delta, x+ \delta)\{x\}$. Thus, if $y\in A$ and $y\in S$, then $y\in f^{-1}(R)$. Because $f(x) \in R$, then for every region $R = (f(x) - \epsilon, f(x) + \epsilon)$ containing $f(x)$ there exists an open set $S = (x-\delta, x+ \delta)$ containing $x$ such that $f(S \cap A)\subset R$. Thus, $f$ is continuous at $A$.
+\end{enumerate}
+\end{enumerate}
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Example: 11.6}
+\begin{exmp}:\\
+\label{11.6}
+	\begin{enumerate}[(a)]
+		\item Let $a, b\in \bbR$ and let $f\colon \bbR \to \bbR$ be given by $f(x) = ax + b$. Show that $f$ is continuous at every $x \in \bbR$.
+   \vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+For all $\epsilon>0$, there exists a $\delta = \frac{\epsilon}{|a|+1}$ such that if $y\in \bbR$ and $|y-x|< \delta$, then:
+\begin{align*}
+|f(y) - f(x)| &= |(ay+b)-(ax+b)|\\
+|(ay+b)-(ax+b)|&=  |ay-ax|\\
+|ay-ax| &= |a||y-x|\\
+|a||y-x|&< |a|\frac{\epsilon}{|a|+1}< \epsilon\\
+|a||y-x| &< \epsilon\\
+|f(y) - f(x)| &< \epsilon
+\end{align*}
+Thus, for any $\epsilon>0$, there exists a $\delta = \frac{\epsilon}{|a|+1}$ such that if $y\in \bbR$ and $|y-x|<\delta$ for all $x\in \bbR$, then it follows that $|f(y)-f(x)|<\epsilon$. Thus, by Theorem \ref{11.5}, $f(x) = |x|$ is continuous at every $x$.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+		\item Let $f\colon \bbR \to \bbR$ be given by $f(x) = 
+		\begin{cases}
+			1 & \text{if } x \neq 0 \\
+			0 & \text{if }x = 0.
+		\end{cases}$ \hspace{10pt}
+		Show that $f$ is not continuous at $0$.
+   \vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+There exists the region $(-\frac{1}{2}, \frac{1}{2})$ containing $f(x) = 0$ where, for any open set $S$ containing $0$, because $S$ must contain some $x\neq 0$, $1\in f(S)$. Therefore, $f(S) \not \subset R$ and so by Theorem 9.9, $f$ is not continuous at $x=0$.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+	\end{enumerate}
+\end{exmp} 
+
+\section*{Example 11.7}
+\begin{exmp}
+	Show that the absolute value function $f\colon \bbR \to \bbR$, $f(x) = \abs{x}$ is continuous.
+\end{exmp}
+   \vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+For all $\epsilon>0$, there exists a $\delta = \epsilon$ such that if $y\in \bbR$ and $|y-x|< \delta$, then:
+\begin{align*}
+    |f(y)-f(x)|&= ||y|-|x||\\
+\tag{Theorem 8.7}    ||y|-|x|| &\leq |y-x|\\
+    |y-x|&< \delta\\
+\tag{$\delta = \epsilon$} |y-x|&<\epsilon\\
+    |f(y)-f(x)| &< \epsilon
+\end{align*}
+Thus, for any $\epsilon>0$, there exists a $\delta = \epsilon$ such that if $y\in \bbR$ and $|y-x|<\delta$ for all $x\in \bbR$, then it follows that $|f(y)-f(x)|<\epsilon$. Thus, by Theorem \ref{11.5}, $f(x) = |x|$ is continuous at every $x$.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+Given real-valued functions $f$ and $g$, we define new functions $f + g$, $fg$ and $\frac{1}{f}$ by
+\begin{itemize}
+	\item $(f + g)(x) = f(x) + g(x)$;
+	\item $(f g)(x) = f(x) \cdot g(x)$; and
+	\item $\frac{1}{f}(x) = \frac{1}{f(x)}$, provided that $f(x) \neq 0$.
+\end{itemize}
+\section*{Lemma 11.8}
+\begin{lem} \label{11.8}
+ If $\displaystyle \lim_{x\to a} f(x)=L>0$ then there exists a $\delta>0$ such that $f(x)>\frac{L}{2}$ for all
+$x\in A \cap [(a-\delta,a+\delta)\setminus\{a\}].$  The analogous statement is true if $\displaystyle \lim_{x\to a} f(x)=L< 0$. 
+\end{lem}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Because $\displaystyle \lim_{x\to a} f(x)=L> 0$, then by Definition \ref{11.1}, if $\epsilon = \frac{L}{2}$, then there must exist a $\delta >0$ such that if $x\in A$ and $0<|x-a|<\delta$, then $|f(x) - L|<\frac{L}{2}$. Thus, by Example 8.10, $x\in (a-\delta, a+ \delta)\setminus \{a\}$, then by the same reasoning, $f(x) \in (L-\frac{L}{2}, L+\frac{L}{2})$. Therefore, if $x\in A \cap [(a-\delta, a+ \delta)\sm \{a\}]$, then $\frac{L}{2}<f(x) < \frac{3L}{2}$. Thus, $\frac{L}{2}<f(x)$.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Theorem 11.9}
+\begin{thm}
+\label{11.9}
+	Suppose that $\lim\limits_{x \to a} f(x) = L$ and $\lim\limits_{x \to a} g(x) = M$. Then,
+	\begin{enumerate}[(a)]
+		\item \label{11.9.a} $\displaystyle\lim_{x \to a} (f + g)(x) = L + M$.
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Let $\epsilon >0$ and $a\in LP(A)$:
+\begin{enumerate}
+    \item Because $L$ is a limit of $f(x)$ at $a$, then there exists a $\delta_f$ such that if $0< |x-a|<\delta_f$, then $|f(x) - L|<\frac{\epsilon}{2}$ 
+    \item Because $M$ is a limit of $g(x)$ at $a$, then there exists a $\delta_g$ such that if $0< |x-a|<\delta_g$, then $|g(x) - M|<\frac{\epsilon}{2}$ 
+\end{enumerate}
+Thus, for any $\epsilon>0$, there exists a $\delta = \min(\delta_f, \delta_g)$ such that if $0<|x-a|<\delta$, then:
+\[|(f+g)(x) - (L+M)|  =  |(f(x) - L) + (g(x) - M)|\]
+By Lemma 8.9:
+\[|(f(x) - L) + (g(x) - M)| \leq |f(x) - L| + |g(x) - M|\]
+By $a,b$:
+\[|f(x) - L| + |g(x) - M| < \frac{\epsilon}{2}+\frac{\epsilon}{2}\]
+\[|f(x) - L| + |g(x) - M| < \epsilon\]
+Therefore, because for any $\epsilon >0$, there exists a $\delta$ such that if $0<|x-a|<\delta$, then $|(f+g)(x) - (L+M)| < \epsilon$, and therefore by Definition \ref{11.1}, $\displaystyle\lim_{x \to a} (f + g)(x) = L + M$.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+		\item \label{11.9.b} $\displaystyle\lim_{x \to a} (f g)(x) = L \cdot M$.
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Let $\epsilon >0$. 
+\begin{enumerate}
+    \item Because $L$ is a limit of $f(x)$ at $a$, then there exists a $\delta_f$ such that if $0< |x-a|<\delta_f$, then $|f(x) - L|<\frac{\epsilon}{2(|M|+1)}$ 
+    \item Because $M$ is a limit of $g(x)$ at $a$, then there exists a $\delta_g$ such that if $0< |x-a|<\delta_g$, then $|g(x) - M|<\frac{\epsilon}{3(|L|+1)}$ 
+    \item By Lemma \ref{11.8}, there exists a $\delta'$ such that if $0<|x-a|<\delta'$, then $f(x)<\frac{3|L|}{2}$. Thus $f(x) < \frac{3(|L|+1)}{2}$.
+\end{enumerate}
+Thus, for any $\epsilon >0$, there exists a $\delta = \min(\delta_f, \delta_g, \delta')$ such that if $0< |x-a|<\delta$, then:
+\begin{align*}
+    |(fg)(x) - LM| &= |f(x)g(x) - LM|\\
+    |f(x)g(x) - LM| &= |f(x)g(x) - f(x)M + f(x)M -LM|\\
+    |f(x)g(x) - f(x)M + f(x)M -LM| &\leq |f(x)g(x) - f(x)M|+|f(x)M - LM|\\
+    |f(x)g(x) - f(x)M|+|f(x)M - LM| &= |f(x)||g(x) - M| + |M||f(x) - L|\\
+    |f(x)||g(x) - M| + |M||f(x) - L|&< \frac{3(|L|+1)}{2}\frac{\epsilon}{3(|L|+1)}+ |M|\frac{\epsilon}{2(|M|+1)}\\
+    |f(x)||g(x) - M| + |M||f(x) - L| &< \frac{\epsilon}{2}+ \frac{\epsilon|M|}{2(|M|+1)}\\
+    |f(x)||g(x) - M| + |M||f(x) - L| &< \frac{\epsilon}{2}(1+ \frac{|M|}{(|M|+1)})
+\end{align*}
+Assume, for the sake of contradiction, that $\frac{|M|}{|M+1|}\geq 1$. Thus, $|M|\geq  |M+1|$, which is a contradiction. Thus, $\frac{|M|}{|M+1|} < 1$ and therefore $1+ \frac{|M|}{|M+1|} < 2$, $\frac{\epsilon}{2}(1+ \frac{|M|}{(|M|+1)} < \epsilon$:
+\begin{align*}
+    |f(x)||g(x) - M| + |M||f(x) - L| < \epsilon
+\end{align*}
+Therefore, because for any $\epsilon >0$, there exists a $\delta$ such that if $0<|x-a|<\delta$, then $|(fg)(x) - LM| < \epsilon$, and therefore $\displaystyle\lim_{x \to a} (f g)(x) = L \cdot M$.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+		\item \label{11.9.c} Suppose that $\lim\limits_{x \to a} \, f(x) = L \neq 0$. Then $\lim\limits_{x \to a} \frac{1}{f}(x) = \frac{1}{L}$.
+	\end{enumerate}
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}
+Let $\epsilon >0$. 
+\begin{enumerate}
+    \item Because $L$ is a limit of $f(x)$ at $a$, then there exists a $\delta_f$ such that if $x\in A$ and $0< |x-a|<\delta_f$, then $|f(x) - L|<\frac{\epsilon|L|^2}{2}$
+    \item By Lemma \ref{11.8}, there exists a $\delta'$ such that if $x\in A$ and $0<|x-a|<\delta'$, then $|f(x)|>\frac{|L|}{2}$. Thus, $\frac{1}{|f(x)|}< \frac{2}{|L|}$
+\end{enumerate}
+Thus, for any $\epsilon >0$, there exists a $\delta = \min(\delta_f, \delta')$ such  that if $x\in A$ and $0< |x-a|< \delta$, then:
+\begin{align*}
+    |\frac{1}{f}(x)  - \frac{1}{L}| &= |\frac{1}{f(x)}-\frac{1}{L}|\\
+    |\frac{1}{f(x)}-\frac{1}{L}| &= |\frac{f(x)L}{f(x)L}||\frac{1}{f(x)}  - \frac{1}{L}|\\
+    |\frac{f(x)L}{f(x)L}||\frac{1}{f(x)}  - \frac{1}{L}| &= |\frac{L}{f(x)L}  - \frac{f(x)}{f(x)L}|\\
+    |\frac{L}{f(x)L}  - \frac{f(x)}{f(x)L}| &= |\frac{1}{f(x)L}||L-f(x)|\\
+    \tag{Example 8.5} |\frac{1}{f(x)L}||L-f(x)| &= |\frac{1}{f(x)L}||f(x)-L|\\
+    |\frac{1}{f(x)L}||f(x)-L| &< \frac{1}{|L|}\frac{2}{|L|}\frac{\epsilon|L|^2}{2}\\
+    |\frac{1}{f(x)L}||f(x)-L| &< \epsilon
+\end{align*}
+Therefore, because for any $\epsilon >0$, there exists a $\delta$ such that if $0<|x-a|<\delta$, then $|\frac{1}{f}(x) - \frac{1}{L}| < \epsilon$, and therefore $\lim\limits_{x \to a} \frac{1}{f}(x) = \frac{1}{L}$.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Corollary 11.10}
+\begin{cor}
+\label{11.10}
+	If $f$ and $g$ are continuous at $a$, then $f + g$ and $fg$ are continuous at $a$. Also, $\frac{1}{f}$ and $\frac{g}{f}$ are continuous at $a$, provided that $f(a) \neq 0$.
+\end{cor}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}
+If $f$ and $g$ are continuous at $a$, then if $a\in LP(A)$, then by Theorem \ref{11.5}, $\lim\limits_{y\to a}f(y) = f(a)$ and $\lim\limits_{y\to a}g(y) = g(a)$. 
+\begin{itemize}
+    \item By Theorem 11.9.\ref{11.9.a}, $\lim\limits_{y\to a}(f+g)(y) = (f+g)(a)$. And so by Theorem \ref{11.5}, $f+g$ is continuous at $a$. 
+    \item By Theorem 11.9.\ref{11.9.b}, $\lim\limits_{y\to a}(fg)(y) = (fg)(a)$. And so by Theorem \ref{11.5}, $fg$ is continuous at $a$.
+    \item By Theorem 11.9.\ref{11.9.c}, $\lim\limits_{y\to a}(\frac{1}{f})(y) = (\frac{1}{f})(a)$. And so by Theorem \ref{11.5}, $\frac{1}{f}$ is continuous at $a$.
+    \item Since $\frac{g}{f} = g\frac{1}{f}$, then let $h = \frac{1}{f}$ Thus, $gh = \frac{g}{f}$. Thus,  By Theorem 11.9.\ref{11.9.b}, $\lim\limits_{y\to a}(gh)(y) = (gh)(a)$. And so by Theorem \ref{11.5}, $gh = \frac{g}{f}$ is continuous at $a$.
+\end{itemize}
+If $a\notin LP(A)$, then by Theorem \ref{11.5}, $f$ is continuous at $a$. Similarly, $g$ is continuous at $a$. Thus, because $f+g\colon A \arr \bbR$ and $a\notin LP(A)$, then by Theorem \ref{11.5}, $f+g$ is continuous at $a$.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Definition 11.11}
+\begin{defn}
+	A \emph{polynomial in one variable with real coefficients} is a function $f$ of the form 
+	\[
+		f(x) = a_n x^n+a_{n-1}x^{n-1}+\cdots+a_1 x+a_0
+	\]
+	for some $n \in \bbN \cup \{0\}$, where $a_i \in \bbR$ for $0\leq i\leq n$. A \emph{rational function in one variable with real coefficients} is a function of the form $h(x) = \frac{f(x)}{g(x)}$ where $f$ and $g$ are polynomials in one variable with real coefficients.
+\end{defn}
+
+\section*{Corollary 11.12}
+\begin{cor}
+	Polynomials in one variable with real coefficients are continuous. A rational function in one variable with real coefficients $j(x) = \frac{f(x)}{g(x)}$ is continuous at all $a \in \bbR$ where $g(a) \neq 0$.
+\end{cor} 
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}
+For any $a\in \bbR$ where $a\neq 0$:
+\begin{enumerate}
+    \item If $n=0$, then $h_n(x) = x^n = x^0 = 1$. Thus, $h_0(x) = 1$ for all $x\in \bbR$ and so $h_0(a) = 1$. Because for any region containing $1$ there exists an open set $S = (a-\frac{1}{2}, a+ \frac{1}{2})$ containing $a$ such that for all $x\in S$, $h(x) = 1$, then $h(S) \subset R$. Thus, $h = a_i$ is continuous at $a$.
+    \item If $n=1$, then $h_n(x) = x^1 = x$. For all $\epsilon>0$, there exists a $\delta= \epsilon$ such that if $x\in \bbR$ and $|x-a|< \delta$:
+    \begin{align*}
+        |h_1(x) - h_1(a)| &= |x-a|\\
+        |x-a| < \delta\\
+        |x-a| < \epsilon
+    \end{align*}
+    And thus $|h_1(x) - _1h(a)|< \epsilon$, then by Theorem \ref{11.5}, $h_1(x) = x$ is continuous at $a$. 
+    \item If $n=k$, then assume that $h_k(x) = x^k$ is continuous at $a$.
+    \item If $n=k+1$, then because $h_{k+1}(x) = x^{k+1} = x^{k}\cdot x$. Then because $x$ is continuous at $a$ and by our inductive step, $h_k = x^{k}$ is continuous at $a$, then by Corollary \ref{11.10}, $h_{k+1}(x) = x^{k+1}$ is continuous at $a$.
+\end{enumerate}
+Thus, by Corollary \ref{11.10}, $h_n = a_ix^n$ is continuous at $a$. Thus, because $f(x) = h_n(x) + h_{n-1}(x)+...+ h_1(x) + h_0(x)$, and all $h$ are continuous at $a$, then by Corollary \ref{11.10}, $f(x)$ is continuous at $x$. Similarly, $g(x)$ is continuous at $x$. Thus, by Corollary \ref{11.10}, $j(x) = \frac{f(x)}{g(x)}$ is continuous at $a$. 
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+Now we want to look at limits of the composition of functions. We assume here (for \ref{11.13} - \ref{11.15}) that  $a\in A,$ $g\colon A\to \bbR$ and $f\colon I\to \bbR$, where $I$ is an open interval containing $\overline{g(A)}.$  
+It is not quite true in general that if
+$\lim\limits_{x\to a} g(x) = M$ and $\lim\limits_{y\to M} f(y) = L$,
+then $\lim\limits_{x\to a} f(g(x)) = L$, but it is true in some cases. 
+
+\section*{Theorem 11.13}
+\begin{thm} \label{11.13}
+	If $\lim\limits_{x\to a} g(x) = M$ and $f$ is continuous at $M$, then
+	$\lim\limits_{x\to a} f(g(x)) = f(M)$. 
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof} 
+Let $\epsilon>0$ and $x\in A$. It follows that $g(x) \in I$.
+\begin{itemize}
+    \item Since $f$ is continuous at $M$ then by Theorem $\ref{11.5}$ there exists a $\delta_f$ such that if $y\in I$ and $|y-M|<\delta_f$, then $|f(y) - f(M)|<\epsilon$.
+    \item Since $\lim\limits_{x\to a}g(x) = M$, then for some $\epsilon = \delta_f$, there exists a $\delta_g$ such that if $0<|x-a|<\delta_g$, then $|g(x) - M|<\delta_f$.
+\end{itemize}
+Thus, for all $\epsilon>0$, there exists a $\delta_f = \epsilon$ such that if $0<|x-a|<\delta_f$, then because $\overline{g(A)}\subset I$, then $|f(g(x)) - f(M)|<\epsilon$, and therefore, $\lim\limits_{x\to a}f(g(x)) = f(M)$. However, it will suffice to know that $M \in \overline{g(A)}$. Because $\lim\limits_{x\to a}g(x) = M$, then for any region $R$, there exists an $\epsilon>0$ such that $(M-\epsilon, M+\epsilon) \subset R$. Thus, there exists a $\delta>0$ such that if $x\in A$ and $0<|x-a|< \delta$, then $|g(x) - M|<\epsilon$. Assume that $M\notin g(A)$ and thus, since $a\in LP(A)$, then there exists some $x\in (a-\delta, a+\delta)\sm\{a\}\cap A$ such that $(a-\delta, a+\delta)\cap A\sm\{a\}\neq \emptyset$. Thus, $g(x) \in (M-\epsilon, M+\epsilon)$ and thus for any $\epsilon>0$, $(M-\epsilon, M+\epsilon) \cap g(A)\sm\{M\}\neq \emptyset$. Therefore, $M\in LP(g(A))$. In any case, $M\in \overline{g(A)}$, and so the proof is valid.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Remark 11.14}
+\begin{rem} \label{11.14}
+	This theorem can also be rewritten as
+	\[
+		\lim\limits_{x\to a} f(g(x)) = f\left(\lim\limits_{x\to a} g(x)\right),
+	\]
+	which can be remembered as ``limits pass through continuous functions.''
+\end{rem}
+
+\begin{cor}\label{11.15}
+	If $g$ is continuous at $a$ and $f$ is continuous at $g(a)$, then $f\circ g$ is continuous at $a$.
+\end{cor}
+ \vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}
+Since $g$ is continuous at $a$, then $\lim\limits_{x\to a}g(x) = g(a)$. Since $f$ is continuous at $g(a)$, then by Theorem \ref{11.13}, $\lim\limits_{x\to a}f(g(x)) = a$. Thus, $(f \circ g)$ is continuous at $a$.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Additional Exercises}
+
+\subsection*{Additional Exercise 2: Sides of Limits}
+Let $f:A\longrightarrow \bbR$ be a real-valued function with domain $A\subset \bbR,$ $A$ an open set. Let $a\in\bbR$ and let 
+$b\in\bbR$ be such that $(a,b)\subset A.$ The {\it right-hand limit} of $f$ at $a$ is a real number $L$ satisfying the following condition: for all $ \epsilon>0,$ there is some $\delta>0$ such that if $x\in A$ and $0<x-a<\delta,$ then $|f(x)-L|<\epsilon.$
+If such an $L$ exists we write this as 
+$$\lim_{x\longrightarrow a^+} f(x)=L.$$
+\begin{enumerate}
+\item[a)] Formulate an analogous definition for the limit from below/left-hand limit of $f$ at $b,$ written $\displaystyle \lim_{x\longrightarrow b^-} f(x).$ 
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+    For all $\epsilon>0$, there exists some $\delta>0$ such that if $x\in A$ and $0<b-x<\delta$, then $|f(x) - L| < \epsilon$.
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+\item[b)] Let $x_0\in A.$ Prove that $\displaystyle \lim_{x\longrightarrow x_0} f(x)$ exists and equals $L$ if, and only if, $\displaystyle \lim_{x\longrightarrow x_0^+} f(x)$ and
+$\displaystyle \lim_{x\longrightarrow x_0^-}f(x)$ both exist and equal $L.$
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+    \begin{itemize}
+        \item ($\implies$ :) If $\lim\limits_{x\to x_0} = L$ exists, then for all $\epsilon>0$, there exists a $\delta>0$ such that if $x\in A$ and $0<|x-x_0|<\delta$, then $|f(x) - f(x_0)|<\epsilon$. Thus, since $0<|x-x_0|<\delta$, then $0<x_0-x<\delta$ and $0<x-x_0<\delta$. Thus, $\lim\limits_{x\to x_0^-} f(x) = \lim\limits_{x\to x_0^+}f(x) = L$
+        \item ($\impliedby$ :) 
+        \begin{enumerate}
+            \item If $\lim\limits_{x\to x_0^-} = L$ exists, then for all $\epsilon>0$, there exists a $\delta_->0$ such that if $x\in A$ and $0<x_0-x<\delta_-$, then $|f(x) - L|<\epsilon$.
+            \item If $\lim\limits_{x\to x_0^+} = L$ exists, then for all $\epsilon>0$, there exists a $\delta_+>0$ such that if $x\in A$ and $0<x_0-x<\delta_+$, then $|f(x) - L| < \epsilon$.
+        \end{enumerate} 
+        Thus, if $\delta = \min(\delta_-,\delta_+)$, then $0<|x-x_0|<\delta$, and therefore $|f(x) - L| < \epsilon$. Thus, $\lim\limits_{x\to x_0}f(x) = L$
+    \end{itemize}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+\end{enumerate}
+
+\subsection*{Additional Exercise 8}
+Consider an increasing function $f\colon \mathbb{R} \longrightarrow \mathbb{R}.$ Prove that the set of points, where $f$ is not continuous, is countable.
+ \vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}
+Let $X$ be the set of all points where $f$ is not continuous. For all $x\in X$, let $S_x = \{f(y)| y<x\}$ and $L_x = \{f(z) | x<z\}$. Thus, because $y<x$, then because $f$ is increasing, then by Definition 8.17, $f(y)\leq f(x)$ for all $f(y)\in S_x$, and so $f(x)$ is an upper bound of $S_x$. Moreover, because $\bbR$ has no first point, then there exists some $y<x$ such that $f(y)\leq f(x)$, and thus $f(y)\in S_x \neq \emptyset$. Thus, by Theorem 5.16, $s_x = \sup(S)$ exists and $s_x\leq f(x)$. By the same logic, $l_x = \inf(L_x)$ exists and $f(x) \leq l$. Thus, $s_x\leq f(x)\leq l_x$
+\begin{itemize}
+    \item Assume, for the sake of contradiction, that $s_x = f(x) = l_x$. Thus, for any region $(a,b)$ containing $f(x)$. Because $a< f(x)$ and $f(x) = s_x$, then there must exist some $f(y)$ such that $a< f(y)\leq f(x)$. Thus, because $f$ is increasing, then $y< x$. By the same logic, there exists some $f(z)$ such that $f(x) \leq f(z) < b$ . Thus, $y<x<z$. Thus, it follows that $f(y,z)\subset (a,b)$, and thus for any region containing $f(x)$, there exists the open set $S = (z,y)$ containing $x$ such that $f((z,y) \cap \bbR) = f((z,y)) \subset (a,b)$. Thus, $f$ is continuous at $x$, which is a contradiction. 
+\end{itemize}
+Thus, either $s_x\leq f(x)<l_x$, $s_x<f(x)\leq l_x$, or $s_x< f(x)< l_x$. In all cases, since $s, f(x), l \in \bbR$, then because the rationals are dense in the reals, there must exist some $p\in \bbQ$ such that $s_x< p< l_x$, and thus let $i \colon X \arr \bbQ$ map some $x\in X$ to some $p\in (s_x, l_x)$.\\
+Thus, if $x_1, x_2 \in X$ where (WLOG) $x_1 < x_2$, then $f(x_1) \leq f(x_2)$.
+\begin{itemize}
+    \item If $f(x_1) < f(x_2)$, then since $s_{x_1} < i(x_1)< l_{x_1}$ and $s_{x_2} < i(x_2)< l_{x_2}$, then assume $i(x_2) \leq i(x_1)$:
+    \begin{itemize}
+        \item If $i(x_1) = i(x_2)$, then since $\bbR$ is connected, then there exists some $c$ such that $f(x_1)<c<f(x_2)$ and thus, $s_{x_1}<i(x_1) < l_{x_1}\leq c \leq s_{x_2} < i(x_2) < l_{x_1}$, and therefore $i(x_1) \neq i(x_2)$. \textbf{Note that if $s_{x_2}<l_{x_1}$, then since there must exist some $p\in \bbR$ such that $x_1<p<x_2$, then $x_1< p$, and so $l_{x_1}\leq f(p)$. Similarly, $p<x_2$, then $f(p)\leq s_{x_2}$. Thus, by transitivity, $l_{x_1}\leq f(p)\leq s_{x_2}$. This fact will be used throughout this proof.}
+        \item If $i(x_1) > i(x_2)$, then $s_{x_2}< i(x_2)<l_{x_2} \leq s_{x_1}< i(x_1)<l_{x_1}$. Thus, since $f(x_2) \in [s_{x_2}, l_{x_2}]$ and $f(x_1) \in [s_{x_1}, l_{x_1}]$, then either $f(x_2)< f(x_1)$ or $f(x_2) = f(x_1)$. In both cases, a contradiction is reached since $f(x_1)< f(x_2)$
+    \end{itemize}
+    Thus, $i(x_1)< i(x_2)$
+    \item If $f(x_1) = f(x_2)$, then because there exists some $r$ such that $x_1<r<x_2$, then $f(x_1)\leq f(r)\leq f(x_2)$ and thus, $f(r) = f(x_1) = f(x_2)$. It follows that because $f(x_1)\leq f(r)$, then $s_{x_1}<f(x_1)\leq l_{x_1}\leq f(r)$ and by the same logic, $f(r)\leq s_{x_2}\leq f(x_2)<l_{x_2}$. Thus, by transitivity, $s_{x_1}<f(x_1)\leq l_{x_1}\leq f(r) \leq s_{x_2}\leq f(x_2)<l_{x_2}$. Thus, $i(x_1)< f(r)< i(x_2)$ and so $i(x_1)< i(x_2)$. 
+\end{itemize}
+Thus, for any $x_1, x_2 \in X$, where $x_1<x_2$, then $i(x_1)<i(x_2)$, and thus, by Lemma 8.18, $i\colon X \arr \bbQ$ is injective. Thus, because 
+$\bbQ$ is countable, and therefore there exists an injective function $g \colon \bbQ \arr \bbN$, then $g \circ f : X\arr \bbN$ is injective (Proposition 1.28). It follows that $X$ is countable. 
+
+
+Thus, because $\bbQ$ is countable, then $X$ is countable. 
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Acknowledgments} 
+Thanks, as always, to Professor Oron Propp for being a great mentor in both Office Hours and during class. Thanks also to Victor Hugo Almendra Hernández for being an amazing TA and resource. Big thanks to all the GOATs is my class who presented!
+\begin{thebibliography}{9}
+
+
+\end{thebibliography}
+
+\end{document}
+

@@ -1,0 +1,788 @@
+\documentclass[openany, amssymb, psamsfonts]{amsart}
+\usepackage{mathrsfs,comment}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[normalem]{ulem}
+\usepackage{url}
+\usepackage[all,arc,2cell]{xy}
+\UseAllTwocells
+\usepackage{enumerate}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+
+\renewcommand{\phi}{\varphi}
+\renewcommand{\emptyset}{\O}
+
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\sm}{\setminus}
+
+
+\newcommand{\sarr}{\rightarrow}
+\newcommand{\arr}{\longrightarrow}
+
+\newcommand{\hide}[1]{{\color{red} #1}} % for instructor version
+%\newcommand{\hide}[1]{} % for student version
+\newcommand{\com}[1]{{\color{blue} #1}} % for instructor version
+%\newcommand{\com}[1]{} % for student version
+\newcommand{\meta}[1]{{\color{green} #1}} % for making notes about the script that are not intended to end up in the script
+%\newcommand{\meta}[1]{} % for removing meta comments in the script
+
+\DeclareMathOperator{\ext}{ext}
+\DeclareMathOperator{\ho}{hole}
+%%% hyperref stuff is taken from AGT style file
+\usepackage{hyperref}  
+\hypersetup{%
+  bookmarksnumbered=true,%
+  bookmarks=true,%
+  colorlinks=true,%
+  linkcolor=blue,%
+  citecolor=blue,%
+  filecolor=blue,%
+  menucolor=blue,%
+  pagecolor=blue,%
+  urlcolor=blue,%
+  pdfnewwindow=true,%
+  pdfstartview=FitBH}   
+  
+\let\fullref\autoref
+%
+%  \autoref is very crude.  It uses counters to distinguish environments
+%  so that if say {lemma} uses the {theorem} counter, then autrorefs
+%  which should come out Lemma X.Y in fact come out Theorem X.Y.  To
+%  correct this give each its own counter eg:
+%                 \newtheorem{theorem}{Theorem}[section]
+%                 \newtheorem{lemma}{Lemma}[section]
+%  and then equate the counters by commands like:
+%                 \makeatletter
+%                   \let\c@lemma\c@theorem
+%                  \makeatother
+%
+%  To work correctly the environment name must have a corrresponding 
+%  \XXXautorefname defined.  The following command does the job:
+%
+\def\makeautorefname#1#2{\expandafter\def\csname#1autorefname\endcsname{#2}}
+%
+%  Some standard autorefnames.  If the environment name for an autoref 
+%  you need is not listed below, add a similar line to your TeX file:
+%  
+%\makeautorefname{equation}{Equation}%
+\def\equationautorefname~#1\null{(#1)\null}
+\makeautorefname{footnote}{footnote}%
+\makeautorefname{item}{item}%
+\makeautorefname{figure}{Figure}%
+\makeautorefname{table}{Table}%
+\makeautorefname{part}{Part}%
+\makeautorefname{appendix}{Appendix}%
+\makeautorefname{chapter}{Chapter}%
+\makeautorefname{section}{Section}%
+\makeautorefname{subsection}{Section}%
+\makeautorefname{subsubsection}{Section}%
+\makeautorefname{theorem}{Theorem}%
+\makeautorefname{thm}{Theorem}%
+\makeautorefname{excercise}{Exercise}%
+\makeautorefname{cor}{Corollary}%
+\makeautorefname{lem}{Lemma}%
+\makeautorefname{prop}{Proposition}%
+\makeautorefname{pro}{Property}
+\makeautorefname{conj}{Conjecture}%
+\makeautorefname{defn}{Definition}%
+\makeautorefname{notn}{Notation}
+\makeautorefname{notns}{Notations}
+\makeautorefname{rem}{Remark}%
+\makeautorefname{quest}{Question}%
+\makeautorefname{exmp}{Example}%
+\makeautorefname{ax}{Axiom}%
+\makeautorefname{claim}{Claim}%
+\makeautorefname{ass}{Assumption}%
+\makeautorefname{asss}{Assumptions}%
+\makeautorefname{con}{Construction}%
+\makeautorefname{prob}{Problem}%
+\makeautorefname{warn}{Warning}%
+\makeautorefname{obs}{Observation}%
+\makeautorefname{conv}{Convention}%
+
+
+%
+%                  *** End of hyperref stuff ***
+
+%theoremstyle{plain} --- default
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{exercise}{Exercise}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{prob}{Problem}[section]
+\newtheorem{conj}{Conjecture}[section]
+%\newtheorem{ass}{Assumption}[section]
+%\newtheorem{asses}{Assumptions}[section]
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ass}{Assumption}[section]
+\newtheorem{asss}{Assumptions}[section]
+\newtheorem{ax}{Axiom}[section]
+\newtheorem{con}{Construction}[section]
+\newtheorem{exmp}{Example}[section]
+\newtheorem{notn}{Notation}[section]
+\newtheorem{notns}{Notations}[section]
+\newtheorem{pro}{Property}[section]
+\newtheorem{quest}{Question}[section]
+\newtheorem{rem}{Remark}[section]
+\newtheorem{warn}{Warning}[section]
+\newtheorem{sch}{Scholium}[section]
+\newtheorem{obs}{Observation}[section]
+\newtheorem{conv}{Convention}[section]
+
+%%%% hack to get fullref working correctly
+\makeatletter
+\let\c@obs=\c@thm
+\let\c@cor=\c@thm
+\let\c@prop=\c@thm
+\let\c@lem=\c@thm
+\let\c@prob=\c@thm
+\let\c@con=\c@thm
+\let\c@conj=\c@thm
+\let\c@defn=\c@thm
+\let\c@notn=\c@thm
+\let\c@notns=\c@thm
+\let\c@exmp=\c@thm
+\let\c@ax=\c@thm
+\let\c@pro=\c@thm
+\let\c@ass=\c@thm
+\let\c@warn=\c@thm
+\let\c@rem=\c@thm
+\let\c@sch=\c@thm
+\let\c@equation\c@thm
+\numberwithin{equation}{section}
+\makeatother
+
+\bibliographystyle{plain}
+
+%--------Meta Data: Fill in your info------
+\title{University of Chicago Calculus IBL Course;\\ Script 1}
+
+\author{Agustin Esteva}
+
+\date{Dec 12. 2023}
+
+\begin{document}
+
+\begin{abstract}
+Sets and functions are among the most fundamental objects in mathematics.  A formal treatment
+of set theory was first undertaken at the end of the 19th Century and was finally codified
+in the form of the Zermelo-Fraenkel axioms.  While fascinating in its own right, pursuit of these
+formalisms at this point would distract us from our main purpose of studying Calculus.  Thus, we
+present a simplified version that will suffice for our immediate purposes.
+
+
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+\section{Script 1}
+\subsection{Definition 1.1}
+\begin{defn} (Working Definition)
+A {\em set} is an object $S$ with the property that, given any $x$, we have the dichotomy that precisely
+one of the two conditions $x\in S$ or $x\not\in S$ is true.  In the former case, we say that $x$ is an 
+{\em element} of $S$, and in the latter, we say that $x$ is not an element of $S$.
+\end{defn}
+
+
+A set is often presented in one of the following forms:
+\begin{itemize}
+\item
+A complete listing of its elements.
+
+Example:  the set $S=\{1,2,3,4,5\}$ contains precisely the 
+five smallest positive integers.
+
+
+\item
+A listing of some of its elements with ellipses to indicate unnamed elements.
+
+Example 1:  the set $S=\{3, 4, 5, \ldots, 100\}$ contains the positive integers from 3 to 100,
+including 6 through 99, even though these latter are not explicitly named.  
+
+
+Example 2:  the set $S=\{2, 4, 6, \ldots, 2n, \ldots \}$ is the set of all positive even integers.
+
+
+\item
+A two-part indication of the elements of the set by first identifying the source of all elements
+and then giving additional conditions for membership in the set.
+
+Example 1: 
+$S=\{x\in {\mathbb N}\mid \mbox{$x$ is prime}\}$ is the set of primes.  
+
+
+Example 2:
+$S=\{x\in {\mathbb Z}\mid \mbox{$x^2<3$}\}$ is the set of integers whose squares are less than 3.
+\end{itemize}
+\subsection{Definition 1.2}
+\begin{defn}  
+Two sets $A$ and $B$ are {\em equal} if they contain precisely the same elements, that is, $x\in A$
+if and only if $x\in B$.  When $A$ and $B$ are equal, we denote this by $A=B$.
+\end{defn}
+\subsection{Definition 1.3}
+\begin{defn}  
+A set $A$ is a {\em subset} of a set $B$ if every element of $A$ is also an element of $B$, that is,
+if $x\in A$, then $x\in B$.  When $A$ is a subset of $B$, we denote this by $A\subset B$.  If $A\subset B$ but $A\neq B$ 
+we say that $A$ is a {\em proper} subset of $B.$ 
+\end{defn}
+\subsection{Example 1.4}
+\begin{exmp} Let $A=\{1, \{2\}\}$.
+\begin{proof}:\\
+Is $1\in A$? Yes, because 1 is an element of A\\
+Is $2\in A$? No, because $\{2\}$ is a set within A, not an element\\
+Is $\{1\}\subset A$?  Yes, the set $\{1\}$ is a subset because every element of the set can also be found in A \\
+Is $\{2\}\subset A$?  No, the element of \{2\}: 2, exists as a set in A, not an element \\
+Is $1\subset A$?  No, $1$ is an element, not a set, so the relation doesn't even make sense. \\
+Is $\{1\}\in A$?  No, the set $\{1\}$ doesn't exist within the set of $A$ \\
+Is $\{2\}\in A$?   Yes, because the set of $\{2\}$ exists as an element in A\\
+Is $\{\{2\}\}\subset A$? Yes, because the element of \{\{2\}\} is \{2\} which can be found in A \\
+\end{proof}
+\end{exmp}
+\subsection{Definition 1.5}
+\begin{defn}  Let $A$ and $B$ be two sets. 
+The \emph{union} of $A$ and $B$ is the set
+\[
+A \cup B = \{x \mid \text{$x \in A$ or $x \in B$} \}.
+\]
+\end{defn}
+\subsection{Definition 1.6}
+\begin{defn}  Let $A$ and $B$ be two sets. 
+The \emph{intersection} of $A$ and $B$ is the set
+\[
+A \cap B = \{ x \mid \text{$x \in A$ and $x \in B$} \}.
+\]
+\end{defn}
+\subsection{Theorem 1.7}
+\begin{thm} \label{basicsets} \meta{no proof required}
+Let $A$ and $B$ be two sets.  Then:
+
+\begin{enumerate}
+\item[a)]
+$A=B$ if and only if $A\subset B$ and $B\subset A$.
+\item[b)]
+$A\subset A\cup B$.
+
+\item[c)]
+$A\cap B\subset A$.
+\end{enumerate}
+\end{thm}
+
+A special example of the intersection of two sets is when the two sets have no elements in common.
+This motivates the following definition.
+\subsection{Definition 1.8}
+\begin{defn}  
+The \emph{empty set} is the set with no elements, and it is denoted $\emptyset$.  That is,
+no matter what $x$ is, we have $x\not\in \emptyset$.
+\end{defn}  
+\subsection{Definition 1.9}
+\begin{defn}  
+Two sets $A$ and $B$ are \emph{disjoint} if $A\cap B=\emptyset$.
+\end{defn}  
+\subsection{Example 1.10}
+\begin{exmp}
+     
+Show that if $A$ is any set, then $\emptyset\subset A$. 
+\begin{proof}Assume, for the sake of contradiction, that $\emptyset \not\subset A$. It follows that 
+$\emptyset$ must have an element, $x$, that is not in set $A$. However, that is a contradiction because $x\in \emptyset$ but $\emptyset$ is defined as having no elements. So therefore $\emptyset \subset A$
+\end{proof}
+\end{exmp} 
+\subsection{Definition 1.11}
+\begin{defn}  
+Let $A$ and $B$ be two sets. 
+The \emph{difference} of $B$ from $A$ is the set
+\[
+A \setminus B = \{ x \in A \mid x \notin B \}.
+\]
+\end{defn}
+
+The set $A \setminus B$ is also called the \emph{complement} of $B$ relative to $A$.
+When the set $A$ is clear from the context, this set is sometimes denoted $B^{c}$, but we will 
+try to avoid this imprecise formulation and use it only with warning.
+\subsection{Example 1.12}
+
+\begin{exmp}
+Let $A=\{x\in\bbN\mid x\text{ is even}\}; B=\{x\in\bbN\mid x\text{ is odd}\}; C=\{x\in\bbN\mid x\text{ is prime}\}; D=\{x\in\bbN\mid x\text{ is a perfect square}\}.$
+Find all possible set differences
+\begin{proof}
+\begin{enumerate} [1]
+\item $A \backslash B =$ \{x is even $\mid$ x is not odd\} $= A$ 
+\item $A \backslash C =$ \{x is even $\mid$ x is not prime\} $= B \setminus 2$ 
+\item $A \backslash D =$ \{x is even $\mid$ x is not a perfect square\} $= \{x\in even \mid x\notin n^2\}$, where \emph{n} is an integer
+\item$B \backslash A =$ \{x is odd $\mid$ x is not even\} $= B$ 
+\item$B \backslash C =$ \{x is odd $\mid$ x is not prime\} $= \{x\in 2n+1 \mid x\notin prime\}$, where \emph{n} is an integer
+\item $B \backslash D =$ \{x is odd $\mid$ x is not a perfect square\} $= \{x\in 2n+1 \mid x\notin n^2\}$, where \emph{n} is an integer
+\item $C \backslash A =$ \{x is prime $\mid$ x is not even\} $= C \setminus 2$ 
+\item $C \backslash B =$ \{x is prime $\mid$ x is not odd\} $= 2$ 
+\item $C \backslash D =$ \{x is prime $\mid$ x is not a perfect square\} $= C$
+\item $D \backslash A =$ \{x is a perfect square $\mid$ x is not even\} $=  \{x\in n^2 \mid x\notin even\}$, where \emph{n} is an integer
+\item $D \backslash B =$ \{x is a perfect square $\mid$ x is not odd\} $= \{x\in n^2 \mid x\notin odd\}$, where \emph{n} is an integer
+\item $D \backslash C =$ \{x is perfect square $\mid$ x is not prime\} $= D$ 
+    \end{enumerate}
+\end{proof}
+\end{exmp} 
+\subsection{Theorem 1.13}
+
+\begin{thm} 
+Let $X$ be a set, and let $A, B\subset X$.  Then:
+\begin{enumerate}
+\item[a)]
+$X\setminus (A\cup B)=(X\setminus A)\cap (X\setminus B)$
+\begin{proof}:\\
+Suppose $x\in X\setminus (A\cup B)$,\\
+then because $A,B \subset X$,\\
+$x\in X$ and $x\notin A$ and $x\notin B$.\\
+Therefore, $x\in (X\setminus A$) and $x\in (X\setminus B$)\, so \\
+$X\setminus (A\cup B)\subset (X\setminus A)\cap (X\setminus B)$\\\\
+Suppose $x\in (X\setminus A)\cap (X\setminus B)$,\\
+then, $x\notin A$ and $x\notin B$,\\
+and therefore $x\in X$ so\\
+$x\in X\setminus (A \cup B)$. \\
+Therefore:\\
+$(X\setminus A)\cap (X\setminus B)\subset X\setminus (A\cup B)$
+\end{proof}
+
+
+
+
+
+
+\item[b)]
+$X\setminus (A\cap B)=(X\setminus A)\cup (X\setminus B)$
+
+\begin{proof}:\\
+Suppose $x \in (X\setminus A\cap B)$,\\
+then, because $A,B \subset X$:\\
+$x\in X$ and $x\notin (A \cap B)$\\
+If $x\notin (A \cap B)$, then \\
+$x\notin A \cup x\notin B$\\
+$x\in (X\setminus A) \cup x\in (X\setminus B)= x\in (X\setminus A)\cup (X\setminus B)$, so \\
+$X\setminus (A\cap B)\subset (X\setminus A)\cup (X\setminus B)$\\\\
+Suppose $x\in (X\setminus A)\cup (X\setminus B)$, \\
+then, $x\in X$, and $x \notin (A\cap B)$\\
+Therefore, because $A,B \subset X$:\\
+$x\in X \setminus (A\cap B)$, so\\
+$(X\setminus A)\cup (X\setminus B) \subset X\setminus (A\cap B)$
+
+\end{proof}
+\end{enumerate}
+\end{thm}
+Sometimes we will encounter families of sets. The definitions of intersection/union can be extended to infinitely many sets. 
+
+\subsection{Definition 1.14}
+\begin{defn}
+
+ Let $\mathcal{A}=\{A_\lambda\mid \lambda\in I\}$ be a collection of sets indexed by a nonempty set $I.$ Then the intersection and union of $\mathcal{A}$ are the sets
+$$\bigcap_{\lambda\in I} A_\lambda =\{x\mid x\in A_\lambda, \text{ for all } \lambda\in I\},$$
+and
+$$\bigcup_{\lambda\in I}A_\lambda =\{x\mid x\in A_\lambda, \text{ for some }\lambda\in I\}.$$
+\end{defn}
+\subsection{Theorem 1.15}
+\begin{thm}  
+Let $X$ be a set, and let  $\mathcal{A}=\{A_\lambda\mid \lambda\in I\}$ be a collection of subsets of $X.$ Then:
+\end{thm}
+
+\begin{enumerate} [1]
+
+\item$X\setminus \left( \bigcup_{\lambda\in I}A_\lambda\right) =\bigcap_{\lambda\in I} (X\setminus A_\lambda)$
+\begin{proof}:\\
+Suppose $q\in X\setminus \left( \bigcup_{\lambda\in I}A_\lambda\right)$, \\
+then, because $\mathcal{A} \subset X$, \\
+$q\in X$ and $q\notin$ $\mathcal{A}$, for all $\lambda$\\
+so since $q\in X \setminus \mathcal{A}$ for all $\lambda$ \\
+$q\in \bigcap_{\lambda\in I} (X\setminus A_\lambda)$ and therefore $X\setminus \left( \bigcup_{\lambda\in I}A_\lambda\right) \subset \bigcap_{\lambda\in I} (X\setminus A_\lambda)$\\\\
+Suppose $q\in \bigcap_{\lambda\in I} (X\setminus A_\lambda)$,\\
+then $q\in (X\setminus \mathcal{A})$ for all $\lambda$\\
+so since $\mathcal{A} \subset X$, $q\in X$ and $q\notin \mathcal{A}$ for all $\lambda$\\
+$q\in X\setminus \left( \bigcup_{\lambda\in I}A_\lambda\right)$ and therefore\\
+$q\in \bigcap_{\lambda\in I} (X\setminus A_\lambda) \subset X\setminus \left( \bigcup_{\lambda\in I}A_\lambda\right)$
+\end{proof}
+
+
+\item$X\setminus \left( \bigcap_{\lambda\in I}A_\lambda\right)  =\bigcup_{\lambda\in I} (X\setminus A_\lambda).$
+
+\begin{proof}:\\
+Suppose $q\in X\setminus \left( \bigcap_{\lambda\in I}A_\lambda\right)$, then \\
+because $\mathcal{A} \subset X$, \\
+$q\in X$ and $q\notin \mathcal{A}$ for some $\lambda$\\
+Therefore, $q\in (X\setminus \mathcal{A})$ for some $\lambda$,\\
+so $q\in \bigcup_{\lambda\in I} (X\setminus A_\lambda).$\\
+$ X\setminus \left( \bigcap_{\lambda\in I}A_\lambda\right) \subset \bigcup_{\lambda\in I} (X\setminus A_\lambda)$\\\\
+Suppose $q\in \bigcup_{\lambda\in I} (X\setminus A_\lambda)$, then\\
+$q\in (X\setminus \mathcal{A}$) for some $\lambda$\\
+so because $\mathcal{A} \subset X$, \\
+$q\in X$ and $q\notin \mathcal{A}$ for some $\lambda$\\
+Therefore $q\in X\setminus \left( \bigcap_{\lambda\in I}A_\lambda\right)$\\
+$\bigcup_{\lambda\in I} (X\setminus A_\lambda)\subset X\setminus \left( \bigcap_{\lambda\in I}A_\lambda\right)$
+\end{proof}
+\end{enumerate}
+\subsection{Definition 1.16}
+\begin{defn}
+Let $A$ and $B$ be two nonempty sets. 
+The \emph{Cartesian product} of $A$ and $B$ is the set of ordered pairs
+\[
+A \times B = \{ (a, b) \mid \text{$a \in A$ and $b \in B$} \}.
+\]
+If $(a, b)$ and $(a', b') \in A \times B$, we say that $(a, b)$ and $(a', b')$ are
+\emph{equal} if and only if $a = a'$ and $b = b'$. In this case, we write $
+(a, b) = (a', b').$
+\end{defn} 
+\subsection{Definition 1.17}
+\begin{defn} Let $A$ and $B$ be two nonempty sets.  
+A \emph{function} $f$ from $A$ to $B$ is a subset $f \subset A \times B$ such that for all $a \in A$ there exists a unique $b \in B$ satisfying $(a, b) \in f$.  To express the idea that $(a, b) \in f$, we most
+often write $f(a) = b$.  To express that $f$ is a function from $A$ to $B$ in symbols we write $f \colon A \rightarrow B$.  
+\end{defn}
+\subsection{Example 1.18}
+\begin{exmp}  
+Let the function $f \colon \mathbb{Z} \rightarrow \mathbb{Z}$ be defined by
+$f(n)=2n$.  Write $f$ as a subset of $\mathbb{Z} \times \mathbb{Z}$.  
+
+$f=\{ (n, 2n) \mid n \in \mathbb Z\}$
+
+
+
+\end{exmp}
+\subsection{Definition 1.19}
+\begin{defn}
+Let $f \colon A \rightarrow B$ be a function.  The \emph{domain} of $f$ is $A$ and the \emph{codomain} of $f$ is $B.$\\
+If $X \subset A$, then the \emph{image of $X$ under $f$} is the set
+\[
+f(X) = \{ f(x) \in B \mid  x \in X \}.
+\]
+If $Y \subset B$, then the \emph{preimage of $Y$ under $f$} is the set
+\[
+f^{-1}(Y) = \{ a \in A \mid f(a) \in Y \}.
+\]
+\end{defn}
+\subsection{Example 1.20}
+\begin{exmp}
+    Must $f(f^{-1}(Y))=Y$ and $f^{-1}(f(X))=X?$ For each, either prove that it always holds or give a counterexample.
+\end{exmp}
+\begin{proof}:\\
+    Let $f \colon \mathbb R \rightarrow \mathbb R$ be a function where $f(x)=x^2$. \\
+\\
+If $Y=\mathbb R^{-}$, then $f^{-1}(Y)=\emptyset$ because there is no number which can be squared to obtain a negative number, so therefore:\\
+$f(f^{-1}(Y))=f(\emptyset)=\emptyset \neq Y$. \\
+\\
+If $X = {4}$, then $f(4) = 16$, therefore, $f^{-1}(f(4)) = \{-4,4\}$. Because $\{-4,4\}\neq {4}$:\\
+$f^{-1}(f(4)) \neq X$
+\end{proof}
+\subsection{Definition 1.21}
+\begin{defn}
+    A function $f \colon A \rightarrow B$ is \emph{surjective} (also known as `onto') if, 
+for every $b\in B$, there is some $a\in A$ such that $f(a) = b$.  The function $f$ is \emph{injective} (also known as `one-to-one') if for all $a, a' \in A$, if $f(a) = f(a')$, then $a = a'$.  The function $f$ is \emph{bijective}, (also known as a bijection or a `one-to-one' correspondence) if it is surjective and injective.
+\end{defn}
+\subsection{Example 1.22}
+\begin{exmp}
+    Let $f:{\mathbb N}\rightarrow {\mathbb N}$ be defined by $f(n)=n^2$.  Is $f$ injective?  Is $f$ surjective?
+\end{exmp}
+\begin{proof}:\\
+    Injective: yes, because $n,n' = n^2$, then $n=n'$\\
+Surjecive: no, $\exists$ $ f(n)\in \mathbb N $ $ \forall $ $ n \in \mathbb N$ such that $f(n) \neq n^2$, example: $8 \in \mathbb N$ but no $f(n) = 8$
+\end{proof}
+\subsection{Example 1.23}
+\begin{exmp}
+    Let $f:{\mathbb N}\rightarrow {\mathbb N}$ be defined by $f(n)=n+2$.  Is $f$ injective?  Is $f$ surjective?
+\end{exmp}
+\begin{proof}:\\
+    injective: yes, because $n+2 = n'+2$, $n=n'$\\
+surjective:  no, $\exists$ $f(n)\in \mathbb N $ $ \forall $ $ n \in \mathbb N$ such that $f(n) \neq n+2$, example:
+$1 \in \mathbb N$ but no $f(n) = 1$
+\end{proof}
+\subsection{Example 1.24}
+\begin{exmp}
+    Let $f:{\mathbb Z}\rightarrow {\mathbb Z}$ be defined by $f(x)=x^2$.  Is $f$ injective?  Is $f$ surjective?
+\end{exmp}
+\begin{proof}:\\
+    injective: no, if $x^2 = x'^2$, then an injective function would have $x=x'$, but since negative numbers are in the domain of $\mathbb Z$, then $x\neq x'$.
+Example: $f(4)=f(-4)$, but $4\neq -4$ \\
+Surjecive: no, $\exists$ $ f(n)\in \mathbb N $ $ \forall $ $ n \in \mathbb N$ such that $f(n) \neq n^2$, example: $8 \in \mathbb N$ but no $f(n) = 8$
+\end{proof}
+\subsection{Example 1.25}
+\begin{exmp}
+    Let $f:{\mathbb Z}\rightarrow {\mathbb Z}$ be defined by $f(x)=x+2$.  Is $f$ injective?  Is $f$ surjective?
+\end{exmp}
+\begin{proof}:\\
+    injective: yes, because $n+2 = n'+2$, $n=n'$\\
+surjective: yes, $\forall $ $ x+2\in \mathbb Z$ $  \exists $ $  x \in \mathbb Z $ such that $f(x) = x+2$
+\end{proof}
+\subsection{Definition 1.26}
+\begin{defn}
+Let $f:A\longrightarrow B$ and $g:B\longrightarrow C. $ Then the \emph{composition} $g\circ f: A\longrightarrow C$ is defined by $(g\circ f)(x)=g(f(x)),$ for all $x\in A.$ 
+\end{defn}
+\subsection{Proposition 1.27}
+\label{Proposition 1.27}
+\begin{prop}
+Let $A$, $B$, and $C$ be sets and suppose that $f:A\longrightarrow B$  and  $g:B\longrightarrow C.$  Then $g\circ f:A\longrightarrow C$ and
+\end{prop}
+\begin{enumerate}
+\item[a)] if $f$ and $g$ are both injections, so is $g\circ f.$\\
+\begin{proof}:\\
+if $g(f(a))=g(f(a'))$, then $a=a'$\\
+Let $f(a)=b$ and $f(a')=b'$\\
+Because g is injective, $g(b) = g(b')$ and $b=b'$, therefore, because f is injective, $f(a)=f(a')$ and $a=a'$ 
+\end{proof}
+\item[b)] if $f$ and $g$ are both surjections, so is $g\circ f.$\\
+\begin{proof}:\\
+$\forall c\in C, \exists a\in A \mid g(f(a)) = c$\\
+Since g is surjective, $\forall c\in C, \exists b\in B \mid g(b) = c$\\
+Since f is surjective, $\forall b\in B, \exists a\in A \mid f(a) = b$\\
+Therefore, $\forall c\in C, \exists a\in A \mid g(f(a)) = c$
+\end{proof}
+\item[c)] if $f$ and $g$ are both bijections, so is $g\circ f.$
+\begin{proof}:\\
+Because $g\circ f$ is injective and $g\circ f$ is surjective, $g\circ f$ is bijective. 
+\end{proof}
+\end{enumerate}
+\subsection{Proposition 1.28}
+\begin{prop} 
+Suppose that $f \colon A \rightarrow B$ is bijective.  
+Then there exists a bijection $g \colon B \rightarrow A$ that satisfies $(g\circ f)(a)=a, \forall a\in A$, and $(f\circ g)(b)=b,$ for all $b\in B.$ 
+The function $g$ is often called the \emph{inverse} of $f$ and  denoted $f^{-1}$. It should not be confused with the preimage.
+\end{prop}
+\begin{proof}:\\
+    \indent\indent Since $f$ is bijective: for each $b \in B$, there exists at least one $a \in A$ such that $f(a) = b$ \indent\indent because $f$ is surjective. And, for each $b \in B$, there exists at most one $a \in A$ such that \indent\indent $f(a) = b$ because $f$ is injective. Therefore, for each $b \in B$, there exists exactly one 
+\indent\indent $a \in A$ such that $f(a) = b$.\\
+
+\indent\indent Then, define $g : B \rightarrow A$ as $g(b) = a$ for all $b \in B$ where $f(a) = b$.\\
+\indent\indent\indent\indent Given any $b_1, \: b_2 \in B$ where $g(b_1) = g(b_2)$, $f(g(b_1)) = f(g(b_2)) = b_1 = b_2$. Therefore,\\
+\indent\indent\indent\indent $g$ is injective. Additionally, for all $a \in A$, $f(a) = b \implies g(b) = a$. Therefore, $g$ is\\
+\indent\indent\indent\indent surjective. Therefore, $g$ is bijective.\\
+
+\indent\indent Since $f$ and $g$ are bijective, $g \circ f : A \rightarrow A$ and $f \circ g : B \rightarrow B$ are both bijective
+\indent\indent (Proposition \ref{Proposition 1.27}).
+
+\indent\indent\indent\indent For all $a \in A$, there exists exactly one $b$ where $f(a) = b$ and $g(b) = a$. Therefore, for\\
+\indent\indent\indent\indent all $a \in A$, $(g \circ f)(a) = g(f(a)) = g(b) = a$ and, for all $b \in B$, $(f \circ g)(b) = f(g(b)) = $\\
+\indent\indent\indent\indent $f(a) = b$.
+\end{proof}
+\subsection{Definition 1.29}
+\begin{defn}
+We say that two sets $A$ and $B$ are in \emph{bijective correspondence} when there exists a bijection from $A$ to $B$ or, equivalently, from $B$ to $A$.
+\end{defn}
+\subsection{Definition 1.30}
+\begin{defn}  
+Let $n \in \mathbb{N}$ be a natural number.  We define $[n]$ to be the set $\{1, 2, \dotsc, n \}$.  
+Additionally, we define $[0]=\emptyset$.
+\end{defn}
+\subsection{Definition 1.31}
+\begin{defn}  
+A set $A$ is \emph{finite} if $A=\emptyset$ or if there exists a natural number $n$ and a bijective correspondence between $A$ and the set $[n].$   If $A$ is not finite, we say that $A$ is \emph{infinite}.
+\end{defn}
+\subsection{Theorem 1.32}
+\begin{thm}  \meta{No proof required}
+
+Let $n, m\in {\mathbb N}$ with $n<m$.  \\ Then there does not exist an injective function
+$f:[m]\rightarrow [n]$.
+\end{thm}
+{\it Hint: Fix $k\in\mathbb N.$ Prove, by induction on $n$, that for all $n\in\mathbb{N},$ there is no injective function $f:[n+k]\longrightarrow [n].$} 
+\subsection{Theorem 1.33}
+\begin{thm}
+Let $A$ be a finite set. Suppose that $A$ is in bijective correspondence both with $[m]$ and with $[n]$.  Then $m = n$.
+\end{thm}
+\label{1.33}
+\begin{proof}:\\
+    Suppose $a\in A, n\in [n], m \in [m]$, and $f\colon A\rightarrow [n]$, and $g\colon A\rightarrow [m].$\\
+Because $A$ is in bijective correspondance with both $[n],[m]$, both $f$ and $g$ are bijective.\\
+Because $f$ and $g$ are surjective, then for every $n,m$, there exists an $a$ such that $f(a) = n$ and $g(a) =m$\\
+Because $f$ is injective, then there exists a unique $a$ for every $f(a)$ and $g(a)$\\
+Therefore, both $[m]$ and $[n]$ have the same number of elements as $A$ and so $m=n$. \\\\
+Alternate proof:\\
+$f\colon [n]\rightarrow A$, and $g\colon A\rightarrow [m].$\\
+Since $g\circ f$ is bijective because both f and g are bijective (Proposition \ref{Proposition 1.27}), then $g\circ f$ it is also injective. Theorem 1.32 states that because $g\circ f: [n]\longrightarrow [m]$, is injective, $n\not < m$ and $m\not > n$ so therefore $n=m$
+\end{proof}
+\subsection{Definition 1.34}
+\begin{defn}[Cardinality of a finite set]
+ If $A$ is a finite set that is in bijective correspondence with $[n]$, then we say that the \emph{cardinality} of $A$ is $n$, and we write $\abs{A} = n$.  (By   Theorem~\ref{1.33}, there is exactly one such natural number $n$.) We also say that $A$ contains $n$ elements. We define the cardinality of the empty set to be $0.$
+\end{defn}
+\subsection{Example 1.35}
+\begin{exmp}
+    Let $A$ and $B$ be finite sets. 
+\begin{enumerate}
+\item[a)]
+ If $A\subset B$, then $|A|\leq |B|$.
+\begin{proof}:\\
+If $A\subset B$, then $|A|\leq |B|$ implies that if $|A|\geq |B|$, then $ A\not\subset B$\\
+If there are more elements in A than in B, then A cannot be a subset of B because not every element of A is in B.\\
+Therefore, because the contrapositive is true,  If $A\subset B$, then $|A|\leq |B|$
+\end{proof}
+
+
+
+\item[b)]
+Let  $A\cap B=\emptyset.$ Then $|A\cup B|=|A|+|B|.$ 
+\item[c)] 
+$|A\cup B|+|A\cap B|=|A|+|B|$
+\begin{proof}:\\
+Suppose $ n= |A\cup B|$ and $ m=|A\cap B|$, then $m=|A|+|B|-|A\cap B|$ and $n=|A\cap B|$. \\
+Therefore, $m+n = m=|A|+|B|-|A\cap B|+|A\cap B| = |A|+|B|$
+\end{proof}
+\item[d)]  
+ $|A\times B|=|A|\cdot |B|$.
+ \end{enumerate}
+\end{exmp}
+
+\subsection{Definition 1.36}
+\label{1.36}
+\begin{defn}
+    An infinite set $A$ is said to be {\em countable} if it is in bijective correspondence with $\bbN.$ An infinite set that is not countable is called {\em uncountable}
+\end{defn}
+\subsection{Example 1.37}
+\begin{exmp}
+    Prove that $\bbZ$ is a countable set.
+\end{exmp}
+\begin{proof}:\\
+    Suppose $f\colon \bbN \rightarrow \bbZ$. \\
+\[ f(n) = \begin{cases} 
+          \frac{n}{2} & n\; is\; even\\
+          -\frac{n-1}{2} & n\; is\; odd
+       \end{cases}\]
+Map of $f$:\\
+
+$1\leftrightarrow 0$, $2\leftrightarrow 1$, $3\leftrightarrow -1$, ...\\
+
+Because $f$ is shown to map out the elements of $\mathbb{N}$ to the elements of $\mathbb{Z}$, the latter is countable.
+\end{proof}
+\subsection{Example 1.38}
+\label{1.38}
+\begin{exmp}
+    Prove that every infinite subset of a countable set is also countable.
+\end{exmp}
+\begin{proof}
+    $A\subset B$, where B is a countable set, and  A is an infinite set.\\
+Because B is countable, there must exist $f\colon B \rightarrow \bbN$, where f is bijective (\emph{Def. 1.36})
+Because B is countable, the elements of B can be ordered as $f(A_i)$, such that the first element of B is $f(A_1)$ and so on. Because $A\subset B$, there must exist $g\colon A\rightarrow f(A_i)$. The function g is injective because $f(A_1)\neq f(A_2) $since$ A_1 \neq A_2$, and g is surjective because for every $f(A_i)$, there exists an $A$ because A is infinite. Therefore, $g$ is bijective. \\ 
+The composition $(f\circ g)$ is therefore bijective and is defined from $A\longrightarrow \bbN$
+\end{proof}
+\subsection{Example 1.39}
+\label{1.39}
+\begin{exmp}
+    Prove that if there is an injection $f:A\longrightarrow B$ where $B$ is countable and $A$ is infinite,  then $A$ is countable. {\it Hint: Use Exercise~\ref{1.38}}
+\end{exmp}
+\begin{proof}:\\
+    Suppose $f(A)$ is the image of A under B. Therefore, $f(A)\subset B$ and $f(A)$ is countable because of Exercise 1.38. If there is a bijection $f:A\rightarrow f(A)$, then A will be countable. $f$ is an injection because since $f(A)\subset B$, and $a\in A$ then if $f(a)=f(a')$, then $a'=a$. $f$ must also be surjective because there exists an $a\in A$ for every $f(A)=b$, where $b\in f(A)$. Since $f$ is bijective, $A$ has bijective correspondence with a countable set, and by Definition \ref{1.36} it is therefore countable.
+\end{proof}
+\subsection{Example 1.40}
+\begin{exmp}
+    Prove that $\bbN\times \bbN$ is countable by considering the function $f:\bbN\times\bbN\longrightarrow \bbN$ given by $f(n,m)=(10^n-1)10^m$.
+\end{exmp}
+\begin{proof}:\\
+$\bbN\times \bbN$ can be counted using Cantor Diagonals\\
+Alternate Proof:
+
+Because $\bbN\times \bbN$ and $\bbN$ is infinite, an injection in $f$ would prove that $\bbN\times \bbN$is countable. (\ref{1.39})\\
+$f$ is injective if $(10^n-1)10^m=(10^p-1)10^q$, then $(n,m)=(p,q)$. I will prove by contradiction that if $(n,m)\neq(p,q)$, then $(10^n-1)10^m\neq(10^p-1)10^q$\\
+
+Case I: $n\neq p$, $m=q$:\\
+$10^m=10^q$\\
+$(10^n-1)10^m=(10^p-1)10^q$
+$10^n-1=10^p-1$\\
+$n=p$ which is a contradiction\\
+
+Case II: $n=p$, $m\neq q$:\\
+$10^n-1=10^p-1$\\
+$(10^n-1)10^m=(10^p-1)10^q$
+$10^m=10^q$\\
+$m=q$ which is a contradiction\\
+
+Case III: $n\neq p$, $m\neq q$:\\
+Let $m<q$\\
+$(10^n-1)=(10^p-1)(10^q/10^m)$\\
+$(10^n-1)=(10^p-1)(10^{q-m})$\\
+$10^{q-m}$ can be divided by 10, so it is therefore even.\\
+odd=(odd)(even)\\
+odd=even, which is a contradiction.
+
+Because $(n,m)\neq(p,q)$, then $(10^n-1)10^m\neq(10^p-1)10^q$, then if $(10^n-1)10^m=(10^p-1)10^q$, then $(n,m)=(p,q)$. Proving that f is injective, therefore $\bbN\times \bbN$ is countable. 
+\end{proof}
+
+
+
+
+
+\end{document}

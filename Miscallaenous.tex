@@ -1,0 +1,406 @@
+
+\documentclass[openany, amssymb, psamsfonts]{amsart}
+\usepackage{mathrsfs,comment}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[normalem]{ulem}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{lipsum}
+\usepackage{marvosym}
+\usepackage[all,arc,2cell]{xy}
+\UseAllTwocells
+\usepackage{enumerate}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+
+\renewcommand{\phi}{\varphi}
+\renewcommand{\emptyset}{\O}
+
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\sm}{\setminus}
+
+
+\newcommand{\sarr}{\rightarrow}
+\newcommand{\arr}{\longrightarrow}
+
+\newcommand{\hide}[1]{{\color{red} #1}} % for instructor version
+%\newcommand{\hide}[1]{} % for student version
+\newcommand{\com}[1]{{\color{blue} #1}} % for instructor version
+%\newcommand{\com}[1]{} % for student version
+\newcommand{\meta}[1]{{\color{green} #1}} % for making notes about the script that are not intended to end up in the script
+%\newcommand{\meta}[1]{} % for removing meta comments in the script
+
+\DeclareMathOperator{\ext}{ext}
+\DeclareMathOperator{\ho}{hole}
+%%% hyperref stuff is taken from AGT style file
+\usepackage{hyperref}  
+\hypersetup{%
+  bookmarksnumbered=true,%
+  bookmarks=true,%
+  colorlinks=true,%
+  linkcolor=blue,%
+  citecolor=blue,%
+  filecolor=blue,%
+  menucolor=blue,%
+  pagecolor=blue,%
+  urlcolor=blue,%
+  pdfnewwindow=true,%
+  pdfstartview=FitBH}   
+  
+\let\fullref\autoref
+%
+%  \autoref is very crude.  It uses counters to distinguish environments
+%  so that if say {lemma} uses the {theorem} counter, then autrorefs
+%  which should come out Lemma X.Y in fact come out Theorem X.Y.  To
+%  correct this give each its own counter eg:
+%                 \newtheorem{theorem}{Theorem}[section]
+%                 \newtheorem{lemma}{Lemma}[section]
+%  and then equate the counters by commands like:
+%                 \makeatletter
+%                   \let\c@lemma\c@theorem
+%                  \makeatother
+%
+%  To work correctly the environment name must have a corrresponding 
+%  \XXXautorefname defined.  The following command does the job:
+%
+\def\makeautorefname#1#2{\expandafter\def\csname#1autorefname\endcsname{#2}}
+%
+%  Some standard autorefnames.  If the environment name for an autoref 
+%  you need is not listed below, add a similar line to your TeX file:
+%  
+%\makeautorefname{equation}{Equation}%
+\def\equationautorefname~#1\null{(#1)\null}
+\makeautorefname{footnote}{footnote}%
+\makeautorefname{item}{item}%
+\makeautorefname{figure}{Figure}%
+\makeautorefname{table}{Table}%
+\makeautorefname{part}{Part}%
+\makeautorefname{appendix}{Appendix}%
+\makeautorefname{chapter}{Chapter}%
+\makeautorefname{section}{Section}%
+\makeautorefname{subsection}{Section}%
+\makeautorefname{subsubsection}{Section}%
+\makeautorefname{theorem}{Theorem}%
+\makeautorefname{thm}{Theorem}%
+\makeautorefname{excercise}{Exercise}%
+\makeautorefname{cor}{Corollary}%
+\makeautorefname{lem}{Lemma}%
+\makeautorefname{prop}{Proposition}%
+\makeautorefname{pro}{Property}
+\makeautorefname{conj}{Conjecture}%
+\makeautorefname{defn}{Definition}%
+\makeautorefname{notn}{Notation}
+\makeautorefname{notns}{Notations}
+\makeautorefname{rem}{Remark}%
+\makeautorefname{quest}{Question}%
+\makeautorefname{exmp}{Example}%
+\makeautorefname{ax}{Axiom}%
+\makeautorefname{claim}{Claim}%
+\makeautorefname{ass}{Assumption}%
+\makeautorefname{asss}{Assumptions}%
+\makeautorefname{con}{Construction}%
+\makeautorefname{prob}{Problem}%
+\makeautorefname{warn}{Warning}%
+\makeautorefname{obs}{Observation}%
+\makeautorefname{conv}{Convention}%
+
+
+%
+%                  *** End of hyperref stuff ***
+
+%theoremstyle{plain} --- default
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{exercise}{Exercise}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{prob}{Problem}[section]
+\newtheorem{conj}{Conjecture}[section]
+%\newtheorem{ass}{Assumption}[section]
+%\newtheorem{asses}{Assumptions}[section]
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ass}{Assumption}[section]
+\newtheorem{asss}{Assumptions}[section]
+\newtheorem{ax}{Axiom}[section]
+\newtheorem{con}{Construction}[section]
+\newtheorem{exmp}{Example}[section]
+\newtheorem{notn}{Notation}[section]
+\newtheorem{notns}{Notations}[section]
+\newtheorem{pro}{Property}[section]
+\newtheorem{quest}{Question}[section]
+\newtheorem{rem}{Remark}[section]
+\newtheorem{warn}{Warning}[section]
+\newtheorem{sch}{Scholium}[section]
+\newtheorem{obs}{Observation}[section]
+\newtheorem{conv}{Convention}[section]
+
+%%%% hack to get fullref working correctly
+\makeatletter
+\let\c@obs=\c@thm
+\let\c@cor=\c@thm
+\let\c@prop=\c@thm
+\let\c@lem=\c@thm
+\let\c@prob=\c@thm
+\let\c@con=\c@thm
+\let\c@conj=\c@thm
+\let\c@defn=\c@thm
+\let\c@notn=\c@thm
+\let\c@notns=\c@thm
+\let\c@exmp=\c@thm
+\let\c@ax=\c@thm
+\let\c@pro=\c@thm
+\let\c@ass=\c@thm
+\let\c@warn=\c@thm
+\let\c@rem=\c@thm
+\let\c@sch=\c@thm
+\let\c@equation\c@thm
+\numberwithin{equation}{section}
+\makeatother
+
+\bibliographystyle{plain}
+
+%--------Meta Data: Fill in your info------
+\title{University of Chicago Calculus IBL Course}
+
+\author{Agustin Esteva}
+
+\date{Spring Quarter. 2024}
+
+\begin{document}
+
+\begin{abstract}
+
+16310's Miscallenous Problems.\\ Let me know if you see any errors! Contact me at aesteva@uchicago.edu.
+
+
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+\setcounter{section}{1}
+
+\section*{Midterm Correction Questions}
+\newpage
+\section*{Constant Function Proposition}
+\begin{prop}
+Let $a > 1$ be rational, let $I$ be an interval, and let
+$f : I \to \bbR$ be a function such that $|f (x) - f (y)| \leq |x - y|^a$ for all $x, y \in I.$ Show
+that $f$ is constant.
+\end{prop}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Recall that if $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$ and $f'(y) = 0$ for all $y\in (a,b),$ then $f$ is constant.\newline\newline To prove that $f$ is continuous on $[a,b],$ then let $y \in [a,b].$ By the definition of $f,$ $|f(x) - f(y)|\leq |x-y|^a.$ Therefore, for all $\epsilon>0,$ there exists a $\delta = \epsilon^\frac{1}{a}$ such that if $x \in I$ and $|x-y|< \delta,$ then $|f(x) - f(y)|\leq |x-y|^a<\epsilon^{\frac{1}{a}^a} = \epsilon.$ Thus, by Theorem 11.5, $f$ is continuous at $y$ for all $y \in [a,b],$ and thus $f$ is continuous on $[a,b].$\newline\newline
+Let $y\in (a,b).$ For any $x\in (a,b),$ $0\leq |f(x) - f(y)|\leq|x-y|^{a},$ and so $0\leq \frac{|f(x) - f(y)|}{|x-y|} \leq |x-y|^{a-1}$ Thus, consider that by the squeeze theorem, because $\displaystyle\lim_{x\to a}(0) =0,$ then it will suffice to show that $\displaystyle\lim_{x\to a}|x-y|^{a-1} = 0.$ First, note that because $a>1,$ then $a-1>0,$ and so $|x-y|^{a-1}$ is well defined. Thus, for all $\epsilon>0,$ there exists a $\delta = \epsilon^{\frac{1}{a-1}}$ such that if $|x-y|<\delta,$ then $|x-y|^{a-1}< \delta^{a-1}<\epsilon.$ Thus, $\displaystyle\lim_{x\to a}(|x-y|^{a-1}) = 0,$ and so by the squeeze theorem, $|f'(y)| = \displaystyle\lim_{x\to a}\left|\frac{f(x) - f(y)}{x-y}\right|$ exists for all $y\in (a,b)$ and moreover, $f'(y) = 0.$\footnote{Note that I am essentially ignoring the important of the absolute value at the end of this proof. This is because the absolute value function is continuous everywhere, and so one can take the limit inside of it.} 
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+\newpage
+\section*{Problem 2}
+\begin{prop}
+Let $f : (0, 1) \to \bbR$ be bounded and continuous. Show
+that the function $g : (0, 1) \to \bbR$ defined by $g(x) := x \cdot (1 - x) \cdot f (x)$ is uniformly continuous.
+\end{prop}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Consider that at $x = 0$ and $x = 1,$ $g(0) = g(1) = 0.$ Let $m,M$ be nonzero lower and upper bounds of $f,$ then define $K := \max(|m|, |M|).$ Let $a,b \in (0,1)$ such that $a<b.$ 
+\begin{enumerate}
+\item For all $\epsilon>0,$ there exists a $\delta = \frac{\epsilon}{K}$ such that if $x \in (0,1),$ and $x-0< \delta_0,$ then:
+\begin{align*}
+|g(x) - g(0)| &= |x(1-x)f(x)|\\
+&|x||(1-x)f(x)|\\
+&x|1-x||f(x)|\\
+&<xK\\
+&<\frac{\epsilon}{K}K\\
+&= \epsilon
+\end{align*}
+Let $a\in (0,0+\delta_0).$ Thus, if $x,y\in (0,a),$ then $|x-y|< \delta_0$ and so $|g(x) - g(y)|< \epsilon.$ Therefore, $g$ is uniformly continuous on $(0,a).$
+\item For all $\epsilon>0,$ there exists a $\delta_1 = \frac{\epsilon}{K}$ such that if $x \in (0,1)$ and $1-x< \delta,$ then:
+\begin{align*}
+|g(x) - g(1)| &= |x(1-x)f(x)|\\
+&|(1-x)|xf(x)|\\
+&|1-x||x||f(x)|\\
+&<|1-x|K\\
+&<\frac{\epsilon}{K}K\\
+&= \epsilon
+\end{align*}
+\end{enumerate}
+Let $b\in (1-\delta_1,1).$ Thus, if $x,y\in (b,1),$ then $|x-y|< \delta_1$ and so $|g(x) - g(y)|< \epsilon.$ Therefore, $g$ is uniformly continuous on $(b,1).$ Therefore, because $g$ is uniformly continuous on $(0,a), [a,b]\footnote{13.6}, (b,1],$ then it is uniformly continuous on $[0,1],$ by the same logic that was applied to 13.9 
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\newpage
+\section*{Problem 3:Composition of Integrable Functions}
+\begin{prop}
+Suppose that $\phi : \bbR\to\bbR$ is continuous and $f: \bbR \to \bbR$ is bounded and integrable on $[a,b]$.  Show that $\phi \circ f$ is integrable on $[a,b]$.    
+\end{prop}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Note that by the intermediate value theorem, $\phi$ is continuous over $f[a,b],$ and thus, by Theorem 10.19 and Theorem {13.6}, $\phi: f[a,b]\to \bbR$ is uniformly continuous. Because $f$ is bounded, then let $\pi, \Pi>0$ be upper and lower bounds of $f.$ Thus, for all $x\in [a,b],$ $\pi\leq f(x)\leq \Pi.$ Therefore, there exists a $\delta >0$ such that if $f(x), f(y)\in f[a,b]$ and $|f(x) - f(y)|< \delta,$ then $|\varphi(f(x)) - \phi(f(y))|<.$ Thus, for all $\epsilon>0,$ there exists the partition $P = \{\{t_0, t_1 \dots, t_n\}| \max(t_i - t_{i-1})<\delta\}.$ Therefore, if $f(x), f(y) \in [t_{i-1}, t_i],$ then $|\phi(f(x)) - \phi(f(y))|<.$ Thus, because $\phi$ is compact and continuous over $f[a,b],$ and $M_i(\varphi)> m_i(\phi),$ then \[M_i(\varphi(f)) - m_i(\phi(f)) < \epsilon\]
+\[(M_i(\varphi(f)) - m_i(\phi(f)))(t_i - t_{i-1}) < \epsilon(t_i - t_{i-1})\]
+\textbf{Unfinished}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\begin{lem}
+    If $f: [a,b] \to \bbR$ is integrable on $[a,b]$, then $f$ is bounded.
+\end{lem}
+\begin{proof}
+    This is straight Definition {13.16}, an integral is only defined if $f:[a,b]\to \bbR$ is bounded. 
+\end{proof}
+
+
+\begin{cor}
+    If $f, g : [a, b] \to \bbR$ are both integrable, then the product $f g : [a, b] \to \bbR$ is also integrable
+\end{cor}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Consider that $fg = \frac{1}{2}((f+g)^2 -f^2 - g^2).$ It will suffice to show that all the terms are integrable by Theorem {13.25}. 
+\begin{enumerate}
+    \item Let $\phi:\bbR \to \bbR$ be defined by $\phi(x) = x^2.$ Note that $\phi$ is continuous. Therefore, $\phi(f) = f^2.$ By Proposition {1.3}, $f^2$ is integrable on $[a,b].$
+    \item Similarly, $g^2$ is integrable on $[a,b].$
+    \item Let $\pi:\bbR \to \bbR$ be continuous and defined by $\pi(f+g) = (f+g)^2.$ Because $f+g$ is integrable on $[a,b]$ by Theorem {13.25}, then by Proposition {13.32}, $(f+g)^2$ is integrable on $[a,b].$
+\end{enumerate}
+Therefore, by Theorem {13.25}, $fg$ is integrable on $[a,b].$
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\newpage
+\section*{Problem 4: $\delta - P$ Definition of Integrability}
+\begin{thm}
+Show that a function $f : [a, b] \to \bbR$ is integrable if and only
+if for all $\epsilon > 0$, there exists a $\delta > 0$ such that for all partitions $P = \{t_0, t_1, \dots, t_n\}$
+with $\max\{t_i - t_{i-1} | i = 1, \dots, n\} < \delta$, we have $U (f, P ) - L(f, P ) < \epsilon$.
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+\begin{itemize}
+\item Let $\epsilon>0.$ If $f$ is integrable, then there exists a partition, $Q = \{q_0, q_1, \dots, q_n\},$ such that $U(f,Q) - L(f,Q)< \frac{\epsilon}{2}.$ Because $f$ is integrable, then by Lemma 1.4, it is bounded. Let $L,M$ be nonzero lower and upper sums, and define $K = \max\{|L|, |M|\}.$ Define $P$ to be a partition such that $P' = \{t_0, \dots, t_m\}$ and $\max\{t_{j} - t_{j-1}\}< \delta$ for any $j \in [m],$ where $\delta = \frac{\epsilon}{mK}$ Therefore, let $P = P' \cup Q,$ then:
+\[U(f,P)- L(f,P) = \displaystyle\sum_{i=1}^kM_i(f)(t_{i} - t_{i-1}) - \sum_{i=1}^nm_i(f)(t_{i} - t_{i-1})\] 
+Note that if we define $\mathcal{S}_1$ as the Riemann sum\footnote{When I say the Riemann sum, I refer to the $\displaystyle\sum_{i=1}^n(M_i-m_i)(f)(t_i-t_{i-1})$ sum.} corresponding to intervals which contain no $q_j \in Q,$ and let $\mathcal{S}_2$ be defined as the sum corresponding to all the other intervals.\footnote{I couldn't figure out how to index the sums, so this notation will have to do}, then \begin{equation}
+U(P,f) - L(P,f) = \mathcal{S}_1 + \mathcal{S}_2
+\end{equation} Therefore, it will suffice to show that both terms on the RHS of (1.7) add to be less than $\epsilon.$
+\begin{itemize}
+\item Consider first $\mathcal{S}_1.$ By construction, every interval in $\mathcal{S}_1$ is "contained" in an interval of $Q.$ Thus, the sum is bounded above by $U(Q,f) - L(Q,f)$ (since we are looking at a refinement that is missing a few intervals). Therefore, 
+\begin{equation}\mathcal{S}_1 \leq U(Q,f) - L(Q,f) < \frac{\epsilon}{2}.
+\end{equation}
+\item Now consider that for $\mathcal{S}_2,$ we can use the restriction we placed on the sizes of the subintervals of $P',$ since the sizes of the subintervals of $P$ are constrained above by $\delta.$ Therefore, \[\mathcal{S}_2 = \sum_{j=r}^l(M_j-m_j)(t_j - t_{j-1})\] Where $r$ represents the index of the first subinterval $[t_{r-1}, t_{r}]$ which doesn't contain $q\in Q,$ and $l$ represents the highest of such intervals. Note that there can be at most $m-2$ of such intervals, as two intervals are "taken" immediately because, by definition, $a,b \in Q.$\footnote{Also note that $m\geq 2$ for the same reason.} Thus, \begin{equation}
+S_2 \leq \sum_{j=r}^l2K(t_j - t_{j-1})< \sum_{j=r}^l2K\delta \leq (m-2)2K\delta <m2K\delta = m2K\frac{\epsilon}{mK} = \frac{\epsilon}{2}
+\end{equation}
+Thus, by Equation (1.8), it follows from (1.8) and (1.9) that \[U(P,f) - L(P,f)< \epsilon\]
+\end{itemize}
+
+\item Because for all $\epsilon>0,$ there exists a partition $P$ such that $U(f,P) - L(f,P)< \epsilon,$ then $f$ is integrable. 
+\end{itemize}
+
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\newpage
+\section*{Problem 5: Riemann Lebesgue Theorem}
+\begin{thm}
+Let $f : [a, b] \to \bbR$ be a function. Show that if $f$ has finitely
+many discontinuities and is bounded, then $f$ is integrable. Then show that the converse is false.
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Let $\epsilon>0.$ Let $X$ be the set of $x_j$ such that $f$ is discontinuous at $x_j.$ Let $P$ be a partition such that $\Delta x_j \leq \Delta t_i$ for all $i$ and $[x_{j-1},x_j ]\subset [t_{j'-1}, t_j']$ for all $j.$ Moreover, let $\sum_{j'=1}^m (t_j' - t_{j'-1}) < \frac{\epsilon}{4K},$ where $K:= \max(|m|, |M|)$ is the maximum of the absolute value of lower and upper nonzero bounds of $f.$ Furthermore, because $f$ is continuous at all points in $[t_{i-1}, t_i]$, then it is uniformly continuous at those intervals. Let $\max(t_i)< \delta$ such that if $x,y\in [t_{i-1}, t_i]$, then $|f(x) - f(y)|<\epsilon \cdot c,$ where $c$ is some constant that is not important. Thus, by the same logic as Theorem 13.19, $M_i(f) - m_i(f)< \epsilon \cdot c.$ Now, make $c$ some smart constant such that $\sum_{i = 1} ^ m M_i(f) - m_i(f)(t_{i} - t_{i-1})< \frac{\epsilon}{2}.$ Therefore:
+\begin{align*}
+U(f,P) - L(f,P) &= \sum_{j'=1}^m (M_{j'}(f) - m_{j'}(f))(t_j' - t_{j'-1}) + \sum_{i = 1} ^ m M_i(f) - m_i(f)(t_{i} - t_{i-1})\\
+&\leq 2K \sum_{j'=1}^m (t_j' - t_{j'-1}) + \frac{\epsilon}{2}\\
+&< 2K\frac{\epsilon}{4K} + \frac{\epsilon}{2}\\
+&= \epsilon
+\end{align*}
+\end{proof}
+The converse is false because of Liam's function (one could show a lot of work to prove this). However, one can also use the Cantor Indicator function. Let $f:\bbR \to \bbR,$ be defined such that, if $C$ is the Cantor set, then:
+\[f(x) = \begin{cases}
+f(x) = 1\qquad x\in C\\
+f(x) = 0\qquad x\notin C
+\end{cases}\]
+Because $f$ is bounded and has measure $0,$ then $f$ is integrable. 
+\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Acknowledgments} 
+\begin{thebibliography}{9}
+
+
+
+
+\end{thebibliography}
+
+\end{document}
+

@@ -1,0 +1,1061 @@
+
+\documentclass[openany, amssymb, psamsfonts]{amsart}
+\usepackage{mathrsfs,comment}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[normalem]{ulem}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{lipsum}
+\usepackage{marvosym}
+\usepackage[all,arc,2cell]{xy}
+\UseAllTwocells
+\usepackage{enumerate}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+
+\renewcommand{\phi}{\varphi}
+\renewcommand{\emptyset}{\O}
+
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\sm}{\setminus}
+
+
+\newcommand{\sarr}{\rightarrow}
+\newcommand{\arr}{\longrightarrow}
+
+\newcommand{\hide}[1]{{\color{red} #1}} % for instructor version
+%\newcommand{\hide}[1]{} % for student version
+\newcommand{\com}[1]{{\color{blue} #1}} % for instructor version
+%\newcommand{\com}[1]{} % for student version
+\newcommand{\meta}[1]{{\color{green} #1}} % for making notes about the script that are not intended to end up in the script
+%\newcommand{\meta}[1]{} % for removing meta comments in the script
+
+\DeclareMathOperator{\ext}{ext}
+\DeclareMathOperator{\ho}{hole}
+%%% hyperref stuff is taken from AGT style file
+\usepackage{hyperref}  
+\hypersetup{%
+  bookmarksnumbered=true,%
+  bookmarks=true,%
+  colorlinks=true,%
+  linkcolor=blue,%
+  citecolor=blue,%
+  filecolor=blue,%
+  menucolor=blue,%
+  pagecolor=blue,%
+  urlcolor=blue,%
+  pdfnewwindow=true,%
+  pdfstartview=FitBH}   
+  
+\let\fullref\autoref
+%
+%  \autoref is very crude.  It uses counters to distinguish environments
+%  so that if say {lemma} uses the {theorem} counter, then autrorefs
+%  which should come out Lemma X.Y in fact come out Theorem X.Y.  To
+%  correct this give each its own counter eg:
+%                 \newtheorem{theorem}{Theorem}[section]
+%                 \newtheorem{lemma}{Lemma}[section]
+%  and then equate the counters by commands like:
+%                 \makeatletter
+%                   \let\c@lemma\c@theorem
+%                  \makeatother
+%
+%  To work correctly the environment name must have a corrresponding 
+%  \XXXautorefname defined.  The following command does the job:
+%
+\def\makeautorefname#1#2{\expandafter\def\csname#1autorefname\endcsname{#2}}
+%
+%  Some standard autorefnames.  If the environment name for an autoref 
+%  you need is not listed below, add a similar line to your TeX file:
+%  
+%\makeautorefname{equation}{Equation}%
+\def\equationautorefname~#1\null{(#1)\null}
+\makeautorefname{footnote}{footnote}%
+\makeautorefname{item}{item}%
+\makeautorefname{figure}{Figure}%
+\makeautorefname{table}{Table}%
+\makeautorefname{part}{Part}%
+\makeautorefname{appendix}{Appendix}%
+\makeautorefname{chapter}{Chapter}%
+\makeautorefname{section}{Section}%
+\makeautorefname{subsection}{Section}%
+\makeautorefname{subsubsection}{Section}%
+\makeautorefname{theorem}{Theorem}%
+\makeautorefname{thm}{Theorem}%
+\makeautorefname{excercise}{Exercise}%
+\makeautorefname{cor}{Corollary}%
+\makeautorefname{lem}{Lemma}%
+\makeautorefname{prop}{Proposition}%
+\makeautorefname{pro}{Property}
+\makeautorefname{conj}{Conjecture}%
+\makeautorefname{defn}{Definition}%
+\makeautorefname{notn}{Notation}
+\makeautorefname{notns}{Notations}
+\makeautorefname{rem}{Remark}%
+\makeautorefname{quest}{Question}%
+\makeautorefname{exmp}{Example}%
+\makeautorefname{ax}{Axiom}%
+\makeautorefname{claim}{Claim}%
+\makeautorefname{ass}{Assumption}%
+\makeautorefname{asss}{Assumptions}%
+\makeautorefname{con}{Construction}%
+\makeautorefname{prob}{Problem}%
+\makeautorefname{warn}{Warning}%
+\makeautorefname{obs}{Observation}%
+\makeautorefname{conv}{Convention}%
+
+
+%
+%                  *** End of hyperref stuff ***
+
+%theoremstyle{plain} --- default
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{exercise}{Exercise}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{prob}{Problem}[section]
+\newtheorem{conj}{Conjecture}[section]
+%\newtheorem{ass}{Assumption}[section]
+%\newtheorem{asses}{Assumptions}[section]
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ass}{Assumption}[section]
+\newtheorem{asss}{Assumptions}[section]
+\newtheorem{ax}{Axiom}[section]
+\newtheorem{con}{Construction}[section]
+\newtheorem{exmp}{Example}[section]
+\newtheorem{notn}{Notation}[section]
+\newtheorem{notns}{Notations}[section]
+\newtheorem{pro}{Property}[section]
+\newtheorem{quest}{Question}[section]
+\newtheorem{rem}{Remark}[section]
+\newtheorem{warn}{Warning}[section]
+\newtheorem{sch}{Scholium}[section]
+\newtheorem{obs}{Observation}[section]
+\newtheorem{conv}{Convention}[section]
+
+%%%% hack to get fullref working correctly
+\makeatletter
+\let\c@obs=\c@thm
+\let\c@cor=\c@thm
+\let\c@prop=\c@thm
+\let\c@lem=\c@thm
+\let\c@prob=\c@thm
+\let\c@con=\c@thm
+\let\c@conj=\c@thm
+\let\c@defn=\c@thm
+\let\c@notn=\c@thm
+\let\c@notns=\c@thm
+\let\c@exmp=\c@thm
+\let\c@ax=\c@thm
+\let\c@pro=\c@thm
+\let\c@ass=\c@thm
+\let\c@warn=\c@thm
+\let\c@rem=\c@thm
+\let\c@sch=\c@thm
+\let\c@equation\c@thm
+\numberwithin{equation}{section}
+\makeatother
+
+\bibliographystyle{plain}
+
+%--------Meta Data: Fill in your info------
+\title{University of Chicago Calculus IBL Course}
+
+\author{Agustin Esteva}
+
+\date{Apr 12. 2024}
+
+\begin{document}
+
+\begin{abstract}
+
+16310's Script 13.\\ Let me know if you see any errors! Contact me at aesteva@uchicago.edu.
+
+
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+\setcounter{section}{13}
+
+We will now consider a notion of continuity that is stronger than ordinary continuity. 
+
+\section*{Definition: Uniform Continuity}
+\begin{defn}
+\label{13.1}
+	Let $f\colon A \to \bbR$ be a function. We say that $f$ is \emph{uniformly continuous} if for all $\epsilon > 0$, there exists a $\delta > 0$ such that for all $x, y \in A$,
+	\begin{center}
+		if $\abs{x - y} < \delta$, \quad then $\abs{f(x) - f(y)} < \epsilon$.
+	\end{center}
+\end{defn}
+
+\section*{Theorem 13.2}
+\begin{thm}
+\label{13.2}
+	If $f$ is uniformly continuous, then $f$ is continuous.
+\end{thm}
+ \vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Because $f$ is uniformly continuous, then for every $y\in A$, if $\epsilon>0$, then there exists a $\delta>0$ such that if $x \in A$ and $|x-y|<\delta$, then $|f(x) - f(y)|<\epsilon$. Thus, by Theorem 11.5, $f$ is continuous at $y$ for all $y\in A$. Therefore, by Theorem 9.10, $f$ is continuous. 
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Example 13.3}
+\begin{exmp} 
+\label{13.3}
+	Determine with proof whether each function $f$ is uniformly continuous on the given interval $A$.
+	\begin{enumerate}[(a)]
+		\item $f(x) = x^2$ on $A = \bbR$.
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Let $\epsilon=1$ and $\delta>0$. Let $x = \frac{2}{\delta}$ and $y = x + \frac{\delta}{4}$. It follows that $|x-y| = \frac{\delta}{4}<\delta$ and $|x+y| =  \frac{4}{\delta} + \frac{\delta}{4}$
+\begin{align*}
+|x^2 - y^2|&=|(x-y)(x+y)| \\
+            &= \frac{\delta}{4} (\frac{4}{\delta} + \frac{\delta}{4})\\
+            &= 1+ \frac{\delta^2}{16}\\
+            &> 1
+\end{align*}
+Thus, because $|f(x) - f(y)| \not< \epsilon$ for some $\epsilon$, then $f$ is not uniformly continuous. 
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+		\item $f(x) = x^2$ on $A = (-2, 2)$.
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\ Note that because for all $x,y\in A$, $-2<x,y<2$, then if $x,y \in A$, then $|x+y|\leq |x| + |y|< 2+ 2=4$.
+For all $\epsilon>0$, there exists a $\delta = \frac{1}{4}\epsilon$ such if $x,y \in (-2,2)$ and $|x-y|<\delta$, then 
+\begin{align*}
+|x^2 - y^2|&=|(x-y)(x+y)| \\
+            &<\frac{1}{4}\epsilon \cdot 4\\
+            &= \epsilon
+\end{align*}
+and thus, $|x^2 - y^2|< \epsilon$ for any $x,y \in A$. Therefore, $f$ is uniformly continuous.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+		\item $f(x) = \frac{1}{x}$ on $A = (0, + \infty)$.
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Let $\epsilon=1$, then for all $\delta >0$, let $x = \delta$ and $y = \frac{\delta}{\delta+1}$. It follows that $|x-y| = |\delta - \frac{\delta}{\delta+1}| = |\delta(1-\frac{1}{\delta+1})|<\delta$. Moreover, $|xy| = |\delta(\frac{\delta}{\delta+1})| = |\frac{\delta^2}{\delta+1}|$. Note that because $|\delta-\frac{\delta}{\delta+1}| = |\frac{\delta(\delta+1)}{\delta+1} - \frac{\delta}{\delta+1}| = |\frac{\delta^2}{\delta +1}|$, then $|xy| = |x-y|$. Moreover,
+\begin{align*}
+||f(x) - f(y)| &= |\frac{1}{x} - \frac{1}{y}|\\
+                & = |\frac{y-x}{xy}|\\
+                &= |\frac{x-y}{xy}|\\
+                &= |\frac{1}{xy}||x-y|\\
+\tag{since $|xy| = |x-y|$}                &= 1
+\end{align*}
+Thus, because $|f(x) - f(y)| = \epsilon$ for some $\epsilon =1$, then $|f(x) - f(y)|\not < \epsilon$. Therefore, $f$ is not uniformly continuous. 
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+		\item $f(x) = \frac{1}{x}$ on $A = [1, + \infty)$.
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Note that because if $x,y \in A$, then $1\leq x,y<\infty$. Thus, because $1\leq |xy|< \infty$, then $0<\frac{1}{|xy|}\leq 1<2$. For all $\epsilon>0$, there exists a $\delta = \frac{1}{2}\epsilon$ such that if $x,y\in A$ and $|x-y|<\delta$, then:
+\begin{align*}
+|f(x) - f(y)| &= |\frac{1}{x} - \frac{1}{y}|\\
+            & = |\frac{y-x}{xy}|\\
+            &= |\frac{x-y}{xy}|\\
+            &= |\frac{1}{xy}||x-y|\\
+            &< 2\delta\\
+            &<2\cdot \frac{1}{2}\epsilon\\
+            &< \epsilon
+\end{align*}
+and thus, $|f(x) - f(y)|< \epsilon$ for any $x,y \in A$. Therefore, $f$ is uniformly continuous.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+		%\item $f(x) = \sqrt{x}$ on $A = [0, + \infty)$.
+		\item $f(x) = \sqrt{x}$ on $A = [1, + \infty)$.
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Note that because $x,y \in [1,\infty)$, then $\sqrt{x}, \sqrt{y}\geq 1$. Thus, $2\leq \sqrt{x}+ \sqrt{y}$. Thus, $0<\frac{1}{\sqrt{x}+\sqrt{y}}\leq \frac{1}{2}<1$. For all $\epsilon>0$, there exists a $\delta = \epsilon$ such that if $x,y\in A$ and $|x-y|<\delta$, then:
+\begin{align*}
+|f(x) - f(y)|&= |\sqrt{x} - \sqrt{y}|\\
+            &= \frac{|(\sqrt{x}-\sqrt{y})(\sqrt{x}+\sqrt{y})|}{(\sqrt{x}+\sqrt{y})}\\
+            &= \frac{|x-y|}{|\sqrt{x}+\sqrt{y}|}\\
+            &< \delta \cdot 1\\
+            &< \epsilon\\
+\end{align*}
+and thus, $|f(x) - f(y)|< \epsilon$ for any $x,y \in A$. Therefore, $f$ is uniformly continuous.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+	\end{enumerate}
+\end{exmp}
+
+\section*{Example 13.4}
+\begin{exmp}
+\label{13.4}
+	Let $f\colon \bbR \to \bbR$ be defined by $f(x) = x^n$ for $n \in \bbN$. Show that $f$ is uniformly continuous if, and only if, $n = 1$.
+\end{exmp}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+\begin{itemize}
+\item Let $\epsilon = 1$. If $\delta>0$, then let $x = \begin{cases}  1 \quad \frac{\delta}{2}\geq 1\\
+\frac{2}{\delta} \quad \frac{\delta}{2} < 1
+\end{cases}$ and $y= x + \frac{\delta}{2}$, then because $|x-y| = |x - (x + \frac{\delta}{2})| = \frac{\delta}{2}<\delta$, then consider 
+\begin{align*}
+|f(x) - f(y)| &< |x^n - y^n|\\
+ &= |y^n - x^n|\\
+ &= |y(y)^{n-1} - x^n|\\
+ &= |(x+\frac{\delta}{2})(x+\frac{\delta}{2})^{n-1} - x^n| \\
+\tag{$x,\frac{\delta}{2}>0$} &\geq|(x+\frac{\delta}{2})x^{n-1} - x^n|\\
+&= |x^{n-1}(x+\frac{\delta}{2} - x)|\\
+&= |x^{n-1}\frac{\delta}{2}|
+\end{align*}
+\begin{itemize}
+    \item If $\frac{\delta}{2} \geq 1$, then $x = 1$. Thus, $|x^{n-1}\frac{\delta}{2}| = \frac{\delta}{2}\geq 1$.
+    \item If $\frac{\delta}{2}< 1$, then $x=\frac{2}{\delta}>1$. Thus, because $n-1 \geq 1$, then $\frac{2}{\delta}^{n-1}\geq \frac{2}{\delta}$. Therefore, $|x^{n-1}\frac{\delta}{2}| = |(\frac{2}{\delta})^{n-1}\frac{\delta}{2}|\geq |\frac{2}{\delta} \frac{\delta}{2}| = 1$.
+    \end{itemize}
+Because in any case, $|f(x) - f(y)| \geq 1$, then $1\leq |f(x) - f(y)|< 1$ is a contradiction and thus, $f(x) = x^n$ is not continuous for $n\neq 1$.
+\item (Alternate $\implies$: ) Let $\epsilon =1$. If $\delta>0$, then let $x = \max({\frac{2}{\delta}, 1})$ and $y = x+\frac{\delta}{2}$. Thus, because $|x-y|  = \frac{\delta}{2}<\delta$, then consider that:
+\begin{align*}
+    |f(x) - f(y)| &= |x^n - y^n|\\
+\tag{From 12.7}    &= |(x-y)\sum_{i=0}^{n-1}x^{n-1-i}y^i|\\
+                    &= |x-y||x^{n-1} + yx^{n-2} + \dots + y^{n-2}x + y^{n-1}|\\
+\tag{$y,x^{n}>0$}     &> |x-y||x^{n-1}|\\
+                    &= \frac{\delta}{2}|x^{n-1}|\\
+\tag{same reasoning as proof 1}                      &\geq 1
+\end{align*}
+\item ($\impliedby$:) If $n=1$, then $f(x) = x$. Thus, for any $\epsilon>0$, there exists a $\delta = \epsilon$ such that if $x,y\in \bbR$ and $|x-y|<\delta$, then $|f(x) - f(y)| = |x-y|<\epsilon$. Thus, by Definition \ref{13.1}, $f$ is uniformly continuous. 
+\end{itemize}
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\textbf{Challenge} Let $p:\bbR\rightarrow\bbR$ be a polynomial with real coefficients.  Show that $p$ is uniformly
+continuous on $\bbR$ if and only if $\mbox{deg}(p)\leq 1$.
+
+\section*{Example 13.5}
+\begin{exmp}
+\label{13.5}
+	Let $f$ and $g$ be uniformly continuous on $A \subset \bbR$. Show that:
+	\begin{enumerate}[(a)]
+		\item The function $f + g$ is uniformly continuous on $A$.
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Let $\epsilon >0$:
+\begin{enumerate}
+    \item Because $f$ is uniformly continuous, then there exists a $\delta_f$ such that if $x,y\in A$ and $|x-y|<\delta_f$, then $|f(x) - f(y)|<\frac{\epsilon}{2}$. 
+    \item Because $g$ is uniformly continuous, then there exists a $\delta_g$ such that if $x,y\in A$ and $|x-y|<\delta_g$, then $|f(x) - f(y)|<\frac{\epsilon}{2}$. 
+\end{enumerate}
+Thus, for any $\epsilon>0$, there exists a $\delta = \min(\delta_f, \delta_g)$ such that if $|x-y|<\delta$, then:
+\begin{align*}
+    |(f+g)(x) - (f+g)(y)|  &=  |(f(x) - f(y)) + (g(x) - g(y))|\\
+\tag{Lemma 8.9}             &\leq |f(x) - f(y)| + |g(x) - g(y)|\\
+\tag{By a,b}                &< \frac{\epsilon}{2}+\frac{\epsilon}{2}\\
+                            &= \epsilon
+\end{align*}
+Therefore, because $|(f+g)(x) - (f+g)(y)| < \epsilon$, then by Definition \ref{13.1}, $f+g$ is uniformly continuous.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+		\item For any constant $c \in \bbR$, the function $c\cdot f$ is uniformly continuous on $A$.
+  \vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Let $\epsilon >0$. Because $f$ is uniformly continuous, then if $\epsilon' = \frac{\epsilon}{|c|+1} $, there exists a $\delta>0$  such that if $x,y\in A$ and $|x-y|<\delta$, then $|f(x) - f(y)|<\frac{\epsilon}{|c|+1}$.
+Thus, 
+\begin{align*}
+|cf(x) - cf(y)| &= |c(f(x) - f(y)|\\
+                &= |c||f(x) - f(y)|\\
+                &< |c|\cdot \frac{\epsilon}{|c|+1}\\
+                &< \epsilon
+\end{align*}
+Thus, because $|cf(x) - cf(y)| < \epsilon$, then $cf$ is uniformly continuous.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+	\end{enumerate}
+\end{exmp}
+
+\section*{Theorem 13.6}
+\begin{thm}
+\label{13.6}
+	Suppose that $X \subset \bbR$ is compact and $f\colon X \to \bbR$ is continuous. Then $f$ is uniformly continuous.
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Let $\epsilon>0$. Because $f$ is continuous, then $f$ is continuous at each $X$. Thus, by Definition 9.9, because $R = (f(x) - \frac{\epsilon}{2}, f(x) + \frac{\epsilon}{2})$ is a region containing $f(x)$, then there exists an open set $S_x$ containing $x$ such that $f(S_x \cap X) \subset R$. Thus, because $S_x$ is open, then there exists a $\delta_x>0$ such that $(x-\delta_x, x+\delta_x)\subset S_x$ and thus, $f((x-\delta_x, x+\delta_x) \cap X)) \subset (f(x) - \frac{\epsilon}{2}, f(x) + \frac{\epsilon}{2})$. Note that because $\{(x-\frac{\delta_x}{2}, x+\frac{\delta_x}{2})\}$ is an open cover of $X$ and $X$ is compact, then there exists some finite subcover $\{(x_i-\frac{\delta_{x_i}}{2}, x+\frac{\delta_{x_i}}{2})\}$. Thus, because $\Delta = \{\frac{\delta}{2}\}_{x_i}$ is finite, it has a minimum. Let $\delta = \min(\Delta)$. Thus, if $x,y\in X$ and $|x-y|< \delta$, then because $x\in X$, there exists some $i\in |n|$ such that $x\in (x_i-\frac{\delta_{x_i}}{2}, x+\frac{\delta_{x_i}}{2})$. Because $|y-x_i|\leq |y-x| + |x-x_i|<\delta + \frac{\delta_{x_i}}{2}<\delta_{x_i}$, then $|y-x_i|<\delta_{x_i}$. Thus, $x, y \in (x_i-\delta_{x_i}, x_i+ \delta_{x_i})$, and so $|f(x) - f(x_i)|<\frac{\epsilon}{2}$ and $|f(y) - f(x_i)|<\frac{\epsilon}{2}$. Thus, because $|f(x) - f(y)|\leq |f(x) - f(x_i)| + |f(x_i) - f(y)| < \frac{\epsilon}{2}+ \frac{\epsilon}{2} = \epsilon$.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Example 13.7}
+\begin{exmp}
+\label{13.7}
+Prove that if $f: [0,\infty)\to\bbR$ is continuous and $f$ is uniformly continuous on $[1, \infty)$, then $f$ is uniformly continuous on $[0,\infty).$ 
+\end{exmp}
+
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Let $\epsilon>0$. By Proposition 9.7, because $[0,1]\subset [0, \infty)$ and $f: [,\infty) \to \bbR$, then the restriction of $f$ of $[0,1]$, $f|_{[0,1]}: [0,1] \to \bbR$ is continuous. Thus, because $[0,1]$ is compact, then by Theorem \ref{13.6}, $f|_{[0,1]}$ is uniformly continuous. Therefore:
+\begin{enumerate} [1]
+    \item Because $f|_{[1,\infty)}$ is uniformly continuous, then for $\frac{\epsilon}{2} > 0$, there exists a $\delta_1>0$ such that if $x,y\in [0,\infty)$ and $|x-y|<\delta_1$, then $|f(x) - f(y)|<\frac{\epsilon}{2}$.
+    \item Because $f|_{[0,1]}$ is uniformly continuous, then for $\frac{\epsilon}{2} > 0$, there exists a $\delta_0>0$ such that if $x,y\in [0,1]$ and $|x-y|<\delta_0$, then $|f(x) - f(y)|<\frac{\epsilon}{2}$.
+\end{enumerate}
+Thus, because for all $\epsilon>0$, there exists a $\delta = \min(\delta_1, \delta_0)$ such that if $x,y \in [0,\infty]$ and $|x-y|<\delta$, then:
+\begin{enumerate}
+    \item If $x,y\in [0,1]$, then $|f(x) - f(y)|<\frac{\epsilon}{2}<\epsilon$.
+    \item If $x,y \in [1,\infty)$, then $|f(x) - f(y)|< \frac{\epsilon}{2}<\epsilon$
+    \item If, without loss of generality, $x,\in [0,1]$ and $y\in [1, \infty)$, then because $|x-y|<\delta$ and $0\leq x\leq 1\leq y$, then $|x-y|= |x-1| + |1-y|<\delta$ and so $|x-1|<\delta$ and $|1-y|<\delta$. Thus, because $|f(x) - f(y)|\leq |f(x) - f(1)| + |f(1) - f(y)| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$.
+\end{enumerate}
+Thus, if $x\in [0,\infty)$ with $|x-y|<\delta$, then $|f(x) - f(y)|<\epsilon$.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Corollary 13.8}
+\begin{cor}
+Suppose that $f\colon [a, b] \to \bbR$ is continuous. Then $f$ is uniformly continuous.
+\end{cor}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+By Theorem 10.14, $[a,b]$ is compact. Thus, because $[a,b]$ is compact and $f: [a,b]\to \bbR$ is continuous, then by Theorem \ref{13.6}.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Example 13.9}
+\begin{exmp}
+	Show that if $f$ and $g$ are bounded on $A$ and uniformly continuous on $A$, 
+	then $fg$ is uniformly continuous on $A$.
+\end{exmp}
+
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Let $\epsilon>0$, Define $K := \max(|j|,|k|)$, where $j,k\neq 0$ are lower and upper bounds of $f$, respectively. Therefore, for all $|f(x)|\in |f(A)|$, $|f(x)|\leq K$. Similarly, define $L := \max(|m|,|n|)$, where $m,n\neq 0$ are lower and upper bounds of $g$, respectively.
+\begin{enumerate}
+    \item Because $f$ is uniformly continuous on $A$, then for some $\epsilon = \frac{\epsilon}{L+K}$, there exists a $\delta_f >0$ such that if $x,y\in A$ and $|x-y|<\delta_f$, then $|f(x) - f(y)|<\frac{\epsilon}{L+K}$.
+    \item Because $g$ is uniformly continuous on $A$, then for some $\epsilon = \frac{\epsilon}{L+K}$, there exists a $\delta_g>0$ such that if $x,y\in A$ and $|x-y|<\delta_g$, then $|g(x) - g(y)|<\frac{\epsilon}{L+K}$.
+\end{enumerate}
+Thus, for all $\epsilon>0$, there exists a $\delta = \min(\delta_f, \delta_g)$ such that if $x,y \in A$ and $|x-y|<\delta$, then:
+\begin{align*}
+    |fg(x) - fg(y)| &= |f(x)g(x) - f(y)g(y)|\\
+                    &= |f(x)g(x) + (f(x)g(y) - f(x)g(y)) - f(y)g(y)|\\
+                    &= ||f(x)(g(x) - g(y)) + g(y)(f(x) - f(y))|\\
+                    &\leq |f(x)(g(x) - g(y))| + |g(y)(f(x) - f(y))|\\
+                    &= |f(x)||g(x) - g(y)| + |g(y)||f(x) - f(y)|\\
+                    &<K \frac{\epsilon}{L+K} + L \frac{\epsilon}{L+K}\\
+                    &= \frac{\epsilon(K+L)}{K+L}\\
+                    &= \epsilon
+\end{align*}  
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Definition 13.10: Partition}
+\begin{defn}
+\label{13.10}
+	Let $a<b.$ A \emph{partition} of the interval $[a, b]$ is a finite set of points in $[a, b]$ that includes $a$ and $b$. We usually write partitions as $P = \{t_0, t_1, \dots, t_n\}$, with the convention that
+	\[
+		a = t_0 < t_1 < \dots < t_{n - 1} < t_n = b.
+	\]
+	If $P$ and $Q$ are partitions of the interval $[a, b]$ and $P \subset Q$, we refer to $Q$ as a \emph{refinement} of $P$.
+\end{defn}
+
+\section*{Definition 13.11: Lower/Upper Sums}
+\begin{defn}
+\label{13.11}
+	Suppose that $f\colon [a, b] \to \bbR$ is bounded and that $P = \{t_0, t_1, \dots, t_n\}$ is a partition of $[a, b]$. Define
+	\begin{align*}
+		m_i(f) & = \inf \{ f(x) \mid t_{i - 1} \leq x \leq t_i \} \\
+		M_i(f) & = \sup \{ f(x) \mid t_{i - 1} \leq x \leq t_i \}.
+	\end{align*}
+	The \emph{lower sum} of $f$ for the partition $P$ is the number
+	\[
+		L(f, P) = \sum_{i = 1}^n m_i(f) (t_i - t_{i - 1}).
+	\]
+	The \emph{upper sum} of $f$ for the partition $P$ is the number
+	\[
+		U(f, P) = \sum_{i = 1}^n M_i(f) (t_i - t_{i - 1}).
+	\]
+ Notice that it is always the case that $L(f, P) \leq U(f, P)$. 
+\end{defn}
+
+\section*{Lemma 13.12}
+\begin{lem}
+\label{13.12}
+Suppose that $f\colon [a, b] \to \bbR$ is bounded.
+	Suppose that $P$ and $Q$ are partitions of $[a, b]$ and that $Q$ is a refinement of $P$.
+	
+	Then,
+	\[
+		L(f, P) \leq L(f, Q) \quad \text{and} \quad U(f, P) \geq U(f, Q).
+	\]
+\end{lem}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Define $P: = \{t_0, t_1, \dots , t_n\}.$ Proof by induction over $n\in \bbN$:
+\begin{enumerate}
+    \item If $n=1$, then define $Q_1 := P \cup \{t\}$, where $t \in (a,b) \neq t_i$ for any $i\in [n].$ Thus, it can be said that $Q_1 = \{t_1, \dots, t_{j-1}, t, t_j, \dots, t_n\}$. Define: \[m_j(f):= \sup\{f(x)| x\in [t_{j-1}, t_j]\}; \quad m_j'(f):= \sup\{f(x)| x\in [t_{j-1}, t]\}; \quad m_j''(f):= \sup\{f(x)| x\in [t, t_{j-1}]\}\] 
+    Consider that \[L(f,P) = \sum_{i=0}^nm_j(f)(t_{i} - t_{i-1}) =  \sum_{i=0}^{j-1}m_i(f)(t_{i} - t_{i-1}) + m_j(f)(t_j- t_{j-1}) +  \sum_{i=j}^{n}m_i(f)(t_{i} - t_{i-1})\] 
+    and 
+    \[L(f,Q_1) = \sum_{i=0}^{n+1}m_i(f)(t_{i} - t_{i-1}) =  \sum_{i=0}^{j-1}m_i(f)(t_{i} - t_{i-1}) + m_j'(f)(t- t_{j-1}) + m_j''(f)(t_j- t)  + \sum_{i=j}^{n}m_i(f)(t_{i} - t_{i-1})\] 
+    Note that because $[t_{j-1}, t]\subset [t_{j-1}, t_j],$ then $f(x)\geq m_j(f)$ for all $x \in [t_{j-1}, t]$, thus, $m_j'(f) \geq m_j(f)$ and similarly, $m_j''(f) \geq m_j$. Thus, $m_j'(f) + m_j''(f) \geq m_j(f),$ and so \[m_j(f)'(t- t_{j-1}) + m_j(f)''(t_j- t) \geq m_j(f)(t_j - t_{j-1})\footnote{This is using the property that if $x+y = z$, then $ax + ay = (a+b)z$}\] Therefore, it is evident that  $L(f,P)\leq L(f,Q_1)$ 
+    \item If $n=k$, define \[Q_k = \{P \cup \{t^{(r)}\}{r\in [k]} | P \cap \{t^{(r)}\}_{r\in [k]} = \emptyset \} = P \cup \{t, t', \dots, t^{(k)}\}\footnote{i.e, This is just adding a set of distinct numbers between a and b that are not in P}\] and assume $L(f,P)\leq L(f,Q_k).$
+    \item If $n=k+1,$ the define $Q_{k+1} = Q_k \cup \{t^{(k+1)}\}.$ By the first step, $L(f,Q_k)\leq L(f,Q_{k+1})$. Thus, using the inductive hypothesis that $L(f,P)\leq L(f,Q_k),$ it becomes apparent that $L(f,P)\leq L(f,Q_k).$
+\end{enumerate}
+Thus, if $Q$ is a refinement of $P,$ then $L(f,P)\leq L(f,Q).$ The upper sums are morally symmetric. \footnote{To bootleg this argument, simply consider $g(x) = -f(x)$. Then $m_i(g) = -M_i(f)$ and $M_i(g) = -m_i(f).$ The proof follows from above.}\newline\newline
+\textbf{Alternate Proof (Less Rigorous but (in my opinion) more informative)}
+    Define $P: = \{t_0, t_1, \dots , t_n\}$ and $Q:= \{s_0, s_1, \dots, s_m\}$, such that $n\leq m$, $t_1 = s_{m_1}$, $t_n = s_{m_n}$, and for all $i\in |n|$, $t_i = s_{j_i}$ for some $j\in |m|$. It follows that if $[s_{j-1}, s_{j}]\subset [t_{0}, t_1]$, then \[\inf\{f(x) | t_{0}\leq x \leq t_1\} \leq \inf\{f(x) | s_{j-1}\leq x \leq s_j\}\] Thus, $m_1(f)\leq m_j(f)$ for all $j$ such that $j\leq j_{1}$. Therefore, let $m_J(f) := \min\{m_j(f) | s_j \leq s_{j_1}\}$. It follows that:
+    \begin{align*}
+        m_1 &\leq m_J\\
+        m_1(t_1 - t_0)  &= m_J(t_1 - t_0)\\
+         &=  m_J\sum_{1}^{m_1}(s_j-s_{j-1})\\
+         &\leq \sum_{1}^{m_1}m_j(s_j-s_{j-1})
+    \end{align*}
+    Thus, $m_1(t_1 - t_0) \leq \sum_{0}^{m_1}m_j(s_j-s_{j-1})$. Note that because a similar argument can be applied for any $i\in |n|$, then $m_i(t_i-t_{i-1})\leq \sum_{m_{i-1}}^{m_i}m_j(s_j-s_{j-1})$. Therefore, by summing all these inequalities, $\sum_{0}^{n}m_i(t_i - t_{i-1}) \leq \sum_{0}^{m_n}m_j(s_j-s_{j-1})$ and thus by Definition \ref{13.11}, $L(f,P)\leq L(f,Q)$.\\
+    A similar argument can be used to prove $U(f,P)\geq U(f,Q)$
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt} 
+
+\section*{Theorem 13.13}
+\begin{thm}
+\label{13.13}
+	Let $P_1$ and $P_2$ be partitions of $[a, b]$ and suppose that $f\colon [a, b] \to \bbR$ is bounded. Then,
+	\[
+		L(f, P_1) \leq U(f, P_2).
+	\]
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Let $Q := P_1 \cup P_2$ be a partition of $[a,b]$. Thus, $P_1, P_2 \subset Q$ and thus, by Lemma \ref{13.12}:
+\begin{align*}
+    L(f,P_1) &\leq L(f,Q)\\
+\tag{Definition \ref{13.11}}             &\leq U(f,Q)\\
+\tag{Lemma \ref{13.12}}             &\leq U(f,P_2)
+\end{align*}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Definition 13.14}
+\begin{defn}
+\label{13.14}
+	Let $f\colon [a, b] \to \bbR$ be bounded. We define:
+	\begin{align*}
+		L(f) & = \sup \{ L(f, P) \mid \text{$P$ is a partition of $[a, b]$} \} \\
+		U(f) & = \inf \{ U(f, P) \mid \text{$P$ is a partition of $[a, b]$} \}
+	\end{align*}
+	to be, respectively, the \emph{lower integral} and \emph{upper integral} of $f$ from $a$ to $b$.
+\end{defn}
+
+\section*{Example 13.15}
+\begin{exmp}
+\label{13.15}
+	Why do $L(f)$ and $U(f)$ exist? Find a function $f$ for which $L(f) = U(f)$. Find a function $f$ for which $L(f) \neq U(f)$. Prove that $L(f)\leq U(f).$ 	
+\end{exmp}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+\begin{itemize}
+    \item Let $P_1 := \{t_0 = a, t_1 = b\}$. Note that there exists $m_1(f, P_1)$ and $M_1(f, P_1)$ because $f$ is bounded, and thus there exists a supremum and infemum on $f[a,b]$. Moreover, for any partition $P$, $P_1 \subset P$, and so by Lemma \ref{13.12}, $L(f,P_1)\leq L(f,P)\leq U(f,P)\leq U(f,P_1)$. Therefore, $L(f,P_1)$ is a lower bound of $\{U(f,P)\}$ and $U(f,P_1)\in \{U(f,P)\}\neq \emptyset$. Therefore, by Theorem 5.16, $\inf\{U(f,P)\} = U(f)$ exists. Similarly, $L(f)$ exists. 
+    
+    \item Let $f: [0,1] \to \bbR$ such that \[f(x) = \begin{cases}
+        0 \quad x\leq \frac{1}{2}\\
+        1 \quad x> \frac{1}{2}
+    \end{cases}\] Note that $f(x)$ is bounded above by $2$ and below by $-1$. Because $f: [0,\frac{1}{2}] \to \bbR$ is defined by $f|_{[0,\frac{1}{2}]}(x) = 0$ for all $x\in [\frac{1}{2}, 1]$, then by Example \ref{13.17}, $f$ is integrable on $[\frac{1}{2}, 1].$ and $\int_0^\frac{1}{2} f = 0.$ Because $f: [\frac{1}{2}, 1] \to \bbR$ is defined by the formula: $f|_{[\frac{1}{2}, 1]}(x) = \begin{cases}
+        0 \quad x = \frac{1}{2}\\
+        1 \quad x \neq \frac{1}{2}
+    \end{cases}$, then by Example \ref{13.22}, $f$ is integrable on $[\frac{1}{2}, 1]$ and $\int_{\frac{1}{2}}^1f = \frac{1}{2}(1-\frac{1}{2}) = \frac{1}{4}$. Therefore, by Theorem \ref{13.22}, because $f$ is integrable on $[0,\frac{1}{2}]$ and $[\frac{1}{2}, 1]$, then $f$ is integrable on $[0,1]$ and \[\int_0^1f = \int_0^\frac{1}{2} f + \int_{\frac{1}{2}}^1f= 0 + \frac{1}{4}\]
+    Thus, by Definition \ref{13.16}, $U(f) = L(f) = \int_0^1f = \frac{1}{4}.$
+    
+    \item Let $f: [a,b] \to \bbR$ such that if $x\in [a,b]$, then \[f = \begin{cases}
+        1  \quad x\in \bbQ\\
+        0 \quad x \notin \bbQ
+    \end{cases}\]
+    Note that $f$ is bounded. Because there exists a rational and an irrational between any $t_{i-1}, t_i$, then for all $i\in |n|$, $m_i(f) = 0$ and $M_i(f) = 1$. Thus, 
+    \[L(f,P) = \sum_{i=1}^nm_i(f)(t_{i-1} - t_{i}) = \sum_{i=1}^n0(t_{i-1} - t_{i}) = 0\]
+    \[U(f,P) = \sum_{i=1}^nM_i(f)(t_{i-1} - t_{i}) = \sum_{i=1}^n1(t_{i-1} - t_{i}) = \sum_{i=1}^n(t_{i-1} - t_{i}) = a-b\]
+    Thus, because this is true for any partition, $P$, then $L(f) = L(f,P)= 0$ and $U(f) = U(f,P) = 1$. Thus, $L(f) \neq U(f)$.
+    \item Assume, for the sake of contradiction, that $U(f)< L(f)$. Therefore, by Theorem 5.10, there must exist some $L(f,P)$ such that $U(f)<L(f,P')\leq L(f)$. Similarly by 5.10, because $U(f)$ is an infemum, then there exists some $U(f,P'')$ such that $U(f)< U(f,P'') < L(f,P')\leq L(f)$. However, by Theorem \ref{13.13}, this is a contradiction.  
+\end{itemize}
+
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Definition 13.16: Integral}
+\begin{defn}
+\label{13.16}
+	Let $f\colon [a, b] \to \bbR$ be bounded. We say that $f$ is \emph{integrable} on $[a, b]$ if $L(f) = U(f)$. In this case, the common value $L(f) = U(f)$ is called the \emph{integral} of $f$ from $a$ to $b$ and we write it as:
+	\[
+		\int_{a}^{b} f.
+	\]
+	Note that if $f$ is an integrable function on $[a,b],$ it is necessarily bounded.
+
+When we want to display the variable of integration, we write the integral as follows, including the symbol $dx$ to indicate that variable of integration:
+\[
+	\int_{a}^{b} f(x) \, dx.
+\]
+For example, if $f(x) = x^2$, we would write 
+$\displaystyle{\int_{a}^{b} x^2 \, dx}$ but not $\displaystyle{\int_{a}^{b} x^2}$.
+\end{defn}
+
+\section*{Example 13.17}
+\begin{exmp}
+\label{13.17}
+	Fix $c\in\bbR$ and let $f\colon [a, b] \to \bbR$ be defined by $f(x) = c$, for each $x \in [a, b]$. Show that $f$ is integrable on $[a, b]$ and that $\int_a^b f = c(b-a)$.
+\end{exmp}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Because $f$ on $[a,b]$ is bounded above by $c+1$ and below by $c-1$, then it is bounded. Because for any $x\in [a,b]$, $f(x) = c$, then if $P = \{t_0, t_1, \dots t_n\}$ is a partition of $[a,b]$, for all $x\in [t_{i-1}, t_i] \subset [a,b]$, $f(x) = c$. Thus, \[m_i(f) = \inf\{f(x) | t_{i-1}\leq x \leq t_i\} = \inf\{c | t_{i-1}\leq x \leq t_i\} = c\] Similarly for any $i\in |n|$, \[M_i(f) = c\] Thus consider that 
+\begin{align*}
+    L(f,P) &= \sum_{i=1}^nm_i(f)(t_{i}- t_{i-1})\\
+    &= \sum_{i=1}^nc(t_{i}- t_{i-1})\\
+    &= c\sum_{i=1}^n(t_{i}- t_{i-1})\\
+    &= c(b-a)
+    \end{align*}
+Thus, because $L(f,P) = c(b-a)$ for all partitions, then $L(f) = \sup\{c(b-a)\} = c(b-a)$. By similar logic, $U(f) = c(b-a)$. Thus, because $U(f) = L(f) = c(b-a)$, then $f$ is integrable and $\int_a^bf = c(b-a)$.
+    
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Theorem 13.18}
+\begin{thm} 
+	\label{13.18}
+	Let $f\colon [a, b] \to \bbR$ be bounded. Then $f$ is integrable if and only if for every $\epsilon > 0$ there exists a partition $P$ of $[a, b]$ such that
+	\[
+		U(f, P) - L(f, P) < \epsilon.
+	\]
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Let $\epsilon>0$
+\begin{itemize}
+    \item ($\implies$:) Because for any partition $P$, $U(f)\leq U(f,P)$, then there exists a partition $P_U$ such that $U(f,P_U)-U(f)< \frac{\epsilon}{2}.$\footnote{This come directly out of 5.10! Consider that $U(f)< U(f) + \frac{\epsilon}{2}$, so then there exists some $U(f,P)$ such that $U(f)< U(f,P)< U(f) + \frac{\epsilon}{2}.$ Therefore, $ U(f,P) -U(f)< \frac{\epsilon}{2}$} Similarly, there exists a partition $P_L$ such that  $L(f) - L(f,P_L)< \frac{\epsilon}{2}.$ Therefore, because $f$ is integrable, then $U(f) = L(f)$ and so for all $\epsilon>0$, there exists a partition $P':=P_U \cup P_L$ such that by Lemma \ref{13.12}, $U(f,P')\leq U(f,P_U)$ and so $U(f,P')-U(f)< \frac{\epsilon}{2}$ and similarly, $L(f) - L(f,P')< \frac{\epsilon}{2}.$ Therefore, \[U(f,P')-U(f) + L(f) - L(f,P') = U(f,P') - L(f,P') < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon\]
+    \item ($\impliedby$: ) If for all $\epsilon>0$, there exists a partition $P$ of $[a,b]$ such that $U(f,P) - L(f,P)< \epsilon$, then because $L(f) \geq L(f,P)$ and $U(f)\leq U(f,P)$, then \[U(f) - L(f) \leq U(f,P) - L(f,P)\]
+    Thus, because $U(f) - L(f)<\epsilon$ for all $\epsilon$, then it will suffice to show that $U(f) = L(f)$. Assume, for the sake of contradiction, that $L(f)< U(f)$\footnote{Note that $L(f)\not> L(f)$ by the remark on Definition \ref{13.10}}. Therefore, there exists some $\epsilon = \frac{U(f) - L(f)}{2}$ such that $0 < \epsilon < U(f) - L(f)$, which is a contradiction.
+\end{itemize}
+
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Theorem 13.19: Continuity Implies Integrability}
+\begin{thm}
+	\label{13.19}
+	If $f\colon [a, b] \to \bbR$ is continuous, then $f$ is integrable.
+	
+	%\hint{Use Theorem~\ref{thm:int_criterion} and uniform continuity.}
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Let $\epsilon>0$. Because by Theorem 10.14, $[a,b]$ is compact and $f$ is continuous, then by Theorem 10.19, $f[a,b]$ is compact. Thus, by Theorem 10.16, $f[a,b]$ is bounded. Moreover, by Theorem 13.6, $f$ is uniformly continuous on $[a,b]$. Because $f$ is uniformly continuous then there exists a $\delta>0$ such that if $x,y \in [a,b]$ and $|x-y|< \delta$, then $|f(x) - f(y)|<\epsilon' = \frac{\epsilon}{(b-a)}$. Thus, for all $\epsilon>0$, there exists a $\delta$ such that if $P: = \{t_0, t_1, \dots, t_n\} | \max\{t_{i} - t_{i-1}\}<\delta$ and $x,y \in \{t_{i-1}, t_i\}$, then $|x-y|<\delta$ and so $|f(x) - f(y)|<\epsilon'$. Therefore, because $f$ contains its upper and lower bounds since it is compact and continuous, then $f$ will attain its infemum and supremum on the closed interval $[t_{i-1}, t_i]$ and thus $|M_i(f) - m_i(f)|<\epsilon'$ for all $i\in [n]$. Because $M_i(f) - m_i(f) \geq 0$, then $M_i(f) - m_i(f) < \epsilon'$. Thus \[\sum_{i=1}^{n}(M_i(f) - m_i(f))(t_{i} - t_{i-1}) < \sum_0^n\epsilon'(t_i-t_{i-1}) \] Therefore, because $(b-a) = \sum_{i=1}^{n}(t_{i-1} - t_i)$, then \[\sum_{i=1}^{n}(M_i(f)(t_{i-1} - t_i)) - \sum_{i=1}^{n}(M_i(f)(t_{i-1} - t_i)) < \epsilon'(b-a) \]
+Thus, plugging in the value of $\epsilon'$:
+\[\sum_{i=1}^{n}(M_i(f)(t_{i-1} - t_i)) - \sum_{i=1}^{n}(m_i(f)(t_{i-1} - t_i)) < \epsilon \]
+So by Definition \ref{13.11}:
+\[U(f,P) - L(f,P) < \epsilon \] Thus, by Theorem \ref{13.18}, $f$ is integrable on $[a,b].$\footnote{This is a beautiful statement. To me, it means that one can extend the uniform boxes gained by uniform continuity down to create infinitely tiny "Riemann rectangles."}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Lemma 13.20}
+\begin{lem}
+\label{13.20}
+	Let $f\colon [a, b] \to \bbR$ be bounded. Given $\Omega \in \bbR$, we have that $\Omega= \int_a^b f$ if, and only if, for all $\epsilon > 0$, there is some partition $P$ such that 
+	\[
+		U(f, P) - \Omega < \epsilon \qquad \text{and} \qquad \Omega - L(f, P) < \epsilon.
+	\]
+\end{lem}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Let $\epsilon>0.$
+\begin{itemize}
+    \item ($\implies$:) If $\Omega = \int_a^bf$, then by Definition \ref{13.16}, $\Omega = U(f) = L(f)$. By Theorem \ref{13.18}, because $f$ is integrable and bounded, then for every $\epsilon>0$, there exists a partition $P$ of $[a,b]$ such that $U(f,P)-L(f,P)< \epsilon$. Because $U(f) \leq U(f,P)$, then $U(f) - L(f,P)<\epsilon$ and thus, $\Omega - L(f,P)<\epsilon$. Similarly, because $L(f,P)\leq L(f)$, then $U(f,P) - L(f)<\epsilon$ and so $U(f,P) - \Omega<\epsilon$.
+    \item ($\impliedby$:) There exists some partition $P$ such that $U(f,P) - \Omega < \frac{\epsilon}{2}$ and $\Omega - L(f,P)< \frac{\epsilon}{2}$. Therefore, for all $\epsilon>0$, there exists a partition $P$ such that $(U(f,P) - \Omega) + (\Omega - L(f,P)) < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$. Thus, by Theorem $\ref{13.18}$, $f$ is integrable and so $U(f) = L(f)$. Assume, for the sake of contradiction, that $\Omega \neq U(f) = L(f)$. 
+    \begin{enumerate}
+        \item If $\Omega>L(f) = U(f)$, then because for $\epsilon = \Omega - L(f),$ there exists some  partition $P'$ such that $\Omega - L(f,P')<\epsilon = \Omega - L(f)$. Therefore, $-L(f,P')< -L(f)$ and so $L(f)< L(f,P')$. if $\epsilon = \Omega - L(f),$ then $\Omega - L(f,P')< \epsilon$ which is a contradiction.
+        \item If $\Omega<U(f)=L(f)$ because for $\epsilon = U(f) - \Omega$, there exists some $P''$ such that $U(f,P'') - \Omega < U(f) - \Omega,$ then $U(f,P'')< U(f),$ which is a contradiction. 
+    \end{enumerate}
+\end{itemize}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Example 13.21}
+\begin{exmp} 
+	Define $f\colon [0, b] \to \bbR$ by the formula $f(x) = x$. Show that $f$ is integrable on $[0, b]$ and that $\int_0^b f = \frac{b^2}{2}$.
+	{\em Hint: $\sum_{i=1}^n i = \frac12 n(n+1).$}
+\end{exmp}
+
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+    Let $\epsilon>0$. Because $f(x) = x$ is a polynomial, then it is continuous. Thus, by Theorem \ref{13.19}, $f$ is integrable. For all $\epsilon>0$, there exists a partition $P$ such that $P:=\{\{t_0, t_1, \dots, t_n\}|(t_i - t_{i-1} = \frac{b}{n})\}$, where $n>\frac{b^2}{2\epsilon}$ such that because $f(x) = x$, for any $[{t_{i-1}, t_{i}}]$ in P, it follows that $m_i(f) = t_{i-1}$ and $M_i(f) = t_i$.  Moreover:
+    \begin{align*}
+        L(f,P) &= \sum_{i=1}^nm_i(f)(t_i - t_{i-1})\\
+               &= \sum_{i=1}^nt_{i-1}(t_i - t_{i-1})\\
+               &= \frac{b}{n}\sum_{i=1}^n\frac{(i-1)b}{n}\\
+               &= \frac{b^2}{n^2}\sum_{i=1}^n(i-1)\\
+               &= \frac{b^2}{n^2}\sum_{i=0}^{n-1}(i)\\
+               &= \frac{b^2}{n^2}\frac12 (n-1)(n)\\
+               &= \frac{b^2}{2n^2}(n^2 - n)\\
+               &= \frac{b^2}{2}(1- \frac{1}{n})\\
+    \end{align*}
+    Similarly:
+    \begin{align*}
+        U(f,P) &= \sum_{i=1}^nM_i(f)(t_i - t_{i-1})\\
+               &= \sum_{i=1}^nt_{i}(t_i - t_{i-1})\\
+               &= \frac{b}{n}\sum_{i=1}^n\frac{ib}{n}\\
+               &= \frac{b^2}{n^2}\sum_{i=1}^n(i)\\
+               &= \frac{b^2}{n^2}\frac12 n(n+1)\\
+               &= \frac{b^2}{2n^2}(n^2 + n)\\
+               &= \frac{b^2}{2}(1+ \frac{1}{n})\\
+    \end{align*}
+    Therefore, for all $\epsilon>0$,  
+    \begin{align*}
+        U(f,P) - \frac{b^2}{2} &= \frac{b^2}{2}(1+ \frac{1}{n}) - \frac{b^2}{2}\\
+        &= \frac{b^2}{2n}\\
+        &< \frac{b^2}{2}\frac{2\epsilon}{b^2}\\
+        &= \epsilon
+    \end{align*}
+    and similarly,
+    \begin{align*}
+        \frac{b^2}{2} - L(f,P) &= \frac{b^2}{2}  - \frac{b^2}{2}(1+ \frac{1}{n})\\
+        &= \frac{b^2}{2n}\\
+        &< \frac{b^2}{2}\frac{2\epsilon}{b^2}\\
+        &= \epsilon 
+    \end{align*}
+    Therefore, by Lemma \ref{13.20}, $\Omega = \frac{b^2}{2} = \int_0^bf.$
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Example 13.22}
+\begin{exmp} 
+\label{13.22}
+	Show that the converse of Theorem~\ref{13.19} is false in general.
+\end{exmp}
+
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Let $\epsilon>0$.
+    Define $f: [0,b] \to \bbR$ by the formula $f(x) = \begin{cases}
+        0 \quad x = 0\\
+        c \quad x \neq 0
+    \end{cases}$ 
+    For all $\epsilon>0$, there exists the partition $P:=\{\{t_0, t_1, \dots, t_n\}|(t_i - t_{i-1} = \frac{b}{n})\}$ where $n<\frac{cb}{\epsilon}$. It follows that for $[t_0, t_1]$, $m_i(f) = 0$ and otherwise, $m_i(f) = M_i(f) = c$. Therefore:
+    \begin{align*}
+        L(f,P) &= \sum_{i=1}^nm_i(f)(t_{i}- t_{i-1})\\
+               &= \sum_{i=2}^{n}m_i(f)(t_i - t_{i-1})\\
+               &= \sum_{i=2}^nc(t_i-t_{i-1})\\
+               &= c(b-\frac{b}{n})\\
+               &= cb(1-\frac{1}{n})
+    \end{align*}
+    Similarly, 
+    \begin{align*}
+        U(f,P) &= \sum_{i=1}^nm_i(f)(t_{i}- t_{i-1})\\
+               &= \sum_{i=1}^nc(t_i-t_{i-1})\\
+               &= cb
+    \end{align*}
+Therefore, for all $\epsilon>0$
+\begin{align*}
+                cb - L(f,P) &= cb -  cb(1-\frac{1}{n})\\
+               &= \frac{cb}{n}\\
+               &< cb\frac{\epsilon}{cb}\\
+               &= \epsilon
+\end{align*}
+and similarly,
+\begin{align*}
+    U(f,P) - cb &= cb - cb\\
+               &= 0\\
+               &< \epsilon
+\end{align*}
+Therefore, by Lemma \ref{13.20}, $\Omega = cb = \int_0^bf$. Therefore, $f$ is integrable and $f[a,b]\to \bbR$ is not continuous.\footnote{If this function is not acceptable, simply use the same function used in Example \ref{13.15}.}  
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt} 
+\textbf{Extra!}
+\vspace{4pt}     \hrule   \vspace{4pt}  \begin{proof}:\\
+    Consider the function $f: [0,1] \to \bbR$ defined by \[f(x) = \begin{cases}
+        sin(\frac{\pi}{x}) \quad x\neq 0\\
+        0 \quad x = 0
+    \end{cases}\]
+Assume $sin(x)$ is continuous. Let $\epsilon>0$, Thus, for some $\frac{\epsilon}{4}$ Note that because $-1\leq f(x)\leq 1$ for all $x\in [0,\frac{\epsilon}{4}],$ then there exists a partition $P_1$ such that \[-1(\frac{\epsilon}{4})\leq L(f|_{[0,\frac{\epsilon}{4}]},P_1)\leq U(f|_{[0,\frac{\epsilon}{4}]},P_1)\leq 1(\frac{\epsilon}{4}).\] Therefore, $[0, \frac{\epsilon}{4}],$ \[U(f|_{[0,\frac{\epsilon}{4}]},P_1) - L(f|_{[0,\frac{\epsilon}{4}]},P_1) \leq \frac{\epsilon}{4} - (-\frac{\epsilon}{4}) = \frac{\epsilon}{2}<\frac{\epsilon}{2}\]
+Therefore, because $f|_{[\frac{\epsilon}{4}, 1]}$ is continuous, then it is integrable and so there exists a partition $P_2$ such that \[U(f|_{[\frac{\epsilon}{4}, 1]}, P_2) - L(f|_{[\frac{\epsilon}{4}, 1]}, P_2) < \frac{\epsilon}{2}\] 
+Thus, if $P = P_1 \cup P_2$, then by Lemma 13.22.5 below, \[U(f,P) - L(f,P) < \frac{\epsilon}{2} + \frac{\epsilon}{2}  = \epsilon\]
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt} 
+
+\textbf{Lemma 13.22.5}
+If $f\colon [a,c] \to \bbR$ is integrable on $[a,c]$ and there exist partitions $P_1: = \{t_0, \dots, t_n\}$ on $[a,b]$, and $P_2: = \{s_0, \dots s_m\}$ on $[b,c]$, then there exists a partition $P$ on $[a,c]$ such that $U(f|_{[a,b]}, P_1) + U(f|_{[b,c]}, P_2) = U(f,P)$ and $L(f|_{[a,b]}, P_1) + L(f|_{[b,c]}, P_2) = L(f,P)$.
+\vspace{4pt}     \hrule   \vspace{4pt}  \begin{proof}:\\
+Consider that \[U(f|_{[a,b]},P_1) + U(f|_{[b,c]},P_2) = \sum_{i=1}^nM_i(f|_{[a,b]})(t_{i}-t_{i-1}) + \sum_{j=1}^mM_j(f|_{[b,c]})(s_{j}-s_{j-1})\] Note that $t_n = s_0$ and therefore, let $s_i= t_{n+i}$ and $P = P_1 \cup P_2$: \[\sum_{j=1}^mM_j(f|_{[b,c]})(s_{j}-s_{j-1}) = \sum_{i=n+1}^{n+m}M_i(f|_{[b,c]})(t_{i}-t_{i-1})\] Therefore, \[U(f|_{[a,b]},P) + U(f|_{[b,c]},P) =\sum_{i=1}^{n+m}M_i(f)(t_{i} - t_{i-1}) = U(f,P)\] Identical logic is used to show the second part of the statement. \footnote{The converse of this statement is also true, but the logic is so similar I decided to omit it.}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt} 
+
+\section*{Theorem 13.23}
+\begin{thm}
+\label{13.23}
+	Let $a < b < c.$ A function $f\colon [a,c]\to \bbR$ is integrable on $[a, c]$ if and only if $f$ is integrable on $[a, b]$ and $[b, c]$. When $f$ is integrable on $[a, c]$, we have
+	\[
+		\int_{a}^{c} f = \int_{a}^{b} f + \int_{b}^{c}f.
+	\]
+	\bigskip
+\end{thm}
+
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+    \begin{itemize}
+        \item ($\implies$:) If $f:[a,c] \to \bbR$ is integrable on $[a,c]$, then for all $\epsilon>0$, there exists a partition $P' = \{t_1, t_2, \dots, t_n\}$ of $[a,c]$ such that $U(f,P') - L(f,P') <\epsilon$. 
+        \begin{enumerate} [i]
+            \item If $b\in P'$, then let $P = P'$. Thus, $U(f,P) - L(f,P) <\epsilon.$
+            \item If $b\notin P'$, then let $P = P' \cup \{b\}$. Note that because $P' \subset P$, then by Lemma \ref{13.12}, $L(f,P')\leq L(f,P)$ and $U(f,P)\leq U(f,P')$. Thus, $U(f,P) - L(f,P)< \epsilon$.
+        \end{enumerate}
+        Let $t_{i_b} = b$, then define $P_1:= P\setminus\{t_{i_b+1}, t_{i_b+2}, \dots, t_n\}$ and $P_2:= P\setminus\{t_0, t_1, \dots, t_{i_b-1}\}$. Note that $P_1 \cup P_2 = P$. By Lemma 13.22.5 above, $U(f,P) = U(f|_{[a,b]}, P_1) + U(f|_{[b,c]}, P_2)$ and $L(f,P) = L(f|_{[a,b]}, P_1) + L(f|_{[b,c]}, P_2)$. Therefore:
+        \begin{align*}
+            \epsilon&> U(f,P) - L(f,P)\\
+            &= U(f|_{[a,b]}, P_1) + U(f|_{[b,c]}, P_2) - L(f|_{[a,b]}, P_1) + L(f|_{[b,c]}, P_2)\\
+            &= (U(f|_{[a,b]}, P_1) - L(f|_{[a,b]}) + (U(f|_{[b,c]}, P_2) - L(f|_{[b,c]}, P_2)
+        \end{align*}
+        Thus, $(U(f|_{[a,b]}, P_1) - L(f|_{[a,b]}) < \epsilon$ and $(U(f|_{[b,c]}, P_2) - L(f|_{[b,c]}, P_2)< \epsilon$, so by Theorem \ref{13.18}, $f$ is integrable on $[a,b]$ and $f$ is integrable on $[b,c]$. Therefore, $\int_a^bf = U(f|_{[a,b]}) = L(f|_{[a,b]})$ and $\int_b^cf = U(f|_{[b,c]}) = L(f|_{[b,c]})$. Thus, $(L(f|_{[a,b]}, P_1)\leq \int_a^bf \leq (U(f|_{[a,b]}, P_1)$ and $(L(f|_{[b,c]}, P_2)\leq \int_b^cf \leq (U(f|_{[b,c]}, P_2)$ imply that 
+        \[L(f|_{[a,b]}, P_1) + L(f|_{[b,c]}, P_2)\leq \int_a^bf + \int_b^cf \leq U(f|_{[a,b]}, P_1) + U(f|_{[b,c]}, P_2)\]
+        \[U(f, P) \leq \int_a^bf + \int_b^cf \leq L(f,P)\]
+        Assume, for the sake of contradiction, that $\int_a^bf + \int_b^cf \neq U(f) = L(f):$
+        \begin{enumerate}
+            \item If $\int_a^bf + \int_b^cf> U(f)$, then there exists some partition $P'$ such that $U(f) \leq U(f,Q)< \int_a^bf + \int_b^cf$. Thus, $U(f|_{[a,b]}, Q_1) + U(f|_{[b,c]}, Q_2)< \int_a^bf + \int_b^cf = U(f|_{[a,b]}) + U(f|_{[b,c]})$, which is a contradiction. 
+            \item If $\int_a^bf + \int_b^cf< L(f)$, then there exists some partition $P'$ such that $\int_a^bf + \int_b^cf< L(f,P')\leq L(f)$. Thus, $\int_a^bf + \int_b^cf = L(f|_{[a,b]}) + L(f|_{[b,c]})< L(f|_{[a,b]}, Q_1) + L(f|_{[b,c]}, Q_2)$, which is a contradiction. 
+        \end{enumerate}
+        Which is a contradiction, since $f$ is integrable. Thus, $\int_a^cf = \int_a^bf + \int_b^cf$
+        \item ($\impliedby$:) Because $f$ is integrable on $[a,b]$, then there exists a partition $P'$ such that $U(f|_{[a,b]},P') - L(f|_{[a,b]},P')< \frac{\epsilon}{2}$. Similarly, there exists a partition $P''$ such that $U(f|_{[b,c]},P'') - L(f|_{[b,c]},P'')< \frac{\epsilon}{2}$. Therefore, for all $\epsilon>0$, there exists a $P = P' \cup P''$ such that 
+        \begin{align*}
+            \epsilon &= \frac{\epsilon}{2} + \frac{\epsilon}{2}\\
+                     &>(U(f|_{[a,b]},P') - L(f|_{[a,b]},P')) + (U(f|_{[b,c]},P'') - L(f|_{[b,c]},P''))\\
+                     &= (U(f|_{[a,b]},P') + U(f|_{[b,c]},P'')) - (L(f|_{[a,b]},'P) + L(f|_{[b,c]},P''))\\
+\tag{Lemma 13.22.5}                     &= U(f, P) - L(f,P)
+        \end{align*}
+    \end{itemize}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt} 
+
+\section*{Remark 13.24}
+\begin{rem}
+\label{13.24}
+If $a=b,$ we define
+\[ \int_a^b f=\int_a^a f = 0;
+\]
+ 
+ if $b < a$, we define
+\[
+	\int_{a}^{b} f = - \int_{b}^{a} f, 
+\]
+whenever the latter integral exists. With this notational convention, it follows that the equation
+\[
+\int_{a}^{c} f = \int_{a}^{b} f + \int_{b}^{c}f
+\]
+always holds, regardless of the ordering of $a$, $b$ and $c$, whenever $f$ is integrable on the largest of the three intervals.
+\end{rem}
+
+\section*{Theorem 13.25}
+\begin{thm}
+\label{13.25}
+	Suppose that $f$ and $g$ are integrable functions on $[a, b]$ and that $c \in \bbR$ is a constant. Then $f + g$ and $cf$ are integrable on $[a, b]$ and
+
+	
+	\begin{enumerate}[(a)]
+		\item $\displaystyle \int_{a}^{b} (f + g) = \int_{a}^{b} f + \int_{a}^{b} g$, and
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Let $\epsilon>0$.
+\begin{enumerate}
+    \item Because $f$ is integrable on $[a,b]$, then there exists a partition $P_f$ such that $U(f,P_f) - L(f,P_f)< \frac{\epsilon}{2}$.
+    \item Because $g$ is integrable on $[a,b]$, then there exists a partition $P_g$ such that $U(g,P_g) - L(g,P_g)< \frac{\epsilon}{2}$.
+\end{enumerate}
+Therefore, for all $\epsilon>0$, there exists a partition $P:= P_f \cup P_g$ such that $P:= \{t_0, t_1, \dots, t_n\}$ and by Lemma \ref{13.12}: \[U(f,P) - L(f,P)< \frac{\epsilon}{2} \qquad \text{and} \qquad U(g,P) - L(g,P)< \frac{\epsilon}{2}\] Therefore, \[U(f,P) - L(f,P) + U(g,P) - L(g,P)  = (U(f,P)+ U(g,P)) - (L(f,P)+ L(g,P))< \frac{\epsilon}{2} + \frac{\epsilon}{2}\] Thus, it will suffice to show that $U(f,P) + U(g,P) \geq U(f+g,P)$ and $L(f,P)+ L(g,P) \leq L(f+g, P)$:\newline Define \[M_i(f):= \sup\{f(x) | t_{i-1}\leq x \leq t_1\}\]
+\[M_i(g):= \sup\{g(x) | t_{i-1}\leq x \leq t_1\}\]
+\[M_i(f+g):= \sup\{(f+g)(x) | t_{i-1}\leq x \leq t_1\}\]
+Note that because \[U(f+g) = \sum_{i=1}^nM_i(f+g)(t_i- t_{i-1})\] and \[U(f,P) + U(g,P) = \sum_{i=1}^nM_i(f)(t_i- t_{i-1}) + \sum_{i=1}^nM_i(g)(t_i- t_{i-1})\] then it is enough to show that $M_i(f+g)\leq M_i(f) + M_i(g)$ for all $i\in [n].$ Consider that $f(x)\leq M_i(f)$ and $f(x)\leq M_i(g)$ and thus, $f(x) + g(x)\leq M_i(f) + M_i(g)$ for any $x \in [t_{i-1}, t_i].$ Therefore, $M_i(f+g)\leq M_i(f) + M_i(g).$\newline\newline
+To prove the second part of the statement:
+\begin{enumerate}
+    \item Let $\Omega_f = \int_a^bf.$ Therefore, by Lemma \ref{13.20}, there exists a partition $P_f$ such that \[U(f,P_f) - \Omega_f < \frac{\epsilon}{2} \quad \text{and} \quad \Omega_f - L(f,P_f)< \frac{\epsilon}{2}.\] 
+    \item Let $\Omega_g = \int_a^bg.$ Therefore, by Lemma \ref{13.20}, there exists a partition $P_g$ such that \[U(g,P_g) - \Omega_g < \frac{\epsilon}{2} \quad \text{and} \quad \Omega_g - L(f,P_g)< \frac{\epsilon}{2}.\] 
+\end{enumerate}
+Thus, for all $\epsilon>0$, there exists a $P:= P_f \cup P_g$ such that, by identical logic as in the above part:
+\[U(f,P) - \Omega_f + U(g,P) - \Omega_g = U(f+g, P) - (\Omega_f + \Omega_g) < \frac{\epsilon}{2}+ \frac{\epsilon}{2} = \epsilon\]
+and similary, 
+\[(\Omega_f + \Omega_g)-L(f+g, P) <\epsilon\]
+Therefore, by Lemma \ref{13.20}, $\Omega_f + \Omega_g = \int_a^b (f+g)$ and so 
+\[\displaystyle \int_{a}^{b} (f + g) = \int_{a}^{b} f + \int_{a}^{b} g.\]
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt} 
+		\item $\displaystyle \int_{a}^{b} c \cdot f = c \int_{a}^{b} f$.
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Let $\epsilon>0:$
+    \begin{enumerate}
+        \item If $c\geq 0$, then because $f$ is integrable on $[a,b]$, there exists a partition $P$ such that \[U(f,P) - L(f,P)< \frac{\epsilon}{c+1}.\] Therefore, \[c(U(f,P)) - c(L(f,P))< c\frac{\epsilon}{c+1}\] Thus, it will suffice to show that $U(cf,P)\leq c(U(f,P))$ and $c(L(f,P))\leq L(cf,P):$\newline Consider that for all $x\in [t_{i-1}, t_i],$ $f(x)\leq M_i(f)$. Therefore, $cf(x) \leq cM_i(f)$, and so $M_i(cf):=\sup\{cf(x)|t_{i-1}\leq x \leq t_i\}\leq cM_i(f).$\footnote{This inequality is actually always equal, but it doesn't matter for this proof.} Because this holds for all $i\in [n],$ then $U(cf,P)\leq cU(f,P)$. A similar argument can be applied to $L(cf,P)$. Thus, \[U(cf,P) - L(cf,P)< \epsilon\frac{c}{c+1}<\epsilon\]
+        \item If $c<0$, then there exists a partition $P$ such that \[U(f,P) - L(f,P)< \frac{\epsilon}{-c}\] and so \[c\frac{\epsilon}{-c}<cU(f,P) - cL(f,P)\] 
+        Because $M_i(cf) = cm_i(f),$ \footnote{This is a larger case of $\sup(-A) = -\inf(A)$ and $\inf(-A) = -\sup(A):$ \begin{proof}
+            Let $u = \sup(A)$ and $l = \inf(A).$ Thus, $-u = -\sup(A)$ and $-l = -\inf(A).$ For all $x \in A,$ $l\leq x\leq u$, therefore, for all $y \in -A$, because $y = -x$, then $-u\leq -x\leq -l$ for all $x$, then $-u = \inf(-A) = -\sup(A)$ and $-l = \sup(-A) = -\inf(A).$ 
+        \end{proof}} 
+        then $cL(f,P) = U(cf,P).$ Similarly, $U(cf,P) = cL(f,P).$ Therefore, \[c\frac{\epsilon}{-c}<L(cf,P) - U(cf,P)\]
+        Thus, \[U(cf,P) - L(cf,P)< \epsilon\]
+    \end{enumerate}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt} 
+	\end{enumerate}
+\end{thm}
+
+\section*{Theorem 13.26}
+\begin{thm}
+\label{13.26}
+Suppose that $f$ and $g$ are integrable functions on $[a, b]$ with $f(x)\leq g(x),$ for all $x\in [a,b].$ Then
+$$\int_a^b f\leq \int_a^b g.$$
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Let $\epsilon>0.$ Because $f$ and $g$ are integrable on $[a,b],$ then let $\Omega_f = \int_a^bf$ and $\Omega_g = \int_a^bf.$ Note that by Theorem \ref{13.25}, $g-f$ is integrable. Thus, define \[\Omega_{g-f}:= \Omega_g - \Omega_f = \int_a^bg - \int_a^b f = \int_a^b(g - f)\]
+Assume that $\Omega_{g-f}<0.$ Thus, there exists some partition $P$ such that $L(g-f)\leq L(g-f,P)< 0$. However, note that for if $P_1 = \{a,b\}$, then $L(g-f, P_1) \leq L(g-f,P)$ because $P_1 \subset P.$ Thus, we will arrive at a contradiction if we show that $0\leq L(g-f,P_1)$.\newline\newline
+If $g(c) = \inf(g)$ and $f(d) = \inf(f),$ then $g(c)\geq f(d).$ As proved above, because $m_i(g) - m_i(f)\leq m_i(g-f),$ then:
+\[L(g-f,P_1) = m_i(g-f)(b-a)\geq m_i(g) - m_i(f)(b-a) = (g(c) - f(d))(b-a)\geq 0\]
+Therefore, because $\Omega_{g-f}\geq 0,$ then $\int_a^bg - \int_a^f\geq 0.$ Thus, $\int_a^bg \geq \int_a^bf$
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+\section*{Theorem 13.27}
+\begin{thm}
+\label{13.27}
+Suppose that $f$ is an integrable function on $[a,b].$ Then $|f|$ is also integrable on $[a,b]$ and 
+$$\left|\int_a^b f\right|\leq \int_a^b |f|.$$
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Because $f$ is integrable on $[a,b],$ then there exists a partition $P$ such that \[U(f,P) - L(f,P) < \epsilon.\] Thus, define \[m_i(|f|):= \inf\{|f(x)| | t_{i-1}\leq x \leq t_i\}\qquad \text{and} \qquad M_i(|f|):= \sup\{|f(x)| | t_{i-1}\leq x \leq t_i\},\] 
+Assume, for the sake of contradiction, that $M_i(f) - m_i(f)< M_i(|f|) - m_i(|f|).$ However, if $M_i(f), m_i(f)<0,$ then since $M_i(f)\geq m_i(f)$, then as proved in footnote 9, \[M_i(|f|) = -m_i(f)\qquad \text{and} \qquad m_i(|f|) = -M_i(f),\] and therefore \[M_i(|f|) - m_i(|f|) = -m_i(|f|) - (-M_i(f)) = M_i(f) - m_i(f)\]
+Which is a contradiction. Therefore, $M_i(|f|) - m_i(|f|) \leq M_i(f) - m_i(f).$ Consider the case when $m_i(f)<0\leq M_i(f)$ and $-m_i(f)\geq M_i(f).$ Thus, $M_i(|f|) = -m_i(f)$ and $m_i(|f|)=0$ Therefore \[M_i(|f|) - m_i(|f|) \leq -m_i(f)\leq M_i(f) - m_i(f),\] which is a contradiction. $U(|f|,P)-L(|f|,P)\leq U(f,P)-L(f,P),$ and so because $U(|f|, P)-L(|f|,P) < \epsilon,$ then $|f|$ is integrable.\newline\newline Because $\int_a^bf = U(f) = L(f)$, then 
+define $g(x):= |f(x)|$ for all $x\in [a,b].$ By Theorem \ref{13.26}, because $f(x) \leq |f(x)|$ for all $x\in [a,b]$, then $\int_a^b f \leq \int_a^bg = \int_a^b|f|$
+\begin{enumerate}
+    \item If $\int_a^bf \geq 0,$ then $\left|\int_a^b f\right| = \int_a^bf \leq \int_a^b|f|.$
+    \item If $\int_a^bf < 0,$ then $\left|\int_a^b f\right| = -\int_a^bf = \int_a^b-f$. Thus, because $-f(x)\leq |f(x)|$ for all $x\in [a,b],$ then by Theorem \ref{13.27}, $\int_a^b-f \leq \int_a^b|f|.$ 
+\end{enumerate}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Theorem 13.28}
+\begin{thm}
+\label{13.28}
+	Suppose that $f$ is integrable on $[a, b]$ and $m\leq f(x)\leq M,$ for all $x\in [a,b].$ Then 
+	\[
+		m (b - a) \leq \int_{a}^{b} f \leq M(b - a).
+	\]
+\end{thm} 
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Let $g,h:[a,b]\to \bbR$ such that $g(x) = m$ and $h(x) = M$. Note that for all $x\in [a,b],$ $g(x) \leq f(x) \leq h(x).$ Thus, by Theorem \ref{13.26}, \[\int_a^b m = \int_a^b g \leq \int_a^bf \leq \int_a^b h = \int_a^b M\] Therefore, by Example \ref{13.17}, \[m(b-a)\leq \int_a^bf \leq M(b-a)\]
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+    The proof for Theorem \ref{13.28} is fairly trivial, but it does yield some interesting results:
+    \begin{enumerate}
+        \item \textbf{Mean Value Theorem of Integrals:} If $f:[a,b] \to \bbR$ is integrable and continuous, there exists some $c\in [a,b]$ such that \[f(c)(b-a) = \int_a^bf\]
+        \begin{proof}
+            Because $f$ is continuous, then $f(b-a)$ is continuous. Let $m$ and $M$ be the maxima and minima which are attained on $[a,b].$ By the IVT, because $\frac{1}{b-a}\int_a^bf \in [m,M]$ and $[m,M] \subset f[a,b],$ then then there exists a point $c \in [a,b]$ such that $f(c) = \frac{1}{b-a}\int_a^bf.$
+        \end{proof}
+        \item \textbf{Corollary} Let $f,g: [a,b]\to \bbR$ be integrable and continuous such that $\int_a^bf= \int_a^bg$, then there exists some point $c\in (a,b)$ such that $f(c) = g(c)$
+        \begin{proof}
+            Consider that by Theorem $\ref{13.25}$, \[0 = \int_a^b f - \int_a^b g = \int_a^bf-g\] Moreover, by the MVT for Integrals, because there exists a $c\in[(a,b]$ such that $(f-g)(c)(b-a) = \int_a^b f - g = 0,$ then $f(c) = g(c)$
+        \end{proof}
+    \end{enumerate}
+
+\section*{Theorem 13.29: "Integrals are Continuous"}
+\begin{thm}
+\label{13.29}
+	Suppose that $f$ is integrable on $[a,b].$  Define $F\colon [a, b] \to \bbR$ by
+	\[
+		F(x) = \int_{a}^{x} f.
+		\]
+	Then $F$ 	is continuous.
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}  \begin{proof}:\\
+Let $\epsilon>0.$ Note that because $f$ is integrable on $[a,b],$ then $f$ is bounded on $[a,b.]$ Let $m$ and $M$ be lower and upper bounds of $f$ on $[a,b],$ respectively. Define $K := \max(|M|, |N|)$.\footnote{Technically, we want $K>0$, but because $f$ is bounded, you can always find some upper or lower bound greater than or less than $0$. } For all $\epsilon>0,$ there exists a $\delta = \frac{\epsilon}{K}$ such that if $x,y \in [a,b]$ (without loss of generality, $x<y$) and $|x-y|< \delta$ then since $[x,y] \subset [a,b]$, then by Theorem \ref{13.23}, $f$ is integrable on $x,y$. Therefore $\int_x^y f$ exists and so by Theorem \ref{13.27} and Theorem \ref{13.23}, $|f|$ is integrable on $[x,y]$. Thus, \[|F(x) - F(y)| = \left|\int_a^xf - \int_a^y f \right |= \left|\int_x ^y f \right|\] Because $|f|$ is integrable on $[x,y]$ and $|f(\lambda)|< K$ for all $\lambda\in [x,y]$, then by Theorem \ref{13.28}, \[\left|\int_x ^y f\right| \leq \int_x^y |f| \leq K|x-y| < K \frac{\epsilon}{K} = \epsilon\] Thus, $F$ is uniformly continuous and thus, continuous.
+ 
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt} 
+
+\section*{Additional Exercises}
+\section*{Problem 1}
+\begin{prop}
+Let $a>1$ be rational, let $I$ be an interval, and let $f: I \to \bbR$ be a function such that $|f(x) - f(y)|\leq |x-y|^a$ for all $x,y \in I.$ Show that $f$ is constant. 
+\end{prop}
+\begin{proof}
+    Let $\epsilon>0.$ I claim that because $I$ is an interval, then if $y\in I,$ for all $\epsilon>0$ such that $(y-\epsilon, y+ \epsilon)\subset I,$ there exists an $x\in I$ such that $|x-y|< \epsilon.$ $y\in I$ such that $|x-y|< \epsilon.$ \newline\newline If $|y-\epsilon|< |a-b|$ for some $a<b \in I,$ then because $[a,b]\subset I,$ then $y-\epsilon, y+ \epsilon \in I.$ Therefore, because and interval is connected, there exists some $x\in I$ such that $y- \epsilon< x < y + \epsilon$ and thus $|x-y|< \epsilon.$\newline\newline Thus, assume, for the sake of contradiction, that $f$ is not constant. Therefore, there exists some $x,y\in I$ such that $0< |f(x) - f(y)|.$ Thus, $0< |x-y|^a$ for some 
+\end{proof}
+
+\section*{Problem 2}
+\begin{prop}
+    Let $f: (0,1) \to \bbR$ be bounded and continuous. Show that the function $g:(0,1)\to \bbR$ defined by $g(x): = x(1-x)\dot f(x)$ is uniformly continuous.
+\end{prop}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+    I claim that $h: (0,1) \to \bbR$ such that $h(x): = x(1-x)$ is uniformly continuous on $(0,1).$ Notice that $j(x) = x$ is uniformly continuous on $(0,1)$ by Example \ref{13.4}, and $k(x) = (1-x)$ is uniformly continuous on $(0,1)$ by the Challenge problem of 13.4.5. Because both $j$ and $k$ are bounded on $(0,1),$ then by Example \ref{13.9}, $jk = h$ is uniformly continuous on $(0,1).$ \newline\newline
+    Because $f$ and $h$ are bounded, then let $K>0$ be the maximum of the absolute values of some upper and lower bounds of $f$ and $h.$
+    \begin{enumerate}
+        \item Because $f$ is continuous and $0 \in LP((0,1)),$ then there exists a $\delta_{f_a}$ such that if $x\in (0,1)$ and $|x-0|< \delta_{f_a},$ then $|f(x) - f(0)|< \frac{\epsilon}{2K}$
+        \item Because $f$ is continuous and $1 \in LP((0,1)),$ then there exists a $\delta_{f_b}$ such that if $x\in (0,1)$ and $|x-1|< \delta_{f_b},$ then $|f(x) - f(1)|< \frac{\epsilon}{2K}$
+        \item Because $h$ is uniformly continuous, then for all $\epsilon>0,$ there exists a $\delta_h$ such that if $x,y \in (0,1)$ and $|x-y|< \delta_h,$ then $|f(x) - f(y)|< \frac{\epsilon}{2K}$
+    \end{enumerate}
+    Thus, let $\delta  = \min(\delta_{f_a}, \delta_{f_b}, \delta_{h})$ Let $a\in (0, 0+ \delta).$ There exists an $a\in (0,1)$ such that $a \in (0, 0 + \delta),$ and so if $x\in (0,1)$, then $|x-a|<\delta$ and so $|f(x) - f(a)|< \frac{\epsilon}{2K}$ Similarly, there exists a $b \in (0,1)$ such that $b \in (1-\delta, 1),$ and thus if $\in (0,1),$ then $|x-a|< \delta$ and so $|f(x) - f(b)|<\frac{\epsilon}{2K}$ Note that because both $f$ and $g$ are continuous, then $f|_{[a,b]}$ and $h|_{[a,b]}$ are continuous, and so $g = hf|_{[a,b]}$ is continuous. Thus, by Corollary \ref{13.8}, $g$ is uniformly continuous on $[a,b].$ For all $\epsilon>0,$ there exists a $\delta$ such that:
+    \begin{enumerate}
+        \item If $x,y \in (0,a),$ then: 
+        \begin{align*}
+            |g(x) - g(y)| &= |h(x)f(x) - h(y)f(y)|\\
+            &= |h(x)f(x) + (h(y)f(x) - h(y)f(x) - h(y)f(y)|\\
+            &= |f(x)(h(x) - h(y)) + h(y)(f(x) - f(y))|\\
+            &\leq |f(x)(h(x) - h(y))| + |h(y)(f(x) - f(y))|\\
+            &= |f(x)||(h(x) - h(y))| + |h(y)||(f(x) - f(y))|\\
+            &< K\frac{\epsilon}{2K} + K \frac{\epsilon}{2K}\\
+            &= \epsilon
+        \end{align*}
+        \item If $x,y \in (b,1),$ then an identically method is used to prove that $|g(x) - g(y)|< \epsilon.$
+    \end{enumerate}
+    Thus, $g$ is uniformly continuous on $(0,a), [a,b], (b,1).$ Therefore, by very similar logic to Example \ref{13.7}. $g$ is uniformly continuous on $(0,1).$
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Problem 3}
+\begin{prop}
+Suppose that $\phi : \bbR\to\bbR$ is continuous and $f: \bbR \to \bbR$ is bounded and integrable on $[a,b]$.  Show that $\phi \circ f$ is integrable on $[a,b]$.    
+\end{prop}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Note that by the intermediate value theorem, $\phi$ is continuous over $f[a,b],$ and thus, by Theorem 10.19 and Theorem \ref{13.6}, $\phi: f[a,b]\to \bbR$ is uniformly continuous. Because $f$ is bounded, then let $\pi, \Pi>0$ be upper and lower bounds of $f.$ Thus, for all $x\in [a,b],$ $\pi\leq f(x)\leq \Pi.$ Therefore, there exists a $\delta >0$ such that if $f(x), f(y)\in f[a,b]$ and $|f(x) - f(y)|< \delta,$ then $|\varphi(f(x)) - \phi(f(y))|<.$ Thus, for all $\epsilon>0,$ there exists the partition $P = \{\{t_0, t_1 \dots, t_n\}| \max(t_i - t_{i-1})<\delta\}.$ Therefore, if $f(x), f(y) \in [t_{i-1}, t_i],$ then $|\phi(f(x)) - \phi(f(y))|<.$ Thus, because $\phi$ is compact and continuous over $f[a,b],$ and $M_i(\varphi)> m_i(\phi),$ then \[M_i(\varphi(f)) - m_i(\phi(f)) < \epsilon\]
+\[(M_i(\varphi(f)) - m_i(\phi(f)))(t_i - t_{i-1}) < \epsilon(t_i - t_{i-1})\]
+\[\]
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\begin{lem}
+    If $f: [a,b] \to \bbR$ is integrable on $[a,b]$, then $f$ is bounded.
+\end{lem}
+\begin{proof}
+    This is straight Definition \ref{13.16}, an integral is only defined if $f:[a,b]\to \bbR$ is bounded. 
+\end{proof}
+
+
+\begin{cor}
+    If $f, g : [a, b] \to \bbR$ are both integrable, then the product $f g : [a, b] \to \bbR$ is also integrable
+\end{cor}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Consider that $fg = \frac{1}{2}((f+g)^2 -f^2 - g^2).$ It will suffice to show that all the terms are integrable by Theorem \ref{13.25}. 
+\begin{enumerate}
+    \item Let $\phi:\bbR \to \bbR$ be continuous and defined by $\phi(f) = f^2.$ By Proposition \ref{13.32}, $f^2$ is integrable on $[a,b].$
+    \item Similarly, $g^2$ is integrable on $[a,b].$
+    \item Let $\pi:\bbR \to \bbR$ be continuous and defined by $\pi(f+g) = (f+g)^2.$ Because $f+g$ is integrable on $[a,b]$ by Theorem \ref{13.25}, then by Proposition \ref{13.32}, $(f+g)^2$ is integrable on $[a,b].$
+\end{enumerate}
+Therefore, by Theorem \ref{13.25}, $fg$ is integrable on $[a,b].$
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Acknowledgments} 
+Thanks, as always, to Professor Oron Propp for being a great mentor in both Office Hours and during class. Thank you to Richard Gale for showing me a smart way of doing 13.4 (I included both his (first one) and my proof (second)). Thanks also to Lina Piao for working with me to figure out a couple of proofs, such as 13.19, 13.20, and 13.29.
+\begin{thebibliography}{9}
+
+
+
+
+\end{thebibliography}
+
+\end{document}
+

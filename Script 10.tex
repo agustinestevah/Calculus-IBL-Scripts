@@ -1,0 +1,575 @@
+
+\documentclass[openany, amssymb, psamsfonts]{amsart}
+\usepackage{mathrsfs,comment}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[normalem]{ulem}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{lipsum}
+\usepackage[all,arc,2cell]{xy}
+\UseAllTwocells
+\usepackage{enumerate}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+
+\renewcommand{\phi}{\varphi}
+\renewcommand{\emptyset}{\O}
+
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\sm}{\setminus}
+
+
+\newcommand{\sarr}{\rightarrow}
+\newcommand{\arr}{\longrightarrow}
+
+\newcommand{\hide}[1]{{\color{red} #1}} % for instructor version
+%\newcommand{\hide}[1]{} % for student version
+\newcommand{\com}[1]{{\color{blue} #1}} % for instructor version
+%\newcommand{\com}[1]{} % for student version
+\newcommand{\meta}[1]{{\color{green} #1}} % for making notes about the script that are not intended to end up in the script
+%\newcommand{\meta}[1]{} % for removing meta comments in the script
+
+\DeclareMathOperator{\ext}{ext}
+\DeclareMathOperator{\ho}{hole}
+%%% hyperref stuff is taken from AGT style file
+\usepackage{hyperref}  
+\hypersetup{%
+  bookmarksnumbered=true,%
+  bookmarks=true,%
+  colorlinks=true,%
+  linkcolor=blue,%
+  citecolor=blue,%
+  filecolor=blue,%
+  menucolor=blue,%
+  pagecolor=blue,%
+  urlcolor=blue,%
+  pdfnewwindow=true,%
+  pdfstartview=FitBH}   
+  
+\let\fullref\autoref
+%
+%  \autoref is very crude.  It uses counters to distinguish environments
+%  so that if say {lemma} uses the {theorem} counter, then autrorefs
+%  which should come out Lemma X.Y in fact come out Theorem X.Y.  To
+%  correct this give each its own counter eg:
+%                 \newtheorem{theorem}{Theorem}[section]
+%                 \newtheorem{lemma}{Lemma}[section]
+%  and then equate the counters by commands like:
+%                 \makeatletter
+%                   \let\c@lemma\c@theorem
+%                  \makeatother
+%
+%  To work correctly the environment name must have a corrresponding 
+%  \XXXautorefname defined.  The following command does the job:
+%
+\def\makeautorefname#1#2{\expandafter\def\csname#1autorefname\endcsname{#2}}
+%
+%  Some standard autorefnames.  If the environment name for an autoref 
+%  you need is not listed below, add a similar line to your TeX file:
+%  
+%\makeautorefname{equation}{Equation}%
+\def\equationautorefname~#1\null{(#1)\null}
+\makeautorefname{footnote}{footnote}%
+\makeautorefname{item}{item}%
+\makeautorefname{figure}{Figure}%
+\makeautorefname{table}{Table}%
+\makeautorefname{part}{Part}%
+\makeautorefname{appendix}{Appendix}%
+\makeautorefname{chapter}{Chapter}%
+\makeautorefname{section}{Section}%
+\makeautorefname{subsection}{Section}%
+\makeautorefname{subsubsection}{Section}%
+\makeautorefname{theorem}{Theorem}%
+\makeautorefname{thm}{Theorem}%
+\makeautorefname{excercise}{Exercise}%
+\makeautorefname{cor}{Corollary}%
+\makeautorefname{lem}{Lemma}%
+\makeautorefname{prop}{Proposition}%
+\makeautorefname{pro}{Property}
+\makeautorefname{conj}{Conjecture}%
+\makeautorefname{defn}{Definition}%
+\makeautorefname{notn}{Notation}
+\makeautorefname{notns}{Notations}
+\makeautorefname{rem}{Remark}%
+\makeautorefname{quest}{Question}%
+\makeautorefname{exmp}{Example}%
+\makeautorefname{ax}{Axiom}%
+\makeautorefname{claim}{Claim}%
+\makeautorefname{ass}{Assumption}%
+\makeautorefname{asss}{Assumptions}%
+\makeautorefname{con}{Construction}%
+\makeautorefname{prob}{Problem}%
+\makeautorefname{warn}{Warning}%
+\makeautorefname{obs}{Observation}%
+\makeautorefname{conv}{Convention}%
+
+
+%
+%                  *** End of hyperref stuff ***
+
+%theoremstyle{plain} --- default
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{exercise}{Exercise}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{prob}{Problem}[section]
+\newtheorem{conj}{Conjecture}[section]
+%\newtheorem{ass}{Assumption}[section]
+%\newtheorem{asses}{Assumptions}[section]
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ass}{Assumption}[section]
+\newtheorem{asss}{Assumptions}[section]
+\newtheorem{ax}{Axiom}[section]
+\newtheorem{con}{Construction}[section]
+\newtheorem{exmp}{Example}[section]
+\newtheorem{notn}{Notation}[section]
+\newtheorem{notns}{Notations}[section]
+\newtheorem{pro}{Property}[section]
+\newtheorem{quest}{Question}[section]
+\newtheorem{rem}{Remark}[section]
+\newtheorem{warn}{Warning}[section]
+\newtheorem{sch}{Scholium}[section]
+\newtheorem{obs}{Observation}[section]
+\newtheorem{conv}{Convention}[section]
+
+%%%% hack to get fullref working correctly
+\makeatletter
+\let\c@obs=\c@thm
+\let\c@cor=\c@thm
+\let\c@prop=\c@thm
+\let\c@lem=\c@thm
+\let\c@prob=\c@thm
+\let\c@con=\c@thm
+\let\c@conj=\c@thm
+\let\c@defn=\c@thm
+\let\c@notn=\c@thm
+\let\c@notns=\c@thm
+\let\c@exmp=\c@thm
+\let\c@ax=\c@thm
+\let\c@pro=\c@thm
+\let\c@ass=\c@thm
+\let\c@warn=\c@thm
+\let\c@rem=\c@thm
+\let\c@sch=\c@thm
+\let\c@equation\c@thm
+\numberwithin{equation}{section}
+\makeatother
+
+\bibliographystyle{plain}
+
+%--------Meta Data: Fill in your info------
+\title{University of Chicago Calculus IBL Course}
+
+\author{Agustin Esteva}
+
+\date{Feb 21. 2024}
+
+\begin{document}
+
+\begin{abstract}
+
+16210's Script 10.\\ Let me know if you see any errors! Contact me at aesteva@uchicago.edu.
+
+
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+\setcounter{section}{10}
+\section*{Definition 10.1}
+\begin{defn}
+\label{10.1}
+	We say that a function $f\colon A \to \bbR$ is \emph{bounded} if $f(A)$ is a bounded subset of $\bbR$. We say that $f$ is bounded above if $f(A)$ is bounded above and that $f$ is bounded below if $f(A)$ is bounded below. 
+	
+	If  $f\colon A \to \bbR$ is bounded above we say that $f$ {\em attains} its least upper bound if there is some $a\in A$ such that $f(a)=\sup f(A).$ Similarly, if $f\colon A \to \bbR$ is bounded below we say that $f$ {\em attains} its greatest lower bound if there is some $a\in A$ such that $f(a)=\inf f(A).$ 
+	
+\end{defn}
+
+\section*{Example 10.2}
+\begin{exmp} 
+\label{10.2}
+If possible, find examples of each of the following; a picture suffices. 
+\begin{enumerate}
+\textbf{Note that for the drawings, I was not able to add arrows or open circles or closed circles to the graphs}
+\item[a)] A continuous function on $[1,\infty)$ that is not bounded above.
+ \vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}
+ $$f(a) = a$$
+ \[\begin{tikzpicture}
+    % Coordinate system
+    \draw[->] (-1,0) -- (5,0) node[right] {$\bbR$};
+    \draw[->] (0,-1) -- (0,5) node[above] {$\bbR$};
+    % Plot f(x) = x
+    \draw[domain=1:5, smooth, thick, blue] plot (\x, \x) node[right] {$f(a) = a$};
+\end{tikzpicture}\]
+For any $f(x) \in \bbR$, because $A$ is not bounded above, there exists some $y\in A$ such $x<y$ and therefore $f(x)<f(y)$.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+\item[b)] A continuous function on $[1,\infty)$ that is bounded above but does not attain its least upper bound.
+ \vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}
+$$f(a) = arctan(a)$$
+or
+$$f(a) = \frac{-1}{x}$$
+For the second, $2$ is an upper bound of $f(A)$ and $0 = \sup f(A)\notin f(A)$. 
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+\item[c)] A continuous function on $(0,1)$ that is not bounded below.
+ \vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}
+ $$f(a) = \frac{1}{a-1}$$
+ \[\begin{tikzpicture}
+    % Coordinate system
+    \draw[->] (0,0) -- (2,0) node[right] {$\bbR$};
+    \draw[->] (0,-2) -- (0,2) node[above] {$\bbR$};
+    % Plot f(a) = 1/(a-1)
+    \draw[domain=0.0001:0.7, smooth, thick, blue] plot (\x, {1/(\x-1)}) node[right] {$f(a) = \frac{1}{a-1}$};
+\end{tikzpicture}\]
+For any $f(x) \in \bbR$, because $A$ is infinite, then there exists some $y\in A$ such that $x<y$ and therefore $f(y)<f(x)$.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+\item[d)]  A continuous function on $(0,1)$ that is bounded below but does not attain its greatest lower bound. 
+ \vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}
+ $$f(a) = \frac{1}{a}$$
+ \[\begin{tikzpicture}
+    % Coordinate system
+    \draw[->] (-1,0) -- (5,0) node[right] {$\bbR$};
+    \draw[->] (0,-1) -- (0,5) node[above] {$\bbR$};
+    % Plot f(x) = 1/x
+    \draw[domain=0.2:5, smooth, thick, blue] plot (\x, {1/\x}) node[above] {$f(x) = \frac{1}{x}$};
+\end{tikzpicture}\]
+Similar but opposite reasoning to $b$.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+\end{enumerate}
+\end{exmp}
+
+
+We will see below that if the domain of a continuous function is {\em both} closed and bounded, then its image is bounded and attains its bounds. First, we introduce a new concept:
+ compactness. 
+
+\section*{Definition 10.3}
+\begin{defn} 
+\label{10.3}
+Let $X$ be a subset of $\bbR$ and let $\mathcal{G} = \{ G_{\lambda} \}_{\lambda \in \Lambda}$ be a collection of subsets of~$\bbR$.  We say that $\mathcal{G}$ is a \emph{cover} of $X$ if every point of $X$ is in some $G_{\lambda}$, or in other words:
+\[
+X \subset \bigcup_{\lambda \in \Lambda} G_{\lambda}.
+\]
+We say that the collection $\mathcal{G}$ is an \emph{open cover} if each $G_{\lambda}$ is open.
+\end{defn}
+
+\section*{Definition 10.4}
+\begin{defn} 
+\label{10.4}
+Let $X$ be a subset of $\bbR$.  $X$ is \emph{compact} if for every open cover $\mathcal{G}$ of $X$, there exists a finite subset $\mathcal{G}' \subset \mathcal{G}$ that is also an open cover.
+\end{defn}
+
+\section*{Example 10.5}
+\begin{exmp}
+\label{10.5}
+Show that all finite subsets of $\bbR$ are compact.
+\end{exmp} 
+ \vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Let $X\subset \bbR$ be finite such that $X = \{x_1,...,x_n\}$. If $\mathcal{G} = \{G_\lambda\}_{\lambda \in \Lambda}$ is an open cover of $X$, then because $X\subset \bigcup_{\lambda \in \Lambda}G_\lambda$, then for each $x_i\in X$, there exists some $\alpha\in \Lambda$ such that $x_i\in G_\alpha$, where $i\in |X|$. Therefore, because $\mathcal{G}$ is open, then all $G_\alpha$ are open. Therefore, if $\mathcal{G'} = \{G_{\alpha_1},, ..., G_{\alpha_n}\}$, then $\mathcal{G'}$ is finite. Note that $|\mathcal{G}'|\leq |X|$ since there could be multiple $x_i\in G_\alpha$. Moreover, if $G_\alpha \in \mathcal{G}'$, then $G_\alpha \in \mathcal{G}$, and therefore $\mathcal{G}'\subset \mathcal{G}$. Because for all $x_i\in X $, $x_i\in G_{\alpha_i}$ and therefore $x_i\in \bigcup_{\alpha\in \lambda}G_\alpha$, then $X\subset \bigcup_{\alpha\in \lambda}G_\alpha$, and so $\mathcal{G'}$ is a cover of $X$. Because all $G_\alpha \in \mathcal{G'}$ are open, then by Corollary 4.16, $\mathcal{G'}$ is open. Therefore, because $\mathcal{G'}$ is an open finite subcover of any $\mathcal{G}$, $X$ is compact.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Lemma 10.6}
+\begin{lem}
+\label{10.6}
+No finite collection of regions covers $\bbR$.
+\end{lem}
+ \vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Assume, for the sake of contradiction, that there exists some finite collection of regions, $\mathcal{G'} = \{(-n_i,n_i)| i\in \{{1,...,m}\}\}$ such that $\mathcal{G'}$ is a cover of $\bbR$. Because $\mathcal{G'}$ is a cover, then $\bbR \subset \bigcup_iG_i$ for $G_i=(-n_i,n_i)$. Consider some finite $X\subset \bbR$ such that $X = \{n_i | i\in \{1,...,m\}\}$. Because $X$ is finite, then it has a last point at some $n_k$. Assume $n_k\in \bigcup_iG_i$. Therefore, there exists some $n_i$ such that $(-n_k,n_k)\subset (-n_i,n_i)$ for some $i$, and therefore $n_i>n_k$, so therefore $n_k$ is not the last point of $X$, which is a contradiction. Therefore, because $n_k\in \bbR$ and $n_k\notin \bigcup_iG_i$, then $\bbR \not \subset \bigcup_iG_i$, and so $\mathcal{G'}$ is not a cover of $\bbR$.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Theorem 10.7}
+\begin{thm} 
+\label{10.7}
+$\bbR$ is not compact.
+\end{thm}
+ \vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Assume, for the sake of contradiction, that $\bbR$ is compact. Therefore, if $\mathcal{G} = \{(-n,n) | n\in \bbN\}$ is an open cover of $\bbR$, then there exists some open and finite $\mathcal{G'} = \{(-n_i, n_i) | i \in \{1,...m)\}$ such that $\mathcal{G'}$ is a cover of $\bbR$. However, since any such $\mathcal{G'}$ is a finite collection of regions, then by Lemma \ref{10.6}, it is not a cover of $\bbR$, which is a contradiction. Therefore, $\bbR$ is not compact.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Example 10.8}
+\begin{exmp}
+\label{10.8}
+Show that regions are not compact.
+\end{exmp} 
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}
+Assume, for the sake of contradiction, that all regions $X=(a,b)$ are compact. Therefore, consider some $\mathcal{G} = \{(a+\delta, b)|0<\delta<b-a\}$. If $x\in X$, then assume that $x\notin G_\lambda$ for some $\lambda\in \Lambda$. Therefore, there does not exist a $\delta\in \bbR$ such that $a<a+\delta<x<b$. However, since $\bbR$ has no first point, then there exists some $q\in \bbR$ such that $q<a<x$. Since $(q,x)$ is an interval containing $a$, then by Lemma 8.11, there exists some $\delta\in \bbR$ such that $a+\delta<x$, which is a contradiction. Therefore, for all $x\in X$, $x\in G_\lambda$ for some $\lambda$, and so $X\subset \bigcup_{\lambda\in \Lambda}G_\lambda$. Since $\mathcal{G}$ is a an open cover of $X$ and $X$ is compact, then there exists a some finite $\mathcal{G'}\subset \mathcal{G}$ that is also an open cover, where $\mathcal{G'} = \{(a+\delta_i, b) |i\in \{1,...,m\}\}$. Since $\mathcal{G'}$ is finite, then consider the finite $S = \{a+\delta_i|i\in \{1,...m\}\}$. Because $S$ is finite, then it has a first point at some $a+\delta_k$ and so $\bigcup_{i\in \{1,...n\}}G_i \subset (a+\delta_k,b)$. It follows that $a+\delta_k\leq a+\delta_i$ for all $i$. However, for all $x\in (a,a+\delta_k)$, $x\notin \bigcup_{i\in \{1,...n\}}G_i$, and therefore $X\not \subset \bigcup_{i\in \{1,...n\}}G_i$, which is a contradiction, since $\mathcal{G}'$ is a cover of $X$.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Theorem 10.9}
+\begin{thm}  \label{10.9} If $X$ is compact, then $X$ is bounded.
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}
+If $X$ is compact, then because $\mathcal{G} = \{(x-1, x+1)|x\in X\}$ is an open cover of $X$, then there exists some $\mathcal{G'} = \{(x_i-1,x_i+1|i\in \{1,...,m\}\}$, where $\mathcal{G'}$ is finite open cover of $X$. Because $\mathcal{G'}$ is finite, then consider the finite set $S = \{x_i+1|i\in \{1,...m\}\}$. Because $S$ is finite, then it has some last point at $x_k+1$, where $x_k+1\geq x_i+1$ for all $i$. Thus, since $X\subset \bigcup_{i\in \{1,..,m\}} G_i$, then $x_k\geq x$ for all $x\in X$, and so $x_k+1$ is an upper bound of $X$. Similarly, $S$ has some first point at some $x_1-1$, where $x_1-1\leq x_i-1$ for all $i$. Thus, $x_1\leq x$ for all $x\in X$, and so $x_1-1$ is a lower bound of $X$. Therefore, $X$ is bounded.
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Lemma 10.10}
+\begin{lem}   
+\label{10.10}
+Let $X\subset \bbR$ and $p\in \bbR\setminus X.$ Then
+\[
+\mathcal{G} = \{ \ext(\underline{ab}) \mid p\in \underline{ab}  \}
+\]
+is an open cover of $X.$ 
+\end{lem}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Assume, for the sake of contradiction, that $\mathcal{G}$ is not a cover of $X$. Thus, $X\not \subset \bigcup_\lambda G_\lambda$, where $G_\lambda = ext(a_\lambda, b_\lambda)$. Thus, for some $x\in X$, then $x\notin G_\lambda$ for all $\lambda$, and therefore $x\in [a_\lambda, b_\lambda]$ for all $\lambda$:
+\begin{enumerate}
+\item If $x>p$, then $(a_\lambda, x)$ is an open set containing $p$, and therefore there exists some $(p-\delta, p+\delta)\subset (a_\lambda, x)$. Thus, $[p-\frac{\delta}{2}, p+\frac{\delta}{2}]\subset (a_\lambda, x)$ such that $p-\frac{\delta}{2} = a_\alpha$ and $p+\frac{\delta}{2} = b_\alpha$ for some $\alpha \in \lambda$. Therefore, $x\in ext(a_\alpha,b_\alpha)$, and thus $x\in G_\lambda$ for some $\lambda$, which is a contradiction.
+\item If $x<p$, then similar logic applies
+\end{enumerate}
+Thus, $X\subset \bigcup_\lambda G_\lambda$ and therefore $\mathcal{G}$ is an open cover of $X$.
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Theorem 10.11}
+\begin{thm} \label{10.11} If $X$ is compact, then $X$ is closed.
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}
+Assume, for the sake of contradiction, that if $X$ is compact, then $X$ is not closed. Therefore, for some $p\in LP(X)$, $p\notin X$. Thus, by Lemma \ref{10.10}, $\mathcal{G} = \{ \ext(\underline{ab}) \mid p\in \underline{ab}\}  $ is an open cover of $X$. Because $X$ is compact and $\mathcal{G}$ is an open cover of $X$, then it has some open finite subcover, $\mathcal{G}' = \{\ext(a_i,b_i)|i\in\{1,...,m\}\}\subset \mathcal{G}$. Since $\mathcal{G}'$ is finite, then consider the finite set $A = \{a_i | i\in \{1,...,m\} \}$. Since $S$ is finite, then it has some last point at $a_k$, and so $a_k>x$ for all $x\in X$. Moreover, consider the finite set $B = \{b_i | i\in \{1,...,m\} \}$. Since $B$ is finite, then it has some first point at $b_1$, and so $b_1< x$ for all $x\in X$. Thus, there does not exist an $x\in X$ such that $x\in (a_k,b_1)$. However, since $p\in LP(X)$, then for because $p\in (a_k,b_1)$, then there exists some $x\in X$ such that $(a_k,b_1)\cap X\setminus \{p\} \neq \emptyset$, which is a contradiction. 
+Thus, $X$ is not compact.
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+It will turn out that the two properties of compactness in \ref{10.9} and \ref{10.11} characterize compact sets completely, meaning that every bounded closed set is compact. We will see this in Theorem~\ref{10.16}; first we need some preliminary results.\newline 
+
+\newcommand\cG{\mathcal G}
+\newcommand\cR{\mathcal R}
+
+For the next three results, fix points $a,b\in \bbR$ and suppose $\cG$ is an open cover of $[a,b]$.
+
+\section*{Lemma 10.12}
+\begin{lem}
+\label{10.12}
+For all $s\in[a,b]$, there exist $G\in\cG$ and $p,q\in \bbR$ such that $p<s<q$ and $[p,q]\subset G$.
+\end{lem}
+
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}
+Let $\cG = \{G\}_\lambda$ be an open cover $[a,b]$. If $s\in [a,b]$, then $a\leq s\leq b$. Since $[a,b]\subset \bigcup_{\lambda \in \Lambda}G_\lambda$, then there exists some $\lambda \in \Lambda$ such that $s\in G_\lambda$. Because $\cG$ is open, then $G_\lambda$ is open for all $\lambda$. Thus, since $s\in G_\lambda$, then by Theorem 4.9, there exists a $(m,n)$ containing $s$ such that $(m,n)\subset G_\lambda$. Therefore, since $(m,n)$ is an opet set containing $s$, then by Theorem 4.9, there exists some $s\in (p,q)\subset (m,n)$ where $m<p<s<q<n$. Thus, since $(m,n)$ is an interval, then since $p,q\in (m,n)$ and $p<q$, $[p,q]\subset (m,n)\subset G_\lambda$
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Lemma 10.13}
+\begin{lem}
+\label{10.13}
+Let $X$ be the set of all $x\in \bbR$ that are \emph{reachable from $a$}, by which we mean the following: there exist $n\in\bbN\cup\{0\}$, $x_0,\ldots,x_n\in \bbR$ and $G_1,\ldots,G_n\in\cG$ such that $a=x_0<x_1<\ldots<x_{n-1}<x_n=x$ and $[x_{i-1},x_i]\subset G_i$ for $i=1,\ldots,n$.
+
+(Note in particular that $a\in X$, by choosing $n=0$.)
+
+Then the point $b$ is not an upper bound for $X$.
+
+(Hint: suppose $b$ is an upper bound, and apply Lemmas~\ref{10.12} and 5.11 to $s=\sup X$.)
+\end{lem}
+
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}
+Assume, for the sake of contradiction, that $b$ is an upper bound of $X$. Therefore, since $a\in X$ and $X$ is bounded above, then by Theorem 5.16,  $s=\sup X$ exists. Since $s\leq b$ and $a\in X$, then $s\in [a,b]$, and so by Lemma \ref{10.12}, there exists $n,m \in \bbR$ such $n<s<m$ and $[n,m]\subset G_i$. By Lemma 5.10, since $n<s$, then there exists some $x_n\in X$ such that $n<x_n\leq s<m$. Therefore, $[x_n,m]\subset [n,m]\subset G_i$. Therefore, since $x_n<m$ and $[x_n,m]\subset G_i$ for some $G_i = G_{n+1}\in \cG$, then $m=x_{n+1}$ is reachable from $a$, and therefore $m\in X$. Thus, since there exists some $m\in X$ such that $s<m$, then $s\neq \sup X$, which is a contradiction. Therefore, $b$ is not an upper bound of $X$. 
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Theorem 10.14}
+\begin{thm}
+\label{10.14}
+The set $[a, b]$ is compact.
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}
+By Lemma \ref{10.13}, $b$ is not an upper bound of $X$. Therefore, there exists some $x_n\in X$ such that $a<b<x_n$. It follows that $a<...<b\leq ...\leq x_{n-1}<x_n$, and therefore there exists some $i\in \{1,...,n\}$ such that $x_{i-1} < b \leq x_{i}$, and therefore $b\in [x_{i-1}, x_i] \subset G_i$, so then $b\in G_i$. By the same logic, $a\in G_1$. Let $\cG' = \{G_1,...G_n\}$, and therefore $\cG'$ is finite. Assume that there exists some $s\in (a,b)$ such that $s\notin G_i$ for any $G_i\in \cG'$. However, because $s\in [a,b]$, then $x_0\leq...\leq x_{j-1}<s\leq x_j<...<b<x_n$, where $i\in \{1,...n\}$. Thus, since $[x_{j-1},x_j]\subset G_j$, then $s\in G_j\in \cG'$. Therefore, for all $s\in [a,b], s\in \bigcup_iG_i$, and so $[a,b]\subset \bigcup_iG_i$, and therefore $\cG'$ is a cover of $X$. Because $\cG$ is open, then all $G_i\in \cG$ are open, and therefore $\cG'$ is an open, finite subcover of $[a,b]$, and therefore $[a,b]$ is compact. 
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Theorem 10.15}
+\begin{thm}
+\label{10.15}
+A closed subset $Y$ of a compact set $X \subset \bbR$ is compact.
+
+{\em (Question: Does it matter whether $Y$ is closed in $X$ or in $\bbR$?)}
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}
+Let $\cG$ be an open cover of $Y$. Consider some $\cG' = \cG \cup (\bbR \sm Y)$. For all $x\in X$:
+\begin{enumerate}
+\item If $x\in Y$, then because $\cG$ is a cover of $Y$, $Y\subset \bigcup_{G\in \cG'}G$.
+\item If $x\in (X\sm Y)$, then because $x\in (\bbR \sm Y)$, then $X\subset \bigcup_{G\in \cG'}G$
+\end{enumerate}
+Therefore, $\cG'$ is a cover of $X$. Because $Y$ is closed, then $\bbR\sm Y$ and $\cG$ are open, then $\cG'$ is an open cover of $X$. Because $X$ is compact, then there exists some finite open cover, $\cG''\subset \cG'$ of $X$. Consider the set $\cG''' = \cG'' \sm \{\bbR \sm Y\}$. For all $y\in Y$, because $Y\subset X \subset \bigcup_{G\in G''}G \cup \{\bbR\sm Y\}$, then $y\in G''$ for some $G'' \in \cG''$. Because $y\notin \{\bbR \sm Y\}$, then $G'' \neq \{\bbR \sm Y\}$. Thus, $G'' \in \cG'''$. Therefore, $\cG'''$ is an open finite cover of $Y$, and therefore $Y$ is compact.
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Theorem 10.16}
+\begin{thm}\label{10.16} Let $X \subset \bbR$.  $X$ is compact if and only if $X$ is closed and bounded.
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+\begin{itemize}
+    \item ($\implies$ :) If $X$ is compact then:
+    \begin{itemize}
+        \item By Theorem \ref{10.11}, $X$ is closed.
+        \item By Theorem \ref{10.9}, $X$ is bounded.
+    \end{itemize}
+    \item ($\impliedby$ :) Because $X$ is bounded, then for some $b\in \bbR$, $b>x$ for all $x\in X$. Moreover, for some $a\in \bbR$, $a<x$ for all $x\in X$. Therefore, $X\subset [a,b]\subset \bbR$. By Theorem \ref{10.14}, $[a,b]$ is compact. Thus, since $X$ is closed, then by Theorem \ref{10.15}, $X$ is compact.
+\end{itemize}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Lemma 10.17}
+\begin{lem}
+\label{10.17}
+A compact set $X \subset \bbR$ with no limit points must be finite.
+\end{lem}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}
+Because $X$ contains no limit points, then for all $p\in \bbR$, there exists some region $R$ containing $p$ such that $R\cap X\sm\{p\}= \emptyset$. Therefore, for all $x \in X$, there exists a region $R_\lambda$ containing $x$ such that $R_\lambda$ contains no other $x\in X$. $X\subset \bigcup_{\lambda \in \Lambda} R_\lambda$, and therefore because all $R_\lambda$ are regions and therefore open, $\cR = \{R\}_\lambda$ is an open cover of $X$. Because $\cR$ is an open cover of $X$, then, because $X$ is compact, then there exists a finite open subcover $\cR' = \{R\}_i$, where $i\in \{1,...,n\}$. Therefore, because $X\subset \bigcup_iR_i$, then for all $x_i\in X$, there exists a region $R_i\in \cR'$ such that $x_i\in R_i$. Because $R_i \in \cR'$, then since $\cR'\subset \cR$, then $R_i\in \cR$, and therefore, $R_i$ contains no other $x\in X$ other than $x_i$. Thus, because because there are as many $R_i\in \cR'$ as there are $x\in X$, then since $\cR'$ is finite, then there exists a finite number of $x$.
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Theorem  10.18}
+\begin{thm} Every bounded infinite subset of $\bbR$ has at least one limit point.
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}
+Assume, for the sake of contradiction, that if $X\subset $ is a bounded infinite set, then it does not contain any limit points. Since $LP(X) = \{\emptyset\}$, and $\emptyset \subset X$, then $LP(X) \subset X$, and therefore since $X$ contains all its limit points, then it is closed. Thus, since $X$ is closed and bounded, then by Theorem \ref{10.16}, $X$ is compact. Thus, since $X$ is compact and contains no limit points, then by Lemma \ref{10.17}, $X$ is finite, which is a contradiction. Thus, if $X\subset \bbR$ is a bounded infinite set, then $X$ must contain at least one limit point. 
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Theorem  10.19}
+\begin{thm}  \label{10.19} Suppose that $f\colon X\to \bbR$ is continuous.  If $X$ is compact, then $f(X)$ is compact.
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}
+Let $\cG = \{G\}_\lambda$ be an open cover of $f(X)$. Thus, $f(X) \subset \bigcup_\lambda G_\lambda$. Because $G_\lambda$ is open for every $\lambda$, then by Definition 9.4, because $f$ is continuous, then $f^{-1}(G_\lambda)$ is open in $X$ for all $\lambda$. Thus, by Definition 8.12, there must exists some open set $S_\lambda$ such that $S_\lambda \cap X = f^{-1}(G_\lambda)$ for all $\lambda$. Because for all $x\in X$, $f(x) \in G_\lambda$ for some $\lambda$, then $x\in f^{-1}G_\lambda$. Thus, for all $x$, $x\in S_\lambda$ for some $\lambda$. Therefore $\mathcal{S} = \{S\}_\lambda$ is an open cover of $X$. Because $X$ is compact, then there exists some open finite subcover $\mathcal{S}' \subset \mathcal{S}$, where $\mathcal{S}' = \{S\}_i$, where $i\in \{1,...,n\}$. Because $S_\lambda \cap X = f^{-1}(G_\lambda)$, then $f^{-1}(G_\lambda) \subset S_\lambda$, and therefore $X\subset \bigcup_{i\in \lambda; i\in \{1,...n\}}f^{-1}G_i \subset \bigcup_{i\in \{1,...n\}} S_i$. Let $\cG' = \{G\}_i$, where $i\in \lambda$. Thus, by Exercise 9.2 and My Lemma last script, $f(X)\subset f(f^{-1}(\bigcup_{G_i\in \cG'}G_i)) \subset \bigcup {G_i\in \cG'}G_i$. Thus, $\cG'\subset \cG$ is an open finite cover of $f(X)$. Therefore, because for any open cover of $f(X)$, $\cG$, there exists some open finite subcover of $f(X)$, $\cG'$, then $f(X)$ is compact.
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Corollary 10.20; Extreme Value Theorem}
+\begin{cor} \label{10.20} If $X \subset \bbR$ is non-empty, closed, and bounded
+and $f\colon X \arr \bbR$ is continuous, then 
+$f(X)$ has a first and last point.
+\end{cor}
+
+\vspace{4pt}     \hrule   \vspace{4pt}  \begin{proof}
+Because $X$ is closed and bounded, then by Theorem \ref{10.16}, $X$ is compact. Since $X$ is compact and $f$ is continuous, then by Theorem \ref{10.19}, $f(X)$ is compact. Since $f(X)$ is compact, then by Theorem \ref{10.16}, it is closed and bounded. Thus, because $f(X)$ is nonempty, closed, and bounded, then by Corollary 5.17, $f(X)$ has a first and last point.
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Example 10.21}
+\begin{exmp}  Use Corollary \ref{10.20} to prove that  if $f \colon [a,b] \arr \bbR$ is continuous, then there exists a point $c \in [a, b]$ such that $f(c) \geq f(x)$ for all $x \in [a, b]$.  Similarly, there exists a point $d \in [a, b]$ such that $f(d) \leq f(x)$ for all $x \in [a, b]$.
+\end{exmp}
+
+\section*{Additional Exercises}
+\begin{enumerate}
+\item
+\begin{enumerate}
+\item Let $X_1,X_2, X_3\cdots,$ be nonempty compact subsets of $\bbR$ such that 
+$X_1\supset X_2\supset X_3\supset\cdots .$
+Prove that $$\bigcap_{i=1}^\infty X_i\neq \emptyset.$$ 
+
+{\it Hint: Proof by contradiction.}
+\vspace{4pt}     \hrule   \vspace{4pt}  \begin{proof}
+Assume, for the sake of contradiction, that $$\bigcap_i^{\infty}X_i \neq \emptyset$$. Thus, because $\bbR \sm \emptyset = \bbR$, then for all $i\in \bbN$, $$X_i \subset \bbR \sm \bigcap_i^{\infty}X_i = \bbR$$. Then by Theorem 1.15:
+$$X_i \subset \bigcup_i^\infty \bbR \sm X_i = \bbR$$
+Thus, because $\cG = \{\bbR\}$ is an open cover of $X_i$ for all $i$, then $\cG = \{\bbR\sm X_i\}_{i\in \bbN}$ is an open cover of $X_i$ for all $i$. Thus, because all $X$ are compact, then there exists some finite $\cG' = \{\bbR \sm X_i\}_{i\in |n|}$. Thus, $$X_i \subset \bigcup_j^{|n|}(\bbR \sm X_i)$$. Consider the set $\cR = \{X_i\}_{i\in |n|}$. Thus, since it is finite, then it has some last point at some $X_k$. Thus, there does not exist any $X_{k+1}$ such that $X_{k+1}\subset X_k$ and therefore for any $x\in X_k$, since there does not exist any $X_{k+1}\subset X_k$, then $x\notin \bigcup_i^{|n|}(\bbR \sm X_i)$:
+$$X_k \not \subset \bigcup_i^{|n|}(\bbR \sm X_i)$$
+and therefore $\cG'$ is not a cover of $X_i$ for all $i$, which is a contradiction. 
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\item Consider a sequence of nonempty closed intervals $I_k \subset \mathbb{R}, k\in \mathbb{N}$ such that 
+$I_{k+1} \subset I_k$ and $|I_k| <\frac{1}{k},$ for all $k.$ (Here $|I_k|$ denotes the length of the interval.) Prove that 
+the intersection $$\bigcap_{k\in \mathbb{N}}I_k$$ consists of exactly one point. 
+\vspace{4pt}     \hrule   \vspace{4pt}  \begin{proof}
+Assume, for the sake of contradiction, that there does not exist just one point in $\bigcap_{k\in \bbN}I_k$. Because for all $I_k$, $|I_k|<\frac{1}{k}$, then because $I_k \neq \emptyset$, then there exists some $a\in I_k$ and thus $a+ |I_k|>6'$
+
+Thus:
+\begin{enumerate}
+\item If $\bigcap_{k\in \bbN}I_k = \emptyset$, then by 
+\end{enumerate}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+\end{enumerate}
+\end{enumerate}
+
+\vspace{4pt}     \hrule   \vspace{4pt}  \begin{proof}
+By Theorem \ref{10.14}, $[a,b]$ is compact, and therefore, by Theorem \ref{10.16}, $[a,b]$ is closed and bounded. Because $[a,b]$ is nonempty and $f$ is continuous, then by Corollary \ref{10.20}, $f[a,b]$ has a first and last point. Let $f(c)\in f(X)$ be the last point of $f[a,b]$, and therefore, for all $f(x)\leq f(c)$ for all $x\in f(x)$. Because $f(c) \in f(X)$, then $x\in X$. Similar logic applies for the first point at $f(d)$.
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+
+
+
+
+\section*{Acknowledgments} 
+Thanks, as always, to Professor Oron Propp for being a great mentor in both Office Hours and during class. Thanks also to Victor Hugo Almendra Hernández for being an amazing TA and having an amazing lecture on compactness, this script was so much more intuitive because of it. Also big huge thanks to all my great peers for presenting their proofs during class.
+\begin{thebibliography}{9}
+
+\bibitem{My brain} Agustin.org
+
+
+\end{thebibliography}
+
+\end{document}
+

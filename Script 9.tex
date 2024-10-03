@@ -1,0 +1,644 @@
+
+\documentclass[openany, amssymb, psamsfonts]{amsart}
+\usepackage{mathrsfs,comment}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[normalem]{ulem}
+\usepackage{url}
+\usepackage{lipsum}
+\usepackage[all,arc,2cell]{xy}
+\UseAllTwocells
+\usepackage{enumerate}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+
+\renewcommand{\phi}{\varphi}
+\renewcommand{\emptyset}{\O}
+
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\sm}{\setminus}
+
+
+\newcommand{\sarr}{\rightarrow}
+\newcommand{\arr}{\longrightarrow}
+
+\newcommand{\hide}[1]{{\color{red} #1}} % for instructor version
+%\newcommand{\hide}[1]{} % for student version
+\newcommand{\com}[1]{{\color{blue} #1}} % for instructor version
+%\newcommand{\com}[1]{} % for student version
+\newcommand{\meta}[1]{{\color{green} #1}} % for making notes about the script that are not intended to end up in the script
+%\newcommand{\meta}[1]{} % for removing meta comments in the script
+
+\DeclareMathOperator{\ext}{ext}
+\DeclareMathOperator{\ho}{hole}
+%%% hyperref stuff is taken from AGT style file
+\usepackage{hyperref}  
+\hypersetup{%
+  bookmarksnumbered=true,%
+  bookmarks=true,%
+  colorlinks=true,%
+  linkcolor=blue,%
+  citecolor=blue,%
+  filecolor=blue,%
+  menucolor=blue,%
+  pagecolor=blue,%
+  urlcolor=blue,%
+  pdfnewwindow=true,%
+  pdfstartview=FitBH}   
+  
+\let\fullref\autoref
+%
+%  \autoref is very crude.  It uses counters to distinguish environments
+%  so that if say {lemma} uses the {theorem} counter, then autrorefs
+%  which should come out Lemma X.Y in fact come out Theorem X.Y.  To
+%  correct this give each its own counter eg:
+%                 \newtheorem{theorem}{Theorem}[section]
+%                 \newtheorem{lemma}{Lemma}[section]
+%  and then equate the counters by commands like:
+%                 \makeatletter
+%                   \let\c@lemma\c@theorem
+%                  \makeatother
+%
+%  To work correctly the environment name must have a corrresponding 
+%  \XXXautorefname defined.  The following command does the job:
+%
+\def\makeautorefname#1#2{\expandafter\def\csname#1autorefname\endcsname{#2}}
+%
+%  Some standard autorefnames.  If the environment name for an autoref 
+%  you need is not listed below, add a similar line to your TeX file:
+%  
+%\makeautorefname{equation}{Equation}%
+\def\equationautorefname~#1\null{(#1)\null}
+\makeautorefname{footnote}{footnote}%
+\makeautorefname{item}{item}%
+\makeautorefname{figure}{Figure}%
+\makeautorefname{table}{Table}%
+\makeautorefname{part}{Part}%
+\makeautorefname{appendix}{Appendix}%
+\makeautorefname{chapter}{Chapter}%
+\makeautorefname{section}{Section}%
+\makeautorefname{subsection}{Section}%
+\makeautorefname{subsubsection}{Section}%
+\makeautorefname{theorem}{Theorem}%
+\makeautorefname{thm}{Theorem}%
+\makeautorefname{excercise}{Exercise}%
+\makeautorefname{cor}{Corollary}%
+\makeautorefname{lem}{Lemma}%
+\makeautorefname{prop}{Proposition}%
+\makeautorefname{pro}{Property}
+\makeautorefname{conj}{Conjecture}%
+\makeautorefname{defn}{Definition}%
+\makeautorefname{notn}{Notation}
+\makeautorefname{notns}{Notations}
+\makeautorefname{rem}{Remark}%
+\makeautorefname{quest}{Question}%
+\makeautorefname{exmp}{Example}%
+\makeautorefname{ax}{Axiom}%
+\makeautorefname{claim}{Claim}%
+\makeautorefname{ass}{Assumption}%
+\makeautorefname{asss}{Assumptions}%
+\makeautorefname{con}{Construction}%
+\makeautorefname{prob}{Problem}%
+\makeautorefname{warn}{Warning}%
+\makeautorefname{obs}{Observation}%
+\makeautorefname{conv}{Convention}%
+
+
+%
+%                  *** End of hyperref stuff ***
+
+%theoremstyle{plain} --- default
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{exercise}{Exercise}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{prob}{Problem}[section]
+\newtheorem{conj}{Conjecture}[section]
+%\newtheorem{ass}{Assumption}[section]
+%\newtheorem{asses}{Assumptions}[section]
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ass}{Assumption}[section]
+\newtheorem{asss}{Assumptions}[section]
+\newtheorem{ax}{Axiom}[section]
+\newtheorem{con}{Construction}[section]
+\newtheorem{exmp}{Example}[section]
+\newtheorem{notn}{Notation}[section]
+\newtheorem{notns}{Notations}[section]
+\newtheorem{pro}{Property}[section]
+\newtheorem{quest}{Question}[section]
+\newtheorem{rem}{Remark}[section]
+\newtheorem{warn}{Warning}[section]
+\newtheorem{sch}{Scholium}[section]
+\newtheorem{obs}{Observation}[section]
+\newtheorem{conv}{Convention}[section]
+
+%%%% hack to get fullref working correctly
+\makeatletter
+\let\c@obs=\c@thm
+\let\c@cor=\c@thm
+\let\c@prop=\c@thm
+\let\c@lem=\c@thm
+\let\c@prob=\c@thm
+\let\c@con=\c@thm
+\let\c@conj=\c@thm
+\let\c@defn=\c@thm
+\let\c@notn=\c@thm
+\let\c@notns=\c@thm
+\let\c@exmp=\c@thm
+\let\c@ax=\c@thm
+\let\c@pro=\c@thm
+\let\c@ass=\c@thm
+\let\c@warn=\c@thm
+\let\c@rem=\c@thm
+\let\c@sch=\c@thm
+\let\c@equation\c@thm
+\numberwithin{equation}{section}
+\makeatother
+
+\bibliographystyle{plain}
+
+%--------Meta Data: Fill in your info------
+\title{University of Chicago Calculus IBL Course}
+
+\author{Agustin Esteva}
+
+\date{Feb 9. 2024}
+
+\begin{document}
+
+\begin{abstract}
+
+16210's Script 9.\\ Let me know if you see any errors! Contact me at aesteva@uchicago.edu.
+
+
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+\setcounter{section}{9}
+We recall from Script 1 that if $f \colon X \rightarrow Y$ is a function and $B \subset Y$, then the \emph{preimage of $B$ under $f$} is the set
+\[
+f^{-1}(B) = \{ x \in X \mid f(x) \in B \}.
+\]
+We now give some basic properties of preimages.
+\newpage
+\subsection*{Lemma 9.1}
+\begin{lem}
+\label{9.1}
+Let $X\subset \bbR$ and $f\colon X\arr \bbR$.
+If $A, B \subset \bbR$,  then
+\begin{align*}
+f^{-1}(A\cup B) &= f^{-1}(A) \cup f^{-1}(B),\\
+f^{-1}(A\cap B) &= f^{-1}(A) \cap f^{-1}(B),\\
+ f^{-1}(A\sm B) & = f^{-1}(A)\sm f^{-1}(B)\\
+ \text{and}\qquad f^{-1}(\bbR)=X.
+\end{align*}
+\end{lem}
+\begin{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+\[
+f^{-1}(B) = \{ x \in X \mid f(x) \in B \}.
+\]
+\[
+f^{-1}(A) = \{ x \in X \mid f(x) \in A \}.
+\]
+\begin{enumerate}
+    \item 
+    \[f^{-1}(A\cup B) = \{ x \in X \mid f(x) \in A \cup B\}\]
+    \begin{enumerate}
+        \item If $x\in f^{-1}(A\cup B)$, then $x\in X$ and either:
+        \begin{enumerate}
+            \item $f(x) = A$, so then $x\in f^{-1}(A)$
+            \item $f(x) = B$, so then $x\in f^{-1}(B)$
+        \end{enumerate} 
+        Thus, $f^{-1}(A\cup B) \subset f^{-1}(A)\cup f^{-1}(B)$
+        \item If $x\in f^{-1}(A)$, then $x\in X$ and $f(x) \in A$. If $x\in f^{-1}(B)$, then $x\in X$ and $f(x) \in B$. Thus, $x\in X$ and $f(x) \in (A\cup B)$ and so $f^{-1}(A)\cup f^{-1}B \subset f^{-1}(A\cup B)$.
+    \end{enumerate}
+    Therefore, $f^{-1}(A)\cup f^{-1}B = f^{-1}(A\cup B)$
+    \item \[f^{-1}(A\cap B) = \{ x \in X \mid f(x) \in A \cap B\}\]
+    \begin{enumerate}
+        \item If $x\in f^{-1}(A\cap B)$, then $x\in X$ and:
+        \begin{enumerate}
+            \item $f(x) = A$ and therefore $x\in f^{-1}(A)$
+            \item $f(x) = B$ and therefore $x\in f^{-1}(B)$
+        \end{enumerate}
+        Therefore, $f^{-1}(A\cap B) \subset  f^{-1}(A) \cap  f^{-1}(B)$
+        \item If $x\in f^{-1}(A)$, then $x\in X$ and $f(x) \in A$. If $x\in f^{-1}(B)$, then $x\in X$ and $f(x) \in B$. Since $f(x)\in A \cap B$, then $x\in f^{-1}(A\cap B)$. Thus, $f^{-1}(A)\cap f^{-1}B \subset f^{-1}(A\cap B)$
+    \end{enumerate}
+    $f^{-1}(A)\cap f^{-1}B = f^{-1}(A\cap B)$
+    \item $f^{-1}(A\sm B) = \{x\in X | f(x) \in A\sm B\}$:
+    \begin{enumerate}
+        \item If $x\in f^{-1}(A\sm B)$, $x\in X$ and $f(x) \in A\sm B$. Therefore, $f(x) \in A$ and $f(x) \notin B$, which implies that $x\in f^{-1}(A)$ and $x\notin f^{-1}(B)$ Thus, $x\in f^{-1}(A)\sm f^{-1}(B)$ and therefore $f^{-1}(A\sm B) \subset f^{-1}(A)\sm f^{-1}(B)$.
+        \item If $x\in f^{-1}(A)\sm f^{-1}(B)$, then $x\in X$ and $f(x) \in A$ and $f(x) \notin B$. Thus, $f(x) \in A\sm B$. Therefore, $x\in f^{-1}(A\sm B)$. Therefore, $f^{-1}(A\sm B) \subset f^{-1}(A)\sm f^{-1}(B)$.
+    \end{enumerate}
+    $f^{-1}(A)\sm f^{-1}B = f^{-1}(A\sm B)$
+    \item Because for all $x\in f^{-1}(\bbR)$, $x\in X$, then $f^{-1}(\bbR) \subset X$. Because $X\subset \bbR$, then for all $x\in X$, $f(x)\in \bbR$, then $X\subset f^{-1}(\bbR)$.
+\end{enumerate}
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Example 9.2}
+\begin{exmp} 
+\label{9.2}
+Let $X\subset \bbR$ and  $f\colon X\arr \bbR$. Let $A\subset X$ and $B\subset \bbR$. Show that
+\[
+f(f^{-1}(B))\subset B\quad\text{and}\quad A\subset f^{-1}(f(A)).
+\]
+Give examples to show that the inclusions can be proper.
+\end{exmp}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+    \begin{enumerate}
+        \item 
+        \[f^{-1}(B) = \{x\in X | f(x) \in B\}\] If $y\in f(f^{-1}(B))$, then because $f$ is a function, there exists some $x\in f^{-1}(B)$ such that $y=f(x)$. Thus, $x\in f^{-1}(B)$ and, by the definition of the preimage, $f(x) \in B$ and therefore $y=f(x) \in B$ and so $f(f^{-1}(B))\subset B$
+        \begin{itemize}
+            \item Let $f\colon X \arr \bbR$, where $f(x)=x^2$, and $B = {-4}$. Thus, $f(f^{-1}(B)) = f(f^{-1}(-4)) = f(\emptyset) = \emptyset$. Thus, $\emptyset \subset {-4}$ but ${-4}\not \subset \emptyset$.
+        \end{itemize}
+        \item  \[f^{-1}(A) = \{x\in X | f(x) \in A\}\] If $x\in A$, then because $f$ is a function, $f(x) \in f(A)$. Thus, since $x\in A$ and $A\subset X$, then $x\in X$ and therefore $x\in f^{-1}(f(A))$. and so $x\in A \in f^{-1}(f(A))$. Therefore, $A \subset f^{-1}(f(A))$. 
+        \begin{itemize}
+            \item Let $f\colon X \arr \bbR$, where $f(x)=x^2$, and $A = {4}$. Thus, $f^{-1}(f(A)) = f^{-1}(f(4)) = f^{-1}(16) = \{-4,4\}$. Thus, $\{4\} \subset {-4,4}$ but ${-4,4}\not \subset \{4\}$.
+        \end{itemize}
+    \end{enumerate}
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Example 9.3}
+\label{9.3}
+\begin{exmp} Let $X\subset \bbR$ and $f:X\longrightarrow \bbR.$ Let $A\subset X$ and $B\subset \bbR.$ Then $f(A)\subset B$ if, and only if, $A \subset f^{-1}(B).$ 
+\end{exmp} 
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+\begin{itemize}
+    \item ($\implies :)$ Because $f(A) \subset B$, then for all $f(x)\in f(A)$, $f(x)\in B$. Thus, because $f(x) \in f(A)$, then $x\in A$ and since $A\subset X$, $x\in X$. Thus, since $x\in X$ and $f(x) \in B$, $x\in f^{-1}(B)$. Thus, $A\subset f^{-1}(B)$.
+    \item ($\impliedby:$) Because $A \subset f^{-1}(B)$. Then if $x\in A$, $f(x) \in f(A)$ and $x\in f^{-1}(B)$. Since $x\in f^{-1}(B)$ and $x\in X$ ($A\subset X$), then $f(x) \in B$. Thus, for all $f(x) \in f(A)$, $f(x) \in B$ and therefore, $f(A) \subset B$.
+\end{itemize}
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Definition 9.4}
+\begin{defn} \label{9.4} Let $X\subset \bbR$. A function $f \colon X \arr \bbR$ is \emph{continuous} if for every open set $U \subset \bbR$, the preimage $f^{-1}(U)$ is open in $X$.
+\end{defn}
+
+\subsection*{Proposition 9.5}
+\begin{prop} Let $X\subset \bbR$. A function  $f\colon X\arr \bbR$ is continuous if, and only if, for every closed set $F\subset \bbR,$ the preimage $f^{-1}(F)$ is closed in $X$.
+\end{prop}\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:\\
+    \begin{itemize}
+        \item ($\implies$:) Since $f$ is continuous, then for every open set $U\subset \bbR$, its preimage $f^{-1}(U)$ is open in $X$. 
+        Because $U$ is open, then $F = \bbR \sm U$ is closed. It follows that 
+        $f^{-1}(F) = f^{-1}(\bbR \sm U)$. By Example \ref{9.2}, $f^{-1}(F) = f^{-1}(\bbR) \sm f^{-1}(U)$. By Lemma \ref{9.1}, $f^{-1}(\bbR) = X$ and therefore $f^{-1}(F) = X \sm f^{-1}(U)$. Since $f^{-1}(U)$ is open in $X$, then by Example 8.14, $X\sm f^{-1} U$ is closed in $X$. Thus, $f^{-1}(F)$ is closed in $X$.
+        \item ($\impliedby$:) Since for all $F\subset \bbR$, $f^{-1}(F)$ is closed in $X$, then by example $8.14$, $X\sm f^{-1}(F)$ is open in $X$. Thus, since $X = f^{-1}(\bbR)$ (Example \ref{9.2}), then $X\sm f^{-1}(F) = f^{-1}(\bbR \sm F)$. Thus, since $F\subset \bbR$ is closed, then $\bbR \sm F$ is open. Thus, let $U = \bbR \sm F$ . Thus, for every open set $U\in \bbR$, $f^{-1}(U)$ is open in $X$.
+    \end{itemize}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Definition 9.6}
+\begin{defn}
+\label{9.6}
+Let $X\subset Y\subset \bbR$ and let $f:Y\longrightarrow \bbR.$ Then the {\em restriction of $f$ to $X,$} written $f|_X,$ is the function
+$f|_X : X\longrightarrow \bbR$ defined by 
+$$f|_X (x)=f(x),\quad \text{for all }x\in X.$$
+\end{defn} 
+
+\subsection*{Proposition 9.7}
+\begin{prop}
+\label{9.7}
+Let $X\subset Y\subset \bbR$. If $f\colon Y\to \bbR$ is continuous, then the restriction of $f$ to $X$ is continuous.
+\end{prop}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+    Because $f$ is continuous, then for all open $U \subset \bbR$, $f^{-1}(U)$ is open in $Y$. Thus, because $f^{-1}(U)$ is open in $Y$, there exists some open set $S$ such that $S\cap Y = f^{-1}(U)$. \begin{itemize}
+        \item By Definition \ref{9.6}, since $f|_X^{-1}(U) = \{x\in X | f|_x(x)U\}$ and $f|_x(x) = f(x)$, then $f|_X^{-1}(U) = \{x\in X | f(x)\in U\}$
+        \item Because $f^{-1}(U) = \{x\in Y | f(x) \in U\}$, then $X\cap f^{-1}(U) = X\cap \{x\in Y | f(x) \in U\} = \{x\in X | f(x) \in U\}$
+    \end{itemize}
+Therefore, $f|_X^{-1}(U) = f^{-1}(U) \cap X$. Thus: $f|_X^{-1}(U) = X\cap S \cap Y$. Because $X\subset Y$, then $X \cap Y = X$. Therefore, $f|_X^{-1}(U) = S \cap X$, and so $f|_X^{-1}(U)$ is open in $X$ for all $U\subset \bbR$, and thus, by Definition \ref{9.4}, $f|_X$ is continuous. 
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+It is important that the definition of continuity of $f\colon X\arr \bbR$ states that the preimage of an open set is 
+{\em open in $X$} but not necessarily open in $\bbR$. 
+\newpage
+\textbf{Lemma: Agustin's Rule of Subsets and Preimages} If $A\subset B\subset \bbR$ and $f\colon X\arr \bbR$, then $f^{-1}(A)\subset f^{-1}(B)$.
+\vspace{4pt}     \hrule   \vspace{4pt} \
+\begin{proof}
+If $x\in f^{-1}(A)$, then $f(x) \in A$ and $x\in X$. Thus, since $f(x) \in A$ and $A\subset B$, then $f(x) \in B$. Thus, $x\in f^{-1}(B)$ Note that this implies that if $A\subset \bbR$, then $f^{-1}(A) \subset X$.
+\end{proof}  \vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Example 9.8}
+\begin{exmp}  
+ \label{9.8}
+Let $X\subset \bbR$ and $f:X\to \bbR.$ Let $U\subset \bbR$ be open.
+Show that 
+\begin{enumerate}
+\item[i)] if $X$ itself is open then $f^{-1}(U)$ is open in $X$ if, and only if, it is open (in $\bbR$); 
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}
+If $X$ is open:
+\begin{itemize}
+    \item ($\implies$:) If $X$ is open and $f^{-1}(U)$ is open in $X$, then $f^{-1}(U) = X \cap S$, where $S$ is an open set. Thus, since $X$ and $S$ are open, then by Theorem 4.17, $X\cap S$ is open, and so $f^{-1}(U)$ is open.
+    \item ($\impliedby$:) Since $X$ is open and $f^{-1}(U)$ is open, then since $U \subset \bbR$, then $f^{-1}(U)\subset f^{-1}(\bbR)$, and so $f^{-1}(U) \subset X$. Therefore, because $X\cap f^{-1}(U) = f^{-1}(U)$, and $f^{-1}(U)$ is open, then $f^{-1}(U)$ is open in $X$. 
+\end{itemize}
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+\item[ii)] if $X$ is not open then there is an open subset $U$ for which $f^{-1}(U)$ is open in $X$ but not open in $\bbR.$
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+\begin{enumerate}
+    \item Proof 1: If $U = \bbR$, then $U$ is open and by \ref{9.2}, $f^{-1}(U) = X$, which is not open. Thus, $f^{-1}(U)$ is not open in $\bbR$.
+    \item Because $X$ is not open, then assume that there does not exist a $f^{-1}(U)$ such that $f^{-1}(U)$ is not open in $\bbR$. Thus, for all $U$, $f^{-1}(U)$ is open. Thus, if $f^{-1}(U) = X$, then $X\cap f^{-1}(U) = f^{-1}(U)$, and so $f^{-1}(U)$ is open in $X$, then it follows that $X \cap X = X$, and $X$ must be open in $X$ and therefore $X$ must be open, which is a contradiction. 
+\end{enumerate}
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+\end{enumerate}
+
+\end{exmp}
+
+\subsection*{Definition 9.9}
+\begin{defn}
+\label{9.9}
+Let $X\subset \bbR.$  The function $f\colon X\to \bbR$ is {\em continuous at $x\in X$} if, 
+for every region $R$  containing $f(x)$, there exists an open set $S$ containing $x$ such that $S\cap X\subset f^{-1}( R)$.
+\end{defn} 
+\newpage
+\textbf{Remark: Rewriting Definition \ref{9.9}} Let $X\subset \bbR.$  The function $f\colon X\to \bbR$ is {\em continuous at $x\in X$} if, for every region $R$  containing $f(x)$, there exists an open set $S$ containing $x$ such that $f(S) \cap f(X)\subset R$. 
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}
+    Since $S\cap X \subset f^{-1}(R)$, then it follows that $f(S\cap X) \subset f(f^{-1}(R))$. By Example \ref{9.2}, $f(f^{-1}(R)) \subset R$. By Lemma \ref{9.1}, $f(S\cap X) = f(S) \cap f(X)$. Therefore, $f(S)\cap f(X) \subset f(f^{-1}(R)) \subset R$, so $f(S)\cap f(X)\subset R$. It is useful to note that if $X= \bbR$, then since $f(S\cap \bbR) = f(S)$, then it suffices to show that $f(S) \subset R$
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Theorem 9.10}
+\begin{thm}\label{reformulation}
+\label{9.10}
+Let $X\subset \bbR.$ The function $f\colon X\to \bbR$ is continuous if and only if it is continuous at every $x\in X$.
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof} :\\
+\begin{itemize}
+    \item ($\implies$:) Because $f$ is continuous, then for all open $U \in \bbR$, $f^{-1}(U)$ is open in $X$. Thus, $X \cap S = f^{-1}(U)$, where $S$ is an open set containing $x$. Because $x\in X,S$, then $x\in f^{-1}(U)$ and therefore $f(x) \in U$. Therefore because $U$ is open, let $U = R$, where $R$ is a region. Therefore, for all regions $R$ containing $f(x)$, because $f(X) \cap f(S) \subset R$, then $f(x) \in f(X),f(S)$ and therefore $x\in X$ and $x\in S$, so therefore $x\in f^{-1}(R)$ and $X\cap S = f^{-1}(R)$. Therefore, $X\cap S \subset f^{-1}(R)$ 
+    \item ($\impliedby$:) If $f$ is continuous at every $x\in X$, then for every region $R\in \bbR$ such that $f(x)\in R$, there exists some open $S$ such that $x\in S$ and $X\cap S \subset f^{-1}(R)$. Thus, if $U$ is an open set in $\bbR$, then $f^{-1}(U) \subset X$. Thus, if $x\in f^{-1}(U)$, there exists some region $R_x$ such that $f(x) \in R_x \subset U$ and therefore $x \in (S_x \cap X) \subset f^{-1}(R_x) \subset f^{-1}(U)$. Thus, since $f^{-1}(U) = \bigcup_{x \in f^{-1}U}f^{-1}U$:
+    \begin{enumerate}
+        \item If $x\in \bigcup_{x\in f^{-1}(U)}f^{-1}(S_x) \cap X$, then since $x\in S_x\cap X$ for some $x$ and $S_x\cap X \subset f^{-1}(U)$, then $x\in f^{-1}(U)$. Thus, $\bigcup_{x\in f^{-1}U}S_x\cap X \subset f^{-1}(U)$
+        \item If $x\in f^{-1}(U)$, then because $f^{-1}(U) \subset X$, then $x\in X$. Moreover, since $x\in X$, then there exists an open set $S_x$ containing $x$ such that $S_x\cap X \subset f^{-1}(R_x)$. Thus, since $x\in S_x\cap X$, then $x\in \bigcup_{x\in f^{-1}U} S_x\cap X$ and therefore, $f^{-1}(U) \subset \bigcup_{x\in f^{-1}U}S_x\cap X$
+    \end{enumerate}
+    Thus, $f^{-1}(U) = \bigcup_{x\in f^{-1}(U)}S_x\cap X$ and by Corollary 4.16, since $S_x$ is open for all $x \in \bigcup_{x\in f^{-1}(U)}S_x$, then $\bigcup_{x\in f^{-1}(U)}S_x$ is open. Thus, 
+    $f^{-1}(U)$ is open in $X$ for all $U\subset \bbR$ and therefore $f$ is continuous.  
+\end{itemize}
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Theorem 9.11}
+\begin{thm}
+\label{9.11}
+Let $X\subset \bbR.$ Suppose that $f \colon X \arr \bbR$ is continuous.  If $X$ is connected, then $f(X)$ is connected.
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}
+If $X$ is connected, then assume, for the sake of contradiction, that $f(X)$ is not connected. Thus, $f(X) = f(A)\cup f(B)$, where $f(A),f(B)$ are nonempty, disjoint, and open in $f(X)$. Let $A = f^{-1}(f(A))$ and $B = f^{-1}(f(B))$
+\begin{enumerate}
+    \item Disjoint:
+    \begin{align*}
+        A\cap B &= f^{-1}(f(A)) \cap f^{-1}(f(B))\\
+        \tag{\ref{9.1}} A\cap B &= f^{-1}(f(A) \cap f(B))\\
+        \tag{Disjoint} A\cap B &= f^{-1}(\emptyset)\\
+        A\cap B &= \emptyset
+    \end{align*}
+        \item Union:
+    \begin{align*}
+        A\cup B &= f^{-1}(f(A)) \cup f^{-1}(f(B))\\
+        \tag{\ref{9.1}} A\cup B &= f^{-1}(f(A) \cup f(B))\\
+        \tag{Definition} A\cap B &= f^{-1}(f(X))\\
+        \tag{\ref{9.2}} X &\subset A\cup B\\
+    \end{align*}
+    Assume that there exists some $x\in A\cup B$ such that $x\notin X$. Thus, there exists some $f(x) \in f(A\cup B)$ such that $f(x) \notin f(X)$. However, since $f(A) \cup f(B) = f(X)$, then if $f(x) \in f(A\cup B)$, then $f(x) \in f(X)$. Thus, $A\cup B \subset X$ and therefore $A\cup B = X$.
+    \item Open. Since $f(A)$ is open in $f(X)$, then there exists some open set $S$ such that $S\cap f(X) = f(A)$. Thus:
+    \begin{align*}
+        S\cap f(X) &= f(A)\\
+        f^{-1}(S\cap f(X)) &= f^{-1}f(A))\\
+        f^{-1}(S) \cap X &= A
+    \end{align*}
+    Since $f$ is continuous, then since $f(A) \subset \bbR$, then $f^{-1}(S) \cap X = f^{-1}(f((A)) = A$ is open in $X$ (\ref{9.4}), so then $f^{-1}(S)$ must be open. Therefore, $A$ is open in $X$. Similarly, $B$ is open in $X$. 
+    \item Nonempty: Because $f(A) \neq \emptyset$, then $f(X)\neq \emptyset$, so then there must exist some $x\in X$ such that $f(x) \in f(A)$ and therefore $x\in f^{-1}(f(A))=A\neq\emptyset$. Similarly, $B\neq \emptyset$.
+\end{enumerate}
+Therefore, since $X = A\cup B$, where $A,B$ are nonempty, disjoint, and open in $X$, then $X$ is disconnected, which is a contradiction. 
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+
+\subsection*{Corollary 9.12}
+\begin{cor}  
+\label{9.12}
+Let $f\colon [a,b] \arr \bbR $ be continuous. Then for every point $p$ between $f(a)$ and $f(b)$ there exists $c$ such that $a<c<b$ and $f(c)=p$. 
+\end{cor}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:\\
+Because $[a,b]$ is an interval (8.1), then it is connected (Theorem 8.16). Thus, since $[a,b]$ is connected and $f$ is continuous, then by Theorem \ref{9.11}, $f[a,b]$ is connected and again by 8.16, $f[a,b]$ is an interval. Since $f(a), f(b) \in f[a,b]$, and WLOG $f(a)<f(b)$, then $[f(a), f(b)] \subset f[a,b]$. Thus, because $f(a)<p<f(b)$, then $p\in [f(a), f(b)]$ and therefore $p\in f([a,b])$.
+Thus, there exists some $c\in (a,b)$ such that $f(c) = p$ and therefore, $a<c<b$.
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+Finally we consider the relationship between continuity and inverse functions.
+
+\subsection*{Lemma 9.13}
+\begin{lem}
+\label{9.13}
+If $f:(a,b)\to\bbR$ is continuous and injective, then $f$ is either strictly increasing or strictly decreasing on $(a,b)$.
+\end{lem}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+\begin{enumerate}
+    \item If $a<b$, because $(a,b)$ is an interval and is connected, then for all $a',b' \in (a,b)$ such that, WLOG, $a'<b'$ and $[a',b']\subset (a,b)$. Because $[a',b']$ is connected, then there exists some $x\in [a',b']$. There are three cases:
+    \begin{enumerate}
+        \item $f(a') = f(b')$. Thus, since $f$ is injective, then $a' = b'$. However, since there exists some $a'<x<b'$, then $a'\neq b'$, which is a contradiction. Thus, $f(a') \neq f(b')$ for any $a',b' \in (a,b)$.
+        \item $f(a') < f(b')$. For any $x\in [a',b']$, since $f$ is injective, then $f(x) \neq f(a'), f(b')$ and thus:
+        \begin{enumerate}
+            \item Assume $f(a')<f(b')<f(x)$, then by Corollary \ref{9.12}, there exists some $c\in (a',x)$ such that $f(c) = f(b')$ and therefore, since $f$ is injective, $c=b'$. However, since $a'<c<x<b'$, then by transitivity, $c\neq b'$. 
+            \item Assume $f(x) < f(a') < f(b')$, then by Corollary \ref{9.12}, there exists some $c\in (x,b')$ such that $f(c) = f(a')$ and therefore, since $f$ is injective, $c= a'$. However, since $a'<x<c<b'$, then by transitivity, $a'\neq c$. 
+        \end{enumerate}
+        Thus, for any $x\in [a',b']$, then $f(a')<f(x)<f(b')$. Therefore, for any $x,y \in [a',b']$ such that $a'< x<y < b'$. Since $x,y \in [a',b']$, then $f(x),f(y) \in f([a',b'])$
+        \begin{enumerate}
+            \item Assume $f(y)<f(x)$. Thus, since $f(x)<f(b')$, then there exists some $c\in (y,b')$ such that $f(c) = f(x)$ and therefore, since $f$ is injective, $c=x$. However, since $x<y<c<b'$, then $c\neq y$, which is a contradiction. 
+            \item Thus, $f(x) < f(y)$ 
+        \end{enumerate}
+        Therefore, $f$ is strictly increasing within $[a',b']$. Thus, because this logic applies for all $a',b'$, then because $f$ is strictly increasing for any $a',b' \in (a,b)$, then $f$ is strictly increasing.
+        \item $f(a') > f(b')$. Then by similar logic, $f$ is strictly decreasing.
+    \end{enumerate}
+\end{enumerate}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+In Proposition 1.27 we saw that if $f:A\longrightarrow B$ is bijective then there is a bijection $g:B\longrightarrow A,$ called the {\em inverse function},  such that $(g\circ f)(a)=a, $ for all $a\in A$, and $(f\circ g)(b)=b,$ for all $b\in B.$ 
+We denote the inverse function $g$  by $f^{-1}$. 
+
+\subsection*{Example 9.14}
+\begin{exmp} 
+\label{9.14}
+Show that if $f\colon A\to \bbR$ is injective, then there is an injection $g:f(A)\to \bbR$  such that $(g\circ f)(a)=a,$ for all $a\in A,$ and $(f\circ g)(b)=b,$ for all $b\in f(A).$  
+This $g$ is called the inverse function for $f.$
+\end{exmp}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Because $f\colon A \arr \bbR$, then define $f=h\colon A \arr f(A)$. Assume, for the sake of contradiction, that there exists some $h(x) = h(y)$ where $x\neq y$. Thus, $f(x) = f(y)$ and because $f$ is injective, then $x=y$. Therefore, $h$ is injective. Assume that $h$ is not surjective, thus, for some $h(a) \in f(A)$, $a\notin A$, which is a contradiction, since there must exist some $x\in A$ such that $f(a) = h(a)$. Thus, $f=h$ is bijective. Thus, by Proposition 1.27, there is a bijection $j\colon f(A) \arr A$. Since $A\subset \bbR$, then let $j=g\colon f(A) \arr \bbR$. By the same logic as above, $g$ is injective.  
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Theorem 9.15}
+\begin{thm}\label{invfun}
+\label{9.15}
+If $f\colon (a,b)\to\bbR$ is continuous and injective, then the inverse function $g\colon f((a,b))\to \bbR$ is continuous.
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+\textbf{Mini Lemma:}Let $A$ be a region, then $g^{-1}(A\cap (a,b))$ is open, where $g^{-1}$ is the preimage:\\ Since $g^{-1}(A\cap (a,b))$ is the preimage, then $g^{-1}(A\cap (a,b)) = \{x\in (f(a,b)))| g(x) \in A\cap (a,b)\}$, then $g^{-1}(A\cap (a,b)) = g^{-1}(A)$. Let $U = A \cap (a,b)$. Because both $A$ and $(a,b)$ are regions, then $U$ is a region and therefore, by the same logic as above, $g^{-1}(A\cap (a,b)) = g^{-1}(A) = f(U)$ (\ref{9.14}). Therefore, since $U$ is a region, then it is an interval (8.2), and therefore it is connected (8.10), and therefore, since $f$ is continuous, then $f(U)$ is connected (\ref{9.10}). Thus, if $p\in f(U)$, then there exists an $x\in U$ such that $f(x) = p$. Because $f$ is injective and continuous, then by \ref{9.13}, $f$ is strictly increasing or decreasing. Therefore, for all $x\in U$, because $U$ is open, by 4.9 there exists some $m,n \in U$ such that $x\in (m.n)\subset U$ and therefore, without loss of generality, $f(m) < f(x) < f(n)$, and so $f(x)$ is not a first or last point, and therefore $f(U)$ is open. Thus, if $U$ is an open region, then $f(U)$ is open. \\\\Thus, if $X$ is an open set, then by Theorem 4.13, $X = \bigcup_{i\in I}(A_i)$, where $I$ is some index and all $A_i$ are open sets. Therefore, it follows that $f(X) = g^{-1}(X) = g^{-1}(X\cap (a,b)) = g^{-1}(\bigcup_{i\in I}A_i\cap (a,b)) = \bigcup_{i\in I}g^{-1}(A_i)\cap (a,b)$. Therefore, because $g^{-1}(A_1)$ is open for all $i\in I$, then $g^{-1}(X)$ is open in $(a,b)$ for any $X\subset \bbR$ and therefore, $f(a,b)$ is continuous. 
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Additional Exercises}
+\subsection*{Additional Exercise 3}
+Let $A \subset \bbR$ be an open set and define $\chi_A: \bbR \to \bbR$ by
+\[
+	\chi_A(x) =
+		\begin{cases}
+			1, \qquad &\text{if } x \in A,\\
+			0, &\text{if } x \notin A.
+		\end{cases}
+\]
+\begin{enumerate}
+	\item Show that $\chi_A$ is continuous at every point in $A$.
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+If $x\in A$, then because $\chi_A\colon \bbR \arr \bbR$, then if $\chi_A$ is continuous for all $x\in A$, then for all regions $R$, containing $f(x)=1$, there exists some open set $S$ such that $f(S\cap \bbR) \subset R$. Because $A$ is open and $A\subset \bbR$, then $f(A\cap \bbR) \subset R \implies f(A) \subset R$ and since $f(A) = \{1\}$, then for all regions $R$ containing 1, then $f(A)\subset R$, and thus, by Theorem \ref{9.9}, $\chi_A$ is continuous at every $x\in A$.
+ \end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+	\item Where else is $\chi_A$ continuous?
+ \vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Let a boundary point be defined as some $s$ such that $s\in LP(A)\setminus A$. Thus, $s\in \bbR \setminus A$. It suffices to show that for all regions $R$ containing $f(x) = 0$, where $x\notin A$ and $x\neq s$, there exists some open set $S$ containing $x$ such that $f(S) \subset R$. Because $A$ is open, if $s\in A$, then $s$ would be the last point of $A$, which would be a contradiction, since regions have no last point. Therefore, $s\notin A$. Because $s\in LP(A)$, then for all $R_s$ containing $s$, $R_s\cap A\sm \{s\} \neq \emptyset$, and therefore for any open region $S_s$ containing $s$, $S_s$ contains some elements of $A$. Therefore, for any $S$, $1\in f(S)$. However, because there exists some $R$ containing $0$ such that $1\notin R$ (such as $(\frac{-1}{2}, \frac{1}{2})$), then $S\not\subset R$, and so $\chi_A$ is not continuous at $s$. 
+\begin{itemize}
+    \item Consider the case when $S_s$ contains some $x\notin A$ (informally, this is the case when $A$ is "separated by more than just $s$). Thus because $\bbR$ is connected, then there exists some $m,n\notin A$ such that $m,n \in S_s$ and $m,n \neq s$ and $m<x<n$. Therefore, for any region $R$ containing $0$, then there exists the open set $S = (m,n)$ such that no element of $A$ is in $S$ and $x\in S$. Thus, $f(S) = \{0\}$ and therefore $f(S) \subset f(R)$.
+\end{itemize}
+Thus, by Theorem \ref{9.9}, $\chi_A$ is continuous at any $x\in \bbR$ where $x\neq s$.
+ \end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+\end{enumerate}
+\textbf{Remark:}
+    Let $\bbI$ be the set of all irrationals
+\subsection*{Additional Exercise Liam}
+Let $f\colon \bbR \arr \bbR$ be defined by 
+\[     f(x) = \begin{cases} 
+          \frac{1}{b} & x = \frac{a}{b} \; \text{with} \; a\in \bbZ; \text{and} \; a\in \bbN \; \text{coprime} \\
+          0 & x\in \bbI 
+       \end{cases}
+    \] 
+Show that: 
+\begin{enumerate} [a]
+    \item $f$ is not continuous at every rational
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+    Assume, for the sake of contradiction, that for all $f(x)$ such that $x\in \bbQ$, then for all regions $R$ containing $x$, there exists an open set $S$ containing $x$ such that $S\cap \bbR \subset f^{-1}(R)$. Because $S\subset \bbR$, then $S\cap \bbR = S$. Therefore, it follows that $f(S) \subset R$. 
+    \begin{itemize}
+        \item Thus, because any $x\in \bbQ$, then $f(x)\leq 1$ and $f(x)>0$, then there exists a region $(0,1.5)$ containing all $f(x)$.
+        \item Moreover, by Theorem 4.9, for all $S\subset \bbR$ containing $x$, there exists a region $(a,b) \subset R$ containing $x$. By by additional exercise 2.c in script 7, there exists some $p\in (a,b)$ such that $p\in \bbI$.
+    \end{itemize}
+    Thus, for all $S\subset \bbR$, there exists a $p\in \bbI$ such that $f(p) = 0$, and therefore, since $0\in f(S)$ and $0\notin R$, then $f(S) \not \subset R$ for any $S$, which is a contradiction. Thus, because there exists a region $R$ containing $f(x)$ such that $f(S\cap \bbR) \not \subset R$, then $f$ is not continous at every rational.
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+\item $f$ is continuous at every irrational.
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+For all $x\in \bbI$, $f(x) = 0$. Because all regions containing $R$ are intervals (8.2), then there exists some $n\in \bbN$ such that $B=(-\frac{1}{n},\frac{1}{n}) \subset R$. Therefore, if there exists some $f(S) \subset (-\frac{1}{n},\frac{1}{n})$, then $f(S)\subset R$, and so $f$ is continuous for all $x\in \bbI$. Assume, for the sake of contradiction, that $S$ contains some $p\in \bbQ$ such that $p = \frac{a}{b}$, where $b\leq n$ and $b\in \bbN$:
+\begin{enumerate}
+    \item If $b= n$, then $\frac{1}{n}\in f(S)$, and since $\frac{1}{n}\notin (-\frac{1}{n},\frac{1}{n})$, then $f(S) \not\subset A$.
+    \item If $b<n$, then since $\frac{1}{n}<\frac{1}{b}$, then $\frac{1}{b}\notin A$ and therefore since $\frac{1}{b} \in f(S)$, $f(S)\not\subset A$. 
+\end{enumerate}
+It follows that if $\frac{a}{b}\in S$, then $b>n$
+
+For all $x\in \bbI$, $f(x) = 0$. Because all regions containing $R$ are intervals (8.2), then there exists some $n\in \bbN$ such that $B=(-\frac{1}{n},\frac{1}{n}) \subset R$.
+Let $I_n = \{1\leq i \leq n | i\in \bbN\}$
+Therefore, for all $\frac{a}{b}\in S$, $b>n$. Therefore, for all $i\in I_n$, because $i\in \bbN$, then there exists some $a_i\in \bbN$ such that $a_i<xi<a_1+1$ (Corollary 6.14). Thus, since $S_i = (\frac{a}{i},\frac{a+1}{i})$: 
+\begin{enumerate}
+    \item If $n=1$, then $i=1$, and therefore, $S_1 = (\frac{a_1}{1}, \frac{a_1+1}{1})$. By Corollary 6.14, $x\in S_1$
+    \item If $n\in \bbN$, then $i\in \{1,2,...,n\}$, and therefore assume $S_i = (\frac{a_i}{i}, \frac{a_i+1}{i})$ for all $i\in I_n$. It follows that because $xi\leq xn$, and, then $a_i\leq a_n$, then because $n\geq i$ for all $i$, $\frac{a_i}{i}\leq \frac{a_n}{n}$ for all $i\in I_n$ Note $x\in S_i$ for all $i\in \{1,2,...,n\}$
+    \item If $n+1$, then $i\in \{1,2,...,n,n+1\}$, and therefore $S_{n+1} = (\frac{a_{n+1}}{n+1}, \frac{a_{n+1}+1}{n+1})$. For the same reasoning as above, $\frac{a_n}{n}<\frac{a_n+1}{n+1}$, and therefore, by our inductive step, it follows that $\frac{a_{n+1}}{n+1}>\frac{a_i}{i}$ for any $i\neq n+1 \in I_{n+1}$.
+\end{enumerate}
+Therefore, for all $n\in N$, $\frac{a_i}{i}<\frac{a_n}{n}<x$ where $i\in I_n$. Moreover, there must exist some $\frac{a_i+1}{i}\leq \frac{a_n+1}{n}$ for all $i\in I_n$. Thus, let $S = \bigcap_{i\in I_n}(S_i)$. It follows that because $x\in S_i$ for all $i$, then $x\in S$. Because all $S_i$ are regions, then $S$ is open (4.17). Moreover, by the reasoning above, $S = (\frac{a_n}{n}, \frac{a_i+1}{i})$ for some $i\in I$. 
+Assume, for the sake of contradiction, that there exists some $\frac{c}{d}\in S$ such that $d\leq n$. Because $c,d$ coprime, then $(\frac{a_n}{n} < \frac{c}{d}< \frac{a_i+1}{i})$:
+\begin{enumerate}
+    \item If $c\leq a_d<x$, then $\frac{c}{d}< \frac{a_d}{d}$. However, because $d\leq n$, then $\frac{a_d}{d} \leq \frac{a_n}{n}$, so therefore $\frac{c}{d}<\frac{a_n}{n}$, and therefore $\frac{c}{d}\notin S$, which is a contradiction.
+    \item If $c\geq a_d +1$, then $\frac{a_d}{d} < \frac{a_d+1}{d} \leq \frac{c}{d}$, and therefore, $\frac{c}{d} \notin S$, which is a contradiction. 
+\end{enumerate}
+Thus, all $\frac{a}{b} \in S$, $b>n$. Note that:
+\begin{enumerate}
+    \item If $b= n$, then $\frac{1}{n}\in f(S)$, and since $\frac{1}{n}\notin (-\frac{1}{n},\frac{1}{n})$, then $f(S) \not\subset A$.
+    \item If $b<n$, then since $\frac{1}{n}<\frac{1}{b}$, then $\frac{1}{b}\notin A$ and therefore since $\frac{1}{b} \in f(S)$, $f(S)\not\subset A$. 
+    \item If $b>n$, then since $\frac{1}{b}<\frac{1}{n}$, then since $\frac{1}{b} \in f(S)$, $\frac{1}{b} \in R$, and therefore, $f(S) \subset R$ 
+\end{enumerate}
+It follows that because for all $\frac{a}{b}\in S$, $b>n$ then $f(S) \subset R$, and so $f$ is continuous for all $x\in \bbI$
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+\end{enumerate}
+
+
+\section*{Acknowledgments} 
+Thanks, as always, to Professor Oron Propp for being a great mentor in both Office Hours and during class. Thanks also to Victor Hugo Almendra Hernández for being an amazing TA and resource. I want to acknowledge Sid Malapati for his advice on $\bigcup$ in \ref{9.10}, and Arko Sinha for his help on \ref{9.11}. Also thanks to all my great peers for presenting proofs during class.
+\begin{thebibliography}{9}
+
+\bibitem{My brain} Agustin.org
+
+
+\end{thebibliography}
+
+\end{document}
+

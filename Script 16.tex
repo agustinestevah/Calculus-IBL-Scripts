@@ -1,0 +1,937 @@
+
+\documentclass[openany, amssymb, psamsfonts]{amsart}
+\usepackage{mathrsfs,comment}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[normalem]{ulem}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{lipsum}
+\usepackage{marvosym}
+\usepackage[all,arc,2cell]{xy}
+\UseAllTwocells
+\usepackage{enumerate}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+
+\renewcommand{\phi}{\varphi}
+\renewcommand{\emptyset}{\O}
+
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\sm}{\setminus}
+
+
+\newcommand{\sarr}{\rightarrow}
+\newcommand{\arr}{\longrightarrow}
+
+\newcommand{\hide}[1]{{\color{red} #1}} % for instructor version
+%\newcommand{\hide}[1]{} % for student version
+\newcommand{\com}[1]{{\color{blue} #1}} % for instructor version
+%\newcommand{\com}[1]{} % for student version
+\newcommand{\meta}[1]{{\color{green} #1}} % for making notes about the script that are not intended to end up in the script
+%\newcommand{\meta}[1]{} % for removing meta comments in the script
+
+\DeclareMathOperator{\ext}{ext}
+\DeclareMathOperator{\ho}{hole}
+%%% hyperref stuff is taken from AGT style file
+\usepackage{hyperref}  
+\hypersetup{%
+  bookmarksnumbered=true,%
+  bookmarks=true,%
+  colorlinks=true,%
+  linkcolor=blue,%
+  citecolor=blue,%
+  filecolor=blue,%
+  menucolor=blue,%
+  pagecolor=blue,%
+  urlcolor=blue,%
+  pdfnewwindow=true,%
+  pdfstartview=FitBH}   
+  
+\let\fullref\autoref
+%
+%  \autoref is very crude.  It uses counters to distinguish environments
+%  so that if say {lemma} uses the {theorem} counter, then autrorefs
+%  which should come out Lemma X.Y in fact come out Theorem X.Y.  To
+%  correct this give each its own counter eg:
+%                 \newtheorem{theorem}{Theorem}[section]
+%                 \newtheorem{lemma}{Lemma}[section]
+%  and then equate the counters by commands like:
+%                 \makeatletter
+%                   \let\c@lemma\c@theorem
+%                  \makeatother
+%
+%  To work correctly the environment name must have a corrresponding 
+%  \XXXautorefname defined.  The following command does the job:
+%
+\def\makeautorefname#1#2{\expandafter\def\csname#1autorefname\endcsname{#2}}
+%
+%  Some standard autorefnames.  If the environment name for an autoref 
+%  you need is not listed below, add a similar line to your TeX file:
+%  
+%\makeautorefname{equation}{Equation}%
+\def\equationautorefname~#1\null{(#1)\null}
+\makeautorefname{footnote}{footnote}%
+\makeautorefname{item}{item}%
+\makeautorefname{figure}{Figure}%
+\makeautorefname{table}{Table}%
+\makeautorefname{part}{Part}%
+\makeautorefname{appendix}{Appendix}%
+\makeautorefname{chapter}{Chapter}%
+\makeautorefname{section}{Section}%
+\makeautorefname{subsection}{Section}%
+\makeautorefname{subsubsection}{Section}%
+\makeautorefname{theorem}{Theorem}%
+\makeautorefname{thm}{Theorem}%
+\makeautorefname{excercise}{Exercise}%
+\makeautorefname{cor}{Corollary}%
+\makeautorefname{lem}{Lemma}%
+\makeautorefname{prop}{Proposition}%
+\makeautorefname{pro}{Property}
+\makeautorefname{conj}{Conjecture}%
+\makeautorefname{defn}{Definition}%
+\makeautorefname{notn}{Notation}
+\makeautorefname{notns}{Notations}
+\makeautorefname{rem}{Remark}%
+\makeautorefname{quest}{Question}%
+\makeautorefname{exmp}{Example}%
+\makeautorefname{ax}{Axiom}%
+\makeautorefname{claim}{Claim}%
+\makeautorefname{ass}{Assumption}%
+\makeautorefname{asss}{Assumptions}%
+\makeautorefname{con}{Construction}%
+\makeautorefname{prob}{Problem}%
+\makeautorefname{warn}{Warning}%
+\makeautorefname{obs}{Observation}%
+\makeautorefname{conv}{Convention}%
+
+
+%
+%                  *** End of hyperref stuff ***
+
+%theoremstyle{plain} --- default
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{exercise}{Exercise}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{prob}{Problem}[section]
+\newtheorem{conj}{Conjecture}[section]
+%\newtheorem{ass}{Assumption}[section]
+%\newtheorem{asses}{Assumptions}[section]
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ass}{Assumption}[section]
+\newtheorem{asss}{Assumptions}[section]
+\newtheorem{ax}{Axiom}[section]
+\newtheorem{con}{Construction}[section]
+\newtheorem{exmp}{Example}[section]
+\newtheorem{notn}{Notation}[section]
+\newtheorem{notns}{Notations}[section]
+\newtheorem{pro}{Property}[section]
+\newtheorem{quest}{Question}[section]
+\newtheorem{rem}{Remark}[section]
+\newtheorem{warn}{Warning}[section]
+\newtheorem{sch}{Scholium}[section]
+\newtheorem{obs}{Observation}[section]
+\newtheorem{conv}{Convention}[section]
+
+%%%% hack to get fullref working correctly
+\makeatletter
+\let\c@obs=\c@thm
+\let\c@cor=\c@thm
+\let\c@prop=\c@thm
+\let\c@lem=\c@thm
+\let\c@prob=\c@thm
+\let\c@con=\c@thm
+\let\c@conj=\c@thm
+\let\c@defn=\c@thm
+\let\c@notn=\c@thm
+\let\c@notns=\c@thm
+\let\c@exmp=\c@thm
+\let\c@ax=\c@thm
+\let\c@pro=\c@thm
+\let\c@ass=\c@thm
+\let\c@warn=\c@thm
+\let\c@rem=\c@thm
+\let\c@sch=\c@thm
+\let\c@equation\c@thm
+\numberwithin{equation}{section}
+\makeatother
+
+\bibliographystyle{plain}
+
+%--------Meta Data: Fill in your info------
+\title{University of Chicago Calculus IBL Course}
+
+\author{Agustin Esteva}
+
+\date{Apr 12. 2024}
+
+\begin{document}
+
+\begin{abstract}
+
+16310's Script 16.\\ Let me know if you see any errors! Contact me at aesteva@uchicago.edu.
+
+
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+\setcounter{section}{16}
+
+\section*{Definition 16.1: Series}
+\begin{defn}
+	%An \emph{infinite series} (or, simply, a \emph{series}) is a sequence $(a_n)$ of real numbers that we intend to sum, if possible, and write as 
+Let $N_0\in\bbN\cup\{0\}$ and let $(a_n)_{n=N_0}^\infty$ be a sequence of real numbers. Then the formal sum	
+	\[
+		\sum_{n = N_0}^{\infty} a_n
+	\]
+is called an {\em infinite series}. 	
+(In most instances we will start the series at $N_0=0$ or $N_0=1.$)
+ 
+
+	%We may start the series at $n = 0$ or at any other point after which $a_n$ is defined.  
+	We define the \emph{sequence of partial sums} $(p_n)$ of the series by
+	\[
+		p_n = a_{N_0} + \dotsb + a_{n+N_0-1} = \sum_{i=N_0}^{n+N_0-1} a_i.
+	\]
+	Thus $p_n$ is the sum of the first $n$ terms in the sequence $(a_n).$ We say that the series \emph{converges} if there exists $L \in \bbR$ such that $\lim\limits_{n \to \infty} p_n = L$.  When this is the case, we write this as
+	\[
+		\sum_{n = N_0}^{\infty} a_n = L,
+	\]
+	and we say that $L$ is the \emph{sum} of the series. When there does not exist such an $L$, we say that the series \emph{diverges}.
+\end{defn}
+\section*{Lemma 16.2}
+\label{16.2}
+\begin{lem} Let $(a_n)_{n=0}^\infty$ be a sequence of real numbers. Let $N_0\in \bbN.$ Then $\displaystyle\sum_{n=0}^\infty a_n$ converges if, and only if, $\displaystyle\sum_{n=N_0}^\infty a_n$ converges.\footnote{The way I like to think about this lemma is similar to the "all but finite terms in a sequence" back in Script 15; a couple of terms added at the beginning of a series is not gonna impact the convergence or divergence of it.}
+\end{lem}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+\begin{itemize}
+    \item Because $\displaystyle\sum_{n=0}^\infty a_n$ converges, then if \[p_n := a_{0} + a_{1} + \dots + a_{n-1} = \displaystyle\sum_{i=0}^{n-1} a_i,\] is the partial sum of the $a_n$ sequence, then $\displaystyle\lim_{n \to \infty}(p_n) = L,$ where $L \in \bbR.$
+    Define \[q_k :=a_{N_0} + a_{N_0 + 1} + \dots + a_{n + N_0 -1} = \displaystyle\sum_{i = N_0}^{n + N_0 -1}a_i.\] Thus, \[p_n = q_k + \sum_{i=0}^{N_0 -1}a_i\]\footnote{Technically, one would have to create some $p_n' = \displaystyle\sum_{i=0}^{n+N_0-1}$ in order for this equality to be true, but since all we really care about are the limits, we can take $n>N_0$ without loss of generality.} Because $(a_n)$ is a sequence of real numbers, then $\displaystyle\sum_{i=0}^{N_0-1}a_i =c$ for some $c\in \bbR$ and so $p_n - c = q_k.$ Thus, note that because $c$ is a constant sequence then it tends to $c,$ and so by Theorem 15.9: \[\lim_{n\to \infty}(p_n - c) = L-c = q_k\] and thus $\displaystyle\sum_{n = N_0}^\infty(a_n)$ converges.
+    \item Similar logic can be used to show the backwards direction.  
+\end{itemize}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt} 
+
+
+For the rest of this sheet, we will find some examples of series that converge and diverge, and come up with ways of determining whether a given series converges.
+
+\section*{Example 13.3: Telescoping Series}
+\begin{exmp}
+\label{16.3}
+	Prove that $\displaystyle \sum\limits_{n = 1}^{\infty} \left(\frac{1}{n} - \frac{1}{n + 1}\right)$ converges. What is its sum?
+\end{exmp}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Let $p_n = a_1 + a_2 + \dots + a_n = \sum_{i=1}^na_i$ be a partial sum of $(a_n).$ Note that 
+\begin{align*}
+p_n &= (1 - \frac{1}{2}) + (\frac{1}{2} - \frac{1}{3}) + \dots - \frac{1}{n-1}+(\frac{1}{n} - \frac{1}{n+1})\\
+&= 1 + (-\frac{1}{2} + \frac{1}{2}) + (-\frac{1}{3} + \frac{1}{3}) + \dots  + (-\frac{1}{n-1}+(\frac{1}{n}) - \frac{1}{n+1})\\
+&= 1 - \frac{1}{n+1}
+\end{align*}\footnote{To make this telescoping formal, induct!
+\begin{enumerate}
+\item If $n = 1,$ then $p_n = 1 - \frac{1}{2}.$
+\item If $n = k,$ where $k\in \bbN,$ then assume $p_k = 1 - \frac{1}{k+1}.$
+\item If $n = k+1,$ then:
+\begin{align*}
+\displaystyle\sum_{n = 1}^{k+1} (\frac{1}{n} - \frac{1}{n+1})&= \displaystyle\sum_{n=1}^k(\frac{1}{n} - \frac{1}{n+1}) + (\frac{1}{k+1} - \frac{1}{k+2})\\
+\tag{Ind. Hypothesis}&=  1 - \frac{1}{k+1} + (\frac{1}{k+1} - \frac{1}{k+2})\\
+&= 1 - \frac{1}{k+2}
+\end{align*}
+\end{enumerate}
+} Therefore, $\displaystyle\lim_{n\to \infty}(p_n) = \displaystyle\lim_{n\to \infty}(1-\frac{1}{n+1}) = \displaystyle\lim_{n\to \infty}(1) - \displaystyle\lim_{n\to \infty}\frac{1}{n+1} = 1.$ \footnote{How do we know $\displaystyle\lim_{n\to \infty}\frac{1}{n+1} = 0?$ Well, $\frac{1}{n+1} = \frac{\frac{1}{n}}{1 + \frac{1}{n}},$ so we can just apply Theorem 15.9.}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+\newpage
+\section*{Theorem 16.4: Divergence Test}
+\begin{thm}
+\label{16.4}
+	If $\displaystyle\sum\limits_{n = 1}^{\infty} a_n$ converges, then $\lim\limits_{n\to\infty} a_n = 0$.
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}\textbf{Corollary to 16.5}:\\
+Because $\displaystyle\sum_{n=1}^\infty a_n$ converges, then for all $\epsilon>0,$ there exists some $N \in \bbN$ such that if $n>m\geq N,$ then $|\displaystyle\sum_{k=m+1}^na_n|<\epsilon.$ Thus, if $n = m+1>m>N,$ then $|\displaystyle\sum_{n}^na_n| = |a_n - 0| <\epsilon.$ Therefore, $\displaystyle\lim_{n\to \infty}(a_n) = 0.$\footnote{This is just Cauchy Criterion at work! You are subtracting two sums at the tail of the sequence, and it just so happens that these two terms are $n=1$ apart.}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+The converse of this theorem is however not true, as we see in Theorem~\ref{thm:harmonic}. 
+
+\section*{Theorem 16.5: Cauchy Convergence Condition}
+\label{16.5}
+\begin{thm} A series $\displaystyle\sum_{n=1}^\infty a_n$ converges if, and only if, for all $\epsilon >0,$ there is some $N\in\bbN$ such that 
+$\displaystyle \left|\sum_{k=m+1}^n a_k\right|<\epsilon,\forall n>m\geq N.$
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+\begin{itemize}
+\item ($\implies$:) If $\displaystyle\sum_{n=1}^\infty a_n$ converges then $p_n = a_1 + a_2  + \dots + a_n$ converges. Therefore, By the Cauchy Criterion (Theorem 15.19), for all $\epsilon>0,$ there exists an $N \in \bbN$ such that if $n>m \geq M,$ then $|p_n - p_m|< \epsilon.$ Therefore, \[|\displaystyle\sum_{k = 1}^na_n - \displaystyle\sum_{k = 1}^ma_n| = |\displaystyle\sum_{k = m+1}^na_n|< \epsilon.\]
+\item ($\impliedby$:) For all $\epsilon>0,$ there exists a $N \in \bbN$ such that if $n'>m'\geq N,$ then $\displaystyle\left|\sum_{k = m+1}^{n}a_k\right|< \epsilon.$ Note that $\displaystyle\left|\sum_{k = m+1}^{n}a_k\right| = \displaystyle\left|-\sum_{k = m+1}^{n}a_k\right|< \epsilon.$ Therefore, for all $n,m\geq N:$
+\begin{enumerate}
+\item If $n>m,$ then $|p_{n} - p_m| = |\displaystyle\sum_{k = m+1}^na_n|< \epsilon.$
+\item If $n<m,$ then $|p_n - p_m| = |-\displaystyle\sum_{k = m+1}^na_n|< \epsilon.$
+\item If $n = m,$ then $|p_n - p_m| = 0< \epsilon.$
+\end{enumerate}
+Therefore, by Theorem 15.19, $p_n$ converges.
+\end{itemize}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+
+
+
+\section*{Theorem 16.6: The Harmonic Series}
+\begin{thm}
+	\label{16.6}
+	The series $\displaystyle \sum\limits_{n = 1}^{\infty} \dfrac{1}{n}$ diverges.
+\end{thm}
+\textbf{Lemma: $\sum\limits_{n=N+1}^{2N} \frac{1}{n} \geq \frac{1}{2}$}:
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Proof by inducting over $\bbN$
+\begin{enumerate}
+\item Let $N = 1,$ then $|\displaystyle\sum_{k = N+1}^{2N}\frac{1}{n}|  = |\displaystyle\sum_{k = 2}^{2}\frac{1}{n}| = \frac{1}{2}\geq \frac{1}{2}.$
+\item If $N = j,$ where $j \in \bbN,$ then assume $|\displaystyle\sum_{k = N+1}^{2N}\frac{1}{n}|  = |\displaystyle\sum_{k = j+1}^{2j}\frac{1}{n}| \geq \frac{1}{2}.$
+\item If $N = j+1,$ then: 
+\begin{align*}
+|\displaystyle\sum_{k = N+1}^{2N}\frac{1}{n}| &= |\displaystyle\sum_{k = j+1+1}^{2(j+1)}\frac{1}{n}|\\
+&= |\displaystyle\sum_{k = j+2}^{2j+2)}\frac{1}{n}|\\
+&= |\displaystyle\sum_{k = j+1}^{2j}\frac{1}{n}  - \displaystyle\sum_{k = j+1}^{j+1}\frac{1}{n} + \displaystyle\sum_{k = 2j+1}^{2j+2}\frac{1}{n}|\\
+\end{align*}
+I claim that $\displaystyle\sum_{k = j+1}^{j+1}\frac{1}{n} \leq \displaystyle\sum_{k = 2j+1}^{2j+2}\frac{1}{n}.$ This statement is analogous to saying that, for any $k \in \bbN$, \[(\frac{1}{2k + 1} + \frac{1}{2k + 2}) \geq \frac{1}{k +1}\] and therefore: 
+\[2(k+1)(2k+2) \geq (2k+1)(k+1)\] which simplifies to \[2k^2 + 5k + 3 \geq 0,\] which is true for all $k\in \bbN.$ 
+\end{enumerate}
+Therefore, let $0\leq c = \displaystyle\sum_{k = 2j+1}^{2j+2}\frac{1}{n} - \displaystyle\sum_{k = j+1}^{j+1}\frac{1}{n},$ then: \[|\displaystyle\sum_{k = j+1}^{2j}\frac{1}{n}  - \displaystyle\sum_{k = j+1}^{j+1}\frac{1}{n} + \displaystyle\sum_{k = 2j+1}^{2j+2}\frac{1}{n}| \geq |\displaystyle\sum_{k = j+1}^{2j}\frac{1}{n} + c| \geq \frac{1}{2} +c\geq \frac{1}{2}\] 
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Let $\epsilon=\frac{1}{2}.$ For all $N \in \bbN,$ because $2N > N \geq N,$ then by the lemma above:
+\begin{align*}
+\left| \displaystyle\sum_{k = N+1}^{2N}(\frac{1}{n})\right|\geq \frac{1}{2}
+\end{align*}
+and thus, by Theorem \ref{16.5}, $\displaystyle \sum\limits_{n = 1}^{\infty} \dfrac{1}{n}$ diverges. 
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}\textbf{Using Cauchy Convergence Criterion}:\\
+Assume, for the sake of contradiction, that $\frac{1}{n}$ converges. Therefore, if $\epsilon = \frac{1}{2},$ then there exists some $N \in \bbN$ such that if $m = N$ and $n = 2N,$ because $n>m = N,$ then: 
+\[\displaystyle\sum_{k = N+1}^{2N} \frac{1}{k}< \frac{1}{2}.\]\footnote{Technically, there should be absolute value bars around this sum, but since all the terms in the series are positive, then a simple induction will show that the sum is positive as well.} Therefore, note that because if $k \in [N,2N],$ then $\frac{1}{2N}\leq \frac{1}{k},$ and so 
+\begin{align*}
+\displaystyle\sum_{k = N+1}^{2N} \frac{1}{k}&\geq \displaystyle\sum_{k = N+1}^{2N} \frac{1}{2N}\\
+&= \frac{1}{2N}\displaystyle\sum_{k = N+1}^{2N} (1)\\
+&= \frac{1}{2}\frac{N}{N}\\
+&= \frac{1}{2}
+\end{align*}
+Which is a contradiction.
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Theorem 16.7: The Geometric Series}
+\begin{thm}
+\label{16.7}
+	Let $-1 < x < 1$.  Then,
+	\[
+		\sum_{n = 0}^{\infty} x^n = \frac{1}{1 - x}.
+	\]
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Define $(p_n) = 1 + x^1 + x^2 + \dots + x^n$ as the partial sum of $x^n.$ Consider that $(p_n) = \frac{1 - x^n}{1-x},$ as:
+\[(p_n)x = x + x^2 + \dots + x^{n+1}\implies (p_n)(1-x) = 1 - x^{n+1}\]
+Therefore, by Theorem 15.9 and Theorem 15.8: \[\lim_{n\to \infty}\frac{1-x^{n+1}}{1-x} = \frac{\displaystyle\lim_{n\to \infty}(1-xx^n)}{\displaystyle\lim_{n\to \infty}(1-x)} = \frac{1-\displaystyle\lim_{n\to \infty}(x)\displaystyle\lim_{n\to \infty}(x^n)}{1-x} = \frac{1}{1-x}.\] Thus, because $\displaystyle\lim_{n \to \infty}(p_n) = \frac{1}{1-x},$ then \[\displaystyle\sum_{n=0}^\infty x^n = \frac{1}{1-x}\]
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+
+\section*{Theorem 16.8}
+\begin{thm}
+\label{16.8}
+	If $\sum\limits_{n = 1}^{\infty} a_n = L$ and $\sum\limits_{n = 1}^{\infty} b_n = M$ and $c \in \bbR$, then
+	\begin{align*}
+		&\sum_{n = 1}^{\infty}(a_n+b_n) = L+M, \text{ and} \\
+		&\sum_{n = 1}^{\infty}(c\cdot a_n) = c\cdot L.
+	\end{align*}
+\end{thm}
+\begin{enumerate}
+    \item a:
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Define $(a_n^+) = a_1 + a_2 + \dots a_n$ as the partial sum of $(a_n).$ Because $\displaystyle\sum_{n=1}^\infty(a_n) = L,$ then $\lim_{n\to \infty}(a_n^+) = L.$ Similarly, $\lim_{n\to \infty}(b_n^+) = M,$ where $(b_n^+)$ is defined as the partial sums of $(b_n).$ Thus, by Theorem 15.9, \[\lim_{n\to \infty}(a_n^+ + b_n^+) = \lim_{n\to \infty}(a_n^+) + \lim_{n\to \infty}(b_n^+) = L+M\] and so \[\sum_{n}^\infty (a_n + b_n) = L+M\]
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+    \item b:
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+    Define $(a_n^+) = a_1 + a_2 + \dots a_n$ as the partial sum of $(a_n).$ Because $\displaystyle\sum_{n=1}^\infty(a_n) = L,$ then $\lim_{n\to \infty}(a_n^+) = L.$ Thus, consider that by Theorem 15.18, $\displaystyle\lim_{n\to \infty}(ca_n^+) = \displaystyle\lim_{n\to \infty}(c)\cdot \displaystyle\lim_{n\to \infty}(a_n^+) = c \cdot L.$ Therefore, \[\sum{n}^\infty(c\cdot a_n) = c\cdot L\]
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+    
+\end{enumerate}
+\section*{Definition 16.9: Absolute Convergence}
+\begin{defn} 
+\label{16.9}
+	We say that the series $\displaystyle\sum\limits_{n = 1}^{\infty} a_n$ \emph{converges absolutely} if the series $\displaystyle\sum\limits_{n = 1}^{\infty} \abs{a_n}$ converges.
+\end{defn}
+
+\section*{Lemma 16.10}
+\begin{lem}
+\label{16.10}
+	A series $\displaystyle \sum\limits_{n = 1}^{\infty} a_n$ with all $a_n \geq 0$ converges if and only if its sequence of partial sums is bounded.
+\end{lem}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+\begin{itemize}
+    \item ($\implies$:) Because $\displaystyle \sum\limits_{n = 1}^{\infty} a_n$ converges, then let $\displaystyle \sum\limits_{n = 1}^{\infty} a_n = p$ for some $p \in \bbR.$ Thus, if $(p_n) = a_1 + a_2 + \dots a_n$ is defined as the partial sums of $(a_n),$ then $\lim_{n\to \infty}(p_n) = p$ is convergent and thus, by Theorem 15.13, is bounded.
+    \item ($\impliedby$:) Because $\{a_n | n \in \bbN\}$ is bounded and nonempty, then let $s = \sup\{p_n | n \in \bbN\}.$ Assume, for the sake of contradiction, that $p_n$ is not an increasing sequence. Therefore, for some $n \in \bbN,$ $(p_n)> (p_{n+1}).$ Thus, $a_1 + a_2 + \dots + a_n > a_1 + a_2 + \dots + a_n + a_{n+1}.$ Therefore, $0>a_{n+1},$ which is a contradiction, since $a_n\geq 0$ for all $n \in \bbN.$\footnote{Alternatively, one could have inducted to find that $p_n$ was icnreasing.} Thus, because $(p_n)$ is an increasing sequence that is bounded above, then it converges to $s.$ Therefore, $\displaystyle \sum\limits_{n = 1}^{\infty} a_n$ converges.
+\end{itemize}
+    
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Theorem 16.11: Absolute Convergence Test}
+\begin{thm}
+\label{16.11}
+	If $\displaystyle \sum_{n=1}^\infty a_n$ converges absolutely then $\displaystyle \sum_{n=1}^\infty a_n$ converges and
+	\[
+		\left| \sum_{n=1}^\infty a_n \right| \leq \sum_{n=1}^\infty \abs{a_n}.
+	\]
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Let $b_n = \max\{0, a_n\}$, and $c_n = \min\{0, a_n\}$; then $a_n = b_n + c_n$. Therefore, $|b_n| = b_n$ and $|c_n| = -c_n,$ and thus, $|b_n| - |c_n| = a_n.$ Because $\displaystyle\sum_{n = 1}^nb_n \leq \displaystyle\sum_{n = 1}^n|a_n|,$ then $\displaystyle\sum _{n = 1}^nb_n$ is bounded above. Note that $\displaystyle\sum_{n = 1}^nb_n$ is bounded below by $0.$ Therefore, by Lemma \ref{16.10}, $\displaystyle\sum_{n = 1}^\infty b_n$ converges. Similarly, $\displaystyle\sum_{n =1}^\infty|c_n|$ converges. And so because $|b_n| - |c_n| = a_n,$ then by Theorem \ref{16.8}, $\displaystyle\sum_{n = 1}^\infty a_n$ converges. Also, using triangle inequalities:
+\[\left|\displaystyle\sum_{n = 1}^na_n\right| = \left|\displaystyle\sum_{n = 1}^nb_n + \displaystyle\sum_{n = 1}^nc_n\right| \leq \left|\displaystyle\sum_{n = 1}^nb_n\right| + \left|\displaystyle\sum_{n = 1}^nc_n\right| = \displaystyle\sum_{n = 1}^nb_n + \displaystyle\sum_{n = 1}^n-c_n = \displaystyle\sum_{n = 1}^n|b_n| + \displaystyle\sum_{n = 1}^n|c_n| = \displaystyle\sum_{n = 1}^n|a_n|\]
+\end{proof}
+\begin{proof}
+Because $\displaystyle\sum_{n}^\infty |a_n|$ converges, then by Cauchy Convergence, for all $\epsilon>0,$ if $n>M\geq N,$ then, because a sum of positive terms is positive\footnote{Let $(a_n)$ be a sequence of positive terms and let $p_n = a_1 + a_2 + \dots a_n.$ Then $p_n$ is positive: 
+\begin{proof}
+    \begin{enumerate}
+        \item If $n = 1,$ then $p_1 = a_1\geq 0.$ 
+        \item If $n = k,$ then assume $p_k$ is positive.
+        \item If $n = k+1,$ then by the induction hypothesis and since $a_{k+1}\geq 0$, $p_{k+1} = p_k + a_{k+1}\geq 0 + a_{k+1} \geq 0.$ Therefore, $p_n\geq 0,$ and so by additional exercise 15.1, $\lim_{n\to \infty}p_n \geq 0.$
+    \end{enumerate}
+\end{proof}}
+\[\left|\displaystyle\sum_{k = m+1}^n|a_k|\right| = \displaystyle\sum_{k = m+1}^n|a_k|< \epsilon\]
+Therefore, by applying the triangle inequality, because the absolute value of the sums is always less than or equal to the sums of the absolute values (induction is left as an exercise to the reader, he needs the exercise), then:
+\begin{align*}
+    |\displaystyle\sum_{k = m+1}^na_k|& \leq\displaystyle\sum_{k = m+1}^n|a_k|\\
+    &< \epsilon.
+\end{align*}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Theorem 16.12: Alternating Series Test}
+\begin{thm}
+\label{16.12}
+	Let $(a_n)$ be a decreasing sequence of positive numbers such that $\lim\limits_{n \to \infty} a_n = 0$. Then, $\displaystyle\sum_{n = 1}^{\infty} (-1)^{n+1} a_n$ converges. 
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Consider than $\displaystyle\sum_{n = 1}^{\infty} (-1)^{n+1} a_n = a_1 - a_2 + a_3 - a_4 + \dots.$ Therefore, define $p_n = a_1 - a_2 + a_3 + \dots + a_n.$ Therefore $(p_n)$ is the following sequence:
+\begin{align*}
+    &p_1 = a_1\\
+    &p_2 = a_1 - a_2\\
+    &\vdots\\
+    &p_n = a_1 - a_2  + a_3 + \dots + a_n
+\end{align*}
+Define $p_{2n-1} := p(i),$ where $i: \bbN \to \bbN$ is defined by $i(n):= 2n-1.$ Thus, $(p_{2n+1})$ is the subsequence described by:
+\begin{align*}
+    &p_1 = a_1\\
+    &p_2 = a_1 - a_2 + a_3\\
+    &\vdots\\
+    &p_{2n-1} = a_1 - a_2  + a_3 + \dots + a_{2n-1}
+\end{align*}
+Similarly, define $p_{2n}:= p(i'),$ where $i': \bbN \to \bbN$ is defined by $i'(n) = 2n.$ Thus, $(p_{2n})$ is the subsequence described by:
+\begin{align*}
+    &p_1 = a_1 - a_2\\
+    &p_2 = a_1 - a_2 + a_3 - a_4\\
+    &\vdots\\
+    &p_{2n} = a_1 - a_2  + a_3 + \dots - a_{2n}
+\end{align*}
+\begin{enumerate}
+    \item  Note that \[p_{2n-1} =  a_1 - (a_2  - a_3) - \dots - (a_{2n-2} -a_{2n-1})\] Therefore, because $a_n$ is decreasing, then $a_{2n-2}\geq a_{2n-1}$ for all $n \in \bbN$ and so $a_{2n-2} - a_{2n-1}\geq 0.$ Therefore, because $(p_{2n-1})$ is a sequence subtracting positive terms from $a_1,$ then $p_{2n-1}$ is a decreasing sequence. Moreover, note that \[p_{2n-1} = (a_1 - a_2) + (a_3 - a_4) + \dots + (a_{2n-1})\] Then by similar reasons, $(p_{2n-1})$ is adding positive terms that are all greater than 0, then $0\leq p_{2n-1}$ for any $n$ Thus, by Theorem 15.14, $(p_{2n-1})$ is bounded and decreasing, and thus converges.
+    \item 
+    Note that \[p_{2n} =  (a_1 - a_2)  + (a_3 - a_4) + \dots + (a_{2n-1} -a_{2n})\] Therefore, because $a_n$ is decreasing, then $a_{2n-1}\geq a_{2n}$ for all $n \in \bbN$ and so $a_{2n-1} - a_{2n}\geq 0.$ Therefore, because $(p_{2n})$ is a sequence adding positive terms, then $p_{2n}$ is an increasing sequence. Moreover, note that \[p_{2n} = a_1 - (a_2 - a_3) - \dots - a_{2n}\] Then by similar reasons, $(p_{2n})$ is subtracting positive terms from $a_1$, and so $a_1\geq p_{2n}$ for any $n$ Thus, by Theorem 15.14, $(p_{2n})$ is bounded and increasing, and thus converges.
+\end{enumerate}
+Therefore, consider that \[p_{2n} = a_1 - a_2  + a_3 + \dots +a_{2n-1}- a_{2n} = p_{2n-1} + a_{2n}.\] Therefore, because $\displaystyle\lim_{n\to \infty}(a_n) = 0$, then: \[\displaystyle\lim_{n\to \infty}p_{2n} = \displaystyle\lim_{n\to \infty}(p_{2n-1}) + \displaystyle\lim_{n\to \infty}(a_{2n})  = \displaystyle\lim_{n\to \infty}(p_{2n-1}) = L\] for some $L \in \bbR.$ Therefore, it will suffice to show that $L = \displaystyle\lim_{n\to \infty}(p_n):$\newline\newline
+\begin{enumerate}
+    \item For all $\epsilon>0,$ there exists an $N_e \in \bbN$ such that if $n\geq N_e,$ then $|p_{2n} - L|< \epsilon.$
+    \item For all $\epsilon>0,$ there exists an $N_o\in \bbN$ such that if $n\geq N_o,$ then $|p_{2n-1}- L| < \epsilon.$
+\end{enumerate}
+Let $N = \max(N_e, N_o).$ Therefore, if $k\geq N,$ then either $k = 2n$ or $k = 2n-1,$ but in either case:
+\[|p_n - L|< \epsilon\] and thus $\displaystyle\lim_{n\to \infty}(p_n) = L.$
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+
+The following theorem will be useful to prove more specialized tests for convergence of series:
+
+\section*{Theorem 16.13: Comparison Test}
+\begin{thm}
+\label{16.13}
+	Let $(c_n)$ be a sequence of positive numbers and let $(a_n)$ be a sequence such that $\abs{a_n} \leq c_n$ for all $n \geq N_0$, where $N_0$ is some fixed integer.
+	If $\sum\limits_{n = 1}^{\infty} c_n$ converges, then $\sum\limits_{n = 1}^{\infty} a_n$ converges absolutely. 
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+    Because $\displaystyle\sum_{n =1}^\infty c_n$ converges, then let $\displaystyle\sum_{n =1}^\infty c_n = L$ for some $L \in \bbR.$ Therefore, define $p_n = c_{N_0} + c_{N_0+1} + \dots c_{N_0 +n -1}$ as the partial sum of $(c_n).$ Define $q_n = |a_{N_0}| + |a_{N_0+1}| + \dots + |a_{N_0 + n -1}|$ as the partial sum of $(|a_n|).$ Note that because $|a_{N_0 + n -1}|\leq c_{N_0 + n -1}$ for all $n,$ then $0\leq q_n \leq p_n.$ Then because $\displaystyle\lim_{n\to \infty}(p_n) = L,$ then by Lemma \ref{16.10}, $(p_n)$ is bounded above. Let $M$ be an upper bound of $p_n.$ Therefore, for all $n\in \bbN,$ $q_n \leq p_n \leq M.$ Thus, $q_n$ is bounded by $0$ and $M$. Therefore, by Lemma \ref{16.10}, $\sum\limits_{n = 1}^{\infty} |a_n|$ converges. 
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Lemma 16.14}
+\begin{lem}
+\label{16.14}
+Suppose that $(b_n)$ is a sequence of non-negative numbers with $\displaystyle \lim_{n\longrightarrow \infty} b_n=L,$ where $L<1.$ 
+Then there is some $N\in\bbN$ such that $0\leq b_n <\dfrac{1+L}{2},$ for all $n\geq N.$
+ \end{lem}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+    By Additional Exercise 15.1, because $0\leq a_n$ for all $n\in \bbN,$ then $0\leq \displaystyle\lim_{n\to\infty}(a_n).$ Thus, $0\leq L < 1.$ Therefore, let $\epsilon = \frac{1-L}{2}.$ There exists an $N \in \bbN$ such that for all $n\geq N,$ $b_n \in (L- \frac{1-L}{2}, L + \frac{1-L}{2}).$ Therefore, then $b_n < L + \frac{1-L}{2},$ and so $0\leq b_n < \frac{1 + L}{2}.$
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Theorem 16.15: Ratio Test}
+\begin{thm}
+\label{16.15}
+	Let $(a_n)$ be a sequence such that $\displaystyle\lim_{n \to \infty} \abs{\frac{a_{n+1}}{a_n}}$ exists. Then,
+	\begin{enumerate}
+		\item[a)] If 
+		$\displaystyle \lim_{n \to \infty} \abs{\frac{a_{n + 1}}{a_{n}}} < 1$,
+		then $\displaystyle\sum_{n = 1}^{\infty} a_n$ converges.
+		\item[b)] If 
+		$\displaystyle \lim_{n \to \infty} \abs{\frac{a_{n + 1}}{a_{n}}} > 1$,
+		then $\displaystyle\sum_{n = 1}^{\infty} a_n$ diverges.
+	\end{enumerate}
+\end{thm}
+\begin{enumerate}
+    \item 
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+    Let $\lim_{n\to \infty}|\frac{a_{n+1}}{a_n}| = L.$ Let $b_n:= |\frac{a_{n+1}}{a_n}|.$ Note that because $b_n$ is a sequence of non-negative numbers with $L<1$ then there exists some $N\in \bbN$ such that if $n\geq N,$ then $0\leq b_n< \frac{1+L}{2}.$ Let $x = \frac{1+L}{2}.$ Therefore, $0\leq \frac{|a_{n+1}|}{|a_n|} < x.$ 
+    \begin{enumerate}
+        \item If $n = N,$ then $|a_{N+1}|< |a_N|x^{1}.$\\
+        \item If $n = N+1,$ then $|a_{N+2}|< |a_N+1|x<|a_N|x^2$
+        \item If $n = N +k,$ then assume $|a_{N+k+1}|< |a_{N}|x^{k+1}.$
+        \item If $n = N+k+1,$ then by our inductive hypothesis, 
+        \[|a_{N+k+2}\leq |a_{n+k+1}|x< |a_{N}|x^{k+1}x = |a_{N}|x^{k+2}.\]
+    \end{enumerate}
+    Thus, for all $n\geq N,$ where $n = N+k,$ then $|a_{N+k}|<|a_N|x^k.$ Therefore,  $a_Nx^k$ converges (Theorem \ref{16.7} and Theorem \ref{16.8}). Thus, by Theorem \ref{16.13}, then $\displaystyle\sum_{n=1}^\infty a_n$ converges absolutely, so by Theorem \ref{16.11}, $\displaystyle\sum_{n=1}^\infty a_n$ converges.
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+    \item 
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Let $\epsilon = \frac{1-L}{2}$ and $\displaystyle\lim_{n\to \infty}|\frac{a_{n+1}}{a_n}| = L > 1.$ Therefore, there exists some $N \in \bbN$ such that if $n\geq N,$ then $b_n = |\frac{a_{n+1}}{a_n}| \in (L - \frac{1-L}{2}, L + \frac{1-L}{2}),$ and so $b_n\geq \frac{1+L}{2}.$ Then because for all $n\geq N,$ $\frac{|a_{n+1}|}{|a_n|}>\frac{1+L}{2},$ and $\frac{1+L}{2}>\frac{1}{2},$ then $\frac{|a_n|}{|a_N|}>\frac{1}{2},$ and so $\frac{1}{2}|a_N|< |a_n|$ for all $n\geq N.$ Therefore, if $\epsilon' = \frac{1}{2}|a_N|,$ then because $|a_n|> \frac{1}{2}|a_N|,$ then $\displaystyle\lim_{n\to \infty}(a_n)\neq 0,$ and so by the Divergence Test, $\displaystyle\sum_{n}^\infty a_n$ does not converge.
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+\end{enumerate}
+
+\section*{Theorem 16.15: Root Test}
+\begin{thm}
+\label{16.15}
+	Let $(a_n)$ be a sequence such that $\displaystyle\lim_{n \to \infty} \sqrt[n]{\abs{a_n}}$ exists.  Then
+	\begin{enumerate}
+		\item[a)] If $\displaystyle\lim_{n \to \infty} \sqrt[n]{\abs{a_n}} < 1$,
+		then $\displaystyle\sum_{n = 1}^{\infty} a_n$ converges.
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Let $\displaystyle\lim_{n\to\infty} \sqrt[n]{\abs{a_n}}= L <1$ for some $L \in \bbR.$ Thus, by Lemma \ref{16.14}, there is some $N \in \bbN$ such that, for all $n\geq N,$ $0\leq \sqrt[n]{\abs{a_n}} < \frac{1+L}{2}.$ This implies that $(0)^n \leq (\sqrt[n]{\abs{a_n}})^n < (\frac{1+L}{2})^n.$\footnote{If $0\leq a<b$ and $n \in \bbN,$ then $a^n<b^n$: 
+\begin{proof}
+\begin{enumerate}
+    \item If $n = 1,$ then evidently, since $a^1 = a$ and $b^1 = b,$ then $a^1<b^1.$
+    \item If $n = k,$ then assume $a^k < b^k.$
+    \item If $n = k+1,$ then by the inductive step, $a^{k+1} = a^ka<b^kb = b^{k+1}$
+\end{enumerate}
+\end{proof} This statement is pretty trivial. What's more interesting is that it's actually an if and only if statement. Specifically, proving it one way pretty much proves it both ways, as take a look at the backwards contrapositive: if $a\geq b,a^n\geq b^n.$ We literally just proved this!} Therefore, because $0\leq |a_n|< x^n,$ where $x = \frac{1+L}{2}<1$ then using the convergence test, $|a_n|$ converges and thus $a_n$ converges. 
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+		\item[b)] If $
+		\displaystyle\lim_{n \to \infty} \sqrt[n]{\abs{a_n}} > 1$,
+		then $\displaystyle\sum_{n = 1}^{\infty} a_n$ diverges.
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+    There exists some $N \in \bbN$ such that if $n\geq N,$ then $1< \sqrt[n]{\abs{a_n}}.$ Therefore, $1^n < \abs{a_n}$ implies that $1< \abs {a_n}.$ Using $\epsilon = 1,$ it is clear that $\displaystyle\lim_{n\to \infty}|a_n|\neq 0.$
+\end{proof}
+	\end{enumerate}
+\end{thm}
+
+\subsection*{ On the Root and Ratio Tests:}
+\subsubsection*{Inconclusivity}
+\vspace{4pt}     \hrule   \vspace{4pt} What happens if $\lim_{n\to \infty}\left|\frac{a_{n+1}}{a_n}\right| = \lim_{n\to \infty}\sqrt{\abs{a_n}} = 1?$\footnote{ \href{https://media.istockphoto.com/id/1250210811/photo/depletion-resource-concept-hand-squeezed-planet-3d-illustration.jpg?s=612x612&w=0&k=20&c=jbRhcgL5VhpvcJCwIvY_q2s2pER0_BxTiMqeOrsMKEs=}{This is what happens:}}
+\begin{enumerate}
+    \item Consider the sequence $a_n = \frac{1}{n}.$ For the ratio test: \[\lim_{n\to \infty}\frac{|\frac{1}{n+1}|}{|\frac{1}{n}|} = \displaystyle_{n\to \infty} \frac{n}{n+1} = \displaystyle_{n\to \infty}\frac{1}{1 + \frac{1}{n}} = 1.\] For the root test: \[\displaystyle\lim_{n\to \infty} \sqrt[n]{\frac{1}{n}} = \displaystyle\lim_{n\to \infty}\displaystyle \frac{1}{\sqrt[n]{n}}\] Consider that $1\leq\sqrt[n]{n}\leq 1 + 2\sqrt{\frac{1}{n}}.$\footnote{Did I pull this inequality out of my ass? No, Apostle clutched up! You could prove this by induction, but you could also just look at Desmos}
+    Therefore, consider \[\lim_{n\to \infty}(1 + 2\sqrt{\frac{1}{n}}) = 1 + 2\displaystyle\lim_{n\to \infty}\frac{1}{\sqrt{n}}.\] To show that $\lim_{n\to \infty}\frac{1}{\sqrt{n}} = 0,$ then consider that for all $\epsilon>0,$ there exists an $N \in \bbN$ such that $\frac{1}{N}< \epsilon^2.$ Thus, if $n\geq N,$ then:
+    \begin{align*}
+        \abs{a_n} &= \abs{\frac{1}{\sqrt{n}}}\\
+        &= \sqrt{\frac{1}{n}}\\
+        &< \epsilon.
+    \end{align*}
+    Therefore, because $\displaystyle\lim_{n\to \infty}(1) = \displaystyle\lim_{n\to \infty}(1 + 2\sqrt{\frac{1}{n}}) = 1,$ then by Additional Exercise 15.1, $\lim_{n\to \infty}\sqrt[n]{n} =1.$ Thus, $\displaystyle\lim_{n\to \infty}\frac{1}{\sqrt[n]{n}} = 1.$\newline Note that $\displaystyle\sum{n}^\infty\frac{1}{n}$ diverges. 
+    \item Consider the sequence $a_n = \frac{1}{n^2}.$ For the ratio test, \[\displaystyle\lim_{n\to \infty}\abs{\frac{a_{n+1}}{a_n}} = \displaystyle\lim_{n\to \infty}\abs{\frac{\frac{1}{(n+1)^2}}{\frac{1}{n^2}}} = \displaystyle\lim_{n\to \infty}\frac{n^2}{(n+1)^2} = \displaystyle\lim_{n\to \infty}\frac{1}{1 + \frac{2}{n} + \frac{1}{n^2}} = 1\] For the root test, \[\displaystyle\lim_{n\to \infty}\sqrt[n]{\left|\frac{1}{n^2}\right|} = 1\] by a similar method as above. However, by Additional Exercise 16.1, $\displaystyle\sum{n}^\infty\frac{1}{n^2}$ converges. 
+\end{enumerate}
+Therefore, if $\displaystyle\lim_{n\to \infty}\left|\frac{a_{n+1}}{a_n}\right| = \displaystyle\lim_{n\to \infty}\sqrt{\abs{a_n}} = 1,$ then this test is inconclusive. 
+\vspace{4pt}     \hrule   \vspace{4pt}
+\subsubsection*{Root Ratios Ratio}
+\vspace{4pt}     \hrule   \vspace{4pt}
+If the root test passes, then the ratio test passes! A stronger version of this statement is that if $\displaystyle\lim_{n\to \infty}\left|\frac{a_{n+1}}{a_n}\right| = L,$ then $\displaystyle\lim_{n\to \infty}\sqrt{\abs{a_n}} = L:$
+\begin{proof}
+    For all $\epsilon>0,$ there exists an $N \in \bbN$ such that if $n\geq N,$ then \[L-\epsilon < \abs{\frac{a_{n+1}}{a_n}} < L + \epsilon\] Therefore, \[|a_N|(L-\epsilon) < \abs{a_{n}} < |a_N|(L-\epsilon)\] By the same induction as in the ratio test; \[|a_N|(L-\epsilon)^n < \abs{a_{n}} < |a_N|(L-\epsilon)^n\] and so by footnote 8, \[(|a_N|(L-\epsilon)^n))^\frac{1}{n} < \sqrt[n]{\abs{a_{n}}} < (|a_N|(L-\epsilon)^n))^\frac{1}{n}\] Therefore \[|a_N|^\frac{1}{n}(L-\epsilon)< \sqrt[n]{\abs{a_{n}}} < |a_N|^{\frac{1}{n}}(L-\epsilon)\] Thus, for all $\epsilon'>0,$ there exists an $N' \in \bbN$ such that if $n\geq N'$ then $||a_n|^\frac{1}{n} -L| < \epsilon',$\footnote{I am not sure how to prove that $\displaystyle\lim_{n\to \infty}(a)^\frac{1}{n} = 1,$ but it's on the additional exercises in Script 15.} then let $N'' = \max(N,N').$ Then if $n\geq N'',$ $L-\epsilon < \sqrt[n]{\abs{a_{n}}} < L + \epsilon$ for all $\epsilon,$ and so $\sqrt[n]{\abs{a_{n}}} = L.$
+\end{proof}
+Does this go both ways? Well, consider:
+\[a_n = \begin{cases}
+    (\frac{1}{2})^n \qquad n = 2k\\
+    (\frac{1}{2})^{n-1} \qquad n = 2k+1
+\end{cases}\]
+Therefore:
+\begin{enumerate}
+    \item The root test: Consider that if $n = 2k,$ then $\displaystyle\lim_{n\to \infty}\sqrt[n]{(\frac{1}{2})^n} = \displaystyle\lim_{n\to \infty}((\frac{1}{2})^{n})^{\frac{1}{n}} = (\frac{1}{2}).$ If $n = 2k+1,$ then $\displaystyle\lim_{n\to \infty}((\frac{1}{2})^{n-1})^{\frac{1}{n}} = \displaystyle\lim_{n\to \infty}(\frac{1}{2})^{1 - \frac{1}{n}}=  \displaystyle\lim_{n\to \infty}\frac{(\frac{1}{2})}{(\frac{1}{2})^{\frac{1}{n}}} = (\frac{1}{2}).$
+    \item The ratio test: $\displaystyle\lim_{n\to \infty}\abs{\frac{(\frac{1}{2})^{n-1}}{(\frac{1}{2})^{n}}} = 2.$
+\end{enumerate}
+Thus, the backwards direction does not hold. There even exists sequences such that the root test shows convergence and the ratio test is inconclusive. 
+\vspace{4pt}     \hrule   \vspace{4pt}
+
+
+\section*{Definition 16.17: The Factorial}
+\label{16.17}
+\begin{defn}
+	For $n\in\bbN$, we define the \emph{factorial} of $n$ to be the product of all natural numbers less than or equal to $n$.  We denote this by the formula
+	\[
+		n! = n \cdot (n-1) \cdot (n-2) \cdot \dots \cdot 3 \cdot 2 \cdot 1.
+	\] 
+	By convention, we also set $0! = 1$.
+\end{defn}
+
+\section*{Example 16.18: $e$}
+\begin{exmp} 
+\label{16.18}
+Prove that 
+	\[
+		\sum_{n = 0}^{\infty} \frac{1}{n!}
+	\]
+	converges. The number that it converges to is called $e$.
+\end{exmp}
+\bigskip
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}
+    Consider that if $N = 4,$ then if $n\geq N:$
+\begin{enumerate}
+    \item If $N =4,$ then $16 = 4^2 < 4! = 24$\\
+    \item if $n = k,$ where $k\in \bbN$ such that $k\geq 4,$ then assume $k^2 < k!$
+    \item If $n = k+1,$ then by the inductive hypothesis:
+    \begin{align*}
+    (k+1)! &= k!(k+1)\\
+    &>k^2(k+1)\\
+    &\geq (k+1)^2
+    \end{align*}
+    Where in the last inequality, we used the fact that if $k>1,$ then $k^2 \geq (k+1).$ 
+\end{enumerate}
+Therefore, $n^2<n!$ and so $\frac{1}{n!}< \frac{1}{n^2}.$ Thus, by addition exercise 16.1, because $\frac{1}{n^2}$ converges, then using the comparison, test, $\frac{1}{n!}$ converges.\footnote{We are also using the fact that $0\leq n! = |n!|.$ Use induction to prove this.} Let $e \equiv \displaystyle\sum_{n\to \infty}\frac{1}{n!}$
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Fouri$e$r's Irrationality Proof}
+\begin{thm}
+\label{16.18.1}
+    $e$ is irrational.
+\end{thm}
+\begin{proof}
+    Assume, for the sake of contradiction, that $e$ is rational. Therefore, $e = \frac{a}{b}$ for $a,b \in \bbZ.$ Therefore, define $p_n = \displaystyle\sum_{k=1}^n\frac{1}{k!}.$ Therefore, \[e - p_n = \displaystyle\sum_{k=1}^\infty\frac{1}{k!} - \displaystyle\sum_{k=1}^n\frac{1}{k!} = \displaystyle\sum_{k=n+1}^\infty \frac{1}{k!}\leq \]
+\end{proof}
+
+\newpage
+\begin{center}
+{\em Additional Exercises}
+\end{center}
+
+\begin{enumerate}
+
+
+\item 
+\begin{enumerate}
+\item
+Show that $\displaystyle \sum_{n=1}^\infty \frac{1}{n^2}$ is convergent directly (i.e.~without any test ).  {\em Hint: Let $\displaystyle p_n = \sum_{k=1}^n \frac{1}{k^2}$.  Show that $p_n \leq 10 - 1/(n-1),$ for $n > 1$.}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+    To prove the hint:
+    \begin{enumerate}
+        \item If $n = 2,$ then $p_n = 1 + \frac{1}{4} \leq 10 - \frac{1}{1} = 9$ holds.
+        \item If $n =j,$ where $j\geq 2,$ then assume $\displaystyle\sum_{k=1}^j\frac{1}{k^2} \leq 10 - \frac{1}{j-1}.$
+        \item If $n = j+1,$ where $k\geq 2,$ then:
+        \begin{align*}
+            \displaystyle\sum_{k=1}^{j+1}\frac{1}{k^2} &= \displaystyle\sum_{k=1}^{j}\frac{1}{k^2} + \frac{1}{(j+1)^2}\\
+            &\leq 10 - \frac{1}{j-1} + \frac{1}{(j+1)^2}\\
+        \end{align*}
+        Consider the right hand of the final equation:
+        \begin{align*}
+            \frac{1}{(j+1)^2} &= \frac{1}{j^2 + 2j + 1}\\
+            &\leq \frac{1}{j(j+2)}\\
+            &\leq \frac{1}{j(j-1)}\\
+            &= \frac{1}{j-1} - \frac{1}{j}\\
+        \end{align*}
+        Therefore:
+        \begin{align*}
+            10 - \frac{1}{j-1} + \frac{1}{(j+1)^2}& \leq 10 - \frac{1}{j-1} + \frac{1}{j-1} - \frac{1}{j}\\
+            &= 10 - \frac{1}{j}
+        \end{align*}
+    \end{enumerate}
+    Therefore, if $N = 2,$ then if $n\geq 2,$ then $p_n \leq 10$ and so $p_n$ is bounded below by $0$\footnote{Because all its terms are positive} and above by $10.$ Thus, by Lemma \ref{16.10}, because $p_n$ is bounded, then $\displaystyle\sum_{n=1}^\infty\frac{1}{n^2}$ converges. 
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+\item 
+ For each of the following, try 16.13, 16.15 and 16.16. Which of the tests are useful? Determine whether each series converges/diverges.
+\begin{enumerate}
+\item[i)] $\displaystyle\sum_{n=1}^\infty \frac{1}{n^3}$
+ \vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+     \begin{enumerate}
+         \item 16.13: Consider that if $n\geq 1,$ then $n^2\leq n^3,$ and therefore $\frac{1}{n^3}\leq  \frac{1}{n^2}.$ Thus, because $|\frac{1}{n^3}| = \frac{1}{n^3}\leq  \frac{1}{n^2}$ for all $n\geq 1,$ and $\displaystyle\sum_{n=1}^\infty \frac{1}{n^2}$ converges, then by the Comparison Test, $\displaystyle\sum_{n=1}^\infty\frac{1}{n^3}$ converges.
+         \item 16.15: Consider that:
+         \begin{align*}
+             \displaystyle\lim_{n\to \infty}\abs{\frac{\frac{1}{(n+1)^3}}{\frac{1}{n^3}}} &= \displaystyle\lim_{n\to \infty}\abs{\frac{n^3}{(n+1)^3)}}\\
+             &= \displaystyle\lim_{n\to \infty}\abs{\frac{n^3}{n^3 + 3n^2 + 3n +1}}\\
+             &= \displaystyle\lim_{n\to \infty}\abs{\frac{1}{1 + 3\frac{1}{n} + 3\frac{1}{n^2} +\frac{1}{n^3}}}\\
+             &= 1
+         \end{align*}
+         Where the last equality is given by applying the limit to all the terms in the numerator and denominator, respectively. Therefore, the ratio test is not useful.
+         \item 16.16. This test is not useful, computing $\displaystyle\lim_{n\to\infty}\sqrt[n]{\abs{\frac{1}{n^3}}}$ is no easy task. However, either by using the theorem proved in 16.15.1.2, or using the fact that $\displaystyle\lim_{n\to \infty}\sqrt[n]{n} =1,$ it becomes clear that $\displaystyle\lim_{n\to\infty}\sqrt[n]{\abs{\frac{1}{n^3}}} =1,$ which is inconclusive as well. 
+     \end{enumerate}
+ \end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+\item[ii)] $\displaystyle \sum_{n=1}^\infty \frac{n}{2^n}.$
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+    \begin{enumerate}
+        \item 16.13: I wish to show that if $n\geq 4,$ then $\frac{n}{2^n}\leq \frac{1}{2^{\frac{n}{2}}}.$ It will suffice to show that $n\leq 2^{\frac{n}{2}}:$
+        \begin{enumerate}
+            \item If $n = 4,$ then $4 \leq 2^2 = 4$ holds.
+            \item If $n = k,$ then assume $k\leq 2^{\frac{k}{2}}.$
+            \item If $n = k+1,$ then:
+            \begin{align*}
+                k+1 &\leq 2^{\frac{k}{2}} + 1\\
+                &<2^\frac{k}{2}\sqrt{2}\\
+                &= 2^\frac{k+1}{2}
+            \end{align*}
+            To prove that last step:
+            \begin{enumerate}
+                \item If $n=4,$ then $n+1 =5 \leq 4\sqrt{2}.$\footnote{Note that script 6 tells us that \sqrt{2}> \frac{5}{4}.}
+                \item If $n=k,$ then assume $n+1 \leq n\sqrt{2}.$
+                \item If $n=k+1,$ then:
+                \begin{align*}
+                    k+2 &= (k+1)+1\\
+                    &\leq (k +1)\sqrt{2}\\
+                \end{align*}
+        \end{enumerate}
+        Therefore, because $n\leq 2^{\frac{n}{2}}$ for $n\geq 4,$ then $n \leq \frac{2^{n}}{2^{\frac{n}{2}}}$ and so $0\leq \frac{n}{2^n}\leq \frac{1}{2^{\frac{n}{2}}}.$ Therefore, because $\displaystyle\sum_{n=1}^\infty (\frac{1}{2})^\frac{n}{2}$ is a geometric series, then it converges, and thus, by the Comparison Test, $\displaystyle\sum_{n=1}^\infty \frac{n}{2^n}$ converges.
+        \item 16.15: Consider that:
+        \begin{align*}
+            \displaystyle\lim_{n\to \infty}\abs{\frac{a_{n+1}}{a_n}} &= 
+            \displaystyle\lim_{n\to \infty}\abs{\frac{\frac{n+1}{2^{n+1}}}{\frac{n}{2^n}}}\\
+            &= \displaystyle\lim_{n\to \infty}\abs{\frac{n+1}{2n}}\\
+            &= \displaystyle\lim_{n\to \infty}\abs{\frac{1 + \frac{1}{n}}{2}}\\
+            &= \frac{1}{2}
+        \end{align*}
+        Therefore, $\displaystyle \sum_{n=1}^\infty \frac{n}{2^n}$ converges. 
+        \item 16.16: Consider that:
+        \begin{align*}
+            \displaystyle\lim_{n\to \infty}\abs{\frac{n}{2^n}} &= \displaystyle\lim_{n\to \infty}\frac{n}{2^n}\\
+            &= \displaystyle\lim_{n\to \infty} \frac{\sqrt[n]{n}}{2}\\
+            &= \frac12
+        \end{align*}
+    \end{enumerate}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+\end{enumerate}
+\end{enumerate}
+
+
+\item For $n\in\bbN,$ define
+$$a_n=\begin{cases} \frac{1}{n!}, & \text{if } n\text{ is odd},\\
+\frac{2019}{(-2)^n}, & \text{if } n \text{ is even}.
+\end{cases}$$
+Is $\displaystyle \sum_{n=1}^\infty a_n$ convergent?
+
+\item For $n\in\bbN$ let 
+$$a_n=\frac{n+27}{2^n n^3}+ \frac{4567 + 27n^{47}+57^n}{n^{59}59^n}-\frac{1}{n(n+1)(n+2)(n+3)(n+200)}.$$
+Show that $\displaystyle \sum_{n=1}^\infty a_n$  converges.
+
+
+
+
+\item 
+\begin{enumerate}
+\item[a)] Prove that the sequence $a_n=(1+\frac{1}{n})^n$ is increasing and the sequence $b_n=(1+\frac{1}{n})^{n+1}$ is decreasing. {\em Script 0, Exercise 3 could be helpful.}
+\item[b)] Prove that sequences $(a_n)$ and $(b_n)$ converge to the same number.
+\item[c)] What does $c_n=(1-\frac{1}{n})^{n}$ converge to?
+\item[d)] ({\em Challenge}) Prove that 
+\begin{enumerate}
+\item[i)] Let $n\in \bbN.$ Then $a_n\leq \sum_{k=1}^n \frac{1}{k!}.$
+\item[ii)]  Fix $m\in \bbN.$ Then $b_n \geq \sum_{k=1}^m \frac{(n+1)!}{(n+1-k)!k!}\frac{1}{n^k},$ for all $n\geq m.$
+\item[iii)] The number in b) is $e,$ as defined in Exercise~\ref{e} above.
+\end{enumerate}
+{\em For d) you will need the Binomial Theorem. This says that $$(a+b)^n = \sum_{k=1}^n \frac{n!}{(n-k)! k!} a^{n-k}b^k.$$}
+\end{enumerate}
+
+
+
+\item 
+\begin{enumerate}
+\item[a)] Suppose that $\displaystyle \sum_{n=1}^\infty a_n$ converges but $\displaystyle \sum_{n=1}^\infty | a_n| $ diverges. (We say that $\displaystyle \sum_{n=1}^\infty a_n$ {\em converges conditionally}.) Prove that the sum of the positive terms in the series $\displaystyle \sum_{n=1}^\infty a_n$  diverges and the sum of the negative terms diverges. 
+\item[b)] Give an example of a divergent series $\displaystyle \sum_{n=1}^\infty a_n$ for which the sum of the positive terms converges and the sum of the negative terms diverges, or explain why no such example exists.
+\end{enumerate}
+
+
+\item 
+\begin{enumerate}
+\item Suppose that $f:(0,\infty)\to \bbR$ is a non-negative decreasing function that is Riemann-integrable for every interval $[a,b]\subset (0,\infty).$ Let $(a_n)$ and $(b_n)$ be sequences defined by 
+$$ a_n=f(n) \qquad\text{and}\qquad b_n=\int_1^nf(x)dx.$$
+
+Show that $\displaystyle \sum_{k=1}^\infty a_k$ converges if, and only if $(b_n)$ converges.
+\item Determine for which $p\in \bbZ$ the series $\displaystyle \sum_{k=1}^\infty \frac{1}{k^p}$ converges.
+\end{enumerate}
+
+\item
+\begin{enumerate}
+\item Prove Exercise 16.18.
+\item Prove that for any $k\in \bbN,$
+$$\sum_{n=k+1}^\infty \frac{1}{n!} \leq  \frac{k+2}{(k+1)(k+1)!}.$$
+{\it Hint: For any $k\in\bbN,$ $\frac{1}{(k+r)!} \leq  \frac{1}{(k+1)! (k+2)^{r-1}}$ for all $r\in \bbN.$ Remember that if you use a hint you must prove it.}
+\item Show that $e$ is not an integer by proving that $2<e<3.$
+\item Show that $e$ is irrational.  Hint: Suppose it is not. Then find $k, N\in \bbN$  such that
+\[
+	k \left[ e -  \sum_{n=1}^{N} \frac{1}{n!}\right] = k \sum_{n=N+1}^\infty \frac{1}{n!},
+\]
+with the left hand side an integer and the right hand side a number between strictly $0$ and $1$.\end{enumerate}
+
+\item {\em Challenge} Let $(a_n)$ be a sequence of non-negative reals.
+\begin{enumerate}
+\item Prove that if $$\lim_{n \longrightarrow \infty}\frac{a_{n+1}}{a_n}=a,$$ then  $$\lim_{n \longrightarrow\infty}\sqrt[n]{a_n}=a.$$
+\item Does the converse to a) hold?
+\item Prove that 
+$$
+\lim_{n \longrightarrow \infty}\frac{\sqrt[n]{n!}}{n}=\frac{1}{e}.
+$$ 
+\end{enumerate}
+
+
+
+\item 
+
+
+\begin{defn}
+	Suppose that $(a_n)$ is a sequence of real numbers.  We define
+	\[
+		\limsup_{n\to\infty} a_n := \lim_{n \to \infty} \sup \{a_k \mid k \geq n, k \in \bbN\}
+		\quad \text{ and } \quad
+		\liminf_{n\to\infty} a_n := \lim_{n \to \infty} \inf \{a_k \mid k \geq n, k \in \bbN\}.
+	\]
+\end{defn}
+
+
+
+\begin{enumerate} 
+
+\item
+	Compute the $\limsup$'s and the $\liminf$'s of the following sequences if they exist:
+	\begin{enumerate}
+		\item[i)] $a_n = \frac{n^2+ n+1}{(n+1)^2}$
+		\item[ii)] $b_n =2 + (-1)^n$
+		\item[iii)] $c_n = \cos(\pi n / 2)\frac{2^{(n+1)^2}+4}{2^{n^2 + 2n} + n + 10}$ (You may assume basic facts about $\pi$ and $\cos.$)
+		\item[iv)] $d_n = \frac{5n^2 + 2}{n^2(1 - (-1)^n) + 7n}$
+	\end{enumerate}
+
+
+
+
+
+
+\item
+
+
+\begin{defn}
+We say that a sequence of real numbers $(a_n)$ is {\em almost bounded} if there is a region $R$ such that $\{a_n\mid n \in \bbN\} \cap R$ is infinite.
+\end{defn}
+
+\begin{enumerate}
+	\item	Show that if $(a_n)$ is bounded above and almost bounded, then $\limsup_{n\to\infty} a_n$ exists.  Similarly for $\liminf_{n\to\infty} a_n$ if $(a_n)$ is bounded below.
+	\item   Suppose that $(a_n)$ and $(b_n)$ are bounded sequences of real numbers.  Is the following equality true?
+	\[
+		\limsup_{n\to\infty} a_n b_n = \left( \limsup_{n\to\infty} a_n\right)\left( \limsup_{n\to\infty} b_n\right)
+	\]
+\end{enumerate}
+
+\item
+
+	Let $(a_n)$ be a sequence of real numbers.  Show that $\lim_{n\to\infty} a_n = L$ if and only if $\liminf_{n\to\infty} a_n = \limsup_{n\to\infty} a_n = L$.
+
+
+
+
+
+\item
+	\begin{enumerate}[(i)]
+		\item Using the concepts of $\limsup$ and $\liminf$, find and prove a weaker hypothesis for the root test (Theorem 16.16).
+		\item State the analogous version of the ratio test (Theorem 16.15).  You need not prove it.
+		\item In each case of the the root and ratio tests, show an example of a sequence $(a_n)$ to which your new theorem applies but the statement in the script does not apply.
+	\end{enumerate}
+
+
+
+
+
+\end{enumerate}
+\end{enumerate}
+
+\section*{Acknowledgments} 
+Thanks, as always, to Professor Oron Propp for being a great mentor in both Office Hours and during class. Thank you to Richard Gale for showing me a smart way of doing 13.4 (I included both his (first one) and my proof (second)). Thanks also to Lina Piao for working with me to figure out a couple of proofs, such as 13.19, 13.20, and 13.29.
+\begin{thebibliography}{9}
+
+
+
+
+\end{thebibliography}
+
+\end{document}
+

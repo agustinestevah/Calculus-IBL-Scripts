@@ -1,0 +1,576 @@
+
+\documentclass[openany, amssymb, psamsfonts]{amsart}
+\usepackage{mathrsfs,comment}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[normalem]{ulem}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{lipsum}
+\usepackage{marvosym}
+\usepackage[all,arc,2cell]{xy}
+\UseAllTwocells
+\usepackage{enumerate}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+
+\renewcommand{\phi}{\varphi}
+\renewcommand{\emptyset}{\O}
+
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\sm}{\setminus}
+
+
+\newcommand{\sarr}{\rightarrow}
+\newcommand{\arr}{\longrightarrow}
+
+\newcommand{\hide}[1]{{\color{red} #1}} % for instructor version
+%\newcommand{\hide}[1]{} % for student version
+\newcommand{\com}[1]{{\color{blue} #1}} % for instructor version
+%\newcommand{\com}[1]{} % for student version
+\newcommand{\meta}[1]{{\color{green} #1}} % for making notes about the script that are not intended to end up in the script
+%\newcommand{\meta}[1]{} % for removing meta comments in the script
+
+\DeclareMathOperator{\ext}{ext}
+\DeclareMathOperator{\ho}{hole}
+%%% hyperref stuff is taken from AGT style file
+\usepackage{hyperref}  
+\hypersetup{%
+  bookmarksnumbered=true,%
+  bookmarks=true,%
+  colorlinks=true,%
+  linkcolor=blue,%
+  citecolor=blue,%
+  filecolor=blue,%
+  menucolor=blue,%
+  pagecolor=blue,%
+  urlcolor=blue,%
+  pdfnewwindow=true,%
+  pdfstartview=FitBH}   
+  
+\let\fullref\autoref
+%
+%  \autoref is very crude.  It uses counters to distinguish environments
+%  so that if say {lemma} uses the {theorem} counter, then autrorefs
+%  which should come out Lemma X.Y in fact come out Theorem X.Y.  To
+%  correct this give each its own counter eg:
+%                 \newtheorem{theorem}{Theorem}[section]
+%                 \newtheorem{lemma}{Lemma}[section]
+%  and then equate the counters by commands like:
+%                 \makeatletter
+%                   \let\c@lemma\c@theorem
+%                  \makeatother
+%
+%  To work correctly the environment name must have a corrresponding 
+%  \XXXautorefname defined.  The following command does the job:
+%
+\def\makeautorefname#1#2{\expandafter\def\csname#1autorefname\endcsname{#2}}
+%
+%  Some standard autorefnames.  If the environment name for an autoref 
+%  you need is not listed below, add a similar line to your TeX file:
+%  
+%\makeautorefname{equation}{Equation}%
+\def\equationautorefname~#1\null{(#1)\null}
+\makeautorefname{footnote}{footnote}%
+\makeautorefname{item}{item}%
+\makeautorefname{figure}{Figure}%
+\makeautorefname{table}{Table}%
+\makeautorefname{part}{Part}%
+\makeautorefname{appendix}{Appendix}%
+\makeautorefname{chapter}{Chapter}%
+\makeautorefname{section}{Section}%
+\makeautorefname{subsection}{Section}%
+\makeautorefname{subsubsection}{Section}%
+\makeautorefname{theorem}{Theorem}%
+\makeautorefname{thm}{Theorem}%
+\makeautorefname{excercise}{Exercise}%
+\makeautorefname{cor}{Corollary}%
+\makeautorefname{lem}{Lemma}%
+\makeautorefname{prop}{Proposition}%
+\makeautorefname{pro}{Property}
+\makeautorefname{conj}{Conjecture}%
+\makeautorefname{defn}{Definition}%
+\makeautorefname{notn}{Notation}
+\makeautorefname{notns}{Notations}
+\makeautorefname{rem}{Remark}%
+\makeautorefname{quest}{Question}%
+\makeautorefname{exmp}{Example}%
+\makeautorefname{ax}{Axiom}%
+\makeautorefname{claim}{Claim}%
+\makeautorefname{ass}{Assumption}%
+\makeautorefname{asss}{Assumptions}%
+\makeautorefname{con}{Construction}%
+\makeautorefname{prob}{Problem}%
+\makeautorefname{warn}{Warning}%
+\makeautorefname{obs}{Observation}%
+\makeautorefname{conv}{Convention}%
+
+
+%
+%                  *** End of hyperref stuff ***
+
+%theoremstyle{plain} --- default
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{exercise}{Exercise}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{prob}{Problem}[section]
+\newtheorem{conj}{Conjecture}[section]
+%\newtheorem{ass}{Assumption}[section]
+%\newtheorem{asses}{Assumptions}[section]
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ass}{Assumption}[section]
+\newtheorem{asss}{Assumptions}[section]
+\newtheorem{ax}{Axiom}[section]
+\newtheorem{con}{Construction}[section]
+\newtheorem{exmp}{Example}[section]
+\newtheorem{notn}{Notation}[section]
+\newtheorem{notns}{Notations}[section]
+\newtheorem{pro}{Property}[section]
+\newtheorem{quest}{Question}[section]
+\newtheorem{rem}{Remark}[section]
+\newtheorem{warn}{Warning}[section]
+\newtheorem{sch}{Scholium}[section]
+\newtheorem{obs}{Observation}[section]
+\newtheorem{conv}{Convention}[section]
+
+%%%% hack to get fullref working correctly
+\makeatletter
+\let\c@obs=\c@thm
+\let\c@cor=\c@thm
+\let\c@prop=\c@thm
+\let\c@lem=\c@thm
+\let\c@prob=\c@thm
+\let\c@con=\c@thm
+\let\c@conj=\c@thm
+\let\c@defn=\c@thm
+\let\c@notn=\c@thm
+\let\c@notns=\c@thm
+\let\c@exmp=\c@thm
+\let\c@ax=\c@thm
+\let\c@pro=\c@thm
+\let\c@ass=\c@thm
+\let\c@warn=\c@thm
+\let\c@rem=\c@thm
+\let\c@sch=\c@thm
+\let\c@equation\c@thm
+\numberwithin{equation}{section}
+\makeatother
+
+\bibliographystyle{plain}
+
+%--------Meta Data: Fill in your info------
+\title{University of Chicago Calculus IBL Course}
+
+\author{Agustin Esteva}
+
+\date{Apr 26. 2024}
+
+\begin{document}
+
+\begin{abstract}
+
+16310's Script 14.\\ Let me know if you see any errors! Contact me at aesteva@uchicago.edu.
+
+
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+\setcounter{section}{14}
+\section*{Theorem 14.1: First Fundamental Theorem of Calculus}
+\begin{thm} 
+\label{14.1}
+	Suppose that $f$ is integrable on $[a, b]$. Define $F\colon [a, b] \to \bbR$ by
+	\[
+		F(x) = \int_{a}^{x} f.
+	\]
+	If $f$ is continuous at $p \in (a, b)$, then $F$ is differentiable at $p$ and
+	\[
+		F'(p) = f(p).
+	\]
+	If $f$ is continuous at $a,$ $F'_{+}(a)$ exists and equals $f(a).$ Similarly, if $f$ is continuous at $b,$ $F'_{-}(b)$ exists and equals $f(b).$ 
+\end{thm}
+
+\vspace{4pt}     \hrule   \vspace{4pt}  \begin{proof}
+It will suffice to show that \[\lim_{y\to p}\frac{F(y) - F(p)}{y-p} = f(p)\]
+If $p<y:$
+\begin{align*}
+\lim_{y\to p^+}\frac{F(y) - F(p)}{y-p} &= \lim_{y\to p^+}\frac{\int_a^yf - \int_a^p f}{y-p}\\
+&= \lim_{y\to p^+}\frac{\int_p^yf}{y-p}
+\end{align*}
+Therefore, if \[m(f|_{[p,y]}) := \inf\{f(x)| p\leq x \leq y\} \quad \text{and} \quad M(f|_{[p,y]}) := \sup\{f(x)| p\leq x \leq y\}\]
+then by Theorem 13.28:
+\begin{align*}
+m(f|_{[p,y]})(y-p) \leq &\int_p^yf \leq M(f|_{[p,y]})(y-p)\\
+m(f|_{[p,y]}) \leq &\frac{\int_p^yf}{y-p} \leq M(f|_{[p,y]})
+\end{align*}
+Note that because $f$ is continuous at $p,$ then there exists a $\delta>0$ such that if $y\in [a,b)$ and $y-p< \delta,$ then $|f(p) - f(y)|< \frac{\epsilon}{2}.$ Therefore, $f(p) - \frac{\epsilon}{2}< f(y) < f(p) + \frac{\epsilon}{2}$ for all $y\in (p, p+ \delta).$ Therefore, $f(p) - \frac{\epsilon}{2} \leq \inf(f[p,p+\delta])\leq f(p) + \frac{\epsilon}{2},$ which implies $f(p) - \epsilon < \inf(f[p,y])\leq f(p) + \epsilon.$ Therefore, $|\inf(f[p,y]) - f(p)|< \epsilon,$ and so $\lim_{y\to p^+}\inf(f[p,y]) = f(p)$ and therefore\footnote{There's some interesting things to note here, which I won't prove but merely state: the infemum function is an increasing function, and therefore $\inf\inf(f[p,y])\leq f(p)$ and $f(p)\leq \sup\inf(f[p,y])$ for any $y\in [p-\delta, p+\delta]$}: \[\lim_{y\to p}m(f|_{[p,y]}) = \lim_{y\to p^+}\inf\{f(x)| p\leq x \leq y\} = \lim_{y\to p^+}\inf(f[p,y]) = f(p)\]
+Similarly, 
+\[\lim_{y\to p^+}M(f|_{[p,y]}) = f(p)\]
+Therefore, by the Squeeze Theorem\footnote{Let $A\subset \bbR$ be an open set. Let $a\in A.$ Suppose that $f,g,h\colon A\to \bbR$ satisfy
+$$f(x)\leq g(x)\leq h(x),\quad \text{for all } x\in A,$$
+and $\displaystyle \lim_{x\to a}f(x)$ and $\displaystyle \lim_{x\to a} h(x)$ both exist and equal $L.$ Then $\displaystyle \lim_{x\to a} g(x)$ also exists and equals $L.$ \begin{proof}
+Let $\epsilon>0$
+    There exists some $\delta_f >0$ such that if $x\in A$ and $|x-a|< \delta,$ $|f(x) - L| < \epsilon.$ Similarly, there exists some $\delta_h >0$ such that if $x\in A$ and $|x-a|< \delta_h,$ $|h(x) - L| < \epsilon.$ Thus, for all $\epsilon>0,$ there exists a $\delta = \min\{\delta_f, \delta_h\}$ such that if $x\in A$ and $|x-a|<\delta,$ then: 
+    \begin{align*}
+        f(x) \leq g(x) \leq h(x)\\
+        f(x) - L \leq g(x) - L \leq h(x) - L\\
+        -\epsilon < f(x) - L \leq g(x) - L \leq h(x) - L < \epsilon\\
+        |g(x) - L| < \epsilon
+    \end{align*}
+\end{proof}}
+\[\lim_{y\to p}\frac{\int_p^yf}{y-p} = f(p)\] and so $F$ is differentiable at $p$ and $F'(p) = f(p).$ Note that this implies that $F'_+(a) = f(a).$ 
+\newline\newline If $y<p:$ \begin{align*}
+    \lim_{y\to p^-}\frac{F(y) - F(p)}{y-p} &= \lim_{y\to p^-}\frac{\int_a^yf - \int_a^p f}{y-p}\\
+&= \lim_{y\to p^-}\frac{\int_y^pf}{y-p}\\
+\end{align*}
+Thus, define 
+\[m(f|_{[y,p]}) = \inf\{f(x)| y\leq x \leq p\} \quad \text{and} \quad M(f|_{[y,p]}) = \sup\{f(x)| y\leq x \leq p\}\] then:
+\[m(f|_{[y,p]})(p-y)\leq \int_y^pf \leq M(f|_{[y,p]})(p-y)\]
+\[M(f|_{[y,p]}) \leq \frac{\int_y^pf}{y-p} \leq m(f|_{[y,p]})\]
+Then, using the same logic as above (this time with left sided limits) and applying the squeeze theorem:
+\[\lim_{y\to p^-}\frac{\int_p^yf}{y-p} = f(p)\]
+and specifically, $F'_-(b) = f(b).$
+\newline\newline
+Therefore, because $\displaystyle\lim_{y\to p^-}\frac{\int_p^yf}{y-p} = \displaystyle\lim_{y\to p^+}\frac{\int_p^yf}{y-p} = f(p),$ then $\displaystyle\lim_{y\to p}\frac{\int_p^yf}{y-p} = f(p).$
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt} 
+
+\section*{Remark 14.2}
+\begin{rem}
+\label{14.2}
+Thus we have that if $f$ is continuous on $[a,b],$ 
+$F$ is differentiable on $[a,b]$ and $F'(p)=f(p),$ for all $p\in [a,b],$ (where at the endpoints we understand that the derivative should be interpreted as the one-sided derivative).
+\end{rem}
+
+
+\section*{Corollary 14.3}
+\begin{cor}
+\label{14.3}
+	Let $f$ be continuous on $[a, b]$. Suppose that there is a function $G$ that is continuous on $[a, b]$ and differentiable on $(a, b)$ and such that $f = G'$ on $(a, b)$. Then
+	\[
+		\int_{a}^{b} f = G(b) - G(a).
+	\]
+\end{cor} 
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+    Define $F: [a,b] \to \bbR$ such that $F(x) := \int_a^xf.$ Thus, by Theorem \ref{14.1}, because $f$ is continuous and so integrable, then $F'(x) = f(x) = G'(x)$ for all $x \in (a,b).$\footnote{Technically F' = G' for all $x\in [a,b],$ as proved above, but that is not necessary for this proof.} Thus, consider that because $F'= G'$ for all $x\in (a,b),$ then by Theorem 12.18, then $F(x) = G(x) +c,$  for all $x\in [a,b].$ Since \[F(a) = G(a) + c = 0; \qquad c = -G(a)\] Therefore, $F(b) = \int_a^bf = G(b) - G(a)$
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt} 
+We now prove a more general version of this corollary, relaxing the condition on $f$ from continuity to integrability. The following lemma will be useful.
+
+
+\section*{Lemma 14.4}
+\begin{lem} 
+\label{14.4}
+	Suppose that $f\colon [a, b] \to \bbR$ is integrable and that $\Omega$ is a number satisfying
+	\[
+		L(f, P) \leq \Omega \leq U(f, P) \qquad \text{for every partition $P$ of $[a, b]$.}
+	\]
+
+	Then 
+	\[
+		\int_{a}^{b} f = \Omega.
+	\]
+\end{lem}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+    Assume, for the sake of contradiction, that $\Omega \neq \int_a^b f$. Thus, $\Omega \neq L(f) = U(f).$ 
+    \begin{enumerate}
+        \item If $\Omega> U(f),$ then by Theorem 5.10, there exists a partition $P$ such that $U(f)\leq U(f,P)< \Omega,$ which is a contradiction.
+        \item If $\Omega < L(f),$ then by Theorem 5.10, there exists a partition $P$ such that $\Omega < L(f,P)\leq L(f),$ which is a contradiction.
+    \end{enumerate}
+    Therefore, $\Omega = L(f) = U(f),$ and thus $\Omega = \int_a^bf$
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt} 
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof} Quicker way using script 13:\\
+    Let $\epsilon>0,$ since $f$ is integrable, then  there exists a partition $P$ such that $U(f,P) - L(f,P)< \epsilon.$ Therefore, since $L(f,P)\leq \Omega,$ \[U(f,P) - \Omega < \epsilon\] and similarly, \[\Omega - L(f,P)< \epsilon.\] Thus, by Lemma 13.20, $\Omega = \int_a^b$
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt} 
+
+\section*{Theorem 14.5: Second Fundamental Theorem of Calculus}
+\begin{thm} 
+\label{14.5}
+	Let $f$ be integrable on $[a, b]$. Suppose that there is a function $G$ that is continuous on $[a, b]$ and differentiable on $(a, b)$ and such that $f = G'$ on $(a, b)$. Then
+	\[
+		\int_{a}^{b} f = G(b) - G(a).
+	\]
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+    It will suffice to show that for any partition $P,$ where $P = \{t_0, t_1, \dots, t_n\}$, $L(f,P)\leq G(b) - G(a)\leq U(f,P).$ Note that for any $i$ in a partition, because $G$ is continuous and differentiable, then by the mean value theorem, there exists a $\lambda \in [t_i, t_{i-1}]$ such that $G'(\lambda) = \frac{G(t_{i}) - G(t_{i-1})}{t_{i} - t_{i-1}}.$ By the definition of $G',$ there $G'(\lambda) = f(\lambda),$ Thus, $m_i(f)\leq f(\lambda) \leq M_i(\lambda)$ and therefore \[m_i(f)\leq \frac{G(t_i) - G(t_{i-1})}{t_i - t_{i-1}}\leq M_i(f)\]
+    \[m_i(f)(t_i - t_{i-1}) \leq G(t_i) - G(t_{i-1}) \leq M_i(f)(t_i - t_{i-1})\]
+    Therefore:
+    \[\sum_{i=1}^nm_i(f)(t_i - t_{i-1}) \leq \sum_{i=1}^n[G(t_i) - G(t_{i-1})] \leq \sum_{i=1}^nM_i(f)(t_i - t_{i-1})\]
+    \[L(f,P)\leq G(b) - G(a) \leq U(f,P)\]
+    Thus, by Lemma \ref{14.4}, $\int_a^bf = G(b) - G(a).$
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Corollary 14.6: Integration by Parts}
+\begin{cor} 
+
+	Let $f, g$ be functions defined on some open interval containing $[a, b]$ such that $f'$ and $g'$ exist and are continuous on $[a, b]$. Then
+	\[
+		\int_a^b fg' = [f(b)g(b) - f(a)g(a)] - \int_a^b f' g.
+	\]
+\end{cor} 
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Because $f'$ and $g'$ are continuous, then $f,g$ are continuous (12.5) and therefore $fg', f'g$ are continuous (12.9) and thus integrable. 
+\newline Note that $(fg)' = f'g + fg'$ and thus, $(fg)'$ is integrable and: \[\int_a^b (fg)' = \int_a^b f'g + fg'.\] Therefore, \[\int_a^bfg' = \int_a^b (fg)' - \int_a^b f'g.\] 
+Define $G: [a,b] \to \bbR$ such  that $G(x) := (fg)(x).$ Therefore, $G' = (fg)'.$ Thus, by Theorem \ref{14.5}, \[\int_a^b (fg)' = G(b) - G(a) = (fg)(b) - (fg)(a)  = (f(b)g(b) - f(a)g(a))\]
+Therefore, 
+\[\int_a^bfg' = f(a)g(a) - (f(b)g(b) - \int_a^b f'g)\]
+\end{proof}      \vspace{4pt}     \hrule   \vspace{4pt} 
+
+\section*{Corollary 14.7: Integration by Substitution}
+\begin{cor} 
+\label{14.7}
+	Let $g$ be a function defined on some open interval containing $[a, b]$ such that $g'$ is continuous on $[a, b]$. Suppose that $g([a, b]) \subset [c, d]$ and $f\colon [c, d] \to \bbR$ is continuous. Define $F\colon [c, d] \to \bbR$ by $F(x) = \int_c^x f$.
+	Then
+	\[
+		\int_a^b f(g(x)) \cdot g'(x) \, dx = F(g(b)) - F(g(a)).
+	\]
+\end{cor}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+    Because $f$ is continuous and thus integrable, then by Theorem \ref{14.1}, $F' = f$ on $g[a,b].$  Therefore, $F$ is continuous (12.5) and therefore integrable. Therefore, because $F\circ g$ is differentiable, then it's continuous and integrable on $[a,b].$ Therefore: \[\int_a^b f(g(x)) \cdot g'(x) \, dx = \int_a^b F'(g(x)) \cdot g'(x) \, dx = \int_a^b (F(g(x)))' \, dx\]  
+    Thus, by Theorem \ref{14.5}, \[\int_a^b f(g(x))\cdot g'(x) \, dx =  F(g(b)) - F(g(a))\]
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt} 
+
+\bigskip\newpage
+\begin{center}
+{\em Additional Exercises}
+\end{center}
+
+	
+\begin{enumerate}
+
+
+
+\item
+	What is wrong with the following argument? If $F(x)=\frac{1}{1 - x}$ then $F'(x)=\frac{1}{(1 - x)^2}$ and hence
+	\[
+		\int_0^2 \frac{1}{(1 - x)^2}\,dx = F(2) - F(0) = -2.
+	\]
+	
+\item Assume $f$ is integrable on $[a,b]$ and let $F:[a,b]\to \bbR$ be such that 
+$$F(x)=\int_a^x f(s)ds.$$
+Give an example of an $f$ for which $F$ is {\em not} differentiable at $p$ for some given $p\in (a,b).$
+
+\item Using integration by parts, compute Euler's integral 
+$$B(m,n)=\int_{0}^{1}x^{m-1}(1-x)^{n-1}\ dx$$
+for $m, n\in \mathbb{N}.$
+
+
+\section*{Additional Exercise 4}
+\item
+	\label{exer:one-over-x}
+	\begin{enumerate}[(a)]
+		\item Prove that, for any $a, b > 1$,
+		\[
+			\int_1^a \frac{1}{x}\,dx=\int_b^{ab}\frac{1}{x}\,dx.
+		\]
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Define $g:[a,b] \to \bbR$ such that $g(x): = bx$ for all $x\in [a,b].$ Therefore, $g' = b$ is continuous on $[a,b].$ Therefore, because $a,b>1,$ and $g([a,b]) = [ab,b^2],$ then $g([a,b])\subset [ab,b^2].$ In particular, note that $g(a) = ab$ and $g(b) = b^2$ Define $f:[a,b]\to \bbR$ such that $f(x) = \frac{1}{x}$ for all $x\in [a,b].$ Because $a,b>1,$ then $\frac{1}{x}$ is continuous for all $x\in [a,b].$ Define $F:[ab,b^2]\to \bbR$ by $F(x) = \int_a^xf.$ Note that $f(g(x)) \cdot g'(x) = \frac{1}{bx} \cdot b = \frac{1}{x}.$ Then, by Corollary \ref{14.7}, \[\int_1^af(g(x))\cdot g'(x) = F(g(a)) - F(g(1)) = \int_a^{ab}f  - \int_a^{b}f = \int_b^{ab}f\]
+Therefore \[\int_1^a \frac{1}{x}\,dx = \int_b^{ab} \frac{1}{x}\,dx\]
+\footnote{This is really just a classic u-substitution (math majors close your eyes): $u=bx \implies \frac{du}{dx} = b \implies \frac{du}{b}=dx.$ Thus, $u(1) = b$ and $u(a) = ab.$ Therefore, \[\int_1^b\frac{b}{bx}dx = \int_b^{ab}\frac{b}{bu}du  = \int_b^{ab}\frac{1}{u}du\]}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+		\item Deduce that, for any $a, b > 1$,
+		\[
+			\int_1^a\frac{1}{x}\,dx+\int_1^b\frac{1}{x}\,dx=\int_1^{ab}\frac{1}{x}\,dx.
+		\]
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+By part a, \[\int_1^a \frac{1}{x}\,dx = \int_b^{ab}\frac{1}{x}\,dx\]
+Therefore, \[\int_1^a\frac{1}{x}\,dx+\int_1^b\frac{1}{x}\,dx= \int_b^{ab}\frac{1}{x}\,dx+\int_1^b\frac{1}{x}\,dx.\] By Remark 13.24, \[\int_b^{ab}\frac{1}{x}\,dx+\int_1^b\frac{1}{x}\,dx = \int_1^{ab}\frac{1}{x}\,dx\]
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+	\end{enumerate}
+
+\section*{Definition 14.8: Infinite Limits}
+\item
+\begin{defn}
+\label{14.8}
+	We say that $\displaystyle \lim_{x \to \infty} f(x)=L$ if, for every $\epsilon>0$, there is a real number $X$ such that if
+	$x\geq X$ then  $\abs{f(x)-L}<\epsilon$. (There is an analogous definition of limit as $x\to -\infty$.)
+\end{defn}
+
+\section*{Definition 14.9}
+\begin{defn}
+\label{14.9}
+	Suppose that $f\colon [a,b]\to \bbR$ is integrable for every $b>a$, where $a$ is fixed. If $\displaystyle \lim_{b\to \infty} \int_a^b f(x)\,dx$ exists, we denote it by $\displaystyle \int_a^\infty f(x)\,dx$ and call it
+	an ``improper'' integral.
+\end{defn}
+
+\section*{Additional Exercise 5}
+	\begin{enumerate}
+		\item[a)] Prove that $\displaystyle \lim_{x\to \infty}\frac{1}{x^n}=0$, for any $n\in\bbN$. 
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Let $\epsilon>0.$
+\begin{enumerate}
+    \item If $n=1,$ then for all $\epsilon>0,$ there exists an $X_1\in \bbR_+$ such that $\frac{1}{X_1}< \epsilon.$ Thus, if $x\geq X_1,$ then $|\frac{1}{x}|\leq \frac{1}{X_1}$ and thus:
+    \begin{align*}
+        |f(x) - 0| &= |\frac{1}{x}|\\
+        &\leq \frac{1}{X_1}\\
+        &< \epsilon
+    \end{align*}
+    \item If $n=k,$ then assume that there exists an $X_k\in \bbR_+$ such that if $x\geq X,$ then $|\frac{1}{x^k}- 0|< 1$  
+    \item If $n = k+1,$ then for all $\epsilon>0,$ there exists an $X \in \bbR$ such that $X = \min(X_1,X_k)$ Thus, if $x\geq X,$ then:
+    \begin{align*}
+        |f(x) - 0| &= |\frac{1}{x^{k+1}}|\\
+        &= |\frac{1}{x}||\frac{1}{x^k}|\\
+        &<\epsilon
+    \end{align*}
+\end{enumerate}
+\end{proof}\begin{proof}\textbf{Alternate Proof, assuming $\sqrt[n]{x}$ exists:}:\\
+For any $\epsilon>0,$ there exists an $X\in \bbR_+$ such that $X> \frac{1}{\sqrt[n]{\epsilon}}.$ Thus, if $x\geq X,$ then $x> \frac{1}{\sqrt[n]{\epsilon}},$ and so $\frac{1}{x}< \sqrt[n]{\epsilon}.$ Therefore, for all $n \in \bbN,$ $\frac{1}{x^n}< \epsilon.$ Thus, $|\frac{1}{x^n} - 0| = |\frac{1}{x^n}|\leq \frac{1}{x^n}< \epsilon,$ and so $\displaystyle\lim_{n\to \infty}(\frac{1}{x^n}) = 0.$
+\end{proof}
+
+
+\vspace{4pt}     \hrule   \vspace{4pt}
+		\item[b)] Find $\displaystyle \int_1^\infty \frac{1}{x^2} \,dx$.
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+    By Definition \ref{14.9}, it will suffice to show $\displaystyle\lim_{b\to \infty}\int_1^b\frac{1}{x^2}$ exists and equals some $\Omega \in \bbR.$\newline\newline
+    Because for any $b\in \bbR,$ then $\frac{1}{x^2}$ is continuous on $[1,b].$  Thus, define $G: \bbR \to \bbR$ such that $G(x) := -\frac{1}{x}.$ Note that $G$ is continuous on $[1,b]$ and is differentiable on $(1,b)$ and $G'(x) = \frac{1}{x^2}.$ Therefore, by The Second Fundamental Theorem of Calculus (\ref{14.5}) and part a, \[\lim_{b\to\infty}(\int_1^b\frac{1}{x^2}) = \lim_{n\to \infty}(G(b) - G(1)) = \lim_{n\to \infty}(-\frac{1}{b} +1) = 1\]  
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+		\item[c)] Use Exercise~\ref{exer:one-over-x} to deduce that $\displaystyle\int_1^\infty \frac{1}{x}\,dx$ does not exist.
+	\end{enumerate}
+ \vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}: (hints from Richard Gale and Howard Masur)\\
+     Assume, for the sake of contradiction, that $\int_1^\infty \frac{1}{x}\,dx = \displaystyle\lim_{b \to \infty}\int_1^b \frac{1}{x}\,dx = \Omega.$ Thus, let $\epsilon = 1$ and $X>1.$ If $b = X^n$ then by Exercise 4, since $X^n >X$:
+\begin{enumerate}
+    \item If $n = 1,$ then $\int_1^{X^n}\frac{1}{x}\,dx = \int_1^X\frac{1}{x}\,dx = \Omega_X.$
+    \item If $n = k,$ the assume $\int_1^{X^k} \frac{1}{x}\,dx = k\Omega_X.$
+    \item If $n = k+1,$ then by Exercise $4:$
+    \[\int_1^{X^{k+1}}\frac{1}{x}\,dx = \int_1^{X^kX}\frac{1}{x}\,dx = \int_1^X\frac{1}{x}\,dx + \int_1^{X^k}\frac{1}{x}\,dx = (k+1)\Omega_X.\]
+\end{enumerate}
+Therefore, if $b = X^n,$ where $n> \frac{\Omega +1}{\Omega_X},$ then:
+\begin{align*}
+    |\int_1^b\frac{1}{x}\,dx - \Omega| &= |\int_1^{X^{n}}\frac{1}{x}\,dx - \Omega|\\
+    &= n\Omega_X - \Omega\\
+    &> \frac{\Omega +1}{\Omega_X}\Omega_X - \Omega\\
+    &= 1
+\end{align*}
+Which is a contradiction.
+ \end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+\item
+	In this problem, you may assume that $\sin$, $\cos$, and $\arctan$ are differentiable functions with domain $\bbR$ satisfying $\frac{d}{dx} \sin x = \cos x$, and  $\frac{d}{dx} \cos x = - \sin x$, and $\frac{d}{dx} \arctan x = \frac{1}{1 + x^2}$. You may also assume that 
+	$\frac{d}{dx}(x^\alpha)=\alpha x^{\alpha -1},$ for any $\alpha\in\bbR.$ 
+
+	\begin{enumerate}[(a)]
+		\item Find $\displaystyle \int_1^2 t^2\sqrt{t^3 -1}\,dt$.
+		\item Find $\displaystyle \frac{d}{dx} \int_0^1 \frac{(\sin t)(\cos t)}{t^3 + 1} \, dt$.
+		\item Find $\displaystyle \frac{d}{dx} \int_0^{\cos x} \frac{1}{t^4 + 1} \, dt$.
+		\item For $a, b \in \bbR$, find $\displaystyle \int_a^b \frac{\cos x}{\sqrt[4]{\sin x + 9}} \, dx$.
+		\item Find $\displaystyle \int_0^{\pi/2} \left(\frac{\pi}{2} - x\right) (\cos x) \, dx$.
+		\item Find $\displaystyle \int_0^x t (\arctan t) \, dt$.
+	\end{enumerate}
+
+\item In this exercise you may assume familiarity with the trigonometric functions, the logarithmic/exponential functions and their derivatives. Compute  the following integrals:
+\begin{enumerate}
+\item $\displaystyle\int\frac{x dx}{3-2x^2}, $
+
+\item $\displaystyle\int \frac{x dx}{4+x^4}, $
+
+\item $\displaystyle\int \frac{e^x dx}{2+e^x}, $
+
+\item $\displaystyle\int \tan(x) dx, $
+
+\item $\displaystyle\int \frac{ dx}{1+e^x}, $
+
+\item $\displaystyle\int_{-1}^{1} \frac{ xdx}{x^2+x+1}, $
+
+\item $\displaystyle\int_{0}^{a} x^2 \sqrt{a^2-x^2}dx.$
+\end{enumerate}
+
+\end{enumerate}
+
+
+\section*{Acknowledgments} 
+Thanks, as always, to Professor Oron Propp for being a great mentor in both Office Hours and during class. Thank you to Richard Gale for showing me a smart way of doing 13.4 (I included both his (first one) and my proof (second)). Thanks also to Lina Piao for working with me to figure out a couple of proofs, such as 13.19, 13.20, and 13.29.
+\begin{thebibliography}{9}
+
+
+
+
+\end{thebibliography}
+
+\end{document}
+

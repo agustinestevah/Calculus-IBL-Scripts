@@ -1,0 +1,799 @@
+
+\documentclass[openany, amssymb, psamsfonts]{amsart}
+\usepackage{mathrsfs,comment}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[normalem]{ulem}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{lipsum}
+\usepackage{marvosym}
+\usepackage[all,arc,2cell]{xy}
+\UseAllTwocells
+\usepackage{enumerate}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+
+\renewcommand{\phi}{\varphi}
+\renewcommand{\emptyset}{\O}
+
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\sm}{\setminus}
+
+
+\newcommand{\sarr}{\rightarrow}
+\newcommand{\arr}{\longrightarrow}
+
+\newcommand{\hide}[1]{{\color{red} #1}} % for instructor version
+%\newcommand{\hide}[1]{} % for student version
+\newcommand{\com}[1]{{\color{blue} #1}} % for instructor version
+%\newcommand{\com}[1]{} % for student version
+\newcommand{\meta}[1]{{\color{green} #1}} % for making notes about the script that are not intended to end up in the script
+%\newcommand{\meta}[1]{} % for removing meta comments in the script
+
+\DeclareMathOperator{\ext}{ext}
+\DeclareMathOperator{\ho}{hole}
+%%% hyperref stuff is taken from AGT style file
+\usepackage{hyperref}  
+\hypersetup{%
+  bookmarksnumbered=true,%
+  bookmarks=true,%
+  colorlinks=true,%
+  linkcolor=blue,%
+  citecolor=blue,%
+  filecolor=blue,%
+  menucolor=blue,%
+  pagecolor=blue,%
+  urlcolor=blue,%
+  pdfnewwindow=true,%
+  pdfstartview=FitBH}   
+  
+\let\fullref\autoref
+%
+%  \autoref is very crude.  It uses counters to distinguish environments
+%  so that if say {lemma} uses the {theorem} counter, then autrorefs
+%  which should come out Lemma X.Y in fact come out Theorem X.Y.  To
+%  correct this give each its own counter eg:
+%                 \newtheorem{theorem}{Theorem}[section]
+%                 \newtheorem{lemma}{Lemma}[section]
+%  and then equate the counters by commands like:
+%                 \makeatletter
+%                   \let\c@lemma\c@theorem
+%                  \makeatother
+%
+%  To work correctly the environment name must have a corrresponding 
+%  \XXXautorefname defined.  The following command does the job:
+%
+\def\makeautorefname#1#2{\expandafter\def\csname#1autorefname\endcsname{#2}}
+%
+%  Some standard autorefnames.  If the environment name for an autoref 
+%  you need is not listed below, add a similar line to your TeX file:
+%  
+%\makeautorefname{equation}{Equation}%
+\def\equationautorefname~#1\null{(#1)\null}
+\makeautorefname{footnote}{footnote}%
+\makeautorefname{item}{item}%
+\makeautorefname{figure}{Figure}%
+\makeautorefname{table}{Table}%
+\makeautorefname{part}{Part}%
+\makeautorefname{appendix}{Appendix}%
+\makeautorefname{chapter}{Chapter}%
+\makeautorefname{section}{Section}%
+\makeautorefname{subsection}{Section}%
+\makeautorefname{subsubsection}{Section}%
+\makeautorefname{theorem}{Theorem}%
+\makeautorefname{thm}{Theorem}%
+\makeautorefname{excercise}{Exercise}%
+\makeautorefname{cor}{Corollary}%
+\makeautorefname{lem}{Lemma}%
+\makeautorefname{prop}{Proposition}%
+\makeautorefname{pro}{Property}
+\makeautorefname{conj}{Conjecture}%
+\makeautorefname{defn}{Definition}%
+\makeautorefname{notn}{Notation}
+\makeautorefname{notns}{Notations}
+\makeautorefname{rem}{Remark}%
+\makeautorefname{quest}{Question}%
+\makeautorefname{exmp}{Example}%
+\makeautorefname{ax}{Axiom}%
+\makeautorefname{claim}{Claim}%
+\makeautorefname{ass}{Assumption}%
+\makeautorefname{asss}{Assumptions}%
+\makeautorefname{con}{Construction}%
+\makeautorefname{prob}{Problem}%
+\makeautorefname{warn}{Warning}%
+\makeautorefname{obs}{Observation}%
+\makeautorefname{conv}{Convention}%
+
+
+%
+%                  *** End of hyperref stuff ***
+
+%theoremstyle{plain} --- default
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{exercise}{Exercise}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{prob}{Problem}[section]
+\newtheorem{conj}{Conjecture}[section]
+%\newtheorem{ass}{Assumption}[section]
+%\newtheorem{asses}{Assumptions}[section]
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ass}{Assumption}[section]
+\newtheorem{asss}{Assumptions}[section]
+\newtheorem{ax}{Axiom}[section]
+\newtheorem{con}{Construction}[section]
+\newtheorem{exmp}{Example}[section]
+\newtheorem{notn}{Notation}[section]
+\newtheorem{notns}{Notations}[section]
+\newtheorem{pro}{Property}[section]
+\newtheorem{quest}{Question}[section]
+\newtheorem{rem}{Remark}[section]
+\newtheorem{warn}{Warning}[section]
+\newtheorem{sch}{Scholium}[section]
+\newtheorem{obs}{Observation}[section]
+\newtheorem{conv}{Convention}[section]
+
+%%%% hack to get fullref working correctly
+\makeatletter
+\let\c@obs=\c@thm
+\let\c@cor=\c@thm
+\let\c@prop=\c@thm
+\let\c@lem=\c@thm
+\let\c@prob=\c@thm
+\let\c@con=\c@thm
+\let\c@conj=\c@thm
+\let\c@defn=\c@thm
+\let\c@notn=\c@thm
+\let\c@notns=\c@thm
+\let\c@exmp=\c@thm
+\let\c@ax=\c@thm
+\let\c@pro=\c@thm
+\let\c@ass=\c@thm
+\let\c@warn=\c@thm
+\let\c@rem=\c@thm
+\let\c@sch=\c@thm
+\let\c@equation\c@thm
+\numberwithin{equation}{section}
+\makeatother
+
+\bibliographystyle{plain}
+
+%--------Meta Data: Fill in your info------
+\title{University of Chicago Calculus IBL Course}
+
+\author{Agustin Esteva}
+
+\date{Apr 12. 2024}
+
+\begin{document}
+
+\begin{abstract}
+
+16310's Script 16.\\ Let me know if you see any errors! Contact me at aesteva@uchicago.edu.
+
+
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+\setcounter{section}{17}
+
+\section*{Definition 17.1: Sequence of Functions}
+\begin{defn}
+\label{17.1}
+	Let $A\subset\bbR$, and consider $X = \{f\colon A \to \bbR \}$, the collection of real-valued functions on $A$. A \emph{sequence of functions (on $A$)} is an ordered list $(f_1, f_2, f_3, \ldots)$ which we will denote $(f_n)$, 
+	where each $f_n \in X$. (More formally, we can think of the sequence as a function $F\colon \bbN \to X$, where $f_n = F(n)$, for each $n \in \bbN$, but this degree of formality is not particularly helpful.) 
+	
+	We can take the sequence to start at any $n_0 \in \bbZ$ and not just at $1$, just like we did for sequences of real numbers.
+\end{defn}
+
+\section*{Definition 17.2: Pointwise Convergence of Functions}
+\begin{defn}
+\label{17.2}
+	The sequence $(f_n)$ \emph{converges pointwise} to a function $f\colon A \to \bbR$ if for all $x \in A$ and $\epsilon > 0$, there exists $N \in \bbN$ such that:
+	\begin{center}
+		if $ n \geq N$, \quad then $\abs{f_n(x) - f(x)} < \epsilon$.
+	\end{center}
+	In other words, we have that for all $x \in A$, $\lim\limits_{n \to \infty} f_n(x) = f(x)$.
+\end{defn}
+
+\section*{Definition 17.3: Uniform Convergence of Functions}
+\begin{defn}
+\label{17.3}
+	The sequence $(f_n)$ \emph{converges uniformly} to a function $f\colon A \to \bbR$ if for all $\epsilon > 0$, there exists $N \in \bbN$ such that:
+	\begin{center}
+		if $ n \geq N$, \quad then $\abs{f_n(x) - f(x)} < \epsilon$ \quad for every $x \in A$.
+	\end{center}
+Equivalently, the sequence $(f_n)$ \emph{converges uniformly} to a function $f\colon A \to \bbR$ if for all $\epsilon > 0$, there exists $N \in \bbN$ such that:
+	\begin{center}
+		if $ n \geq N$, \quad then $\displaystyle \sup_{x\in A} \abs{f_n(x) - f(x)} < \epsilon$.
+	\end{center}
+\end{defn}
+
+\section*{Example 17.4}
+\begin{exmp} 
+\label{17.4}
+Suppose that a sequence $(f_n)$ converges pointwise to a function $f.$ Prove that if $(f_n)$ converges uniformly to a function $g$, then  $f=g.$
+\end{exmp}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+If $(f_n)$ converges uniformly to a function $g,$ then for all $\epsilon>0,$ there exists some $N \in \bbN$ such that if $n\geq N,$ then $|f_n(x) - g(x)|< \epsilon$ for all $x \in A.$ Thus, if $x\in A,$ there exists such $N,$ such that if $n\geq N,$ then $|f_n(x) - g(x)|< \epsilon.$\footnote{This proves that if $(f_n)$ converges uniformly, then it converges pointwise} Therefore, because $\displaystyle\lim_{n\to \infty}(f_n(x)) = g(x)$ and $\displaystyle\lim_{n\to \infty }(f_n(x)) = f(x),$\footnote{This is from the fact that $(f_n)$ converges pointwise to $f$} then by Theorem 15.4, because convergent points are unique, then $f(x) = g(x)$ for all $x\in A$ and so $f = g.$
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Example 17.5}
+\begin{exmp} 
+\label{17.5}
+	For each of the following sequences of functions, determine what function the sequence $(f_n)$ converges to pointwise. Does the sequence converge uniformly to this function?
+\end{exmp}
+\begin{enumerate}
+\item[i)]  For $n \in \bbN$, let $f_n\colon [0, 1] \to \bbR$ be given by $f_n(x) = x^n$.	
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+\begin{itemize}
+\item 
+\begin{enumerate}
+    \item If $x \in [0,1),$ then by Example 15.8, $\displaystyle\lim_{n\to \infty}x^n = 0.$
+    \item If $x = 1,$ then $\displaystyle\lim_{n\to \infty} =1.$
+\end{enumerate}
+Thus, for all $x\in [0,1],$  $\displaystyle\lim_{n \to \infty}x^n = 
+\begin{cases}
+0,\qquad x\in [0,1)\\
+1,\qquad x = 1
+\end{cases},$ and so $x^n$ converges pointwise.
+\item Assume, for the sake of contradiction, that $(f_n(x))$ converges uniformly to $f(x).$ Therefore, let $\epsilon = \frac{1}{2}.$ For all $N \in \bbN,$ if $n\geq N,$ then if $x = (\frac{4}{5})^\frac{1}{N},$ then $x\in [0,1).$ However, since $|f_n(x) - f(x)| = |x^n - 0| = |\frac{4}{5}|> \frac{1}{2},$ then $|f_n(x) - f(x)|>\epsilon$ for some $x\in A,$ which is a contradiction.
+\end{itemize}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+\item[ii)] For $n\in \bbN,$ let $f_n\colon \bbR\to \bbR$ be given by $\displaystyle f_n(x)=\frac{\sin (nx)}{n}.$ (For the purposes of this example you may assume basic knowledge of $\sin$.)
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+\begin{itemize}
+\item For all $\epsilon>0,$ there exists an $N \in \bbN$ such that $\frac{1}{N}< \epsilon.$ Therefore, if $n\geq N,$ then since $|\sin(nx)|<1:$
+\begin{align*}
+|f_n(x) - f(x)| &= \left|\frac{\sin(nx)}{n} - 0\right|\\
+&= \left| \frac{1}{n}\right| |\sin(nx)|\\
+&\leq \epsilon(1)\\
+&= \epsilon
+\end{align*}
+Therefore, $f_n(x)$ converges uniformly to $f(x) = 0.$.
+\item Because $f_n(x)$ converges uniformly, then it converges pointwise to $f(x) = 0.$
+\end{itemize}
+\end{proof}
+\item[iii)] For $n\in\bbN,$ let $f_n\colon [0,1]\to \bbR$ be given by $f_n(x)=\begin{cases} n^2 x & 0\leq x\leq \frac{1}{n}\\ 
+n(2-nx) & \frac{1}{n}\leq x\leq \frac{2}{n}\\ 0 & \frac{2}{n}\leq x\leq 1. 
+\end{cases} $ 
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+\begin{itemize}
+\item For all $\epsilon>0,$ there exists an $N \in \bbN$ such that if $N$ and $n\geq N,$ then for all $x\in (0,1],$ there exists some $N_x$ such that $\frac{2}{N_x}< x,$ and thus $f_n(x) = 0.$ Therefore, for all $x\in (0,1],$ if $n\geq N_x,$ then $|0-0| = 0 < \epsilon.$ Note that if $x=0,$ then the case is reduced to $f_n(x) = 0,$ and so evidently, for any $N\in \bbN,$ $\displaystyle\lim_{n\to \infty}f_n(0) = 0.$ Thus, $(f_n)$ converges pointwise to $f(x) = 0.$
+\item Let $\epsilon = 1.$ Let $N \in \bbN$ and $n\geq N.$ If $x = \frac{1}{N},$ then:
+\begin{align*}
+|f_n(\frac{1}{N}) - 0| &= |n^2\frac{1}{n}|\\
+&= |n|\\
+&\geq 1
+\end{align*}
+Thus, $(f_n)$ is not uniformly convergent. 
+\end{itemize}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+\end{enumerate}
+
+
+
+\section*{Theorem 17.6}
+\begin{thm} 
+\label{17.6}
+	Let $(f_n)$ be a sequence of functions, and suppose that each $f_n\colon A \to \bbR$ is continuous. If $(f_n)$ converges uniformly to $f\colon A \to \bbR$, then $f$ is continuous.
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Let $\epsilon>0.$ Let $N \in \bbN$ such that if $n\geq N,$ then since $(f_n)$ converges uniformly to $f$, and so $|f_N(x) - f(x)|< \frac{\epsilon}{3}$ for all $x\in A.$ Because each $f_n(x)$ is continuous, then $f_N(x)$ is continuous and so if $x\in A$ and $|x-a|< \delta,$ where $\delta>0,$ then $|f_N(x) - f(a)|< \frac{\epsilon}{3}.$ Therefore, because (1) holds for all $x\in A,$ then $|f_N(a) - f(a)|< \frac{\epsilon}{3}.$ Therefore for all $a\in A,$ if $|x-a|< \delta,$ then:
+\begin{align*}
+|f(x) - f(a)|&\leq |f(x) - f_N(x)| + |f_N(x) - f(a)|\\
+&\leq |f(x) - f_N(x)| + |f_N(x) - f_N(a)| + |f_N(a) - f(a)|\\
+&< \frac{\epsilon}{3} + \frac{\epsilon}{3} + \frac{\epsilon}{3}\\
+&= \epsilon
+\end{align*}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Theorem 17.7}
+\begin{thm}
+	\label{17.7}
+	Suppose that $(f_n)$ is a sequence of integrable functions on $[a, b]$ and suppose that $(f_n)$ converges uniformly to $f\colon [a, b] \to \bbR$. Then
+	\[
+		\int_{a}^{b} f = \lim_{n \to \infty} \int_{a}^{b} f_n.
+	\]
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Let $\epsilon>0.$ Because $(f_n)$ converges uniformly to $f$, then there exists some $N \in \bbN$ such that for all $n\geq N,$ $|f_n(x) - f(x)|< \frac{\epsilon}{4(b-a)}$ for all $x\in A.$\footnote{The for all $x\in A$ is important here, as it allows us to look at the behavior of $f(x)$ when $x$ is restricted to the subintervals of a partition.} Because each $f_n$ is integrable, then then there exists a partition $P$ such that $U(f_N, P) - L(f_N, P)< \frac{\epsilon}{2}.$ Note that for all $x\in [t_{i-1}, t_{i}],$ $f(x) \leq f_N(x) + \frac{\epsilon}{4(b-a)}\leq M_i(f_N) +\frac{\epsilon}{4(b-a)},$ and thus. $M_i(f)\leq M_i(f_N) +\frac{\epsilon}{4(b-a)}.$ Similarly, $m_i(f)\geq m_i(f_N) - \frac{\epsilon}{4(b-a)}$ for any $i \in [n].$ Therefore, $M_i(f) - m_i(f)\leq M_i(f_N) - m_i(f_N) + 2(\frac{\epsilon}{4(b-a)}).$ Therefore:
+\begin{align*}
+U(f,P) - L(f,P) &\leq \displaystyle\sum_{i=1}^n(M_i(f_N) - m_i(f_N) + (\frac{\epsilon}{(b-a)}))(t_i-t_{i-1})\\
+&= U(f_N, P) - L(f_N,P) + \frac{\epsilon}{2(b-a)}(b-a)\\
+&< \frac{\epsilon}{2} + \frac{\epsilon}{2}\\
+&= \epsilon
+\end{align*}
+Therefore, $f$ is integrable. Moreover, for all $\epsilon>0,$ there exists an $N \in \bbN$ such that if $n\geq N,$ then since $|f_n(x) - f(x)|\leq \frac{\epsilon}{2(b-a)}$ for all $x\in A.$ Thus, by Theorem 13.28:
+\[|\int_a^bf_n - \int_a^bf| = |\int_a^bf_n -f|\leq \int_a^b|f_n -f|\leq \frac{\epsilon}{2(b-a)}(b-a) = \frac{\epsilon}{2}< \epsilon\]
+Therefore, \[\int_a^bf = \lim_{n\to \infty}\int_a^b f_n\]
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+
+\section*{Theorem 17.8}
+\begin{thm}\label{17.8}
+	Let $(f_n)$ be a sequence of functions defined on an open interval containing $[a, b]$ such that each $f_n$ is differentiable on $[a,b]$ and $f'_n$ is integrable on $[a, b]$. Suppose further that $(f_n)$ converges pointwise to $f$ on $[a,b]$ and that $(f'_n)$ converges uniformly to a continuous function $g$ on $[a,b].$ Then $f$ is differentiable at every $x\in [a,b],$ and
+	\[
+		f'(x) = \lim_{n \to \infty} f'_n(x).
+	\]
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+By Theorem 17.7, because $(f_n')$ are all integrable and uniformly converge to some continuous function $g$ on $[a,b],$ then $g$ is integrable and \[\int_a^xg = \displaystyle\lim_{n\to \infty}\int_a^xf_n'\] By the Second Fundamental Theorem of Calculus, because $f_n'$ is integrable for all $n$ and there exists functions $f_n$ such that $f_n' = f_n',$ then \[\displaystyle\lim_{n\to \infty}\int_a^xf_n' = \lim_{n\to \infty}(f_n(x) - f_n(a)).\] Because $(f_n)$ converges pointwise to $f,$ then by Theorem 15.8, \[\displaystyle\lim_{n\to \infty}(f_n(x) - f_n(a)) = f(x) - f(a).\] Define $F(x) := \int_a^xg.$ By the work above, this implies that $F(x) = f(x) - f(a).$ Because $g$ is integrable on $[a,b]$, then by Theorem 13.29, $F(x)$ is continuous on $[a,b].$ Therefore, by the First Fundamental Theorem of Calculus, because $g$ is continuous on $(a,b),$ then $F$ is differentiable on $[a,b]$\footnote{I am misusing notation here, since it is technically only differentiable on $(a,b).$} and $F'(x) = g(x) = f'(x) - f'(a)$ for all $x\in [a,b].$ Therefore, because $f'(a) = 0$ since it is a constant, then $f'(x) = g(x).$
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Theorem 17.9}
+\begin{thm}
+\label{17.9}
+	Let $(f_n)$ be a sequence of functions defined on a set $A$. Then the following are equivalent: 
+	\begin{enumerate}[(a)]
+		\item There is some function $f$ such that $(f_n)$ converges uniformly to $f$ on $A$.
+		\item For all $\epsilon > 0$, there exists an $N \in \bbN$ such that when $m, n \geq N$,
+		\[
+			\abs{f_n(x) - f_m(x)} < \epsilon, \ \text{for every } x \in A.
+		\]
+
+	\end{enumerate}
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+Look at the footnote for $b\to a$ for a more rigorous proof, but if intuition is all you need, then the one on the document suffices.
+\begin{itemize}
+    \item ($a\to b$): Because $(f_n)$ converges uniformly to $f,$ then there exists some $N \in \bbN$ such that if $n>m\geq N,$ then $|f_n(x) - f(a)|< \frac{\epsilon}{2}$ and $|f_m(x) - f(a)|< \frac{\epsilon}{2}.$ Thus:
+    \begin{align*}
+        |f_n(x) - f_m(x)|&\leq |f_n(x) - f(a)| + |f_m(x) - f(a)|\\
+        &< \frac{\epsilon}{2} + \frac{\epsilon}{2}\\
+        &= \epsilon
+    \end{align*}
+    \item ($b\to a$): Because $(f_n)$ is Cauchy, then it converges pointwize. Thus, define $f(x):= \displaystyle\lim_{n\to \infty}(f_n(x)).$ Therefore, for all $x\in A,$ there exists an $N' \in \bbN$ such that if $m\geq N',$ then $|f_m(x) - f(a)|< \frac{\epsilon}{2}.$ Moreover, there exists an $N'' \in \bbN$ such that if $n>m\geq N'',$ then $|f_n(x) - f_m(x)|< \frac{\epsilon}{2}$ for all $x\in A.$ Thus, let $N = \max(N',N''),$ and so if $n>m\geq N,$ then for all $x\in A$\footnote{This method is almost naive since it has a problem of the for all $x\in A$ part, as $N'$ is very much $x-$ dependent. However, a fix would be to evaluate $|f_m(x) - f_n(a)|<\frac{\epsilon}{2}$ in the $m-$  limit. By Theorem 15.8, we can distribute this limit into the absolute value (seeing as how absolute value is continuous), and so because $\displaystyle\lim_{m\to \infty}f_m(x) = f(x),$ then $\displaystyle\lim_{m\to \infty}|f_m(x) - f_n(a)|< \displaystyle\lim_{m\to \infty}\epsilon \implies |f(x) - f_n(a)| \leq \frac{\epsilon}{2}<\epsilon.$}: 
+    \begin{align*}
+        |f_n(x) - f(a)|&\leq |f_n(x) - f_m(a)| + |f_m(a) - f(a)|\\
+        &\leq \frac{\epsilon}{2} + \frac{\epsilon}{2}\\
+        &= \epsilon
+    \end{align*}
+    
+\end{itemize}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Definition 17.10: Series of Functions}
+\begin{definition}
+	We define series of functions the same way we defined series of numbers. That is, given a sequence $(f_n)$, define the sequence of partial sums $(p_n)$ by
+	\[
+		p_n(x) = f_1(x) + \dots + f_n(x)
+	\]
+	and say that $\sum\limits_{n = 1}^{\infty} f_n$ converges pointwise or converges uniformly to $f$ if the sequence $(p_n)$ does.
+\end{definition}
+
+\section*{Theorem 17.11: Weierstrass - M Test}
+\begin{thm}\label{17.11}
+	Suppose that $f_n\colon A \to \bbR$ is a sequence of functions and that there exists a sequence of positive real numbers $(M_n)$ such that for all $x \in A$, we have $\abs{f_n(x)} \leq M_n$.
+	If $\sum\limits_{n = 1}^{\infty} M_n$ converges, then for each $x \in A$, the series of numbers $\sum\limits_{n = 1}^{\infty} f_n(x)$ converges absolutely. Furthermore, $\sum\limits_{n = 1}^{\infty} f_n$ converges uniformly to the function $f$ defined by:
+	\[
+		f(x) = \sum_{n = 1}^{\infty} f_n(x).
+	\]
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}
+    Because for all $x\in A,$ $|f_n(x)|\leq M_n,$ then by the Convergence Test, because $\displaystyle\sum_{n=1}^\infty M_n$ converges, then $\displaystyle\sum_{i=1}^\infty |f_n(x)|$ converges. Therefore, for all $x\in A,$ the series converges absolutely. Therefore, by Theorem 16.5, if $k>m \geq N,$ then $|\displaystyle\sum_{k=m+1}^n M_n|< \epsilon.$ Thus, because $|f_n(x)|\leq M_n,$ then \[\displaystyle\sum_{k=m+1}^n |f_n(x)|\leq  |\displaystyle\sum_{k=m+1}^n M_n| < \epsilon\] for all $x\in A.$ Thus, by Theorem 16.11, $|\displaystyle\sum_{k=m+1}^n f_k(x)|\leq \displaystyle\sum_{k=m+1}^n |f_k(x)| < \epsilon,$ and so $|\displaystyle\sum_{k=1}^nf_k(x) - \displaystyle\sum_{k=1}^mf_k(x)|<\epsilon$ for all $x\in A.$ Thus, by Theorem \ref{17.9}, $\displaystyle\sum_{k=1}^nf_k(x)$ converges uniformly and thus, by definition, $\displaystyle\sum_{n=1}^\infty f_n(x)$ converges uniformly and so define $f(x):=\displaystyle\sum_{n=1}^\infty f_n(x)$ 
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+The previous theorem raises the question of what functions defined as series look like.
+
+\section*{Power Series}
+
+\begin{defn}
+	A function of the form
+	\[
+		f(x) = \sum_{n = 0}^{\infty} c_n (x - a)^n, \qquad c_n \in \bbR
+	\]
+	is called a \emph{power series}. The power series is \emph{centered} at $a$ and the numbers $c_n$ are called the coefficients.
+\end{defn} 
+
+The next theorem gives a way to determine where a given power series is well-defined.
+
+\begin{thm}
+	Let 
+	\[
+		f(x) = \sum_{n = 0}^{\infty} c_n x^n
+	\]
+	be a power series centered at $0$. Suppose that $x_0$ is a real number such that the series
+	\[
+		f(x_0) = \sum_{n = 0}^{\infty} c_n x_{0}^n
+	\]
+	converges. Let $r$ be any number such that $0 < r < \abs{x_0}$. Then the following series of functions converge uniformly on $[-r, r]$ (and absolutely for each $x \in [-r, r]$):
+	\begin{eqnarray*}
+		f(x) & = &  \sum_{n = 0}^{\infty} c_n x^n\\
+		g(x) & = &  \sum_{n = 1}^{\infty} n c_n x^{n - 1}\\
+		\qquad \text{and} \qquad h(x) & = & \sum_{n=0}^\infty c_n\frac{x^{n+1}}{n+1}
+	\end{eqnarray*}
+	
+	
+	Furthermore, $f$ is differentiable on $[-r, r] $ and $f' = g$. Also $h$ is differentiable on $[-r,r]$ and $h'=f.$ 
+	\hint[Hints]{(i) There is some $M$ such that $\abs{c_n x_0^n} \leq M,$ for all $n$. (ii) If $x \in [-r, r]$, $\abs{c_n x^n} \leq M \left(\frac{r}{\abs{x_0}}\right)^n, $ for all $ n$. (iii) Use Theorem~\ref{uniformconvseries}.} 
+\end{thm}
+
+We may paraphrase this theorem as follows: if a (zero-centered) power series converges at $x_0,$ then it may be differentiated and anti-differentiated term-by-term on $(-|x_0|,|x_0|)$ to obtain power series representations of the derivative and antiderivative of $f.$  
+
+\begin{cor}
+If $f(x)=\displaystyle \sum_{n=0}^\infty c_n x^n$ converges for all $x$ in some interval $(-R,R),$ then $f'(x)=\displaystyle\sum_{n=1}^\infty nc_n x^{n-1},$ for all $x\in (-R,R).$ 
+\end{cor} 
+
+
+\begin{exmp}
+Let $p_n\colon\bbR\to\bbR$ be given by $p_n(x)=c_0+c_1 x+c_2x^2 +\cdots c_n x^n.$  Prove that, for all $k=0,\cdots, n,$
+
+$$c_k = \frac{p_n^{(k) } (0)}{k!}$$ and deduce that, for all $x\in \bbR,$ 
+
+$$p_n(x) = \sum_{k=0}^n \frac{p_n^{(k) } (0)}{k!}x^k.$$ 
+
+\end{exmp}
+
+\begin{defn} 
+Suppose that $f:A\to\bbR$ has derivatives of all orders at $a\in A.$ 
+Then we define $$T_{f,a}(x)= \sum_{k=0}^{\infty} \frac{f^{(k)} (a)}{k!} (x-a)^k.$$
+
+\end{defn} 
+
+
+\begin{exmp}\label{TSex}
+\begin{enumerate}
+\item[a)] Find $T_{f,0}$ for each of the following functions:
+\begin{enumerate}
+\item[i)] $f:\bbR\to\bbR$ given by $f(x)=x^3-3x^2+1$ 
+\item[ii)] $f:\bbR\setminus\{1\}\to \bbR$ given by $f(x) = \frac{1}{1-x}$ 
+\end{enumerate}
+\item[b)] For each of the examples in a), based on prior knowledge, for which values of $x$ does $T_{f,0}(x)=f(x)$?  
+
+\end{enumerate}
+\end{exmp}
+
+
+
+
+\begin{thm} \label{thm1}
+Let $A\subset \bbR$ be an open interval containing $a$. Let $f\colon A\to\bbR$ be $(n+1)-$times differentiable (so $f',f'',f''',\cdots, f^{(n+1)}$ all exist) and let $f^{(n+1)}$ be continuous. Let $x\in A.$  Then
+$$f(x)=p_n(x)+R_n(x) $$
+where
+$$p_n(x)=\sum_{i=0}^n \frac{(x-a)^i}{i!} f^{(i)} (a)$$
+and
+
+$$R_n(x)=\int_{a}^x f^{(n+1)}(t)\frac{(x-t)^n}{n!} dt.$$
+\end{thm}
+
+
+\begin{prop}\label{prop2}  With the same notation as in Theorem~\ref{thm1},
+
+$$R_n(x) = \frac{f^{(n+1)} (c)}{(n+1)!} (x-a)^{n+1},$$
+for some $c$ between $x$ and $a.$
+\end{prop}
+
+
+
+\begin{exmp}
+
+
+Let $A\subset \bbR$ be an open set, $f:A\to\bbR$ be $(n+1)-$times differentiable (so $f',f'',f''',\cdots, f^{(n+1)}$ all exist) and let $f^{(n+1)}$ be continuous. Let $a\in A.$ 
+Suppose that $f'(a)=f''(a)=\cdots f^{(n)}(a)=0$ but $f^{(n+1)}(a)\neq 0.$ Prove that 
+\begin{enumerate}
+\item[a)] If $n$ is odd and $f^{(n+1)}(a)>0$ then $f$ has a local minimum at $a.$
+\item[b)] If $n$ is odd and $f^{(n+1)}(a)<0$ then $f$ has a local maximum at $a.$ 
+\item[c)] What happens if $n$ is even?
+\end{enumerate}
+\end{exmp}
+
+\begin{prop}
+
+Let $A\subset \bbR$ be an open interval containing $a$. Suppose that $f:A\to\bbR$ has derivatives of all orders at $a\in A.$ Let $x\in A.$  
+Then 
+$f(x)=\displaystyle \sum_{n=0}^\infty \frac{f^{k}(a)}{k!} (x-a)^k$ if, and only if, $\displaystyle \lim_{n\to\infty} R_n(x) = 0.$ 
+\end{prop} 
+
+
+\begin{exmp}
+ Using the remainder formula in either Theorem~\ref{thm1} or Proposition~\ref{prop2}, prove directly that $\lim_{n\to\infty} R_n(x)=0$ for each of the functions in Exercise~\ref{TSex}, for the range of $x-$values identified in Exercise~\ref{TSex}b).
+
+ \end{exmp} 
+
+
+
+
+
+
+
+
+ 
+
+
+
+\begin{exmp}
+Suppose that $f$ is given by a power series centered at $a$. So, for some $R,$ and coefficients $c_n,$
+$$f(x) = \sum_{n=0}^\infty c_n (x-a)^n,\quad \text{ for } |x-a|<R.$$
+
+Then
+ $T_{f,a}(x)=f(x),$ for all $x$ with $|x-a|<R.$ 
+
+
+\end{exmp} 
+\bigskip
+
+
+
+
+\begin{center}
+{\em Additional Exercises}
+\end{center}
+
+
+We sometimes use Leibniz notation for derivatives:
+\[
+\frac d{dx} f(x) = f'(x).
+\]
+This allows us to differentiate functions that haven't been named. 
+
+
+
+\begin{enumerate}
+
+
+
+\item
+
+Let $n!$ (read as ``$n$ factorial'') denote the product of all the natural numbers between $1$ and $n$ (inclusive).
+Thus $n!=n\,(n-1)!$, and we define $0!=1$ so that this holds for all $n\ge0$.
+
+Define the following functions by power series:
+\[
+\cos x=\sum_{n=0}^\infty (-1)^n\frac{x^{2n}}{(2n)!},\qquad
+\sin x=\sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{(2n+1)!}.
+\]
+
+Note that we interpret $0^0$ as 1 in these formulae.
+
+\begin{enumerate}
+
+\item
+Show that these series converge pointwise for all real $x$ and uniformly on $[a,b],$ for any $a,b\in \bbR.$ 
+
+
+
+\item
+Show that  $\sin'=\cos$ and $\cos'=-\sin$.
+Also find $\sin 0$, $\cos 0$.
+\end{enumerate}
+
+
+\item 
+
+Define the function $\displaystyle E(x)=\sum_{n=0}^\infty \frac{x^n}{n!}.$ (Note that we interpret $0^0=1$ in this formula.)
+\begin{enumerate}
+\item[a)] Show that the series  $E(x)$ converges pointwise for all real $x$ and uniformly on $[a,b],$ for any $a,b\in \bbR.$ 
+\item[b)] Prove that $E'(x)=E(x),$ for all $x\in \bbR,$ and $E(0)=1.$
+\item[c)] Prove that the function $E$ satisfying the properties in b) is unique. {\em Hint: Proposition~\ref{prop2} should be helpful here}
+\item[d)] 
+
+\begin{enumerate} 
+\item[i)] Prove that $\frac{d}{dx} (E(x)E(-x)) =0.$ Deduce that $E(-x)E(x)=1,$ for all $x\in\bbR.$ 
+\item[ii)] Prove that $E(x)\neq 0,$ for all $x\in \bbR.$
+\item[iii)]
+Prove that $E(x)E(y)=E(x+y)$ for all $x,y\in\bbR$.
+
+\item[iiv)]
+Prove that $E(r)=E(1)^r,$ for all rationals $r.$
+\end{enumerate} 
+\end{enumerate}
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\item
+
+\begin{enumerate}
+
+\item
+Let $\exp (x)=E(x)$ where $E$ is as defined in the previous exercise. Prove that $\exp$ has an inverse function (call it $\log$) and find its domain and range.
+
+
+\item
+Show that $\log'(x)=1/x$. (Recall Theorem 11.23 concerning derivatives of inverse functions.)
+
+\item
+Recall that 
+\[
+\frac1{1-x}=\sum_{n=0}^\infty x^n,\qquad|x|<1.
+\]
+Use this series to find a power series  representation for $f(x)=\log(1-x)$, $|x|<1$. Be sure to justify your answer.
+
+
+\end{enumerate}
+
+
+\item 
+Consider the sequence $(f_n)$ of functions $f_n \colon \mathbb{R} \to \mathbb{R}$ given by
+$$f_n (x) = \frac{x}{1+nx^2}.$$
+\begin{enumerate}
+\item[a)] Find the pointwise limit $f$ of $(f_n)$.
+\vspace{4pt}    \hrule   \vspace{4pt}\begin{proof}:\\
+For all $\epsilon>0:$
+\begin{enumerate}
+    \item If $x \neq 0,$ then there exists an $N\in \bbN$ such that $\frac{1}{\epsilon}< \frac{1}{x} + Nx.$ Thus, if $n\geq N,$ then:
+\begin{align*}
+    |f_n(x) - 0| &= |f_n(x)|\\
+    &= |\frac{x}{1+nx^2}|\\
+    &=|\frac{1}{\frac{1}{x} + nx}|\\
+    &< \epsilon
+\end{align*}
+And so $(f_n)(x)$ converges pointwise to $0.$
+\item If $x = 0,$ then for any $n\in \bbN,$ because $f_n(0) = 0$ and  $\displaystyle\lim_{n\to \infty}(0) = 0,$ then $(f_n)(x)$ converges pointwise to $0.$
+\end{enumerate}
+\end{proof}\vspace{4pt}    \hrule   \vspace{4pt}
+\item[b)] Show that the convergence $f_n \to f$ is uniform.
+\vspace{4pt}    \hrule   \vspace{4pt}\begin{proof}:\\
+By Professor Propp's hint, we were able to find the maximum and minimum of $(f_n)(x)$ using a graphical method. There exists an $N\in \bbN$ such that then $\frac{1}{\epsilon}<2\sqrt{N}\leq 2\sqrt{n}\leq |\frac{1}{x} + nx|$ for any $n\geq N,$ $x\in \bbR.$ Thus, if $n\geq N,$ then \footnote{If $x = 0,$ then we could still use the same $N,$ but it's reduced to the trivial case of $f_n(0) =0.$} Therefore:
+\begin{align*}
+    |f_n(x) -0|&= |f_n(x)|\\
+    &= |\frac{x}{1+nx^2}|\\
+    &= |\frac{1}{\frac{1}{x}+nx}|\\
+    &\leq \frac{1}{2\sqrt{N}}\\
+    &<\epsilon.
+\end{align*}
+While one could reach the fact that $2\sqrt{N}$ is the magical bounds for any epsilon tube around $f = 0$ by a longer route using differentiation, but as stated, graphing is sufficient.
+\end{proof}\vspace{4pt}    \hrule   \vspace{4pt}
+\item[c)] Compute $f_n'$ for each $n$.
+\vspace{4pt}    \hrule   \vspace{4pt}\begin{proof}:\\
+Define $f(x)= x$ and $g(x) = 1+nx^2.$ Note that both $f$ and $g$ are polynomials and so differentiable for all $x\in \bbR.$ Moreover, note that $f'(x)= 1$ and $g'(x) = 2xn.$ Thus, by Example 12.9, \[(\frac{f}{g})'(x) = \frac{f'(x)g(x) - g'(x)f(x)}{f^2(x)} = \frac{1+nx^2 - 2x^2n}{(1+nx^2)^2} = \frac{1-nx^2}{(1+nx^2)^2}.\]
+\end{proof}\vspace{4pt}    \hrule   \vspace{4pt}
+\item[d)]  Find the pointwise limit $g$ of $(f_n')$. Is the convergence uniform?
+\vspace{4pt}    \hrule   \vspace{4pt}\begin{proof}:\\
+    For all $\epsilon>0,$ 
+    \begin{enumerate}
+        \item If $x \neq 0,$ then there exists an $N\in \bbN$ such that $\frac{1}{1+Nx^2}<\epsilon$\footnote{By manipulation of the Archimidean property, this holds true} Thus, if $n\geq N,$ then $\frac{1}{1+nx^2}< \epsilon$ and:
+        \begin{align*}
+            |f_n' - 0| &= |f_n'|\\
+            &= |\frac{1-nx^2}{(1+nx^2)(1+nx^2)}|\\
+            &\leq |\frac{1-nx^2}{1+2nx^2+n^2x^4}| \\
+            &\leq |\frac{1-nx^2}{1-n^2x^4}|\\
+            &= |\frac{1-nx^2}{(1-nx^2)(1+nx^2)}|\\
+            &= |\frac{1}{1+nx^2}|\\
+            &< \epsilon
+        \end{align*}
+        \item If $x = 0,$ then evidently for any $N\in \bbN,$ we have that $\displaystyle\lim_{n\to \infty}(1) = 1.$
+    \end{enumerate}
+    Therefore, $f'_n$ converges pointwise to \[g(x) = \begin{cases}
+    0 \qquad x\neq 0\\
+    1 \qquad x = 0
+    \end{cases}\]
+    Because $g$ is obviously not continuous but every $f_n'$ is continuous, then by Theorem 17.6, $(f_n')$ does not converge uniformly to $g.$
+\end{proof}\vspace{4pt}    \hrule   \vspace{4pt}
+\item[e)] Does $f'$ agree with $g$?
+\vspace{4pt}    \hrule   \vspace{4pt}\begin{proof}:\\
+Consider that because $f(x) = 0,$ then $f'(x) =0.$ Therefore, $g(x)$ does not agree with $f'(x)$ on $x=0,$ and $g(0)=1.$
+\end{proof}\vspace{4pt}    \hrule   \vspace{4pt}
+\end{enumerate}
+
+{\em Compare this example with Theorem 17.8}
+\vspace{4pt}    \hrule   \vspace{4pt}\begin{proof}:\\
+In this example, $f_n$ was a sequence of functions such that $f_n'$ were continuous on any closed interval (by 11.12) and thus integrable. Moreover, $f_n$ converged pointwise to $f$ BUT $f'_n$ does not converge uniformly to $g$ on $[a,b].$ This is the reason why Theorem 17.8 fails, and why $\displaystyle\lim_{n\to \infty}f_n'(x)\neq f'(x).$
+\end{proof}\vspace{4pt}    \hrule   \vspace{4pt}
+
+
+
+
+
+
+\item
+Let $f_n(x) = \frac{\sin(x)}{n}-\frac{\sin(x)}{n+2}$ and $s_n(x) = \sum\limits_{k=1}^n f_k(x)$. Find the pointwise limit of $(s_n)$ and determine if the convergence is uniform.
+
+
+
+\end{enumerate}
+
+\section*{Acknowledgments} 
+Thanks, as always, to Professor Oron Propp for being a great mentor in both Office Hours and during class. Thank you to Richard Gale for showing me a smart way of doing 13.4 (I included both his (first one) and my proof (second)). Thanks also to Lina Piao for working with me to figure out a couple of proofs, such as 13.19, 13.20, and 13.29.
+\begin{thebibliography}{9}
+
+
+
+
+\end{thebibliography}
+
+\end{document}
+

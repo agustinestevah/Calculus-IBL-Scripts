@@ -1,0 +1,698 @@
+
+\documentclass[openany, amssymb, psamsfonts]{amsart}
+\usepackage{mathrsfs,comment}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[normalem]{ulem}
+\usepackage{url}
+\usepackage{lipsum}
+\usepackage[all,arc,2cell]{xy}
+\UseAllTwocells
+\usepackage{enumerate}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+
+\renewcommand{\phi}{\varphi}
+\renewcommand{\emptyset}{\O}
+
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\sm}{\setminus}
+
+
+\newcommand{\sarr}{\rightarrow}
+\newcommand{\arr}{\longrightarrow}
+
+\newcommand{\hide}[1]{{\color{red} #1}} % for instructor version
+%\newcommand{\hide}[1]{} % for student version
+\newcommand{\com}[1]{{\color{blue} #1}} % for instructor version
+%\newcommand{\com}[1]{} % for student version
+\newcommand{\meta}[1]{{\color{green} #1}} % for making notes about the script that are not intended to end up in the script
+%\newcommand{\meta}[1]{} % for removing meta comments in the script
+
+\DeclareMathOperator{\ext}{ext}
+\DeclareMathOperator{\ho}{hole}
+%%% hyperref stuff is taken from AGT style file
+\usepackage{hyperref}  
+\hypersetup{%
+  bookmarksnumbered=true,%
+  bookmarks=true,%
+  colorlinks=true,%
+  linkcolor=blue,%
+  citecolor=blue,%
+  filecolor=blue,%
+  menucolor=blue,%
+  pagecolor=blue,%
+  urlcolor=blue,%
+  pdfnewwindow=true,%
+  pdfstartview=FitBH}   
+  
+\let\fullref\autoref
+%
+%  \autoref is very crude.  It uses counters to distinguish environments
+%  so that if say {lemma} uses the {theorem} counter, then autrorefs
+%  which should come out Lemma X.Y in fact come out Theorem X.Y.  To
+%  correct this give each its own counter eg:
+%                 \newtheorem{theorem}{Theorem}[section]
+%                 \newtheorem{lemma}{Lemma}[section]
+%  and then equate the counters by commands like:
+%                 \makeatletter
+%                   \let\c@lemma\c@theorem
+%                  \makeatother
+%
+%  To work correctly the environment name must have a corrresponding 
+%  \XXXautorefname defined.  The following command does the job:
+%
+\def\makeautorefname#1#2{\expandafter\def\csname#1autorefname\endcsname{#2}}
+%
+%  Some standard autorefnames.  If the environment name for an autoref 
+%  you need is not listed below, add a similar line to your TeX file:
+%  
+%\makeautorefname{equation}{Equation}%
+\def\equationautorefname~#1\null{(#1)\null}
+\makeautorefname{footnote}{footnote}%
+\makeautorefname{item}{item}%
+\makeautorefname{figure}{Figure}%
+\makeautorefname{table}{Table}%
+\makeautorefname{part}{Part}%
+\makeautorefname{appendix}{Appendix}%
+\makeautorefname{chapter}{Chapter}%
+\makeautorefname{section}{Section}%
+\makeautorefname{subsection}{Section}%
+\makeautorefname{subsubsection}{Section}%
+\makeautorefname{theorem}{Theorem}%
+\makeautorefname{thm}{Theorem}%
+\makeautorefname{excercise}{Exercise}%
+\makeautorefname{cor}{Corollary}%
+\makeautorefname{lem}{Lemma}%
+\makeautorefname{prop}{Proposition}%
+\makeautorefname{pro}{Property}
+\makeautorefname{conj}{Conjecture}%
+\makeautorefname{defn}{Definition}%
+\makeautorefname{notn}{Notation}
+\makeautorefname{notns}{Notations}
+\makeautorefname{rem}{Remark}%
+\makeautorefname{quest}{Question}%
+\makeautorefname{exmp}{Example}%
+\makeautorefname{ax}{Axiom}%
+\makeautorefname{claim}{Claim}%
+\makeautorefname{ass}{Assumption}%
+\makeautorefname{asss}{Assumptions}%
+\makeautorefname{con}{Construction}%
+\makeautorefname{prob}{Problem}%
+\makeautorefname{warn}{Warning}%
+\makeautorefname{obs}{Observation}%
+\makeautorefname{conv}{Convention}%
+
+
+%
+%                  *** End of hyperref stuff ***
+
+%theoremstyle{plain} --- default
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{exercise}{Exercise}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{prob}{Problem}[section]
+\newtheorem{conj}{Conjecture}[section]
+%\newtheorem{ass}{Assumption}[section]
+%\newtheorem{asses}{Assumptions}[section]
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ass}{Assumption}[section]
+\newtheorem{asss}{Assumptions}[section]
+\newtheorem{ax}{Axiom}[section]
+\newtheorem{con}{Construction}[section]
+\newtheorem{exmp}{Example}[section]
+\newtheorem{notn}{Notation}[section]
+\newtheorem{notns}{Notations}[section]
+\newtheorem{pro}{Property}[section]
+\newtheorem{quest}{Question}[section]
+\newtheorem{rem}{Remark}[section]
+\newtheorem{warn}{Warning}[section]
+\newtheorem{sch}{Scholium}[section]
+\newtheorem{obs}{Observation}[section]
+\newtheorem{conv}{Convention}[section]
+
+%%%% hack to get fullref working correctly
+\makeatletter
+\let\c@obs=\c@thm
+\let\c@cor=\c@thm
+\let\c@prop=\c@thm
+\let\c@lem=\c@thm
+\let\c@prob=\c@thm
+\let\c@con=\c@thm
+\let\c@conj=\c@thm
+\let\c@defn=\c@thm
+\let\c@notn=\c@thm
+\let\c@notns=\c@thm
+\let\c@exmp=\c@thm
+\let\c@ax=\c@thm
+\let\c@pro=\c@thm
+\let\c@ass=\c@thm
+\let\c@warn=\c@thm
+\let\c@rem=\c@thm
+\let\c@sch=\c@thm
+\let\c@equation\c@thm
+\numberwithin{equation}{section}
+\makeatother
+
+\bibliographystyle{plain}
+
+%--------Meta Data: Fill in your info------
+\title{University of Chicago Calculus IBL Course}
+
+\author{Agustin Esteva}
+
+\date{Jan 11. 2024}
+
+\begin{document}
+
+\begin{abstract}
+
+16210's Script 6.\\ Let me know if you see any errors! Contact me at aesteva@uchicago.edu.
+
+
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+\setcounter{section}{6}
+
+
+\subsection*{Definition 6.1}
+\label{6.1}
+\begin{defn} A subset $A$ of $\bbQ$ is said to be a \emph{cut} (or \emph{Dedekind cut}) if it satisfies the following: 
+	\begin{enumerate}[(a)]
+
+		\item $A \neq \emptyset$ and $A \neq {\mathbb Q}$.
+  \label{6.1.a}
+
+		\item If $r \in A$ and $s \in \bbQ$ satisfies $s < r$, then $s \in A$.
+  \label{6.1.b}
+
+		\item $A$ does not have a last point; i.e., if $r\in A$ then there is some $s \in A$ with $s > r$.
+  \label{6.1.c}
+	\end{enumerate}
+	We denote the collection of all cuts by $\bbR$.
+\end{defn}
+
+\subsection*{Lemma 6.2}
+\label{6.2}
+\begin{lem}
+Let $A$ be a Dedekind cut and $x\in \bbQ.$ Then $x \notin A$ if, and only if, $x$ is an upper bound for $A$.
+\end{lem}
+
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof} :\\
+If $x\notin A$, then $x$ is an upper bound for $A$:\\
+Assume, for the sake of contradiction, that $x$ is not an upper bound for $A$. Therefore, there must exists some $s\in A$ such that $x<s$. However, because $A$ is a \textit{Dedekind Cut} and $x\in \bbQ$, then since $x<s$, and $s\in A$, then by Definition 6.1.\ref{6.1.b} $x\in A$. However, that is a contradiction, since $x\notin A$. Therefore, if $x\notin A$, then $x$ is an upper bound for $A$.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof} 
+If $x$ is an upper bound for $A$, then $x\notin A$.\\
+Assume, for the sake of contradiction, that $x\in A$. Therefore, since $x\in A$ and by Definition 6.1.\ref{6.1.c}, $A$ contains no last point, there must exist some $s\in A$ such that $s>x$. Therefore, $x$ is not an upper bound of $A$, which is a contradiction. It follows that if $x$ is an upper bound for $A$, then $x\in A$.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Example 6.3}
+\label{6.3}
+\begin{exmp}:\\
+    	\begin{enumerate}[(a)]
+		\item Prove that, for any $q\in \bbQ,$ $A = \{x\in\bbQ\mid x< q\}$ is a Dedekind cut. We then define  $\mathbf{0} = \{x \in \bbQ \mid x < 0\}.$
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof} :\\
+    \begin{enumerate} [(i)]
+    \item Because $\bbQ$ has no first point, then for any $q\in \bbQ$, there must exist some $x\in \bbQ$ such that $x<q$. Therefore, since $x<q$, $x\in A$. It follows that $A\neq \emptyset$. Moreover, because $q\in \bbQ$ and $q\notin A$, $A\neq \emptyset$. Therefore, Definition 6.1.a is satisfied.
+    \item if $s\in \bbQ$ and $s<x$, then by transitivity, because $x<q$, then $s<x<q$, and therefore, $s\in A$. Therefore, Definition 6.1.\ref{6.1.b} is satisfied.
+    \item For all $x\in A$, there exists some $s\in \bbQ$ such that $s = \frac{x+q}{2}$. Because $x<q$ and $s<q$ for all $x$, then $s\in A$ and $A$ contains no last point. Therefore, Definition 6.1.\ref{6.1.c} is satisfied.
+\end{enumerate}
+Because Definition \ref{6.1} is satisfied, then for any $q\in \bbQ$, $\{x\in\bbQ\mid x< q\}$ is a Dedekind cut.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+\item Prove that $A = \{x \in \bbQ \mid x \leq 0\}$ is not a Dedekind cut.
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof} 
+For all $x\in A$, $x\leq 0$. Therefore, $0$ is an upper bound of $A$ and $0\in A$. However, this is a contradiction to Lemma \ref{6.2}, and therefore, $A$ cannot be a \textit{cut}.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+\item Prove that $A = \{x\in\bbQ\mid x<0\}\cup\{x\in\bbQ\mid x^2<2\}$ is a Dedekind cut.
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof} :\\
+\begin{enumerate} [(i)]
+\item Because $-1 \in \bbQ$ and $-1<0$, then $-1 \in \bbQ$. Therefore, $A \neq \emptyset$. Moreover because $16\in \bbQ$ and $16\not< 0$ and $16^2 \not < 2$, then $16\notin A$. Therefore, $A\neq \bbQ$. Therefore, Definition 6.1.\ref{6.1.a} is satisfied.
+\item If $s\in \bbQ$ and $s<x$:
+\begin{enumerate}[(1)]
+\item If $s<0$, then by transitivity, $s<x<0$, and therefore, $s\in A$.
+\item If $s \geq 0$, then since $s<x$, it follows that $s^2<x^2$. Therefore, by transitivity, $s^2 <x^2 <2$ and $s\in A$.
+\end{enumerate}
+Therefore, Definition 6.1.\ref{6.1.b} is satisfied.
+\item For all $x\in A$:
+\begin{enumerate}[(1)]
+\item If $x<0$, then there exists some $s\in \bbQ$ such that $s=0$ and therefore, $x<s$ and $0^2 <2$ and therefore $0\in A$.
+\item If $x\geq 0$, then there exists some $s\in \bbQ$ such that $s = x - \frac{x^2 -2}{x+2}$. $s$ has the following properties:
+\begin{align*}
+\frac{x^2 -2}{x+2} &<0\\
+x-\frac{x^2 -2}{x+2} &>x\\
+s>x
+\end{align*}
+Therefore, for all $x\geq 0$, $x<s$. It follows that $x^2 <s^2$. Moreover:
+\begin{align*}
+\frac{x^2 +2x}{x+2}-\frac{x^2 -2}{x+2} &=s\\
+\frac{2x+2}{x+2} &=s\\
+(\frac{2x+2}{x+2})^2 &=s^2\\
+\frac{4x^2+8x+4}{x^2+4x+4} &= s^2\\
+\frac{4x^2+8x+4}{x^2+4x+4} -2 &= s^2 -2 \\
+\frac{4x^2+8x+4}{x^2+4x+4} -\frac{2x^2+8x+8}{x^2+4x+4} &= s^2 -2 \\
+\frac{2(x^2-2)}{(x+2)^2} &= s^2 -2
+\end{align*}
+Because $x^2<2$:
+\begin{align*}
+\frac{2(x^2-2)}{(x+2)^2} &<0\\
+s^2 -2 &< 0 \\
+s^2 &< 2
+\end{align*}
+Therefore, $s\in A$ and $A$ has no last point.
+\end{enumerate}
+Therefore, Definition 6.1.c is satisfied.
+\end{enumerate}
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+        \end{enumerate}
+\end{exmp}
+
+\subsection*{Definition 6.4}
+\begin{defn}
+\label{6.4}
+	If $A, B \in \bbR$, we say that $A < B$ if $A$ is a proper subset of $B$. (Recall from Script 1 that $A$ is a proper subset of $B$ if $A \subset B$ but $A \neq B$.)
+\end{defn}
+
+\subsection*{Example 6.5}
+\begin{exmp}
+\label{6.5}
+Show that $\bbR$ satisfies Axioms~1,2 and 3.
+\end{exmp}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof} :\\
+Axiom 1) A continuum is a nonempty set C:\\
+Because $\bold{0}\in \bbR$ as proved in Definition 6.1.\ref{6.1.a}, then $\bbR \neq \emptyset$. Therefore, axiom 1 is satisfied.\\\\
+Axiom 2) $\bbR$ has an ordering $<$ :\\\\
+\begin{enumerate}
+\item Trichotomy: Let $A,B \in \bbR$, then assume, for the sake of contradiction, that $A\not\subset B$ and $B\not\subset A$. Therefore, it follows for some $a\in A$, $a\notin B$ and for some $b\in B$, $b\notin A$. Therefore, if $b\in B$ and (without loss of generality) $a<b$, then because $a\in \bbQ$ and $B$ is a \textit{Dedekind Cut}, then by Definition \ref{6.1}.1, $a\in B$, which is a contradiction. Likewise, if $a\in A$ and (without loss of generality) $b<a$, then because $b\in \bbQ$, then by Definition \ref{6.1}.1, $b\in A$, which is a contradiction. Therefore, either $A\subset B$ or $B\subset A$:
+\begin{enumerate}
+\item If $A\subset B$, then by Definition \ref{6.4}, $A\subset B$ (proper), so therefore $A\neq B$ and $A<B$. Also, since $A<B$, then $B<A$ is a contradiction as $B\not\subset A$ since A is a proper subset of $B$. 
+\item If $B\subset A$, then using the same logic as above, $B<A$, $B\neq A$ and $A\not< B$
+\item If $B\subset A$, and $B\subset A$, then $A=B$. Assume for the sake of contradiction, that $A<B$. Since $A<B$, then by Definition \ref{6.4}, $B\not\subset A$, which is a contradiction, so therefore $A\not<B$. Trivially, $B\not< A$ either. 
+\end{enumerate}
+For all $A,B \in \bbR$, either $A<B$, $B<A$, or $A=B$, therefore, $\bbR$ is trichotomous.
+\item Transitivity: For all $A,B,C\in \bbR$, if $A\subset B$ and $B\subset C$, then by Definition \ref{6.4}, because $A < B$ and $B < C$, and therefore $A\neq B$ and $B\neq C$. It follows that because $A<B<C$, $A\subset B \subset C$. Therefore $A\subset C$. Assume, for the sake of contradiction, that $A = C$. Therefore, $A<B<A$, which is a contradiction, since if $A<B$, then $B\not< A$. Therefore, $A\neq C$. Because $A\subset C$ is a proper subset, then $A<C$.
+\end{enumerate}
+Because $\bbR$ is satisfies trichotomy and transitivity, then by Def. 3.1, it has an ordering $<$\\\\
+Axiom 3) $\bbR$ has no first or last point:\\
+Let $A\subset \bbR$. Because $A$ is a dedekind cut, then $A= \{x\in \bbQ | x<a\}$. Therefore, because there is some $s\in \bbQ$ such that $s<a$, and $s\in A$, then there exists the cut $S\in \bbR$ such that $S = \{x\in \bbQ | x<s\}$. Therefore, since $S\subset A$, then $S<A$. Because $\bbQ$ has no first point, then it can be shown that for any $A$, there is some cut $S$ such that $S<A$. Therefore, $\bbR$ has no first points. \\
+Assume, for the sake of contradiction, that $\bbR$ has a last point. Call this last point, the dedekind cut $A$. Let $A = \{x\in \bbQ | x< a\}$. However, because there must exist some $b\in \bbQ$ such that $a<b$ because $\bbQ$ has no last point, then there exists the cut $B = \{x\in \bbQ | x<b\}$. Therefore, because all $x\in A$ are in $B$ as well, then $A\subset B$ and by Definition \ref{6.4}, $A<B$. Therefore, $A$ is not the last point of $\bbR$, which is a contradiction. Therefore, $\bbR$ has no last point.\\\\
+Therefore, $\bbR$ has satisfies axiom 3.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Lemma 6.6}
+\begin{lem}
+\label{6.6}
+	A nonempty subset of $\bbR$ that is bounded above has a supremum.
+\end{lem}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof} :\\
+Let $X\subset \bbR$ where $X$ is nonempty and bounded above\\  
+Let $A=\bigcup_{B\in X}B$, where $A$ is the set of the union of all the dedekind cuts in $X$. $A$ has the following properties:
+\begin{enumerate} [a]
+\item Because $X$ is nonempty, then $X$ must contain some element, $B$, such that $B\in X$ and $B\neq \emptyset$. Therefore, there exists some $b\in B$. Because $B\subset A$, then $b\in A$. Therefore, $A$ is not empty and $A\neq \emptyset$ \\Moreover, because $X$ is bounded above, there must exist some $Y\in \bbR$ such that $Y$ is an upper bound of $X$. Therefore, by Def. 5.5, $B\leq Y$ for all $B\in X$. Also, because $\bbR$ has no last point, there must be some $Z\in \bbR$ such that $X<Z$. By transitivity, $B<Z$ for all $B\in X$. Therefore, because for some $z\in Z$, $z\in \bbR$ and $z\notin B$ for all $B\in X$, then $z\notin A$ and $A\neq \bbR$. \\Therefore, $A$ satisfies 6.1.\ref{6.1.a}
+\item Let $b\in A$. Therefore, it follows by the definition of $A$ that $b\in B$. Because $B$ is a cut, then if $q<b$, where $q\in \bbQ$, then $q\in B$ and therefore, $q\in A$. \\Therefore, $A$ satisfies 6.1.\ref{6.1.b}.
+\item For all $B\in X$, because $B$ is a dedekind cut, and cuts have no last point, then if $b\in B$, then there is some $s\in B$ such that $s>b$. Therefore, since $B\subset A$, there exists some $s\in A$ for all $b\in A$ such that $s>b$.\\
+Therefore, $A$ does not have a last point and Definition 6.1.\ref{6.1.c} is satisfied. 
+\end{enumerate} 
+Because Definition \ref{6.1} is satisfied, $A$ is a dedekind cut. It follows that $A\in \bbR$. Therefore, because for all $B\in X$, if $b\in B$, then $b\subset A$. It follows that for all $B\in X$, $B\subset A$. Then, by Definition \ref{6.4}, since $B\subset A$, then $B< A$. Therefore, for all $B\in X$, $B<A$. By Def 5.5, $A$ is an upper bound of $X$. \\\\
+Assume, for the sake of contradiction, that there exists some $U$, where $U$ is an upper bound of $X$, such that $U<A$. Therefore, $U\subset A$. Therefore, there exists some $u\in A$ such that $u\notin U$. Therefore, $u\in B$. Because $u\in B$ and $u\notin U$, then $B\not\subset U$. Therefore, by Definition \ref{6.4}, $B\not< U$, so then it must be true that $B\geq U$. Therefore, $U$ is not an upper bound of $X$, which is a contradiction. Therefore, because there exists no $U$ such that $U<A$, then $A = \sup X$.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Exercise 6.7}
+\begin{exmp}
+\label{6.7}
+Show that $\bbR$ satisfies Axiom~4.
+\end{exmp}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof} :\\
+Assume, for the sake of contradiction, that $\bbR$ does not satisfy Axiom 4. Therefore, $\bbR$ is disconnected. It follows by Definition 4.22 that $\bbR = A\cup B$, where $A,B$ are both open, disjoint, and nonempty sets. Without loss of generality, if $a\in A$, and $b\in B$, $a<b$\\\\
+Let $Y= \{x\in A | a\leq x \leq b\}$. Because $x\leq b$ for all $x\in Y$, $b$ is an upper bound of $Y$. Therefore, $Y$ is bounded above and nonempty (since it contains $a\in A$ and $b\in B$). By Lemma \ref{6.6}, $Y$ must have a supremum, $U$. 
+\begin{enumerate} [i]
+\item Assume, for the sake of contradiction, that $U\in A$. Therefore, because $A\cap B = \emptyset$, $U\notin B$. 
+\begin{enumerate}
+\item Assume, for the sake of contradiction, that $U = b$, then $U\in B$, which is a contradiction. Therefore, $U \neq b$.
+\end{enumerate}
+ Because $U = \sup Y$, then $a\leq U$. Because $A$ is open, then by Theorem 4.9, for all regions $R$ containing $U$, $R\subset A$. Let $R = \underline{rq}$ be constructed such that $r<U<q$. It follows that since regions are infinite, there exists some $z\in R$ such that $a<U<z<q$. Because $z\in R$, then $z$ is in $A$. Because $a<U<z$, then $z\in Y$. Therefore, since $U<z$, $U$ is not an upper bound of $Y$, then $U \neq \sup Y$, which is a contradiction. Therefore, $U\notin A$ and so $U\in B$.
+\item Since $U\in B$, $a<U$. Moreover, since B is open, then by Theorem 4.9, for any region $R'$ containing $U$, $R' \subset B$. Let $R' = \underline{st'}$. Therefore, because all regions are infinite, there must exist some $i$ such that $s<i<U<b$. Because $\underline{rb} \subset B$, then $i\in B$. Therefore, $a<i$ and so $i$ is an upper bound of $Y$. However, because $i<U$, then $U \neq \sup Y$, which is a contradiction. 
+\end{enumerate}
+By i and ii, it is proven that $U\notin A,B$ and therefore, $U\notin \bbR$, which is a contradiction. Therefore $\bbR$ is connected.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Definition 6.8}
+\begin{defn}
+\label{6.8}
+Let $C$ be a continuum satisfying Axioms 1-4.	Consider a subset $X \subset C.$ We say that $X$ is \emph{dense} in $C$ if every $p \in C$ is a limit point of $X$.
+\end{defn}
+
+\subsection*{Lemma 6.9}
+\begin{lem}
+\label{6.9}
+A subset $X \subset C$ is dense in $C$ if, and only if, $\overline{X} = C$. 
+\end{lem}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}  If $\overline{X} = C$, then $X \subset C$ is dense in $C$:\\
+Since by Definition 4.4, $C = X \cup LP(X)$, then if $p\in C$, $p\in X$ or $p\in LP(X)$. Assume, for the sake of contradiction, that there exists some $p\in C$ such that $p\notin LP(X)$. Since $p$ not in $LP(X)$, there must exist some region R containing $p$ such that $R \cap X \sm {p} = \emptyset$. Because $C$ has no first or last point, let $a,b \in C$ such that $a<p<b$. Therefore, $p\in \underline{ab}$. Because $C$ is connected, there must exist some $x\in C$ such that $a<p<x<b$. It follows that $x\in \underline{ab}$. Because $x\in C$, then either $x\in X$ or $x\in LP(X)$:
+\begin{enumerate}
+\item If $x\in X$, then because $x\in \underline{ab}$, $R \cap X \sm {p} = \emptyset$ since it will contain some $x\in X$ in between $p$ and $b$. Therefore, $p\in LP(X)$, which is a contradiction.
+\item If $x\in LP(X)$, then for all regions $R$ containing $x$, $R\cap (X\sm \{x\}) \neq \emptyset$. Therefore, there exists some region $\underline{uz}$ such that $p<u<q<z<b$, containing elements of $X\sm x$ such that for some $z\in X$, $z\in \underline{ab}$ and $z\neq x$. Therefore, $\underline{ab}\cap (X\sm\{p\}) \neq \emptyset$, and so $p\in LP(X)$, which is a contradiction.
+\end{enumerate}
+Since there does not exist a region R containing some $p\in C$ such that $R \cap (X\sm \{p\}) = \emptyset$, then $p=LP(X)$. Therefore, all $p\in C$ are limit points of X.
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}  If $X \subset C$ is dense in $C$, then $\overline{X} = C$:\\
+If $X \subset C$ is dense in $C$, then if $p\in C$, $p = LP(X)$. It follows that $C = LP(X)$. Therefore, since $\overline{X} = X \cup LP(X)$, then $\overline{X} = X \cup C$. Moreover, since $X\subset C$, then $X\cup C = C$. Therefore, $\overline{X} = C$\newline
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+Our next goal is to prove that $\bbQ$ is dense in $\bbR$. Just to make sense of that statement, we need to decide how to think of $\bbQ$ as a subset of $\bbR$.  For every rational number $q\in\bbQ$, define the corresponding real number as the Dedekind cut
+\begin{align*}
+	i(q) = \{x\in\bbQ\mid x<q\}.
+\end{align*}
+For example, $\mathbf{0} = i(0)$. Check that this gives a well-defined injective function $i\colon \bbQ \arr \bbR$. We identify $\bbQ$ with its image $i(\bbQ)\subset\bbR$ so that the rational numbers $\bbQ$ are a subset of the real numbers $\bbR$. (Similarly $\bbN $ and $\bbZ$ can also be understood as subsets of $\bbR$.)
+
+\subsection*{Lemma 6.10}
+\begin{lem}
+\label{6.10}
+Given $A, B \in \bbR$ with $A < B$, there exists $p \in \bbQ$ such that $A < i(p) < B$.
+\end{lem}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+By Definition \ref{6.4}, since $A<B$, then $A\subset B$. Therefore, there exists some $x\in B$ such that $x\notin B$. Therefore, by Lemma \ref{6.2}.2, $x$ is an upper bound of $A$. It follows that for all $a\in A$, $a\leq x$ and therefore, $a\in i(x)$. It follows that $A \subseteq i(x)$, and therefore $A \leq i(x)$. Moreover, since $B$ is a dedekind cut, by Definition 6.1.\ref{6.1.c}, $B$ has no last point. Therefore, there exists some $p\in B$ such that $x<p$. It follows that because $i$ is order preserving. $i(x)<i(p)$. Because $p\in B$, then for all $z\in i(p)$, $z\in B$ and therefore, $i(p) \subset B$ and so $i(p)<B$ (Note that $B \neq i(p)$ because since $B$ has no last point, there exists some $u\in B$ such that $u\notin i(p))$.\\\\
+Therefore, by transitivity, $A \leq i(x) < i(p) < B$ and so $A<i(p)<B$.
+\end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Theorem 6.11}
+\begin{thm}
+\label{6.11}
+$i(\bbQ)$ is dense in $\bbR$.
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof} If $\overline{i(\bbQ)} = \bbR$, then it is dense in $\bbR$:\\
+Since $i(\bbQ) \subset \bbR$, then by Lemma \ref{6.9}, if $\bbR = i(\bbQ) \cup LP(i(\bbQ))$, then $i(\bbQ)$ is dense in $\bbR$. Therefore, if $P\in \bbR$, then $P\in i(\bbQ)$ or $P\in LP(i(\bbQ))$. Assume, for the sake of contradiction, that for some $P\in \bbR$, $P\in i(\bbQ)$ and $P\notin LP(i(\bbQ))$. Therefore, there exists some region $R$ containing $p$ such that $R\cap (i(\bbQ)\sm\{p\}) = \emptyset$. Let $R= \underline{AB}$, where $A<P<B$ and $A,B\in \bbR$. By Lemma \ref{6.10}, there exists some $i(q)$ such that $A<P<i(q)<B$. Therefore, because $i(q)\in i(\bbQ)$, $\underline{AB}$ will always contain some $i(q)$ in between $P,B$, and therefore, there does not exist some region $R$ containing $p$ such that $R\cap (i(\bbQ)\sm\{p\}) = \emptyset$, which is a contradiction. It follows that for all $P\in \bbR$, $P\in LP(\bbQ)$ and therefore, by Lemma \ref{6.9}, $i(\bbQ)$ is dense in $\bbR$
+\end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+Alternate Proof:
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof} 
+If for every $p\in \bbR$, $p\in LP(i(\bbQ)$, then $i(\bbQ)$ is dense in $\bbR$. Because $\bbR$ has no first or last point, there exists some $A,B \in \bbR$ such that $A<p<B$. Therefore, the region $\underline{AB}$ contains $p$. By Lemma $\ref{6.10}$, because $p,B \in \bbR$ with $p<B$, there must exists $q\in \bbQ$ such that $p<i(q)<B$. Therefore, $i(q) \in \underline{AB}$ and $\underline{AB} \cap i(\bbQ)\sm {p} \neq \emptyset$. It follows that for any region containing any point in $\bbR$, it also contains some $i(q)\in i(\bbQ)$ such that $i(q) \neq p$. Therefore, all $p\in \bbR$ are limit points of $i(\bbQ)$
+\end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\subsection*{Corollary 6.12}
+\begin{cor}[The Archimedean Property]
+\label{6.12}
+Let $A \in \bbR$ be a positive real number. Then there exist nonzero natural numbers $m, n \in \bbN$ such that \newline $i(\frac{1}{n}) < A <i(m)$.
+\end{cor}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+\begin{enumerate}[1]
+\item Given $\textbf{0},A \in \bbR$, then by Lemma 6.10, there exists some $i(p)\in i(\bbQ)$, such that $\textbf{0} < \textit{i}(\textit{p}) < \textbf{A}$. Since $\textbf{0}<i(p)$, then $p$ is a positive rational number. Without loss of generality, let $p= \frac{a}{n}$, where both both $a,n \in \bbN$ and $b\neq 0$. Therefore, there exists some $i(p)= i(\frac{a}{n})$ such that $\textbf{0} < \textit{i}(\frac{a}{n})<\textbf{A}$. Because $a$ is a positive natural number, then $1\leq a$ and therefore $\frac{1}{n}\leq \frac{a}{n}$. It follows that $\textit{i}(\frac{1}{n}) \leq \textit{i}(\frac{a}{n})$. Therefore, by transitivity, $\textit{i}(\frac{1}{n}) < \textbf{A}$
+\item Moreover, because $\bbR$ is a continuum, and by Axiom 3, a continuum has no last point, then there exists some real number, $\textbf{C}$, such that $\textbf{C} > \textbf{A}$. By Lemma \ref{6.10}, there must exist some $i(q)\in i(\bbQ)$ such that $\textbf{A}<\textit{i}(q) < \textbf{C}$, where $q= \frac{m}{d}$, and both $c,d \in \bbN$ and $d\neq 0$. Therefore, there exists some $i(q) = i(\frac{m}{d})$ such that $\textbf{A}<i(\frac{m}{d})$. Moreover, because $d$ is a positive natural number, then $1\leq d$, so it follows that $\frac{m}{d} \leq m$. Therefore, $\textit{i}(\frac{m}{d}) \leq \textit{i}(m)$. Finally, by transitivity, $\textbf{A}<\textit{i}(m)$.
+\end{enumerate}
+It has been proven by transitivity that $\textit{i}(\frac{1}{n}) < \textbf{A} < \textit{i}(m)$
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Corollary 6.13}
+\begin{cor}
+\label{6.13}
+$i(\bbN)$ is an unbounded subset of $\bbR$.
+\end{cor}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Note that $\textit{i}(\bbN)$ is bounded below by $i(0)$.
+Assume, for the sake of contradiction, that $i(\bbN)$ has an upper bound, and is therefore bounded. Therefore, there exists some $A\in \bbR$ such that all $i(m)\in i(\bbN)$, $i(m)\leq A$. However, from The Archimidean Property in Corollary \ref{6.12}, there must exist some $m\in \bbN$ such $A< i(m)$. It follows that A is therefore not the upper bound of $i(\bbN)$, which is a contradiction. Therefore, $i(\bbN)$ is an unbounded subset of $\bbR$
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Corollary 6.14}
+\begin{cor}
+\label{6.14}
+If $A \in \bbR$ is a real number, then there is an integer $n$ such that $i(n-1) \leq A<i(n)$.
+\end{cor}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+\begin{enumerate}
+\item If $A\in \bbR$, then let $B= \bbZ \sm A$ (B is therefore the set of all integers greater than or equal to A. Note that our continuum in this case is $\bbZ$):
+\begin{enumerate}
+\item If $A$ is a positive real number, then by Corollary \ref{6.12}, there exists some $m\in \bbN$ such that $A<i(m)$. Therefore, for all $a\in A$, $a<m$ and therefore $m\notin A$. Therefore, $B\neq \emptyset$.
+\item If $A$ is less than or equal to 0, then because $\bbR$ has no last point, there exists some $C\in \bbR$ such that $A<C$. By Lemma \ref{6.10}, there exists some $i(p)$ such that $A<i(p)<C$. Let $p= \frac{a}{b}$ and without loss of generality, let $b$ be positive and $a$ be an integer:
+\begin{enumerate} [i]
+\item If $a$ is positive, then because $\frac{a}{b}<a$, then $A<i(p)<i(a)$ and therefore, $a$ is in $B$.
+\item If $a$ is negative, then because $\frac{a}{b}<-a$, then $A<i(p)<i(-a)$ and therefore, $-a$ is in $B$.
+\end{enumerate}
+In all cases, $B\neq \emptyset$ (if multiplication is not allowed, then because $A$ is negative, $A< i(1)$, and therefore $1\in B)$.
+\end{enumerate}Therefore, $B$ is nonempty. 
+\item Because for $A$ is a cut, then because $\bbZ$ has no first point, it must contain some $s\in \bbZ$ such that $z<a$ for some $a\in A$. Therefore, $B$ has a lower bound. 
+\end{enumerate}
+Because $B$ satisfies $1,2$, then $B$ has some $n=\inf B$ (Theorem 5.16). Assume, for the sake of contradiction, that $n \notin B$. Therefore, by Lemma 5.12, $n \in LP(B)$. Let $m\in B$. Because the continuum has no first point, then there exists some $p\in C$ such that $p<n<m$. However, because $\bbZ$ is not connected, then there does not need to exist some $x\in B \subset \bbZ$ such that $p<n\leq x<m$ and therefore, $\underline{pm}\cap B \sm n = \emptyset$, so therefore $n\notin LP (B)$, which is a contradiction. It follows that $n\in B$  By Definition 3.3, $n$ is the first point of $B$.\\\\
+An alternative proof for this is the fact that since $B\subset \bbZ$, then $B$  has a minimum. Suppose $n$ is a lower bound of $B$. Consider the set $A:=\{b-n+1\mid b\in B\}$. Because $n\leq b$, then $n-1<b$ and therefore, $0<b-n+1$. Therefore, because $b,n,1$ are integers, $b-n+1 \in \bbN$. Therefore, $B$ is a nonempty subset of $\mathbb{N}$. Thus, by Problem 3 on Script 0, $B$ has a minimum $b\in\mathbb{N}$. Therefore, because $a = b-n+1$, $a+n-1 =b$, and therefore, $b$ is the minimum of $B$. 
+\begin{enumerate}
+\item Assume, for the sake of contradiction, that both $i(n-1) = A$ and $i(n) = A$. This is a contradiction since $i(n-1) \neq i(n)$. Therefore, without loss of generality, $i(n) \neq A$
+\item Assume, for the sake of contradiction, that $i(n-1) > A$. Therefore, $n-1\in B$ and since $n-1<n$, $n$ is not the minimum, which is a contradiction. Therefore, $A\leq i(n-1)$
+\item Assume, for the sake of contradiction, that $i(n) \leq A$. Therefore, $n\in A$, therefore $n \notin B$, which is a contradiction. Therefore, $i(n) > A$
+\end{enumerate}
+By $1,2$: $i(n-1) \leq A < i(n)$\\\\
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Axiom 5}
+\label{Axiom 5}
+Da continuum contains a countable dense subset.
+
+\subsection*{Definition 6.15}
+\begin{defn}
+Let $X$ and $Y$ be sets with orderings $<_X$ and $<_Y$, respectively. A function $f\colon X \arr Y$ is \emph{order-preserving} if for all $r, s \in X$,
+	\begin{align*}
+		r <_X s \Longrightarrow f(r) <_Y f(s).
+	\end{align*}
+\end{defn}
+Note that the function $i\colon \bbQ \arr \bbR$ discussed above is order-preserving.
+
+\subsection*{Exercise 6.16}
+\begin{exmp}
+	Let $C$ satisfy Axioms~1--5. Let $K \subset C$ be a countable dense subset of $C$. Construct an order-preserving bijection $f\colon \bbQ \arr K$. 
+\end{exmp}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:\\
+Because $\bbQ, K$ are countable, they are in bijective correspondance with $\bbN$, and therefore can be enumerated:
+\begin{enumerate}
+    \item Let K be enumerated by $k_n$, where $n\in \bbN$. Therefore, $K = \{k_1, k_2, k_3,..., k_n\}$.
+    \item Let $\bbQ$ be enumerated by $q_n$, where $n\in \bbN$. Therefore, $\bbQ = \{q_1,q_2,q_3,..., q_n\}$
+\end{enumerate}
+Define $f$ and its surjectivity by induction:
+\begin{enumerate}
+    \item If $n=1$ Because $K$ is countable, then $K\neq \emptyset$. Therefore, $k_1$ exists. Similarly, $q_1$ exists. Let $f(q_1) = k_1$. Because all paired $k\in K$ have some $q\in \bbQ$ such that $f(q) = k$, then $f$ is surjective for all the paired values.
+    \item If $n=k$, then assume that $X_k = \{q_1,q_2,q_3,... q_{i'}\}$ (where $X_k$ has been ordered such that $q_1<q_2<q_3<...<q_{i'})$ has been mapped out to $Y_k = \{k_1,k_2,k_3,... k_{j'}\}$. Because all values in $Y_k$ have some $q\in X_k$ such that $f(q) = k$, then $f$ is surjective for all the paired value. 
+    \item If $n=k+1$, then:
+    \begin{enumerate}
+    \item If some $k$ has just been mapped out to some $q$, then consider some $q_{i+1}$ such that $q_{i+1}$ is the first unpaired element of $\bbQ$. Therefore, $q_{i+1}\notin X_k$. 
+    \begin{enumerate}
+    \item If $q_{i+1}<q$ for all $q\in X_k$, then in order for $f$ to be order preserving, let $f(q_{i+1}) = k_{(i+1)'}$ such that $k_{(i+1)'} < k$ for all $k\in Y_k$. Note that such $k$ must exist because $K$ is dense in $C$: because $C$ has no first point, then there must exist some $p,r\in C$ such that $r<p<k_1$. Therefore, because $p$ must be a limit point of $K$. Therefore, the region $\underline{rk_1}$ contains $p$, and there must exist some $k\in K$ such that $\underline{rk_1} \cap K\sm{p} \neq \emptyset$.
+    \item If $q_{i+1}>q$ for all $q\in X_k$, then in order for $f$ to be order preserving, let $f(q_{i+1}) = k_{(i+1)'}$ such that $k_{(i+1)'} > k$ for all $k\in Y_k$. Note that such $k$ must exist because $K$ is dense in $C$: because $C$ has no first point, then there must exist some $p,r\in C$ such that $k_{i'}<p<r$. Therefore, because $p$ must be a limit point of $K$. Therefore, the region $\underline{k_{i'}r}$ contains $p$, and there must exist some $k\in K$ such that $\underline{k_{i'}r} \cap K\sm{p} \neq \emptyset$.
+    \item If $q_a<q_{i+1}<q_b$, where $q_a,q_b\in X_k$, then in order for $f$ to be order preserving, let $f(q_{i+1}) = k_{(i+1)'}$ such that $k_a<k_{(i+1)'} <k_b$. Note that such $k$ must exist because $K$ is dense in $C$: The region $\underline{k_ak_b}$ contains some $p\in C$, and there must exist some $k\in K$ such that $\underline{k_ak_b} \cap K\sm{p} \neq \emptyset$.
+    \end{enumerate}
+    Therefore, $f(q) = k$ must exist for any $q\in \bbQ$. 
+    \item If some $q$ has just been mapped out to some $k$, then consider some $k_{i+1}$ such that $k_{i+1}$ is the first unpaired element of $K$. Therefore, $k_{i+1}\notin Y_k$. 
+    \begin{enumerate}
+        \item If $k_{i+1}<k$ for all $k\in Y_k$, then in order for $f$ to be order preserving, let $f^-(k_{i+1}) = q_{(i+1)'}$ such that $q_{(i+1)'} < q$ for all $q\in X_k$. Note that such $q$ must exist because $\bbQ$ is dense in $C$. Similar logic as 3.a.1 can be used to prove this. 
+        \item If $k_{i+1}>k$ for all $k\in Y_k$, then in order for $f$ to be order preserving, let $f^-(k_{i+1}) = q_{(i+1)'}$ such that $q_{(i+1)'} > q$ for all $q\in X_k$. Note that such $q$ must exist because $\bbQ$ is dense in $C$. Similar logic as 3.a.2 can be used to prove this.
+        \item If $k_a<k_{i+1}<k_b$, where $k_a,k_b\in X_k$, then in order for $f$ to be order preserving, let $f(k_{i+1}) = q_{(i+1)'}$ such that $q_a<q_{(i+1)'} <q_b$. Note that such $q$ must exist because $\bbQ$ is dense in $C$. Similar logic as 3.a.3 can be used to prove this.
+    \end{enumerate}
+    Therefore, $f^-(k) = q$ must exist for any $k\in K$\\
+    Because the first unpaired term $(i+1)$ must be paired with an unpaired term (as otherwise the order of $f$ would be disrupted), then $f(k_{i+1})\notin Y_k$ and therefore, the $n+1$ enumeration of $K$ is able to be paired and thus, $f$ is surjective. 
+    \end{enumerate}
+\end{enumerate}
+Because for every $q\in \bbQ$, $f(q)$ exists and is unique to that $q$ (as otherwise, the order of $f$ would be disturbed) since by the definition of $f$, no $k$ can be paired with more than one $q$. Therefore, $f$ is injective.\\\\
+Therefore, $f$ is ordered preserved, injective and surjective (and therefore bijective).
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Exercise 6.17}
+\begin{exmp}
+    Let $f\colon \bbQ \arr K$ be an order-preserving bijection, as found in the previous exercise. Let $A \in \bbR$. Then $A \subset \bbQ$ and so $f(A) \subset K \subset C$. Define $F\colon \bbR \arr C$ by 
+	\begin{align*}
+		F(A) = \sup f(A).
+	\end{align*}
+	\begin{enumerate}[(a)]
+ \label{Example 6.17.a}
+		\item Show $\sup f(A)$ exists, so $F$ is well-defined.
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:\\
+\begin{enumerate}
+\item Because $A$ is a cut, then there must exist some $q\in \bbQ$ such that $q<A$ and therefore $q\in A$. It follows that because $f$ is order preserving, $f(q) \in f(A)$ and therefore $f(A) \neq \emptyset$. 
+\item Because $A\in \bbR$, then there exists some $x\in \bbZ$ such that and $A<i(x)$ (Corollary \ref{6.14}). Therefore, for all $a\in A$, $a<x$. Because $f$ is order preserving, then for all $f(a) \in f(A)$, $f(a)<f(x)$. Therefore, $f(A)$ is bounded above by $f(x)$. 
+\end{enumerate}
+Because $f(a)$ is nonempty and bounded above, then it follows by Theorem 5.16 that $\sup f(A)$ will exist for any $A\in \bbR$ and so $F$ is well defined.
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+		\item Show $F$ is injective and order-preserving.
+  \label{Example 6.17.b}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:\\
+Assume, for the sake of contradiction, that $F$ is not injective. Therefore, there exists some $A_1,A_2 \in \bbR$ such that if $F(A_1)=F(A_2)$, then $A_1 \neq A_2$. It follows that $\sup f(A_1) = \sup f(A_2)$. Since $A_1 \neq A_2$, then without loss of generality, assume $A_1<A_2$. By Lemma \ref{6.4}, $A_1 \subset A_2$ (proper subset). 
+\begin{enumerate}
+\item It follows that there must exist some $x\in A_2$ such that $x\notin A_1$. Therefore, for all $a_1\in A_1$, $a_1 \leq x$. Because $f$ is order preserving, then $f(a_1)\leq f(x)$ for all $f(a_1) \in f(A_1)$. Therefore, $f(x)$ is an upper bound of $f(A_1)$, meaning that $\sup f(A_1) \leq f(x)$. 
+\item Because $A_2$ has no last point, there must exist some $y\in A_2$ such that $x<y$. It follows that $f(x)<f(y) \in f(A_2)$
+\item It was proved in part a that $\sup A_2$ exists. Therefore, because $f(y)\in f(A_2)$, $f(y)\leq \sup f(A_2)$. Because $f(y) \in f(A_2)$, then $f(y) \leq \sup f(A_2)$ (although it is really not equal to since there exists some $q\in A_2$ such that $y<q$ and therefore $f(y)<f(q)$.)
+\end{enumerate}
+By transitivity, $\sup f(A_1) \leq f(x) < f(y) \leq \sup f(A_2)$ and by trichotomy, $\sup f(A_1) \neq \sup f(A_2)$, which is a contradiction. Therefore, $F$ is injective.\\\\
+
+Moreover, as proved above, if $A_1 < A_2$, then $F(A_1)<F(A_2)$. Similarly (and trivially using the method above), if $A_2<A_1$,  $F(A_2)<F(A_1)$ and so $F$ is order preserving.
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+	\end{enumerate}
+\end{exmp}
+\subsection*{Theorem 6.18}
+\begin{thm}
+\label {6.18}
+	Suppose that $C$ is a continuum satisfying Axioms~1--5. Then $C$ is isomorphic to the real numbers $\bbR$; i.e.,
+	there is an order-preserving bijection $F\colon \bbR \arr C$.
+	\label{thm:Axioms 1-5 isomorphic to real numbers}
+\end{thm}
+\begin{proof}:\\
+Assume, for the sake of contradiction, that $F$ is not an order preserving bijection:
+\begin{enumerate}
+    \item Using Example $\ref{Example 6.17.b}$, then we know that $F$ is order preserving.
+    \item Using Example $\ref{Example 6.17.b}$, then we know that $F$ is injective.
+    \item If $F$ is not surjective, then for some $p \in C$, there does not exist an $A\in \bbR$ such that $F(A) = \sup f(A) = p$, so it follows that if $A\in \bbR$, then $F(A) \neq p$.\\ Let $B = \{k\in K | k<p\}$.
+    \begin{enumerate}
+    \item Because $C$ has no first point, then there exists some $a,b\in C$ such that $a<b<p$. Because $K$ is dense in $C$, and $b\in C$, $b\in LP(K)$. Therefore, for the region $\underline{ap}$ containing $b$, it must be true that $\underline{ap}\cap K\sm{b} \neq \emptyset$. It follows $\underline{ap}$ must contain some $k\in K$ such that $k\neq p$. Therefore, because $k<p$, $k\in B$ and so $B\neq \emptyset$
+    \item Because for all $k\in K$, $k<p$, then $p$ is an upper bound of $B$ (Def 5.5). 
+    \end{enumerate}
+    Therefore, because $B$ is nonempty and contains an upper bound, then by Theorem 5.16, $\sup B$ exists. Assume, for the sake of contradiction, that $\sup B \neq p$:
+    \begin{enumerate}
+    \item If $\sup B <p$: then because the continuum is connected, there must exist some $q\in C$ such that $\sup B <q<p$. However, because $K$ is dense in $C$, then the region $\underline{\sup B,p}$ containing $q$ must contain some $k\in K$ so that $q$ is a limit point of $K$. Since $\sup B < k < p$, then $k\in B$, and therefore $\sup B$ is not an upper bound of $B$, which is a contradiction.
+    \item If $\sup B >p$, then for all $u=$ upper bounds of B, $\sup B <u$. However because $p$ is an upper bound of B (as proved in 3.b), and $\sup B >p$, then that is a contradiction. 
+    \end{enumerate}
+    Therefore, because $\sup B \not < p$ and $\sup B \not > p$, $p = \sup B$.\\
+    Since $f$ is bijective/order preserving, there exists some $A\in \bbQ$ such that $A= f^-(B)$. However, in order to arrive at a contradiction, it needs to be shown that $A\in \bbR$. \\ $A = f^-(B)$, so $A = \{f^-(k)\in f^-(K) | f^-(k) <f^-(c) \} = \{q\in \bbQ | q <f^-(c) \}$, so therefore $A$ has the following properties (note that by Proposition 1.28, since $f$ is a bijection, then $f^-$ exists and is also a bijection).:
+    \begin{enumerate}
+    \item Because there exists some $k<p$ as proved above, then because $f$ is order preserving and bijective, there must exist some $q<f^-(p)$. It follows that $q\in A$, so then $A\neq \emptyset$. Moreover, because there exists some $k>p$ as proved above, then by the same logic, there exists some $q>f^-(p)$. Therefore, because $q\in \bbQ$ and $q\notin A$, it follows that $A \neq \bbQ$.
+    \item Because $A\neq \emptyset$, then let $a\in A$ such that $f(a) = k_1$. It follows that $k_1\in B$. Because $K$ is dense in $C$, it was proved above that there must exist some $k_2<k_1$ and therefore, $k_2\in B$. Because $f$ is bijective, there exists some $s\in \bbQ$ such that $f^-(k_2) = s$. Because $f$ is order preserving, $s<a<f^-(p)$, so therefore $s \in A$. 
+    \item Because $A\neq \emptyset$, then let $a\in A$ such that $f(a) = k_a$. Because $K$ is dense, then for any $k_a<c$, there exists some $k_b\in K$ such that $k_a<k_b<p$ (this was proved above). Therefore, because $f$ is order preserving and bijective, then for any $a<f^-(p)$, there exists some $f^-(k_b)$ such that $f^-(k_a)<f^-(k_b)<f^-(p)$ and therefore, $f^(k_b) \in A$. Therefore, $A$ has no last point.
+    \end{enumerate}
+    By a,b,c, $A$ is a dedekind cut and therefore, $A\in \bbR$. Because for all $p\in C$, there exists some $A\in \bbR$ such that $F(A) = p$, then that is a contradiction. Therefore, $F$ is surjective, injective, and well preserved.
+\end{enumerate}
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+Theorem~\ref{thm:Axioms 1-5 isomorphic to real numbers} says that Axioms~1--5 completely characterize the continuum, so we can say that the real numbers are the ``only'' continuum. As a consequence, we will no longer refer to $C$ as anything but $\bbR$. 
+\subsection*{Extra Credit Problem}
+\begin{exmp}
+Show that the set $R × [i(0), i(1)]$ with the lexicographic ordering satisfies Axioms 1–4, but not Axiom 5.
+\end{exmp}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:\\
+Let $C = R × [i(0), i(1)]$. The 5 axioms are below:
+\begin{enumerate} [1]
+\item Because $0\in \bbR$ (Example \ref{6.3}, then $\bbR$ is not empty and since $0\in [i(0),i(1)]$, then $(0,0)$ exists in $C$.Therefore, $C \neq \emptyset$, satisfying axiom 1.
+\item $C$ has an ordering $<$:
+\begin{enumerate}
+\item Trichotomy: Let $(a,b), (c,d) \in C$, then assume, for the sake of contradiction, that $(a,b)\not < (c,d)$ and $(c,d) \not < (a,b)$. Because $C$ is lexicographic, then $(a,b)<(c,d)$ if $a<c$ or $(a=c) \cap (b<d)$.
+\begin{enumerate}
+\item If $a\neq c$: Therefore, since $(a,b)\not < (c,d)$, then it follows that $a > c$. Similarly, since $(c,d) \not < (a,b)$, it follows that $c<a$. Because $a,c \in \bbR$, then by example \ref{6.5}, it has been proved that that is a contradiction. Therefore, either $a<c$ or $c<a$. It follows by Example \ref{6.5} that: 
+\begin{enumerate}
+\item If $a<c$, then  $a\neq c$ and $c\not < a$. Therefore, $(a,b)<(c,d)$
+\item If $c<a$, then  $c\neq a$ and $a\not < c$. Therefore, $(c,d)<(a,b)$
+\item If $a=c$: then it follows by the same logic above that $b<d$ and $d<b$:
+\item If $b<d$, then  $b\neq d$ and $d\not < b$. Therefore, $(a,b)<(c,d)$
+\item If $d<b$, then  $d\neq b$ and $b\not < a$. Therefore, $(c,d)<(a,b)$
+\item If $d=b$, then $(a,b) = (c,d)$
+\end{enumerate}
+\end{enumerate}
+Therefore, for all $(a,b), (c,d) \in C$, either $(a,b)<(c,d)$, or $(c,d)<(a,b)$, or $(a,b) = (c,d)$. Therefore, $C$ has trichotomy.
+\end{enumerate}
+\item Transitivity: For all $(a,b), (c,d), (e,f) \in C$, if $(a,b)<(c,d)$ and $(c,d) < (e,f)$ and assume, for the sake of contradiction, that $(a,b) = (e,f)$. Therefore, $(a,b) < (c,d) < (a,b)$, which disrupts the trichotomy in $C$, and therefore, is a contradiction. Therefore, $(a,b)\neq (e,f)$. Assume, for the sake of contradiction, that $(a,b)> (e,f)$, therefore, $(a,b)<(c,d)<(e,f)<(c,d)$, which again disrupts trichtomy. Therefore, $(a,b)<(e,f)$ and so $(a,b)<(c,d)<(e,f)$, which means that $C$ obeys transitivity.  
+\end{enumerate}
+Because $C$ has a trichotomy and is transitive, then $C$ has an ordering $<$.
+\item $C$ has no first or last point:
+\begin{enumerate}
+\item Assume, for the sake of contradiction, that $C$ has some first point at $(c,d)$. Therefore for all $(x,y)\in C$, $(c,d)\leq (x,y)$. Therefore, for all $c\in \bbR$, $c\leq x$ for all $x\in \bbR$. However, that is a contradiction, since by Example $\ref{6.5}$, $\bbR$ has no first point, so therefore there must exist some $a<c$. Therefore, because of the lexicographic ordering of $C$, then since $a<c$, $(a,y)<(c<d)$, and therefore, $(c,d)$ is not the first point of $C$, which is a contradiction. Therefore, $C$ has no first point. 
+\item  Assume, or the sake of contradiction, that $C$ has a last point at $(a,b)$. Therefore, for all $(x,y)\in C$, $(x,y)\leq (a,b)$. By the lexicographic ordering of $C$, then for all $x\in \bbR$, $x\leq a$. Therefore, $a$ is the last point of $\bbR$, which since $\bbR$ has no last point, is a contradiction. Therefore, there exists some $c\in \bbR$ such that $a<c$ and it follows that $(a,b)<(c<d)$ and so $(a,b)$ is not the last point of $C$, which is a contradiction. Therefore, $C$ has no last point. 
+Because $C$ has no first or last point, then $C$ satisfies axiom 3.
+\end{enumerate}
+By Example $\ref{6.5}$, $\bbR$ is connected and since $[i(0), i(1)] \subset \bbR$, then by using example $\ref{6.5}$, it can be trivially shown that $[i(0), i(1)]$ is connected. Therefore, $C$ is connected and $C$ satisfies axiom 4.
+Assume, for the sake of contradiction, that there exists a countably dense subset, $S$, such that $S\subset C$. Therefore, for any collection of open nonempty disjoint regions, where $R_\alpha = (\alpha,0)(\alpha,0)$, then because $S$ is dense, there must exist some point of $C$. Then $S \cap R_\alpha \neq \emptyset$. Therefore, there exists as many elements in $S$ and there are in ${R_\alpha}$, and therefore, because $R_\alpha$ is uncountable, then $S$ is uncountable, which is a contradiction. Therefore, $C$ does not contain a countable dense subset, and so it does not satisfy axiom 5.
+\end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+
+\section*{Acknowledgments} It is a pleasure to thank my professor, Dr. Oron Propp and Dr. Howard Masur, for helping me out on a few toughies here and there. Huge thanks to Victor Hugo Almendra Hernández, he's really encouraged me to like proofs and has been a huge help in grading these scripts and in office hours. I would also like to thank a few remarkable peers: Richard Gale (for his idea of proving that the union was a cut in 6.6, showing me how to do the second part of 6.9, and for his amazing proof 6.15) , Lina Piao (for some feedback on my 6.14), Rhea Kanuparthi (for checking and reading over my proofs), and Arko Sinha (for starting me on 6.18)! Also, thanks to all my peers in Section 40 of 16110 for being supportive presenting great proofs. 
+
+\begin{thebibliography}{9}
+
+\bibitem{My brain} Agustin.org
+
+
+\end{thebibliography}
+
+\end{document}
+

@@ -1,0 +1,1296 @@
+
+\documentclass[openany, amssymb, psamsfonts]{amsart}
+\usepackage{mathrsfs,comment}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[normalem]{ulem}
+\usepackage{url}
+\usepackage{lipsum}
+\usepackage[all,arc,2cell]{xy}
+\UseAllTwocells
+\usepackage{enumerate}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+
+\renewcommand{\phi}{\varphi}
+\renewcommand{\emptyset}{\O}
+
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\sm}{\setminus}
+
+
+\newcommand{\sarr}{\rightarrow}
+\newcommand{\arr}{\longrightarrow}
+
+\newcommand{\hide}[1]{{\color{red} #1}} % for instructor version
+%\newcommand{\hide}[1]{} % for student version
+\newcommand{\com}[1]{{\color{blue} #1}} % for instructor version
+%\newcommand{\com}[1]{} % for student version
+\newcommand{\meta}[1]{{\color{green} #1}} % for making notes about the script that are not intended to end up in the script
+%\newcommand{\meta}[1]{} % for removing meta comments in the script
+
+\DeclareMathOperator{\ext}{ext}
+\DeclareMathOperator{\ho}{hole}
+%%% hyperref stuff is taken from AGT style file
+\usepackage{hyperref}  
+\hypersetup{%
+  bookmarksnumbered=true,%
+  bookmarks=true,%
+  colorlinks=true,%
+  linkcolor=blue,%
+  citecolor=blue,%
+  filecolor=blue,%
+  menucolor=blue,%
+  pagecolor=blue,%
+  urlcolor=blue,%
+  pdfnewwindow=true,%
+  pdfstartview=FitBH}   
+  
+\let\fullref\autoref
+%
+%  \autoref is very crude.  It uses counters to distinguish environments
+%  so that if say {lemma} uses the {theorem} counter, then autrorefs
+%  which should come out Lemma X.Y in fact come out Theorem X.Y.  To
+%  correct this give each its own counter eg:
+%                 \newtheorem{theorem}{Theorem}[section]
+%                 \newtheorem{lemma}{Lemma}[section]
+%  and then equate the counters by commands like:
+%                 \makeatletter
+%                   \let\c@lemma\c@theorem
+%                  \makeatother
+%
+%  To work correctly the environment name must have a corrresponding 
+%  \XXXautorefname defined.  The following command does the job:
+%
+\def\makeautorefname#1#2{\expandafter\def\csname#1autorefname\endcsname{#2}}
+%
+%  Some standard autorefnames.  If the environment name for an autoref 
+%  you need is not listed below, add a similar line to your TeX file:
+%  
+%\makeautorefname{equation}{Equation}%
+\def\equationautorefname~#1\null{(#1)\null}
+\makeautorefname{footnote}{footnote}%
+\makeautorefname{item}{item}%
+\makeautorefname{figure}{Figure}%
+\makeautorefname{table}{Table}%
+\makeautorefname{part}{Part}%
+\makeautorefname{appendix}{Appendix}%
+\makeautorefname{chapter}{Chapter}%
+\makeautorefname{section}{Section}%
+\makeautorefname{subsection}{Section}%
+\makeautorefname{subsubsection}{Section}%
+\makeautorefname{theorem}{Theorem}%
+\makeautorefname{thm}{Theorem}%
+\makeautorefname{excercise}{Exercise}%
+\makeautorefname{cor}{Corollary}%
+\makeautorefname{lem}{Lemma}%
+\makeautorefname{prop}{Proposition}%
+\makeautorefname{pro}{Property}
+\makeautorefname{conj}{Conjecture}%
+\makeautorefname{defn}{Definition}%
+\makeautorefname{notn}{Notation}
+\makeautorefname{notns}{Notations}
+\makeautorefname{rem}{Remark}%
+\makeautorefname{quest}{Question}%
+\makeautorefname{exmp}{Example}%
+\makeautorefname{ax}{Axiom}%
+\makeautorefname{claim}{Claim}%
+\makeautorefname{ass}{Assumption}%
+\makeautorefname{asss}{Assumptions}%
+\makeautorefname{con}{Construction}%
+\makeautorefname{prob}{Problem}%
+\makeautorefname{warn}{Warning}%
+\makeautorefname{obs}{Observation}%
+\makeautorefname{conv}{Convention}%
+
+
+%
+%                  *** End of hyperref stuff ***
+
+%theoremstyle{plain} --- default
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{exercise}{Exercise}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{prob}{Problem}[section]
+\newtheorem{conj}{Conjecture}[section]
+%\newtheorem{ass}{Assumption}[section]
+%\newtheorem{asses}{Assumptions}[section]
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ass}{Assumption}[section]
+\newtheorem{asss}{Assumptions}[section]
+\newtheorem{ax}{Axiom}[section]
+\newtheorem{con}{Construction}[section]
+\newtheorem{exmp}{Example}[section]
+\newtheorem{notn}{Notation}[section]
+\newtheorem{notns}{Notations}[section]
+\newtheorem{pro}{Property}[section]
+\newtheorem{quest}{Question}[section]
+\newtheorem{rem}{Remark}[section]
+\newtheorem{warn}{Warning}[section]
+\newtheorem{sch}{Scholium}[section]
+\newtheorem{obs}{Observation}[section]
+\newtheorem{conv}{Convention}[section]
+
+%%%% hack to get fullref working correctly
+\makeatletter
+\let\c@obs=\c@thm
+\let\c@cor=\c@thm
+\let\c@prop=\c@thm
+\let\c@lem=\c@thm
+\let\c@prob=\c@thm
+\let\c@con=\c@thm
+\let\c@conj=\c@thm
+\let\c@defn=\c@thm
+\let\c@notn=\c@thm
+\let\c@notns=\c@thm
+\let\c@exmp=\c@thm
+\let\c@ax=\c@thm
+\let\c@pro=\c@thm
+\let\c@ass=\c@thm
+\let\c@warn=\c@thm
+\let\c@rem=\c@thm
+\let\c@sch=\c@thm
+\let\c@equation\c@thm
+\numberwithin{equation}{section}
+\makeatother
+
+\bibliographystyle{plain}
+
+%--------Meta Data: Fill in your info------
+\title{University of Chicago Calculus IBL Course}
+
+\author{Agustin Esteva}
+
+\date{Jan 23. 2024}
+
+\begin{document}
+
+\begin{abstract}
+
+16210's Script 7.\\ Let me know if you see any errors! Contact me at aesteva@uchicago.edu.
+
+
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+\setcounter{section}{7}
+
+
+
+\subsection*{Definition 7.1}
+\begin{defn}
+\label{7.1}
+A \emph{binary operation} on a nonempty set $X$ is a function 
+	\begin{align*}
+		f \colon X \times X \arr X.
+	\end{align*}
+	We say that $f$ is \emph{associative} if
+	\begin{align*}
+		f(f(x, y), z) = f(x, f(y, z)) \quad \text{for all $x, y, z \in X$.}
+	\end{align*}
+	We say that $f$ is \emph{commutative} if
+	\begin{align*}
+		f(x, y) = f(y, x) \quad \text{for all $x, y \in X$.}
+	\end{align*}
+	An \emph{identity element} of a binary operation $f$ is an element $e \in X$ such that
+	\begin{align*}
+		f(x, e) = f(e, x) = x \quad \text{for all $x \in X$.}
+	\end{align*}
+\end{defn}
+\subsection*{Remark 7.2}
+\begin{rem}
+\label{7.2}
+Frequently, we denote a binary operation differently. If $*\colon X\times X\arr X$ is the binary operation, we often write $a*b$ in place of $*(a,b)$. We sometimes indicate this same operation by writing $(a,b)\mapsto a*b$.
+\end{rem}
+\subsection*{Example 7.3}
+\begin{exmp}
+\label{7.3}
+Rewrite Definition 7.1 using the notation of Remark 7.2.
+\end{exmp}
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof} :\\
+	A \emph{binary operation} on a nonempty set $X$ is a function 
+	\begin{align*}
+		f\colon X*X \mapsto X 
+	\end{align*}
+	We say that $f$ is \emph{associative} if
+	\begin{align*}
+		(x*y)* z \mapsto x*(y* z))  \quad \text{for all $x, y, z \in X$.}
+	\end{align*}
+	We say that $f$ is \emph{commutative} if
+	\begin{align*}
+		(x*y = (y*x) \quad \text{for all $x, y \in X$.}
+	\end{align*}
+	An \emph{identity element} of a binary operation $f$ is an element $e \in X$ such that
+	\begin{align*}
+		(x*e) = f(e*x) = x \quad \text{for all $x \in X$.}
+	\end{align*}
+\end{proof} \vspace{4pt}     \hrule   \vspace{4pt}
+\subsection*{Example 7.4}
+\begin{exmp}
+\label{7.4}
+  \hspace{1in}
+	\begin{enumerate}
+		\item  The function $+ \colon \bbZ \times \bbZ \arr \bbZ$ which sends a pair of integers $(m, n)$ to $+(m, n) = m + n$ is a binary operation on the integers, called addition.  Addition is associative, commutative and has identity element $0$.
+  \vspace{4pt}     \hrule   \vspace{4pt}\begin{proof}:\\
+  This follows directly from Script 0:
+      \begin{enumerate}
+          \item For all $n,m\in \bbZ$, $n+m = m+n$: Commutativity
+          \item For all $n,m,p \in \bbZ$, $(n+m)+p = n+ (m + p)$: Associativity
+          \item For all $n\in \bbZ$, $n+0 = 0$: Identity Element
+      \end{enumerate}
+  \end{proof}\vspace{4pt}     \hrule   \vspace{4pt}
+		\item  The maximum of $m$ and $n$, denoted $\max(m, n)$, is an associative and commutative binary operation on $\bbZ$.  Is there an identity element for $\max$?
+\vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Assume, for the sake of contradiction, that there exists some $e\in \bbZ$ such that $\max (e,n) = \max (n,e) = n$ for all $n\in \bbZ$. Therefore, for all $n\in \bbZ$, $e<n$. However, because $\bbZ$ has no first point, then there will exist some $m\in \bbZ$ such that $m<e$ and therefore $\max (e,m) = \max (m,e) = e$, which is a contradiction. Therefore, there does not exist an identity element on $\max$
+\end{proof}		
+\vspace{4pt}     \hrule   \vspace{4pt}
+		\item  Let $\wp(Y)$ be the power set of a set $Y$.  Recall that the power set consists of all subsets of $Y$.  Then the intersection of sets, $(A, B) \mapsto A \cap B$, defines an associative and commutative binary operation on $\wp(Y)$.  Is there an identity element for $\cap$?
+	\end{enumerate}
+ \vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Yes. Consider any subset $A \subset Y$. Thus because $A\cap B$ is commutative and binary, then $(A \cap Y) = (Y \cap A) = A$. Thus, $Y$ is an identity element. 
+\end{proof}		
+\vspace{4pt}     \hrule   \vspace{4pt}
+\end{exmp}
+
+\subsection*{Example 7.5}
+\begin{exmp}
+    Find a binary operation on a set that is not commutative.
+     \vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+ The function $-\colon \bbZ x \bbZ \arr \bbZ$ which sends a pair of integers $(m,n)$ to $-(m,n) = m-n$ is a binary operation on the integers called subtraction. Assume, for the sake of contradiction, that $-(m,n)$ is commutative. Thus, for all $m,n \in \bbZ$, $m-n = n-m$. If $m<n$, then $m-n< 0$ and $n-m >0$, then by transitivity, $(m-n) <0 < (n-m)$ and by trichotomy, $n-m\neq m-n$, which is a contradiction. Therefore, $-(m,n)$ is not commutative. 
+\end{proof}		
+\vspace{4pt}     \hrule   \vspace{4pt}
+    Find a binary operation on a set that is not associative.
+         \vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+ The function $-\colon \bbZ x \bbZ \arr \bbZ$ which sends a pair of integers $(m,n)$ to $-(m,n) = m-n$ is a binary operation on the integers called subtraction. Assume, for the sake of contradiction, that $-(m,n)$ is associative. Thus, for all $m,n,c \in \bbZ$, $(m-n) -c = n-(m-c)$. If $m<n<c$, and $m,n,c\in \bbN$:
+ \begin{enumerate}
+     \item Consider $(m-n)-c$. Because $m<n$, then $m-n<0$. Because $c\in \bbN$, then $(m-n)<c$. It follows that $(m-n)-c<0$
+     \item Consider $m-(n-c)$. Because $n<c$, then $n-c <0$. Therefore, because $m\in \bbN$, $m>(n-c)$. It follows that $m-(n-c)>0$
+ \end{enumerate} 
+ Therefore, by transitivity, $(m-n)-c<0<m-(n-c)$ and by trichotomy, $(m-n)-c \neq m-(n-c)$. Therefore, because for some $m,n,c \in \bbZ$, $-(-(m,n),c) \neq -(m,-(n,c))$, then subtraction is not associative. 
+\end{proof}		
+\vspace{4pt}     \hrule   \vspace{4pt}
+\end{exmp}
+
+\subsection*{Example 7.6}
+\label{7.6}
+\begin{exmp}
+    	Let $X$ be a nonempty finite set, and let $Y=\{f\colon X \arr X \mid \mbox{$f$ is bijective}\}$.  Consider the
+	binary operation of composition of functions, denoted $\circ\colon Y \times Y \arr Y$ and defined by
+	$(f \circ g)(x) = f(g(x))$, as seen in Definition~1.27.  Decide whether or not composition is commutative and/or associative and whether or not it has an identity.
+\end{exmp}
+\vspace{4pt}     \hrule   \vspace{4pt} 
+\begin{proof}:
+\begin{enumerate}
+\item If $\circ$ is associative, then $(f\circ g)\circ h(x) =  f\circ (g\circ h)(x)$. Consider $f\circ (g\circ h(x)) = f \circ g(h(x))=f(g(h(x)))$. Consider $(f\circ g)\circ h(x) = f(g) \circ h(x) = f(g(h(x)))$. Therefore, because $(f\circ g)\circ h(x) =  f\circ (g\circ h)(x)$, $\circ$ is associative.
+\item If $ \circ $ is commutative, then $(f \circ g) (x) = (g \circ f) (x)$ for all $g,f \in Y$. Therefore, $f(g(x)) = g(f(x))$. 
+\begin{enumerate}
+    \item Consider some $X = \{8,2,3\}$ and the case where $f(8) = 2$, $f(2) =3$, and $f(3) = 8$. Because the composition is binary and equals $f(g(x))$, then $g(x)$ exists. Therefore, let $g(3) =2$, $g(8) =3$, and $g(2) =2$. It follows that $f(g(8)) = f(3) =8$. However, because $g(f(8)) = g(2)  = 2$, and $8\neq 2$, then $\circ $ is not commutative.
+    \item Consider some $X = \{1,2\}$. Because $f$ is bijective, then if $f(1) = 1$, then $f(2) = 2$. Thus, let $g(1) = 1$ and therefore $g(2) = 2$. Therefore, $f(g(1))=f(1) =1$ and $g(f(1))=g(1)=1$ and therefore, $\circ$ is commutative. Similar logic applies if $f(1) = 2$ or $g(1) = 2$. In all cases, $\circ$ is commutative.
+    \item Consider some $X = \{1\}$. Therefore, $f(1) = 1$ and $g(1) = 1$ and so $g(f(1))=f(g(1)) = 1$. Therefore, $\circ$ is commutative.
+\end{enumerate} Note that if the cardinality of $X$ is $[n]\leq 2$, then $\circ$ is always commutative. Otherwise, it is not.
+\item Consider some function $f(x) =x$ such that $x\in X$. Because $f(g(x)) = x$, then $g(x) = x$. Therefore since $g(f(x)) = g(x) = x$, then for all $f\in Y$, $f(x) =x$ is the identity element.
+\end{enumerate}
+\end{proof}		
+\vspace{4pt}     \hrule   \vspace{4pt}
+\subsection*{Theorem 7.7}
+\label{7.7}
+\begin{thm}
+Identity elements are unique.  That is, suppose that $f$ is a binary operation on a set $X$ that has two identity elements $e$ and $e'$.  Then $e = e'$.
+\end{thm}
+        \vspace{4pt}     \hrule   \vspace{4pt} \begin{proof}:\\
+Suppose, for the sake of contradiction, that $e \neq e'$, therefore, the identity element of $f$ is not unique. It follows that since $f(e,e') = f(e,e') = e,e'$. However, since $f$ is binary, then it can only have a single output. Therefore, $f$ is not binary, which is a contradiction. Therefore $e' = e$, 
+\end{proof}		
+\vspace{4pt}     \hrule   \vspace{4pt}
+\subsection*{Definition 7.8}
+\label{7.8}
+\begin{defn}
+	A \emph{field} is a set $F$ with two binary operations  on $F$ called addition, denoted $+$, and multiplication, denoted $\cdot$\;, satisfying the following \emph{field axioms}:
+	\begin{enumerate}[{FA}1]
+		\item  (Commutativity of Addition)  For all $x,y\in F$, $x + y = y + x$.
+		\item  (Associativity of Addition)  For all $x,y,z\in F$, $(x + y) + z = x + (y + z)$.
+		\item  (Additive Identity)  There exists an element $0 \in F$ such that $x + 0 = 0 + x = x$ for all $x \in F$.
+		\item  (Additive Inverses)  For any $x \in F$, there exists $y \in F$ such that $x + y = y + x = 0$,  called an additive inverse of $x$.
+		\item  (Commutativity of Multiplication)  For all $x,y\in F$, $x \cdot y = y \cdot x$.
+		\item  (Associativity of Multiplication)  For all $x, y, z \in F$, $(x \cdot y) \cdot z = x \cdot (y \cdot z)$.
+		\item  (Multiplicative Identity)  There exists an element $1 \in F$ such that $x \cdot 1 = 1 \cdot x = x$ for all $x \in F$.
+		\item  (Multiplicative Inverses)  For any $x \in F$ such that $x \neq 0$, there exists $y \in F$ such that $x \cdot y = y \cdot x = 1$,  called a multiplicative inverse of $x$.
+		\item  (Distributivity of Multiplication over Addition)  For all $x, y, z \in F$,
+		$x \cdot(y + z) = x \cdot y + x \cdot z$. 
+		\item  (Distinct Additive and Multiplicative Identities)  $1 \neq 0$.
+\end{enumerate}
+
+\end{defn}
+
+\subsection*{Example 7.9}
+\label{7.9}
+\begin{exmp}
+	Consider the set $\bbF_{2} = \{0, 1\}$, and define binary operations $+$ and $\cdot$ on $\bbF_{2}$ by:
+	\begin{center}
+	$
+	\begin{array}{ccccccc}
+		0 + 0 = 0 & \phantom{MM} & 0 + 1 = 1 & \phantom{MM} & 1 + 0 = 1 & \phantom{MM} &1 + 1 = 0 \\
+		0 \cdot 0 = 0 & \phantom{MM} & 0 \cdot 1 = 0 & \phantom{MM}  & 1\cdot 0 =0 & \phantom{MM} &1 \cdot 1 = 1 
+	\end{array}
+	$
+	\end{center}
+	
+	Show that $\bbF_{2}$ is a field.  
+\end{exmp}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:		
+	\begin{enumerate}[1]
+		\item  For $0,1\in \bbF_{2}$, $0 + 1 = 1 + 0 = 1$, $1+1 = 1+1 = 0$, and $0+0=0+0=0$. Therefore, for all $x,y\in F$, $x + y = y + x$, so FA1 is met.
+ \item \begin{enumerate}
+      \item if $x,y,z =0$, then $(0+0) +0 = 0+0 = 0$ and $0+(0+0) = 0+0 =0$
+      \item if $x,y,z =1$, then $(1+1) +1 = 0+1 = 1$ and $1+(1+1) = 1+0 =1$
+      \item if $x,y = 0$ and $z=1$, then $(0+0) +1 = 0+1 = 1$ and $0+(0+1) = 0+1 =1$
+      \item if $x =1$ and $y,z=0$, or $y=1$ and $x,z = 0$, then associativity is trivially proven using the above method.
+      \item if $x,y =1$ and $z=0$, then $(1+1)+0 = 1+0 = 1$ and $1+(1+0) = 1+1 = 1$
+      \item if $y,z =1$ and $x=0$, or $x,z=1$ and $y=0$, then associativity is trivially proven using the method above.
+  \end{enumerate}
+ Therefore, for all $x,y,z\in \bbF_2$, $(x + y) + z = x + (y + z)$, so FA2 is met.
+		\item  (Additive Identity)  There exists an element $0 \in \bbF_2$ such that $1 + 0 = 0 + 1 = 1$ for $1 \in F$ and $0 + 0 = 0 + 0 = 0$ for $0 \in \bbF_2$. Therefore, there exists an element $0 \in \bbF_2$ such that $x + 0 = 0 + x = x$ for all $x \in \bbF_2$, and so FA3 is met.
+		\item  (Additive Inverses)  For $1 \in \bbF_2$, there exists $1 \in \bbF_2$ such that $1 + 1 = 1 + 1 = 0$, and for $0 \in \bbF_2$, there exists $0 \in \bbF_2$ such that $0 + 0 = 0 + 0 = 0$. Therefore, there exists an element $0 \in \bbF_2$ such that $x + 0 = 0 + x = x$ for all $x \in F$, and so FA4 is met.
+		\item  (Commutativity of Multiplication)  For $0,1\in F$, $0 \cdot 1 = 1 \cdot 0 = 0$. Therefore, for all $x,y\in \bbF_2$, $x \cdot y = y \cdot x$, and so FA5 is met
+		\item  (Associativity of Multiplication)  
+  \begin{enumerate}
+      \item if $x,y,z =0$, then $(0\cdot 0) \cdot 0 = 0 \cdot 0 = 0$ and $0\cdot(0 \cdot0) = 0\cdot0 =0$
+      \item if $x,y,z =1$, then $(1\cdot1) \cdot1 = 1\cdot1 = 1$ and $1\cdot(1\cdot1) = 1\cdot1 =1$
+      \item if $x,y = 0$ and $z=1$, then $(0\cdot0) \cdot1 = 0\cdot1 = 0$ and $0\cdot(0\cdot1) = 0\cdot0 =0$
+      \item if $x =1$ and $y,z=0$, or $y=1$ and $x,z = 0$, then associativity is trivially proven using the above method.
+      \item if $x,y =1$ and $z=0$, then $(1\cdot1)\cdot0 = 1\cdot0 = 0$ and $1\cdot(1\cdot0) = 1\cdot0 = 0$
+      \item if $y,z =1$ and $x=0$, or $x,z=1$ and $y=0$, then associativity is trivially proven using the method above.
+  \end{enumerate}
+ Therefore, for all $x,y,z\in F$, $(x \cdot y) \cdot z = x\cdot (y \cdot z)$, so FA6 is met.
+		\item  (Multiplicative Identity)  There exists an element $1 \in \bbF_2$ such that $1 \cdot 1 = 1 \cdot 1 = 1$ and $1\cdot 0 = 0\cdot 1= 0$. Therefore, there exists an element $1 \in \bbF_2$ such that $x \cdot 1 = 1 \cdot x = x$ for all $x \in \bbF_2$.
+		\item  (Multiplicative Inverses)  For $1\in \bbF_2$, there exists a $1\in \bbF_2$ such that $1 \cdot 1 = 1\cdot 1 = 1$. Therefore, for any $x \in \bbF_2$ such that $x \neq 0$, there exists $y \in \bbF_2$ such that $x \cdot y = y \cdot x = 1$.
+		\item  (Distributivity of Multiplication over Addition)
+  \begin{enumerate}
+      \item if $x,y,z =0$, then $0\cdot(0+ 0) = 0\cdot 0 =0$ and $0\cdot 0 + 0\cdot0 = 0+0=0$
+      \item if $x,y,z =1$, then $1\cdot(1+ 1) = 1\cdot 0 =0$ and $1\cdot 1 + 1\cdot1 = 1+1=0$
+      \item if $x,y = 0$ and $z=1$, then $0\cdot(0+ 1) = 0\cdot 1 =0$ and $0\cdot 0 + 0\cdot1 = 0+0=0$
+      \item if $x =1$ and $y,z=0$, or $y=1$ and $x,z = 0$, then associativity is trivially proven using the above method.
+      \item if $x,y =1$ and $z=0$, then $1\cdot(1+ 0) = 1\cdot 1 =1$ and $1\cdot 1 + 1\cdot0 = 1+0=1$
+      \item if $y,z =1$ and $x=0$, or $x,z=1$ and $y=0$, then associativity is trivially proven using the method above.
+  \end{enumerate}
+  For all $x, y, z \in \bbF_2$,
+		$x \cdot(y + z) = x \cdot y + x \cdot z$. 
+		\item  (Distinct Additive and Multiplicative Identities)  Assume, for the sake of contradiction, that $1=0$. Therefore, $1+0=1+1=0$, which is a contradiction, since $1+0 = 1 \neq 0$. Therefore, $1\neq 0$
+\end{enumerate}
+Because $\bbF_2$ satisfies FA1-FA10, then it is a field.
+\end{proof}		
+\vspace{4pt}     \hrule   \vspace{4pt}
+\subsection*{Theorem 7.10}
+\begin{thm}
+\label{7.10}
+	Suppose that $F$ is a field.  Then additive inverses are unique.  This means:
+
+ Let $x \in F$.  If $y, y' \in F$ satisfy $x + y = 0$ and $x + y' = 0$, then $y = y'$.
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}
+Since $x+y=0$ and $x+y'=0$, then it follows that $x+y = x+y'$. Therefore, by adding $y'$ on both sides, then it follows that $y'+(x+y) = y'+(x+y')$. By FA2, this can be expressed as $(y'+x) +y = y' + (x+y')$, which by FA1, is equal to $(x+y') +y = y' + (x+y')$. Therefore, because $x+y' = 0$, then $0+y = y' +0$. Because $0$ is the additive identity, then by FA3, $y=y'$.
+\end{proof}		
+\vspace{4pt}     \hrule   \vspace{4pt}
+We usually write $-x$ for the additive inverse of $x$.
+\subsection*{Corollary 7.11}
+\begin{cor}
+\label{7.11}
+    If $x\in F$, then $-(-x)=x$.
+\end{cor}
+If $x\in F$, then because $-x$ is the additive inverse of $x$, then $x+(-x) =0$. It follows that since $-(-x)$ is the additive inverse of $-x$, then $-(-x) +-(x) = 0$. Therefore,
+\begin{enumerate}
+    \item Proof 1: It can be said that $-(-x) +-(x) =x+(-x)$. Thus, by adding $x$ on both sides, the expression becomes $(-(-x) +-(x)) +x =(x+(-x))+x$. By associativity, this can be written as $-(-x) +(-(x) +x) =x+((-x)+x)$. Therefore, because $x+(-x) = 0$ (Additive inverse), then using commutativity, $-(-x) +0 = x+0$ and so because $0$ is the additive identity, $-(-x) =x$.
+    \item Proof 2: It can be said that $-(-x)$ is the additive inverse of $-x$ and $x$ is the additive inverse of $-x$. Thus, because additive inverses are unique from Theorem \ref{7.10}, $-(-x) = x$
+\end{enumerate}
+\subsection*{Theorem 7.12}
+\begin{thm}
+\label{7.12}
+	Let $F$ be a field, and let $a,b,c\in F$. If $a + b = a + c$, then $b = c$.
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:\\
+    \begin{enumerate}
+        \item Proof 1: assume, for the sake of contradiction, that if $a+ b = a+ c$, then $b\neq c$. There exists a $y\in F$ such that $y + (a + b) = 1$. Because addition is commutative, then since $(y + a) + b =1$, then let $y+ a = d$ be the additive inverse of $b$. Likewise, because inverses are unique, and $a + b = a+ c$, then $y + (a+ c) = 1$, and since $(y+ a) + c =1$, then $y+ a = d$ is the additive inverse of $c$. Therefore, it follows that $d + b= d + c =1$, and therefore, $c,d$ are the additive inverses of $d$. However, since they are unique by Theorem \ref{7.10}, then $c=b$, which is a contradiction. Therefore, $b=c$.
+        \item Proof 2: By adding $-a$ on both sides, the expression becomes $-a+(a+b) = -a+(a+c)$. Thus, by associativity, $(-a+a)+b = (-a+a)+c$. Because $-a+a = 0$ because of additive inverses, then $0+b = 0+c$. Thus, because $0$ is the additive identity, then $0+b = b$ and $0+c = c$ and so $b=c$.
+    \end{enumerate}
+    
+\end{proof}		
+\vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Theorem 7.13}
+\begin{thm}
+\label{7.13}
+	Let $F$ be a field. If $a\in F$, then $a \cdot 0 = 0$. 
+ \end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:\\
+Because $0$ is the additive identity, then $0+0 = 0$. Thus $a\cdot 0 = a\cdot (0+0)$. By FA9, this can be written as $a\cdot 0 + a\cdot 0$. Thus, $a\cdot 0 = a\cdot 0 + a\cdot 0$. By adding the additive inverse of $a\cdot 0$ to both sides, this becomes $a\cdot 0 + (-(a\cdot 0) = (a\cdot 0+a\cdot 0)+ (-(a\cdot 0))$. By associativity, this can be written as $a\cdot 0 + (-(a\cdot 0) = a\cdot 0+(a\cdot 0+ (-(a\cdot 0)))$. By the additive inverse axiom, this becomes $0 = a\cdot 0 + 0$. Because $0$ is the additive identity, then this becomes $0= a\cdot 0$
+\end{proof}		
+\vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Theorem 7.14}
+\begin{thm}
+\label{7.14}
+Suppose that $F$ is a field.  Then multiplicative inverses are unique.  This means: 
+	
+Let $x \in F$.  If $y, y' \in F$ satisfy $x \cdot y = 1$ and $x \cdot y' = 1$, then $y = y'$.
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:\\
+Because $x\cdot y =1$, and $x\cdot y' =1$, then $x\cdot y = x\cdot y'$. Therefore, by multiplying $y'$ unto both sides, the expression becomes: $y'\cdot (x\cdot y) = y' \cdot (x\cdot y')$. Because of FA6, this can be expressed as $(y'\cdot x) \cdot y = y' \cdot (x\cdot y')$. By FA5, it follows that this can be expressed as: $(x\cdot y') \cdot y = y' \cdot (x\cdot y')$. Therefore, because $x\cdot y' =1$, then $(1) \cdot y = y' \cdot (1)$. Moreover, because $y$ is the multiplicative identity, then $y=y'$.
+\end{proof}		
+\vspace{4pt}     \hrule   \vspace{4pt}
+
+We usually write $x^{-1}$ or $\frac{1}{x}$ for the multiplicative inverse of $x$.
+
+\subsection*{Corollary 7.15}
+\begin{cor} { Note that you need 7.13 to justify the existence of $(x^{-1})^{-1}.$}
+\label{7.15}
+
+	If $x\in F$ and $x\neq 0$, then $(x^{-1})^{-1}=x$.
+\end{cor}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:\\
+If $x\in F$, then because $x\neq 0$, by FA8, $x^{-1}\neq 0$ exists and is the additive inverse of $x$, then $x\cdot (x^{-1}) =1$. It follows that because $x^{-1}\neq 0$, then by FA8, $(x^{-1})^{-1}$ exists and is the multiplicative inverse of $x^{-1}$, then $(x^{-1})^{-1} \cdot x^{-1}= 1$.  Therefore, by Theorem \ref{7.14}, multiplicative inverses are unique and if $x\cdot(x^{-1}) = (x^{-1})^{-1} \cdot  x^{-1}= 1$, then $x$ is the mult. inverse of $x^{-1}$ and $(x^{-1})^{-1}$ is the mult. inverse of $x^{-1}$ and so $x = (x^{-1})^{-1}$.
+\end{proof}		
+\vspace{4pt}     \hrule   \vspace{4pt}
+\subsection*{Theorem 7.16}
+\begin{thm}
+\label{7.16}
+	Let $F$ be a field, and let $a, b, c \in F$. If $a \cdot b = a \cdot c$ and $a \neq 0$, then $b = c$.
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:\\
+    Because $a\cdot b = a\cdot c$, then because $a\neq 0$, there exists a $a^{-1}\in F$ such that $a^{-1} \cdot a = 1$ (mult. inverse in FA8). Therefore, by multiplying $a^{-1}$ unto both sides of the expression, this becomes $a^{-1}\cdot (a \cdot b) = a^{-1}\cdot (a \cdot c)$. By mult. associativity, this can be written as $(a^{-1}\cdot a) \cdot b = (a^{-1}\cdot a)\cdot c$ and thus $1\cdot b = 1\cdot c$, then by FA7, this becomes $b=c$
+\end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Theorem 7.17}
+\begin{thm}
+\label{7.17}
+	Let $F$ be a field, and let $a, b\in F$.  If $a \cdot b = 0$, then $a = 0$ or $b = 0$.
+\end{thm}
+
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:\\
+\begin{enumerate}
+    \item If $a\neq 0$: Since $a\cdot b = 0$, then by Theorem \ref{7.13} since $a\cdot 0 =0$, then it follows that $a\cdot b = a\cdot 0$. Then, by Theorem \ref{7.16}, if $a\neq 0$, then $b=0$. 
+    \item If $a=0$, then $a=0$.
+\end{enumerate}
+Therefore, either $b=0$ or $a=0$.
+\end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Lemma 7.18}
+\begin{lem}
+\label{7.18}
+	Let $F$ be a field. If $a\in F,$ then $-a=(-1)a.$
+\end{lem}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:\\
+For some $x\in F$, where $x\neq 0$, then by FA4 $x^{-1}\cdot x =1$. Therefore, $1\in F$. Moreover, by FA4 and Theorem \ref{7.10}, $-1$ exists and is unique such that $1+(-1)=0$. Consider some expression $(-1)\cdot a +a$. Therefore, by FA7, since $a\cdot 1 =a$, then $(-1)\cdot a +(a\cdot 1)$. By FA9, $(-1)\cdot a +(a\cdot 1) = a(-1+1)$. FA2, $a(-1+1) = a(1+(-1))$, which since $1+(-1)) = 0$, then by Theorem \ref{7.13}, $a(1+(-1)) = a\cdot 0 = 0$. 
+Therefore, since $(-1)\cdot a +a = 0$, then $(-1)\cdot a$ is the additive inverse of $a$. Therefore, because $-a$ is also the additive inverse of $a$, then since by Theorem \ref{7.10}, $(-1)\cdot a = -a$. 
+\end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Lemma 7.19}
+\begin{lem}
+\label{7.19}
+	Let $F$ be a field. If $a, b\in F$, then $a \cdot (-b )= -(a \cdot b) = (-a) \cdot b$.
+\end{lem}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:\\
+The following proof largely follows from Lemma \ref{7.18} and FA6:
+\begin{enumerate}
+    \item Because $-b = (-1)b$, then by the associative property, $a \cdot (-b) = (-1) \cdot a \cdot b$
+    \item Because $-(a\cdot b) = (-1)(a \cdot b)$, then $-(a\cdot b) = (-1)\cdot a \cdot b$
+    \item Because $-a = (-1)a$, then $(-a)\cdot b = (-1) \cdot a \cdot b$
+\end{enumerate}
+Therefore, because $(-1) \cdot a \cdot b = (-1) \cdot a \cdot b = (-1) \cdot a \cdot b$, then $a \cdot (-b )= -(a \cdot b) = (-a) \cdot b$.
+\end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Lemma 7.20}
+\begin{lem}
+\label{7.20}
+	Let $F$ be a field. If $a, b\in F$, then $a\cdot b=(-a)\cdot (-b)$.
+\end{lem}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:\\
+Because multiplication is associative, then using Lemma \ref{7.18} and associativity, $(-a) \cdot (-b) = (-1)\cdot a \cdot (-b) = -1(a\cdot (-b)) = -(a\cdot (-b))$. By Lemma \ref{7.19}, $a\cdot (-b) = -(a\cdot b)$, so it follows that $(-a) \cdot (-b) = -(-(a\cdot b))$. Therefore, by Corollary \ref{7.11}, $-(-(a\cdot b)) = a\cdot b$. 
+\end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Definition 7.21}
+\begin{defn}
+\label{7.21}
+	An \emph{ordered field} is a field $F$ equipped with an ordering $<$ (satisfying Definition 3.1) such that also:
+	\begin{itemize}
+		\item  Addition respects the ordering: if $x < y$, then $x + z < y + z$ for all $z \in F$.
+		\item  Multiplication respects the ordering: if $0 < x$ and $0 < y$, then $0 < x \cdot y$.
+	\end{itemize}
+\end{defn}
+
+\subsection*{Definition 7.22}
+\begin{defn}
+\label{7.22}
+	Suppose $F$ is an ordered field and $x\in F$.  If $0 < x$, we say that $x$ is \emph{positive}. If $x < 0$, we say that $x$ is \emph{negative}.
+\end{defn}
+For the remaining theorems, let $F$ be an ordered field.
+\subsection*{Lemma 7.23}
+
+\begin{lem}
+\label{7.23}
+	If $0 < x$, then $-x < 0$.  Similarly, if $x < 0$, then $0 < -x$.
+\end{lem}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:\\
+Because $x\in F$, then there exists a $-x \in F$ such that $x+ (-x) = 0$ (FA4).
+\begin{enumerate}
+    \item If $0<x$: By Definition \ref{7.21}, $0+(-x) < x + (-x)$. Because $0$ is the additive identity element and $x+ (-x) = 0$, then the inequality can be rewritten as $-x < 0$.
+    \item If $x<0$. By Definition \ref{7.21}, $x+(-x) < 0 + (-x)$. Because $0$ is the additive identity element and $x+ (-x) = 0$, then the inequality can be rewritten as $0 < -x$
+\end{enumerate}
+ \end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Lemma 7.24}
+\begin{lem}
+\label{7.24}
+	Let $x,y,z \in F$. 
+	\begin{enumerate}
+		\item If $x > 0$ and $y < z$, then $x \cdot y < x \cdot z$.
+		\item If $x < 0$ and $y < z$, then $x \cdot z < x \cdot y$.
+	\end{enumerate}
+\end{lem}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:\\
+\begin{enumerate}
+    \item If $x>0$, then $0<x$. Because $y<z$, then by adding $-y$ to both sides, it becomes $y+(-y)<z+(-y)$. Therefore, by FA4, because $y+(-y) = 0$, then $0<z+(-y)$. Moreover, since $0<x$, then by Definition \ref{7.21}, $0<(z+(-y))x$. Because multiplication is distributive, then $0< zx + (-y)x$. Therefore, because $(-y)x \in F$, then $(-y)x = -(yx)$ and therefore $yx\in F$ exists and is the additive inverse of $-(yx)$. It follows that $yx+ -(xy) = 0$. Therefore, by adding $yx$ to both sides of the inequality and using Definition \ref{7.21}, $0+ yx < (zx + -yx) + yx$, so therefore since $0$ is the identity element, then with associativity, $y\cdot x < z\cdot x$.
+    \item If $x<0$, then by Lemma \ref{7.23}, $0<-x$. Because $y<z$, then by adding $-y$ to both sides, it becomes $y+(-y)<z+(-y)$. Therefore, by FA4, because $y+(-y) = 0$, then $0<z+(-y)$. Moreover, since $0<-x$, then by Definition \ref{7.21}, $0<(z+(-y))\cdot (-x)$. Because multiplication is distributive, then $0<-zx+(-y)(-x)$. Therefore, because $(-y)(-x) \in F$, then by Lemma \ref{7.20}, $(-y)(-x) = yx$. Moreover, $zx\in F$ exists and is the additive inverse of $(-zx)$. It follows that $zx+ -(zx) = 0$. Therefore, by adding $zx$ to both sides of the inequality, $(zx)+0<zx+(-zx)+yx$, so therefore by associativity and with the additive identity element, $zx <yz$. then the using the commutative property the expression becomes: $x\cdot z < x\cdot y$ 
+\end{enumerate}
+ \end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Remark 7.25}
+\label{7.25}
+\begin{rem}
+An immediate consequence of this lemma is the fact that if $x$ and $y$ are both positive or both negative, their product is positive.
+\end{rem}
+
+\subsection*{Lemma 7.26}
+\begin{lem}
+\label{7.26}
+	If $x \in F$, then $0 \leq x^2$.  Moreover, if $x \neq 0$, then $0 < x^2$.
+\end{lem}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:
+\begin{enumerate}
+    \item If $x\in F$, then:
+    \begin{enumerate}
+    \item If $x>0$, then since $0<x$, then by Lemma \ref{7.24}, $x\cdot 0 < x\cdot x$. Therefore, by Theorem \ref{7.13}, since $x\cdot 0 = 0$, then $0< x\cdot x$. Let $x\cdot x = x^2$. Therefore, $0<x^2$ 
+    \item If $x<0$, then since $x<0$, by Lemma \ref{7.24}, $x\cdot 0 < x\cdot x$. By similar logic as case one, it follows that $0< x^2$.
+    \item If $0=x$, then by Theorem \ref{7.13}, $x\cdot 0 = 0$. It follows that since $x=0$, then $x\cdot x = x^2 =0$. Therefore, if $x=0$, $0=x^2$.
+    Therefore, if $x\in F$, then $0\leq x^2$ and if $x\neq 0$, then $0<x^2$.
+    \end{enumerate}
+\end{enumerate}
+ \end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Corollary 7.27}
+\begin{cor}
+\label{7.27}
+	$0 < 1$.
+\end{cor}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:
+Assume, for the sake of contradiction, that $0\geq 1$:
+\begin{enumerate}
+    \item By FA10, $1\neq 0$.
+\end{enumerate}
+Therefore, $0\neq 1$:
+\begin{enumerate}
+    \item If $0>1$, then $1<0$. Therefore, let $x\in F$ such that $0<x$, then it follows by Lemma \ref{7.23} that $-x<0$. By transitivity, it must be true that $-x<x$. By Lemma \ref{7.24}, because $1<0$ and $-x<x$, then $1\cdot x<1\cdot -x$. Because $1$ is the multiplicative identity element of $F$, then it follows that $x<-x$, which is a contradiction, since $-x<x$.
+\end{enumerate}
+Therefore, it must be true that because $0\not \geq 1$, then $0<1$.\\
+Alternate Proof: Because $1\in F$ and by FA10, $0\neq 1$, then by Lemma \ref{7.26}, $0 < 1^2$. It follows that $0< 1\cdot 1 $. Because $1$ is the multiplicative identity, then $1\cdot 1 = 1$. Therefore, $0<1$.
+ \end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Theorem 7.28}
+\begin{thm}
+\label{7.28}
+    If $F$ is an ordered field, then $F$ has no first or last point.
+\end{thm}  
+\begin{proof}:
+\begin{enumerate}
+    \item Assume, for the sake of contradiction, that $F$ has a first point. Therefore, there exists some $x\in F$ such that for all $y\in F$, $x\leq y$:
+    \begin{enumerate}
+        \item If $0<x$, then by Lemma \ref{7.23}, $-x<0$. Therefore, by transitivity, $-x<x$, and so since $-x\in F$, then $x$ is not the first point of $F$.
+        \item If $x= 0$, then because $0<1$ (Corollary \ref{7.27}), then it follows by Lemma \ref{7.23} that $-1<0$. Therefore, since $-1 \in F$, then $x$ is not the first point of $F$.
+        \item If $x<0$, then since $0<1$ (Corollary \ref{7.27}, and $-1<0$ (Lemma \ref{7.23}), then by Definition \ref{7.21}, $x+(-1)<0+x$. Since $0$ is the additive identity, then $0+x = x$ and $x+(-1)<x$. Therefore, since $x+(-1)<x$, then $x$ is not the first point. 
+    \end{enumerate}
+    \item Assume, for the sake of contradiction, that $F$ has a last point. Therefore, there exists some $x\in F$ such that for all $y\in F$, $x\geq y$:
+    \begin{enumerate}
+        \item If $0>x$, then by Lemma \ref{7.23}, $-x>0$. Therefore, by transitivity, $x<-x$, and so since $-x\in F$, then $x$ is not the first point of $F$.
+        \item If $x= 0$, then because $0<1$ (Corollary \ref{7.27}), then $x$ is not the first point of $F$.
+        \item If $x>0$, then since $0<1$ (Corollary \ref{7.27}, then by Definition \ref{7.21}, $0+x<1+x$. Since $0$ is the additive identity, then $0+x = x$ and $x<1+x$. Therefore,then $x$ is not the last point. 
+    \end{enumerate}
+    Therefore, $F$ does not have a first or last point.
+\end{enumerate}
+ \end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Theorem 7.29}
+\begin{thm}
+\label{7.29}
+	The rational numbers $\bbQ$ form an ordered field.
+\end{thm}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:\\
+Proving $\bbQ$ is an ordered field:
+	\begin{enumerate}[{FA}1]
+	\item  (Commutativity of Addition) By Theorem 2.10.a, for all $  \left[\frac{a}{b}\right],\left[\frac{c}{d}\right] \in\bbQ$, $\left[\frac{a}{b}\right]+_{\bbQ} \left[\frac{c}{d}\right] =\left[\frac{c}{d}\right]+_{\bbQ}\left[\frac{a}{b}\right]$ 
+		\item  (Associativity of Addition)  By Theorem 2.10.b $ \left(\left[\frac{a}{b}\right]+_{\bbQ}\left[\frac{c}{d}\right] \right)+_{\bbQ}\left[\frac{e}{f}\right] = 
+  \left[\frac{a}{b}\right]+_{\bbQ}\left( \left[\frac{c}{d}\right] +_{\bbQ} \left[\frac{e}{f}\right]\right) $ for all $ \left[\frac{a}{b}\right],\left[\frac{c}{d}\right] , \left[\frac{e}{f}\right]\in \bbQ.$ 
+		\item  (Additive Identity) By Theorem 2.10.c, there exists an element $[\frac{0}{1}] \in \bbQ$ such that $ \left[\frac{a}{b}\right]+_{\bbQ}\left[\frac{0}{1}\right]=\left[\frac{a}{b}\right],$ for all $ \left[\frac{a}{b}\right]\in\bbQ.$
+		\item  (Additive Inverses) By Theorem 2.10.d, for any $[\frac{a}{b}] \in \bbQ$, there exists $[\frac{-a}{b}]$ such that $ \left[\frac{a}{b}\right]+_{\bbQ}\left[\frac{-a}{b}\right]=\left[\frac{0}{1}\right],$
+		\item  (Commutativity of Multiplication) By Theorem 2.10.e,   $ \left[\frac{a}{b}\right]\cdot_{\bbQ} \left[\frac{c}{d}\right] =\left[\frac{c}{d}\right]\cdot_{\bbQ} \left[\frac{a}{b}\right]$ for all $  \left[\frac{a}{b}\right],\left[\frac{c}{d}\right] \in\bbQ.$
+		\item  (Associativity of Multiplication) By Theorem 2.10.f,    $ \left(\left[\frac{a}{b}\right]\cdot_{\bbQ} \left[\frac{c}{d}\right] \right)\cdot_{\bbQ} \left[\frac{e}{f}\right] = 
+  \left[\frac{a}{b}\right]\cdot_{\bbQ} \left( \left[\frac{c}{d}\right] \cdot_{\bbQ} \left[\frac{e}{f}\right]\right) $ for all $ \left[\frac{a}{b}\right],\left[\frac{c}{d}\right] , \left[\frac{e}{f}\right]\in \bbQ.$
+		\item  (Multiplicative Identity)  By Theorem 2.10.g, $ \left[\frac{a}{b}\right] \cdot_{\bbQ}\left[\frac{1}{1}\right]=\left[\frac{a}{b}\right],$ for all $ \left[\frac{a}{b}\right] \in\bbQ.$
+		\item  (Multiplicative Inverses) By Theorem 2.10.h, $ \left[\frac{a}{b}\right] \cdot_{\bbQ}\left[\frac{b}{a}\right]=\left[\frac{1}{1}\right],$ for all $ \left[\frac{a}{b}\right] \in\bbQ$ such that $\left[\frac{a}{b}\right]\neq \left[\frac{0}{1}\right].$ 
+		\item  (Distributivity of Multiplication over Addition)  By Theorem 2.10.i, $ \left[\frac{a}{b}\right]\cdot_{\bbQ} \left(\left[\frac{c}{d}\right]+_{\bbQ}\left[\frac{e}{f}\right]\right)=\left(\left[\frac{a}{b}\right]\cdot_{\bbQ} \left[\frac{c}{d}\right]\right) +_{\bbQ} \left( \left[\frac{a}{b}\right]\cdot_{\bbQ} \left[\frac{e}{f}\right]\right),$ for all $ \left[\frac{a}{b}\right],\left[\frac{c}{d}\right], \left[\frac{e}{f}\right] \in\bbQ.$
+		\item  (Distinct Additive and Multiplicative Identities) Assume, for the sake contradiction, that $[\frac{0}{1}] = [\frac{1}{1}]$. Therefore, by Definition 3.8.c, $(0)(1) = 1(1)$. Then because $1$ is the multiplicative identity (Script 0), then $1(1) = 1$. Also, because $1(0) = 0$, then it follows that $0=1$, which is a contradiction, since $0\neq 1$. Therefore, $[\frac{0}{1}] \neq [\frac{1}{1}]$.
+\end{enumerate}
+Because $\bbQ$ satisfies FA1-FA10, then it is a field.\\
+By Exercise 3.8.c, $\bbQ$ has an ordering $<_{\bbQ}$. Let $[\frac{a}{b}]<_{\bbQ}\frac{c}{d}$, where $0<b,d$ (3.8.b). Suppose there exists some element $[\frac{e}{f}]$ such that $0<f$. Note that $b,d,f \in \bbZ$, and so all the properties defined in Script 0 apply. 
+\begin{enumerate}
+\item 
+    \begin{align*}
+        [\frac{a}{b}]&< [\frac{c}{d}]\\
+        \tag{By Definition 3.8.c:} \indent ad&<bc\\
+        \tag{By Script 0:} \indent adf&<bcf\\
+        \tag{By Script 0:} \indent adf+bed&<bcf+bed\\
+        \tag{By Script 0:} \indent f(adf+bed)&<f(bcf+bed)\\
+        \tag{0.Distributive/Commutative:} \indent df(af+be) &< bf(cf+de)\\
+        \tag{By 3.8.c:} \indent [\frac{af+be}{bf}] &< [\frac{cf+de}{df}]\\
+        \tag{By 2.8:}\indent [\frac{a}{b}]+ [\frac{e}{f}] &< [\frac{c}{d}]+[\frac{e}{f}]
+    \end{align*}
+    Since $ad<bc$, then it follows that $[\frac{a}{b}]+_\bbQ [\frac{e}{f}]<[\frac{c}{d}]+_\bbQ [\frac{e}{f}]$ for all $[\frac{e}{f}]$
+    \item If $0<_\bbQ [\frac{a}{b}]$ and $0<_\bbQ [\frac{c}{d}]$:
+    \begin{align*}
+        [\frac{0}{1}]&<_\bbQ [\frac{a}{b}]\\
+        \tag{By Definition 3.8.c:} \indent b(0)&<1(a)\\
+        \tag{Using identities:} \indent 0&<a\\
+        \tag{Using the same logic:} \indent 0&<c\\
+        \tag{By Script 0:} \indent 0&<ac\\
+    \end{align*} 
+    Then assume, for the sake of contradiction, that if $[\frac{a}{b}] \cdot _\bbQ [\frac{c}{d}] = [\frac{ac}{cd}]$, then $[\frac{0}{1}]\geq [\frac{ac}{cd}]$:
+    \begin{align*}
+        [\frac{0}{1}]&\geq [\frac{ac}{cd}]\\
+        [\frac{ac}{bd}] \not &< [\frac{0}{1}]\\
+        \tag{By Definition 3.8.c:}  \indent (1)ac\not &< bd(0)\\
+        \tag{Using identities:} \indent ac \not &< 0 
+    \end{align*}
+    Which is a contradiction. Therefore, $[\frac{ac}{bd}] \not < [\frac{0}{1}]$, and so $ [\frac{ac}{cd}] \geq [\frac{0}{1}]$. Assume that $ [\frac{ac}{cd}] = [\frac{0}{1}]$, then it follows by the same logic as above that $ac = 0$. However, $0<ac$. Therefore, $ [\frac{ac}{cd}] > [\frac{0}{1}]$
+\end{enumerate}
+Therefore, by Definition \ref{7.21}, $\bbQ$ is an ordered field.
+\end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+
+There is an important sense in which every ordered field contains a ``copy" of the rational numbers. Let $F$ be an ordered field with additive identity $0_F$ and multiplicative identity $1_F$. To prevent ambiguity, denote the additive identity in the rational numbers by $0_\bbQ$ and the multiplicative identity in the rational numbers by $1_\bbQ$.\medskip
+
+\subsection*{Theorem 7.30}
+\begin{thm}
+\label{7.30}
+	Any ordered field $F$ contains  a copy of the rational numbers $\bbQ$ in the following sense.  There exists an injective map $i\colon \bbQ \arr F$ that respects all of the axioms for an ordered field. In particular:
+\vspace{4pt}     \hrule   \vspace{4pt}
+	\begin{itemize}
+		\item $i(0_\bbQ) = 0_F$.
+		\item $i(1_\bbQ) = 1_F$.
+		\item If $a, b\in \bbQ$, then $i(a+b) = i(a) + i(b)$.
+		\item If $a, b\in \bbQ$, then $i(a\cdot b)=i(a)\cdot i(b)$.
+		\item If $a, b\in \bbQ$ and $a < b$, then $i(a)< i(b)$.
+	\end{itemize}
+\end{thm}
+\begin{proof}
+Define the function $i\colon \bbN \arr F$ via induction;
+\begin{enumerate}
+    \item If $n=1$, then let $i_\bbN(1) = 1_F$.
+    \item Assume $n\in \bbN$ has been mapped out to $F$.
+    \item If $n+1$, then $i_\bbN(n+1) = i_\bbN((n+1)-1) + 1_F$. Therefore, because of associativity and the inverse and the identity element, $(n+1)-1 = n+(1-1) = n+0 = n$. Therefore, because $i_\bbN(n)$ was defined in the inductive step, then $i_\bbN(n+1) = i_\bbN(n) + 1_F$
+\end{enumerate}
+Then define $i_\bbZ (-n) = -i_\bbN (-n)$ for all $n\in \bbN$. Let $i_\bbZ (0) = 0_F$. Also, let $i_\bbQ(\frac{a}{b}) = i_\bbZ(a) \cdot i_\bbZ (b)^{-1}$ (where $b\neq 0)$. \\ 
+To prove that $i_\bbN(a+b) = i_\bbN (a) + i_\bbN (b)$:
+\begin{enumerate}
+    \item If $b=1$, then $i_\bbN (a+1)= i_\bbN(a) + i_\bbN(1)$, which by our construction, since $i_\bbN (1) = 1_F$, then $i_\bbN (a+1)= i_\bbN(a) + 1_F$. 
+    \item Assume $i_\bbN(a+b) = i_\bbN(a) + i_\bbN(b)$ is true for $b\in \bbN$
+    \item If $b+1$, then because $\bbN$ is associative, then $i_\bbN(a+(b+1)) = i_\bbN((a+b)+1))$. By the construction, $i_\bbN((a+b)+1)) = i_\bbN(a+b) +1_F$. Thus, $i_\bbN(a+b) +1_F= i_\bbN(a)+i_\bbN(b)+1_F$. Therefore,  $i_\bbN(a) +( i_\bbN(b)+1_F) = i_\bbN(a)+i_\bbN(b+1)$, and so $i_\bbN(a+(b+1)) = i_\bbN(a)+i_\bbN(b+1)$.
+\end{enumerate}
+To prove that $i_\bbN (a\cdot b) = i_\bbN(a) \cdot i_\bbN(b)$:
+Construction by induction:
+\begin{enumerate}
+    \item If $b=1$, then $i_\bbN(a\cdot 1) = i_\bbN(a) \cdot i_\bbN(1) = i_\bbN(a)$
+    \item Assume is true for $b\in \bbN$
+    \item If $b+1$, then by distributivity of multiplication, $i_\bbN(a\cdot (b+1)) = i_\bbN((a\cdot b) + a)$. Therefore, by our previous construction, this can be written as $i_\bbN((a\cdot b) + a)= i_\bbN(a\cdot b) + i_\bbN(a)$. By our inductive hypothesis,  $i_\bbN(a\cdot b) + i_\bbN(a) = i_\bbN(a) \cdot i_\bbN(b) + i_\bbN(a)$. Because of distributivity, then $i_\bbN(a) \cdot i_\bbN(b) + i_\bbN(a) = i_\bbN(a) \cdot (i_\bbN(b) +1_F)$, then by our construction, since $(i_\bbN(b) +1_F) = i_\bbN(b+1)$, then $i_\bbN(a) \cdot i_\bbN(b) + i_\bbN(a) = i_\bbN(a) \cdot i_\bbN(b+1)$
+\end{enumerate}
+To prove that if $a,b\in \bbZ$, then $i_\bbZ(a+b) = i_\bbZ(a) + i_\bbZ(b)$, then:
+\begin{enumerate}
+    \item If $a,b>0$, then $a,b \in \bbN$. Thus, since since $a+b \in \bbN$, then $i_\bbZ(a+b) = i_\bbN (a+b)$ and $i_\bbZ(a) = i_\bbN(a)$ and $i_\bbZ(b) = i_\bbN(b)$. By our construction, $i_\bbN(a+b) = i_\bbN(a) + i_\bbN(b)$, and so $i_\bbZ(a+b) = i_\bbZ(a) + i_\bbZ(b)$.
+    \item If $a\in \bbN$ and $-b\in \bbN$, then since $i_\bbZ(b) = -i_\bbN(-b)$ and $i_\bbZ(a) = i_\bbN(a)$, it follows that $i_\bbZ(a) + i_\bbZ(b) = i_\bbN(a) + (-i_\bbN(-b))$. Thus:
+    \begin{enumerate}
+        \item If $a+b >0$, then $i_\bbZ(a+b) = i_\bbN(a+b)$, and thus, it will suffice to prove that $i_\bbN(a+b) = i_\bbN(a)+ (-i_\bbN(-b))$. Consider some expression, $(a+b) + -b = a$. It follows that $i_\bbN(a+b) + i_\bbN(-b) = i_\bbN(a)$. It follows that by associativity, $i_\bbN(a+b) + (i_\bbN(-b) + -i_\bbN(-b))= i_\bbN(a)+-i_\bbN(-b)$. Thus, by the additive inverse and additive identity element, $i_\bbN(a+b)= i_\bbN(a)+-i_\bbN(-b)$. Therefore, $i_\bbZ(a+b) = i_\bbZ(a) + i_\bbZ (b)$.
+        \item If $a+b<0$, then $i_\bbZ(a+b) = -i_\bbN(-(a+b))$. It follows that it will suffice to prove that $-i_\bbN(-(a+b)) = i_\bbN(a) + (-i_\bbN(-b))$. Consider some expression, $-(a+b) + a = -b$. It follows that $i_\bbN(-(a+b)) + i_\bbN(a) = i_\bbN(-b)$. It follows that by associativity, $i_\bbN(a+b) + (i_\bbN(a) + -i_\bbN(-b))= i_\bbN(b)+-i_\bbN(b)$. Thus, by the additive inverse and additive identity element, $i_\bbN(a+b) + (i_\bbN(a) + -i_\bbN(-b))= 0$. Therefore, by the same process, $(i_\bbN(a) + -i_\bbN(-b))= -i_\bbN(-(a+b))$
+        
+        \item If $a,b= 0$, then since $i_\bbZ(0+0) = i_\bbZ(0)=0_F$, and $i_\bbN(a) + (-i_\bbN(-a)) = 0_F$, then $i_\bbZ(0+0) = i_\bbN(a) + (-i_\bbN(-a)) = i_\bbN(0) + (-i_\bbN(0))=i_\bbZ(0) + i_\bbZ(0)$
+    \end{enumerate}
+    \item If $-a\in \bbN$ and $b\in \bbN$, then trivially, using the same process as 2 will yield that $i_\bbZ(a+b) = i_\bbZ(a) +i_\bbZ(b)$, as expected.
+    \item If $-a\in \bbN$ and $-b\in \bbN$, then since $i_\bbZ(b) = -i_\bbN(-b)$ and $i_\bbZ(a) = -i_\bbN(-a)$, it follows that $i_\bbZ(a) + i_\bbZ(b) = -i_\bbN(-a) + (-i_\bbN(-b))$. Thus:
+    \begin{enumerate}
+        \item If $a+b <0$, then $i_\bbZ(a+b) = -i_\bbN(-(a+b))$. By the distributive property, it follows that $-i_\bbN(-(a+b)) = -i_\bbN(-a+(-b))$. By the construction defined, $-i_\bbN(-a+(-b)) = -(i_\bbN(-a) + i_\bbN(-b))$. By the distributive property, $-(i_\bbN(-a) + i_\bbN(-b)) = -i_\bbN(-a) + -i_\bbN(-b)$. Since $i_\bbZ(a) = -i_\bbN(-a)$ and $i_\bbZ(b) = -i_\bbN(-b)$, then $i_\bbZ(a+b) = i_\bbZ(a) + i_\bbZ(b)$.
+    \end{enumerate}
+Therefore, for any $a,b\in \bbZ$, $i_\bbZ(a+b) = i_\bbZ(a) + i_\bbZ(b)$.\\
+To prove that $i_\bbQ(q+p) = i_\bbQ(q) + i_\bbQ(p)$:
+\begin{align*}
+    \tag{WTS:} i_\bbQ(\frac{a}{b}) + i_\bbQ(\frac{c}{d}) &= i_\bbQ(\frac{ad+bc}{bd})\\
+    \tag{By Construction:}\;\;\; i_\bbZ(a) \cdot i_\bbZ(b)^{-1} + i_\bbZ(c) \cdot i_\bbZ(d)^{-1} &= i_\bbZ(ad+bc)\cdot i_\bbZ(bd)^{-1}\\
+    \tag{Multiplicative Inv:}\;\;\; i_\bbZ(bd)(i_\bbZ(a) \cdot i_\bbZ(b)^{-1} + i_\bbZ(c) \cdot i_\bbZ(d)^{-1}) &= i_\bbZ(bd)(i_\bbZ(ad+bc)\cdot i_\bbZ(bd)^{-1})\\
+    \tag{Comm. and Dist:}\;\;\; (i_\bbZ(a) \cdot (i_\bbZ(b)^{-1} \cdot i_\bbZ(bd)) + i_\bbZ(c) \cdot (i_\bbZ(d)^{-1}\cdot i_\bbZ(bd)) &= (i_\bbZ(ad+bc)\cdot i_\bbZ(bd)^{-1} \cdot i_\bbZ(bd))\\
+    \tag{By Construction}\;\;\;(i_\bbZ(a) \cdot i_\bbZ(b^{-1}\cdot bd)) + (i_\bbZ(c) \cdot i_\bbZ(d^{-1}\cdot bd)) &= (i_\bbZ(ad+bc)\cdot i_\bbZ(bd\cdot (bd)^{-1}))\\
+    \tag{By Inverses}\;\;\; (i_\bbZ(a) \cdot i_\bbZ(d)) + (i_\bbZ(c) \cdot i_\bbZ(b)) &= i_\bbZ(ad+bc)\cdot i_\bbZ(1)\\
+    \tag{By Construction}\;\;\; (i_\bbZ(ad) + (i_\bbZ(bc) &= i_\bbZ(ad+bc)\\
+    \tag{By Construction}\;\;\; i_\bbZ(ad+bc) &= i_\bbZ(ad+bc)
+\end{align*}
+Therefore, for any $q,p \in \bbQ$, $i_\bbQ(q+p) = i_\bbQ(q) + i_\bbQ(p)$
+\end{enumerate}
+To prove that if $a,b\in \bbZ$, then $i_\bbZ(a\cdot b) = i_\bbZ(a) \cdot i_\bbZ(b)$, then:
+\begin{enumerate}
+    \item If $a,b>0$, then $a,b \in \bbN$. Thus, since $a\cdot b \in \bbN$, then $i_\bbZ(a\cdot b) = i_\bbN (a\cdot b)$ and $i_\bbZ(a) = i_\bbN(a)$ and $i_\bbZ(b) = i_\bbN(b)$. By our construction, $i_\bbN(a\cdot b) = i_\bbN(a) \cdot i_\bbN(b)$, and so $i_\bbZ(a\cdot b) = i_\bbZ(a) \cdot i_\bbZ(b)$.
+    \item If $a,b<0$, then it follows that $a\cdot b >0$. Since $a\cdot b \in \bbN$, then $i_\bbZ(a\cdot b) = i_\bbN(a\cdot b)$. Therefore, it can be said that $i_\bbN(a\cdot b) = i_\bbN(-a\cdot -b)$, Thus, by our construction, $i_\bbN(-a\cdot -b) = i_\bbN(-a) \cdot i_\bbN(-b)$. It follows that $i_\bbN(-a) \cdot i_\bbN(-b) = -i_\bbN(-a) \cdot -i_\bbN(-b)$. Thus, $i_\bbN(a\cdot b) = -i_\bbN(-a) \cdot -i_\bbN(-b)$
+    \item If $a,b = 0$, then since $i_\bbN(0) \cdot i_\bbN(0) = 0_F \cdot 0_F = 0_F$ (because of the construction and 0 being the multiplicative identity). Then because $i_\bbN(0\cdot 0) = i_\bbN (0) = 0_F$. Therefore, $i_\bbN(a\cdot b) =i_\bbN(a) \cdot i_\bbN(b)$. 
+    \item If $a>0$ and $b<0$, then it follows that $a\cdot b <0$, and so $i_\bbZ(a\cdot b) = -i_\bbN(-(a\cdot b))$. Thus, by associativity, $-i_\bbN(-(a\cdot b)) = -i_\bbN(a\cdot -b)$. By the construction, $-i_\bbN(a\cdot -b)) = -(i_\bbN(a) \cdot i_\bbN(-b))$. Thus, by associativity, $-(i_\bbN(a) \cdot i_\bbN(-b)) = i_\bbN(a) \cdot -i_\bbN(-b))$. Thus, $i_\bbZ(a\cdot b) = i_\bbZ(a) \cdot i_\bbZ(b)$
+    \item If $a<0$ and $b>0$, then using the same method as above, $i_\bbZ(a\cdot b) = i_\bbZ(a) \cdot i_\bbZ(b)$.
+\end{enumerate}
+Therefore, for any $a,b \in \bbZ$, then $i_\bbZ(a\cdot b) = i_\bbZ(a) \cdot i_\bbZ(b)$\\
+To prove that $i_\bbQ(q\cdot p) = i_\bbQ(q) \cdot i_\bbQ(p)$:
+\begin{align*}
+    \tag{WTS:} i_\bbQ(\frac{a}{b}) \cdot i_\bbQ(\frac{c}{d}) &= i_\bbQ(\frac{ac}{bd})\\
+    \tag{By Construction:}\;\;\; i_\bbZ(a) \cdot i_\bbZ(b)^{-1} \cdot i_\bbZ(c) \cdot i_\bbZ(d)^{-1} &= i_\bbZ(ac)\cdot i_\bbZ(bd)^{-1}\\
+    \tag{Multiplicative Inv:}\;\;\; i_\bbZ(bd)(i_\bbZ(a) \cdot i_\bbZ(b)^{-1} \cdot i_\bbZ(c) \cdot i_\bbZ(d)^{-1}) &= i_\bbZ(bd)(i_\bbZ(ac)\cdot i_\bbZ(bd)^{-1})\\
+    \tag{By Construction:}\;\;\; i_\bbZ(d)\cdot i_\bbZ(b) \cdot (i_\bbZ(a) \cdot i_\bbZ(b)^{-1} \cdot i_\bbZ(c) \cdot i_\bbZ(d)^{-1}) &= i_\bbZ(bd)(i_\bbZ(ac)\cdot i_\bbZ(bd)^{-1})\\
+    \tag{Comm. and Dist:}\;\;\; (i_\bbZ(d)\cdot i_\bbZ(d)^{-1}) \cdot (i_\bbZ(b)\cdot i_\bbZ(b)^{-1}) \cdot i_\bbZ(a) \cdot i_\bbZ(c)&= (i_\bbZ(ac)\cdot i_\bbZ(bd)^{-1} \cdot i_\bbZ(bd))\\
+    \tag{By Inverses}\;\;\; (i_\bbZ(a) \cdot i_\bbZ(c)) &= i_\bbZ(ac)\cdot i_\bbZ(1)\\
+    \tag{By Construction}\;\;\; (i_\bbZ(ac)&= i_\bbZ(ac)\\
+\end{align*}
+Therefore, for any $q,p \in \bbQ$, $i_\bbQ(q\cdot p) = i_\bbQ(q) \cdot i_\bbQ(p)$\\
+Let $\frac{a}{b} < \frac{c}{d}$, where $b, d > 0$. 
+\begin{align*}
+   \frac{a}{b}&< \frac{c}{d}\\
+    \tag{3.8}  a\cdot d &< c\cdot b\\
+    \tag{By Construction} i_{\bbZ}(a \cdot d)  &< i_{\bbZ}(c \cdot b)\\
+    \tag{By Construction} i_{\bbZ}(a) \cdot i_{\bbZ}(d) &< i_{\bbZ}(c) \cdot i_{\bbZ}(v)\\
+    \tag{Associativity} i_{\bbZ}(a) \cdot i_{\bbZ}(d) \cdot i_{\bbZ}(d)^{-1} \cdot i_{\bbZ}(b)^{-1} &< i_{\bbZ}(c) \cdot i_{\bbZ}(b) \cdot i_{\bbZ}(b)^{-1} \cdot i_{\bbZ}(d)^{-1}\\
+    \tag{Identity Element} i_{\bbZ}(a) \cdot i_{\bbZ}(b)^{-1} &< i_{\bbZ}(c)\cdot i_{\bbZ}(d)^{-1}\\
+    \tag{By Construction} i_\bbQ(\frac{a}{b}) &< i_\bbQ(\frac{c}{d})
+\end{align*}
+
+\end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+
+There is an important sense in which every ordered field contains a ``copy" of the rational numbers. Let $F$ be an ordered field with additive identity $0_F$ and multiplicative identity $1_F$. To prevent ambiguity, denote the additive identity in the rational numbers by $0_\bbQ$ and the multiplicative identity in the rational numbers by $1_\bbQ$.\medskip
+\begin{center}
+{\em Appendix: The Real Numbers are an Ordered Field}
+\end{center} 
+This appendix is concerned with proving that the continuum $\bbR$ is an ordered field.  Addition and multiplication on $\bbR$ are defined in terms of addition and multiplication on $\bbQ$, so we will use $\oplus$ and $\otimes$ for addition and multiplication of real numbers, to make sure that there is no confusion with $+$ and $\cdot$ on $\bbQ$.
+
+
+\subsection*{Definition 7.31}
+\begin{defn}
+\label{7.31}
+	We define $\oplus $ on $\bbR$ as follows. Let $A,B\in\bbR$ be Dedekind cuts. Define
+	\begin{align*}
+		A \oplus B = \{a + b \mid a \in A\text{ and }b \in B\}.
+	\end{align*}
+\end{defn}
+
+\subsection*{Example 7.32}
+\begin{exmp}:\\
+\label{7.32}
+	\begin{enumerate}[(a)]
+		\item Prove that $A \oplus B$ is a Dedekind cut.
+  \vspace{4pt}     \hrule   \vspace{4pt}
+  \begin{proof}:\\
+\begin{enumerate}
+    \item 
+    \begin{enumerate}
+        \item Because $A$ is a dedekind cut, then it is nonempty and there exists some $a\in A$. Likewise, $B$ is nonempty and there exists some $b\in B$. Therefore, because $a+b \in A\oplus B$, then $A\oplus B$ is nonempty.
+        \item Because $A\neq \bbQ$, then there exists some $q\in \bbQ$ such that $q\notin A$. Therefore, for all $a\in A$, $a\leq q$. Assume, for the sake of contradiction, that $a=q$, therefore, $q\in A$ which is a contradiction. Thus, $a<q$. By Definition \ref{7.21}, $a+b<q+b$
+        Moreover, because $B\neq \bbQ$, then there exists some $p\in \bbQ$ such that $p\notin B$. Therefore, for all $b\in B$, $b<p$. Similarly, by Definition \ref{7.21}, $q+b<p+q$. Therefore, since $a+b<q+b$ and $q+b<p+q$, then by transitivity, $a+b < p+q$ for all $a+b \in A\oplus B$, and therefore, $p+q\notin A\oplus B$ but $p+q\in \bbQ$. Therefore, $A\oplus B \neq \bbQ$
+    \end{enumerate}
+    Therefore, $A\oplus B$ satisfies 6.1.a
+    \item If $q\in \bbQ$ such that $q<a+b$, where $a+b\in A\oplus B$, then:
+    \begin{align*}
+        \text{Additive Inverse:}\indent (-a)+q&<-a+(a+b)\\
+        \text{Associative ID:}\indent (-a)+q&<(-a+a)+b\\
+        \text{FA8:}\indent (-a)+q&<(0)+b\\
+        \text{Additive ID:}\indent (-a)+q&<b
+    \end{align*}
+    Since $a\in \bbQ$, and $\bbQ$ is an ordered field, then $-a\in \bbQ$ and $q\in \bbQ$. Thus, $(-a)+q\in \bbQ$. Because $(-a)+q<b$, then $(-a)+q\in B$.Thus, for any $a\in A$.
+    \begin{align*}
+        (-a)+q &= b' \in B\\
+        a &= a\in A\\
+        \tag{Additive Inverse}\;\;\; a+b' &= a+(-a)+q\\
+        \tag{FA8:}\;\;\; a+(-a)+q &= 0+q\\
+        \tag{Additive ID:}\;\;\; 0+q &= q
+    \end{align*}
+    Therefore, $q\in A\oplus B$ and 6.1.b is satisfied.
+    \item Assume, for the sake of contradiction, that for some $a+b\in A\oplus B$, there does not exist an $r\in A\oplus B$ such that $a+b<r$. Because $A$ has no last point, there must exist some $a'\in A$ such that $a<a'$. By Definition \ref{7.21}, $a+b<a'+b$ for all $b\in B$. Therefore, $a'+b \in A\oplus B$ and so since $a+b<a'+b$, then $a+b$ is not the last point of $A\oplus B$, and so $A\oplus B$ has no last point, satisfying 6.1.c.
+\end{enumerate}
+Because Definition 6.1 is satisfied, then $A\oplus B$ is a dedekind cut.
+\end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+		\item Prove that $\oplus$ is commutative and associative. 
+    \vspace{4pt}     \hrule   \vspace{4pt}
+  \begin{proof}:\\
+\begin{enumerate}
+    \item Because $A\oplus B = \{a + b \mid a \in A\text{ and }b \in B\}$, then $B\oplus A = \{b + a \mid a \in A\text{ and }b \in B\}$. Therefore, because $a+b = b+a$ (Commutativity of Addition in the Rationals in Theorem 2.10), then $B\oplus A = \{b + a \mid a \in A\text{ and }b \in B\} = A\oplus B$. Therefore, $A\oplus B = B\oplus A$ and so $\oplus$ is commutative.  
+    \item Because $A(\oplus B) = \{a + b \mid a \in A\text{ and }b \in B\}$, then $(A\oplus B)\oplus C = \{(a + b) + c \mid a \in A\text{ and }b \in B\text{ and }c \in C\}$. Similarly, because $B\oplus C = \{b + c \mid b \in B\text{ and }c \in C\}$, then $A\oplus (B\oplus C) = \{a+ (b + c) \mid b \in B\text{ and }c \in C\}$. Therefore, because $a+(b+c) = (a+b)+c$ (Associativity of Addition in the Rationals in Theorem 2.10), then $A\oplus (B\oplus C) = \{(a+ b) + c \mid b \in B\text{ and }c \in C\} = (A\oplus B)\oplus C$, and therefore $\oplus$ is associative.
+\end{enumerate}
+\end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+		\item Prove that if $A \in \bbR$ then $A = \mathbf{0} \oplus A$. 
+	\end{enumerate}
+     \vspace{4pt}     \hrule   \vspace{4pt}
+  \begin{proof}:\\
+By Definition \ref{7.31}, $\textbf{0}\oplus A = \{b + a \mid a \in A\text{ and }b \in \textbf{0}\}$. For all $b\in \textbf{0}$, $b<0$. Therefore, by Definition \ref{7.21}, $a+b<a+0$ for all $a\in A$. Because $0$ is the additive identity in the rationals (2.10), then $a+0 = a$. Therefore, $a+b <a$ for all $a,b$. Thus $A\oplus B \subset A$. Moreover, since $A$ has no first point, then there exists some $a'\in A$ such that $a'<a$. By adding the additive inverse of $a$, $a'+(-a)<a+(-a)$, then by FA4, $a'+(-a)=0$, and so $a'+(-a)<0$. Thus, $a'+(-a)\in \textbf{0}$. Therefore, since $(a'+(-a))+a\in A \oplus \textbf{0}$, then by association of rationals (2.10), $a'+(-(a)+a)\in A \oplus \textbf{0}$. Because $a+(-a)= 0$ (FA3), then $a'\in A \oplus \textbf{0}$. Thus, for all $a' \in A$, $a'\in A \oplus \textbf{0}$, and so $A\subset A\oplus B$
+\end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\end{exmp}
+
+\subsection*{Lemma 7.33}
+\begin{lem}
+\label{7.33}
+	\label{lem:in A close to not in A}
+	If $A\in\bbR$, $r\in\bbQ$, and $r>0$, then there exists $s\in A$ such that $s+r\not\in A$.
+
+\end{lem}
+
+\subsection*{Lemma 7.34}
+\begin{lem}
+\label{7.34}
+	Let $A\in\bbR$. Let
+	\begin{align*}
+	B= \{r \in \bbQ \mid -r \notin A\text{ but } {-r} \text{ is not a first point of }\bbQ \setminus A\}.
+	\end{align*}
+	Then,
+	\begin{enumerate}[(a)]
+		\item $B \in \bbR$.
+		\item $A \oplus B = \mathbf{0}$.
+		
+	\end{enumerate}
+\end{lem}
+
+\subsection*{Theorem 7.35}
+\begin{thm}
+\label{7.35}
+	Every $A \in \bbR$ has an additive inverse $-A$ such that $A \oplus (-A) = \mathbf{0}$. 
+\end{thm}
+
+\subsection*{Example 7.36}
+\begin{exmp}
+\label{7.36}
+	Show that $A < \mathbf{0} \Longleftrightarrow \mathbf{0} < -A$.
+\end{exmp}
+
+\subsection*{Example 7.37}
+\begin{exmp}
+\label{7.37}
+	Show that if $p\in\bbQ$ and $A=\{x\in\bbQ\mid x<p\}$, then $-A=\{x\in\bbQ\mid x<-p\}$.
+\end{exmp}
+
+
+
+\subsection*{Example 7.38}
+\begin{exmp}
+\label{7.38}
+	Show that $<$ satisfies additivity; i.e., if  $A,B,C\in\bbR$ with $A<B$ then $A\oplus C<B\oplus C$. 
+\end{exmp}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}
+If $x\in A\oplus C$, then because $A\oplus C = \{a+c | a\in A, c\in C$\}, then let $x=a'+c'$, where $a'\in A$ and $c'\in C$. Therefore, because $a'\in A$, then since $A<B$ and $A\subset B$ (Definition 6.4), it follows that $a'\in B$. Thus, because $B\oplus C = \{b+c | b\in B, c\in C$\} and $a'\in B$, then $a'+c \in B\oplus C$. Therefore, for all $x\in A\oplus C$, $x\in A\oplus B$, and therefore, $A\oplus C \subset B\oplus C$, which implies that $A\oplus C < B\oplus C$
+\end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Definition 7.39}
+\begin{defn}
+\label{7.39}
+	For $A,B\in\bbR$, $\mathbf{0}<A$, $\mathbf{0}<B$, we define
+	\begin{align*}
+		A \otimes B = \{r \in \bbQ \mid r \leq 0\} \cup \{ab \mid a\in A, b\in B, a > 0, b > 0\}.
+	\end{align*}
+	If $A = \mathbf{0}$ or $B = \mathbf{0}$ we define $A \otimes B = \mathbf{0}$.
+	If $A<\mathbf{0}$ but $\mathbf{0}<B$ we replace $A$ with $-A$ and use the definition of multiplication of positive elements. Hence, in this case,
+	\begin{align*}
+		A\otimes B=-[(-A)\otimes B].
+	\end{align*}
+	Similarly, if $\mathbf{0}<A$ but $B<\mathbf{0}$, then 
+	\begin{align*}
+		A\otimes B=-[A\otimes (-B)],
+	\end{align*}
+	and 
+	if $A<\mathbf{0}, B<\mathbf{0}$ then
+	\begin{align*}
+		A \otimes B= (-A) \otimes (-B).
+	\end{align*}
+\end{defn}
+
+\subsection*{Example 7.40}
+\begin{exmp}
+\label{7.40}:\\
+	\begin{enumerate}[(a)]
+		\item Show that if $A, B \in \bbR$, then $A \otimes B \in \bbR$.
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:\\
+\begin{enumerate}
+\item 6.1.a:
+            \begin{enumerate}
+            \item If $A,B > \textbf{0}$, then since there exists some $r\in \bbQ$ such that $r\leq 0$ (e.g, $0$), then by Definition \ref{7.39}, $r\in A\otimes B$, and so $A\otimes B \neq \emptyset$. 
+            \item If $A > i(0)$ and $B<i(0)$, then because $-B$ exists by Theorem \ref{7.35}, and Example \ref{7.36} states that $\textbf{0}<-B$, then since $A,-B > \textbf{0}$, then by a.i.A, $A \otimes (-B) \neq \emptyset$. 
+            \item If $A < i(0)$ and $B>i(0)$, then because $-A$ exists by Theorem \ref{7.35}, and Example \ref{7.36} states that $\textbf{0}<-A$, then since $-A,B > \textbf{0}$, then by a.i.A, $(-A) \otimes (B) \neq \emptyset$.
+            \item If $A < i(0)$ and $B<i(0)$, then by similar logic as above, both $-A\in \bbR$ exists and $\textbf{0}<-A$ and $\textbf{0}<-B$. Thus, since $-A,-B > \textbf{0}$, then by 
+            a.i.A, $(-A)\otimes (-B) \neq \emptyset$
+        \item If $A,B > \textbf{0}$, then because $A\neq \bbQ$, there exists some $q'\in \bbQ$ such that for all $a\in A$, $a<q'$ (as shown in Example \ref{7.39}). Because $\bbQ$ has no last point, there exists some $q\in \bbQ$ such that $0< q$ and $q'<q$ (then by transitivity, $a<q$). Similarly, there exists some $p\in B$ such that $0<p$ and $b<p$ for all $b\in B$. Therefore, since $A> \textbf{0}$, there exists some $a>0$. Then, because $b<p$, then by Lemma \ref{7.24}, $a\cdot b < a\cdot p$. Moreover, since $p>0$ and $a<q$, then by Lemma \ref{7.24}, $p\cdot a < p\cdot q$. By commutativity of multiplication, this is equal to $a\cdot p<p\cdot q$. Therefore by transitivity, it follows that $a\cdot b < a\cdot p< p\cdot q$ for all $a,b>0$. Therefore, $a\cdot b<p\cdot q$ and therefore $p\cdot q \notin A\otimes B$. Therefore, $A\otimes B \neq \bbQ$.
+        \item If $A > i(0)$ and $B<i(0)$, then because $-B$ exists by Theorem \ref{7.35}, and Example \ref{7.36} states that $\textbf{0}<-B$, then since $A,-B > \textbf{0}$, then by a.ii.A, $A \otimes (-B) \neq \bbQ$. 
+        \item If $A < i(0)$ and $B>i(0)$, then because $-A$ exists by Theorem \ref{7.35}, and Example \ref{7.36} states that $\textbf{0}<-A$, then since $-A,B > \textbf{0}$, then by a.ii.A, $(-A) \otimes (B) \neq \bbQ$.
+        \item If $A < i(0)$ and $B<i(0)$, then by similar logic as above, both $-A\in \bbR$ exists and $\textbf{0}<-A$ and $\textbf{0}<-B$. Thus, since $-A,-B > \textbf{0}$, then by a.ii.A, $(-A)\otimes (-B) \neq \bbQ$
+    \end{enumerate}
+    Thus, $A\otimes B$, $A \otimes (-B)$, $(-A) \otimes (B)$, and $(-A)\otimes (-B)$ all satisfy Definition 6.1.a
+\item 6.1.b:
+\begin{enumerate}
+    \item If $A,B > \textbf{0}$, then there exists some $q\in \bbQ$ such that $q<a\cdot b$, where $a\cdot b\in A\otimes B$ and $a,b>0$, then:
+    \begin{align*}
+        \tag{Mult. Inverse}\indent (a^{-1})\cdot q&<a^{-1}\cdot(a\cdot b)\\
+        \tag{Associative ID:}\indent (a^{-1})\cdot q&<(a^{-1}\cdot a)\cdot b\\
+        \tag{FA8:}\indent \frac{q}{a}&<1 \cdot b\\
+        \tag{Mult ID:}\indent \frac{q}{a}&< b
+    \end{align*}
+    Since $a\in \bbQ$, and $\bbQ$ is an ordered field, then $a^{-1}\in \bbQ$ and $q\in \bbQ$. Thus, $\frac{q}{a}\in \bbQ$. Because $\frac{q}{a}<b$, then $\frac{q}{a}\in B$. Thus:
+    \begin{align*}
+        \frac{q}{a} &= b \in B\\
+        a &= a\in A\\
+        \tag{Mult Inverse}\;\;\; a\cdot b' &= a\cdot a^{-1}\cdot q\\
+        \tag{FA8:}\;\;\; a\cdot a^{-1}\cdot q&= 1\cdot q\\
+        \tag{Additive ID:}\;\;\; 1\cdot q &= q
+    \end{align*}
+    Therefore, $q\in A\otimes B$ and 6.1.b is satisfied. 
+    \item For similar reasons as 6.1.a, $A \otimes (-B)$, $(-A) \otimes (B)$, and $(-A)\otimes (-B)$ all satisfy Definition 6.1.b.
+\end{enumerate}
+\item 6.1.c:
+\begin{enumerate}
+    \item If $A,B > \textbf{0}$, then assume, for the sake of contradiction, that for some $a\cdot b\in A\oplus B$, where $a,b >0$, there does not exist an $r\in A\otimes B$ such that $a\cdot b<r$. Because $A$ has no last point, there must exist some $a'\in A$ such that $a<a'$. By Definition \ref{7.24}, since $b>0$ and $a<a'$, then $a\cdot b < a' \cdot b$. Therefore, $a'+\cdot b \in A\oplus B$ and so since $a\cdot b<a'\cdot b$, then $a\cdot b$ is not the last point of $A\oplus B$, and so $A\oplus B$ has no last point, satisfying 6.1.c.
+    \item For similar reasons as 6.1.a, $A \otimes (-B)$, $(-A) \otimes (B)$, and $(-A)\otimes (-B)$ all satisfy Definition 6.1.c.
+\end{enumerate}
+    \end{enumerate} $A\otimes B$, $A \otimes (-B)$, $(-A) \otimes (B)$, and $(-A)\otimes (-B)$ all satisfy Definition 6.1, then they are all dedekind cuts:
+    \begin{enumerate}
+        \item If $A,B > \textbf{0}$, then $A\otimes B \in \bbR$
+        \item If $A> \textbf{0}$ and $B< \textbf{0}$, then Since $A\otimes (-B)\in \bbR$, then by Theorem \ref{7.36} additive inverse $-(A\otimes (-B))$ exists and by Lemma \ref{7.34}, $-(A\otimes (-B)) \in \bbR$. By Definition \ref{7.39}, since $-(A\otimes (-B)) = A\otimes B$, then $A\otimes B \in \bbR$.
+        \item Similarly, as in b above, if $A< \textbf{0}$ and $B> \textbf{0}$, then $A\otimes B \in \bbR$.
+        \item If $A< \textbf{0}$ and $B< \textbf{0}$, then since $(-A)\otimes (-B) \in \bbR$, then by Theorem \ref{7.36} additive inverse $-(-(A)\otimes (-B))$ exists and by Lemma \ref{7.34}, $-(-(A)\otimes (-B)) \in \bbR$. By Definition \ref{7.39}, since $-(-(A)\otimes (-B)) = A\otimes B$, then $A\otimes B \in \bbR$.
+        \item If $A=0$ or $B=0$, then by Definition \ref{7.39}, $A\otimes B = \textbf{0}$. Therefore, by Example 6.3, since $\textbf{0}\in \bbR$, then $A\otimes B$ in $\bbR$
+    \end{enumerate}
+Thus, for all $A,B \in \bbR$, $A\otimes B \in \bbR$.
+\end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+		\item Show that $\otimes$ is commutative and associative.
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:\\
+\begin{enumerate}
+    \item Commutativity:
+    \begin{enumerate}
+        \item If $\textbf{0}<A,B$, then because $A\otimes B = \{r \in \bbQ \mid r \leq 0\} \cup \{ab \mid a\in A, b\in B, a > 0, b > 0\}$, then $B\otimes A = \{r \in \bbQ \mid r \leq 0\} \cup \{ba \mid a\in A, b\in B, a > 0, b > 0\}$. Therefore, because $a\cdot b = b\cdot a$ (Commutativity of Multiplication in the Rationals in Theorem 2.10), then $B\otimes A = \{r \in \bbQ \mid r \leq 0\} \cup \{ab \mid a\in A, b\in B, a > 0, b > 0\} = A\otimes B$. Therefore, $A\otimes B = B\otimes A$ and so $\otimes$ is commutative.  
+        \item If $A> \textbf{0}$ and $B < \textbf{0}$, then using the same process as 6.1.a.ii, since $A, -B > \textbf{0}$, then $A \otimes -B = -B \otimes A$. Therefore, $-(A \otimes -B) = -(-B \otimes A)$ and so by Definition \ref{7.39}, $A\otimes B = B\otimes A$.
+        \item If $A< \textbf{0}$ and $B< \textbf{0}$, then using the same process as 6.1.a.iv, since $-A, -B > \textbf{0}$, then $-a \otimes -B = -B \otimes -A$. Therefore, $-(-A \otimes -B) = -(-B \otimes -A)$ and so by Definition \ref{7.39}, $A\otimes B = B\otimes A$.
+        \item Trivially using the method above, it can be shown that the same holds for $A< \textbf{0}$ and $B > \textbf{0}$.
+        \item If $A=0$ or $B=0$, then by Definition \ref{7.39}, $A\otimes B = B\otimes A = \textbf{0}$.
+    \end{enumerate}
+    In any case, $\otimes$ is commutative.
+    \item Associativity
+    \begin{enumerate}
+        \item If $\textbf{0<A,B,C}$, then because $A(\otimes B) = \{r \in \bbQ \mid r \leq 0\} \cup \{ab \mid a\in A, b\in B, a > 0, b > 0\}$, then $(A\otimes B)\otimes C = \{r \in \bbQ \mid r \leq 0\} \cup \{(ab)\cdot c \mid a\in A, b\in B, c\in C, a > 0, b > 0, c>0\}$. Similarly, because $B\otimes C = \{r \in \bbQ \mid r \leq 0\} \cup \{bc \mid a\in A, c\in C, a > 0, c > 0\}$, then $A\otimes (B\otimes C) = \{r \in \bbQ \mid r \leq 0\} \cup \{a\cdot (bc) \mid a\in A, b\in B, c\in C, a > 0, b > 0, c>0\}$. Therefore, because $a\cdot (b\cdot c) = (a\cdot b)\cdot c$ (Associativity of Multiplication in the Rationals in Theorem 2.10), then $A\otimes (B\otimes C) = \{r \in \bbQ \mid r \leq 0\} \cup \{(ab)\cdot c \mid a\in A, b\in B, c\in C, a > 0, b > 0, c>0\} = (A\otimes B)\otimes C$, and therefore $\otimes$ is associative.
+        \item For any $A,B,C$, then using the same method as 7.40.b.a.ii-7.40.b.a.iv, $\otimes$ is associative.
+    \end{enumerate}
+Therefore $(A\otimes B) \otimes C = A\otimes (B \otimes C)$
+\end{enumerate}
+\end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+		\item Show that if $A, B \in \bbR$, $\mathbf{0} < A$, and $\mathbf{0} < B$, then $\mathbf{0} < A\otimes B$. 
+  \vspace{4pt}     \hrule   \vspace{4pt}
+  \begin{proof}:\\
+  Assume, for the sake of contradiction, that there does not exist an $a'\in A$ such that $0\leq a'$. Therefore, it follows that $0>a'$ for all $a'\in A$. Therefore, $a'\in \textbf{0}$ for all $a'\in A$, so it follows that $A\subset \textbf{0}$, and by Definition 6.4, $A<\textbf{0}$, which is a contradiction. Therefore, there must exist some $a'\in A$ such that $a'\geq 0$. Because $A$ has no last point, then there exists some $a\in A$ such that $0\leq a' <a$, and so by transitivity, $0<a$. Therefore, because for all $x\in \textbf{0}$, $x< 0$, then $x<a$. Likewise, there exists some $b\in B$ such that $0<b$ such that for all $x\in \textbf{0}$, $x<b$. Therefore, because $0<a$ and $0<b$, then by Definition \ref{7.21}, $0<a\cdot b$. Therefore, for all $x\in \textbf{0}$, $x< a\cdot b$. Because $a\cdot b \in A\otimes B$ and $a\cdot b \notin \textbf{0}$, then $\textbf{0}\subset A\otimes B$. Therefore by Definition 6.4, $\textbf{0}< A\otimes B$.
+  \end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+		\item Let $\mathbf{1} = \{x \in \bbQ \mid x < 1\}$. Show that if $A \in \bbR$, then $\mathbf{1} \otimes A = A$. 
+	\end{enumerate}
+\end{exmp}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:\\
+\begin{enumerate}
+    \item If $A>\textbf{0}$, then $A\otimes \textbf{1} = \{r \in \bbQ \mid r \leq 0\} \cup \{ab \mid a\in A, x\in \textbf{1}, a > 0, x > 0\}.$:
+    \begin{enumerate}
+        \item Proving that $A\subset A \otimes \textbf{1}$:
+        \begin{enumerate}
+            \item For all $a\in A$ where $a\leq 0$, then $a\in A\otimes \textbf{1}$ (Definition \ref{7.39}.
+            \item For all $a\in A$ where $0<a$, there exists some $a<a'$ such that $a'\in A$ and $a'\neq 0$. Therefore, $a\cdot a'^{-1}<a'\cdot a'^{-1}$. Thus $\frac{a}{a'}<1$, and so $\frac{a}{a'}\in \textbf{1}$. Thus, because $\frac{a}{a'}\cdot a' = a$, then for all $a\in A$ where $a>0$, $a\in A\otimes \textbf{1}$.
+        \end{enumerate}
+        Thus, $A\subset A \otimes \textbf{1}$
+        \item Proving that $ A \otimes \textbf{1}\subset A$:
+        \begin{enumerate}
+            \item If $a\cdot x \geq 0$, then since $x<1$, then $ax\leq a$. Thus, for all $ax\in A\otimes \textbf{1}$, where $ax\geq 0$, $ax\leq a$. Thus, $ax\in A$.
+            \item If $a\cdot x< 0$, then since $a\cdot x \in \textbf{0}$, and then $\textbf{0}<A$, then $\textbf{0}\subset A$, so then $ax\in A$ for all $ax<0$.
+        \end{enumerate}
+        Thus, $A\otimes \textbf{1} \subset A$
+\end{enumerate}
+Therefore, if $A>\textbf{0}$, then $A\otimes \textbf{1} = A$
+\item If $A<\textbf{0}$, then since $-A>\textbf{0}$, then $-A \otimes \textbf{1} = -A$. Therefore, $A \otimes \textbf{1} = -(-A) = A$.
+\end{enumerate}
+
+\end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+
+\subsection*{Lemma 7.41}
+\begin{lem}
+\label{7.41}
+	If $A \in \bbR$, $A > 0$, $r \in \bbQ$, and $r > 1$, then there exist $s\in A$ such that $rs\not\in A$.
+	
+
+	(Hint: Prove that $\{r^n \mid n \in \bbN\}$ is unbounded in $\bbQ$.)
+\end{lem}
+
+
+\subsection*{Lemma 7.42}
+\begin{lem}
+\label{7.42}
+	Let $A\in\bbR$ with $\mathbf{0}<A$. Let
+	\begin{align*}
+		B = \{r \in \bbQ \mid r \leq 0\} \cup \left\{r \in \bbQ \mathrel{}\middle|\mathrel{} r > 0\text{ and }\frac{1}{r} \notin A, \text{ but } \frac{1}{r} \text{ is not a first point of }\bbQ \setminus A\right\}.
+	\end{align*}
+	Then,
+	\begin{enumerate}[(a)]
+		\item $B \in \bbR$.
+		\item $A \otimes B = \mathbf{1}$.
+	\end{enumerate}
+\end{lem}
+
+\subsection*{Lemma 7.43}
+\begin{lem}
+\label{7.43}
+	Every $A \in \bbR$ with $\mathbf{0} < A$ has a multiplicative inverse $A^{-1}$ such that $A \otimes A^{-1} = \mathbf{1}$.
+\end{lem}
+
+\subsection*{Lemma 7.44}
+\begin{lem}
+\label{7.44}
+	Let $A \in \bbR$ with $A < \mathbf{0}$. Then, $(-A)^{-1}$ has already been defined, and $A \otimes (-(-A)^{-1}) = \mathbf{1}$.
+\end{lem}
+
+\subsection*{Theorem 7.45}
+\begin{thm}
+\label{7.45}
+	Every $A \in \bbR$ with $A \neq \mathbf{0}$ has a multiplicative inverse $A^{-1}$ such that $A \otimes A^{-1} = \mathbf{1}$. 
+\end{thm}
+
+\subsection*{Example 7.46}
+\begin{exmp}
+\label{7.46}
+	Show that if $p \in \bbQ$ with $p \neq 0$ and $A= \{x \in \bbQ \mid x < p\}$, then $A^{-1} = \{x \in \bbQ \mid x < \frac{1}{p}\}$.
+\end{exmp}
+
+\subsection*{Theorem 7.47}
+\begin{thm}
+\label{7.47}
+	$\bbR$ is an ordered field. 
+\end{thm}
+https://www.overleaf.com/project/6578946bc75c265aa50fdaac
+\begin{center}
+\section{Additional Exercises}
+\end{center}
+
+The following lemma is very useful in proofs involving inequalities.
+
+
+
+\begin{enumerate}
+
+\item
+\begin{enumerate}
+\item[a)] Let $q\in\bbQ.$
+Prove that  $i(q) \oplus i(-q)=\bf{0}$ 
+\item[b)] Show that for $q_1,q_2\in \bbQ, $
+ $$i(q_1)\otimes i(q_2)=i(q_1 q_2).$$
+
+ \end{enumerate}
+
+
+
+
+
+
+
+\item 
+\begin{enumerate}
+\item[a)] Define $\sqrt{2}=\{x\in\bbQ\mid x< 0\}\cup\{x\in \bbQ\mid x^2<2\}.$ We saw in class that $\sqrt{2}\in\bbR.$\\Show that
+$\sqrt{2}$ is not rational, i.e. there is no $p\in\bbQ$ such that $\sqrt{2}=\{x\in\bbQ\mid x<p\}.$
+
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:\\
+Because $\bbQ = \sqrt{2} \cup \bbQ \sm \sqrt{2}$, then because $\bbQ$ is disconnected, then by Exercise 5.18, both $\sqrt{2}$ and $\bbQ \sm \sqrt{2}$ are open. Assume, for the sake of contradiction, that $\sqrt{2}= i(p)$. It follows that $\bbQ \sm \sqrt{2} = \{x\in \bbQ \mid x\geq p\}$. However, since there does not exist a region $R$ containing $p$ such that $R\subset \bbQ \sm \sqrt{2}$, then $\bbQ \sm \sqrt{2}$ is not open, which is a contradiction. Thus, $\sqrt{2}\neq i(p)$. \\\\
+Alternate proof:\\
+Assume, for the sake of contradiction, that there exists a $p\in \bbQ$ such that $\sqrt{2} = \{x\in\bbQ\mid x<p\}$. Thus, it follows that $\{x\in\bbQ\mid x<p\} = \{x\in\bbQ\mid x< 0\}\cup\{x\in \bbQ\mid x^2<2\}$.
+\begin{enumerate}
+    \item If $\{x\in\bbQ \mid x<p\} = \{x\in \bbQ \mid x< 0\}$, then it follows that $p=0$. However, by Theorem \ref{7.13}, since $0\cdot 0 = 0^2$, then $0^2=0$. Therefore, since $0<1$, then it follows by definition \ref{7.21} that $1<1+1$. By Definition 2.8, $1+1 = 2$. Therefore, by transitivity, $0<2$. Therefore, $0\in \sqrt{2}$ but $0\notin \textbf{0}$. Therefore, $\{x\in\bbQ \mid x<p\} \neq \{x\in \bbQ \mid x< 0\}$.
+    \item If $\{x\in\bbQ \mid x<p\} = \{x\in \bbQ\mid x^2<2\}$. Because $x<p$, then it follows that $x^2<p^2$, where $p^2 = 2$ Because $p$ is a rational, it can be expressed as $p=[\frac{a}{b}]$. Without loss of generality, let $p=\frac{a_0}{b_0}$, where $a_0b = ab_0$. By Script 2 additional exercise 1, $a_0, b_0$ have no common factors in between them and $b_0>0$. Thus, since $p^2 = \frac{a_0^2}{b_0^2} = \frac{2}{1}$, then $a_0^2 = 2b_0^2$. Thus, because $b_0^2>0$ (Lemma \ref{7.26}), and so $b_0^2 \in \bbN$, $a_0^2$ is even (Pre-Script). Since $a_0^2$ is even, then $a_0$ must be even (Pre-Script) and can therefore be writtn as $a_0 = 2n$, where $n\in \bbZ$. Therefore, $(2n)^2 = b_0^2$. Therefore, because multiplication is commutative, $(2n)^2 = 2\cdot n \cdot 2 \cdot n = 2\cdot 2 \cdot n \cdot n = 4n^2$. Thus, $4n^2 = 2b_0^2$. Since $\bbQ\in F$, then the multiplicative inverse of $2$ exists and is in $F$. Thus, with commutativity, $\frac{1}{2}\cdot 4n^2 = \frac{1}{2}\cdot 2 \cdot b_0^2$. Thus, since $4\cdot 1 = 2\cdot 2$, then $\frac{4}{2} = \frac{2}{1}$, and therefore, $2n^2 = b_0^2$. Thus, by the same logic, $b_0^2$ is even and so $b_0 = 2m$. Therefore, $p = \frac{a_0}{b_0} = \frac{2n}{2m}$. However that is a contradiction, because $a_0, b_0$ share a factor of $2$. Therefore, $p$ cannot be expressed as a rational and there is no $p\in \bbQ$ such that $\{x\in\bbQ \mid x<p\} \neq \{x\in \bbQ \mid x^2< 2\}$
+\end{enumerate}
+Therefore, there does  not exist a $p\in \bbQ$ such that $\sqrt{2}= \{x\in \bbQ \mid x<p\}$
+\end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+
+\item[b)] Show that $\sqrt{2} \otimes i(x)\in \bbR\setminus \bbQ,$ for $x\in\bbQ, x>0.$ (Note that in fact this holds for all $x\neq 0,$ but you need only show it for $x>0.$)
+\vspace{4pt}     \hrule   \vspace{4pt}
+\begin{proof}:\\
+Suppose $s=\sup (\sqrt{2} \otimes i(x))$ such that $s\in \bbQ$. Thus, it will suffice to show that $\frac{s}{x} = \sup \sqrt{2}$ and so $a\leq \frac{s}{x}$ for all $a^2<2$:
+\begin{enumerate} [1]
+    \item If $a\leq 0$, then since $x>0$ and $s\geq 0$, then $0\leq \frac{s}{x}$, so therefore $a\leq \frac{s}{x}$.
+    \item If $a^2<2$, and $a>0$, then it will suffice to show that $ax\in \sqrt{2}\otimes i(x)$. Let $a' \in \sqrt{2}$ such that $a'>a$. Thus it follows that $a'\cdot (\frac{a}{a'}\cdot x) = ax$ and thus, $ax \in \sqrt{2}\otimes i(x)$, so therefore, $ax\leq s$
+\end{enumerate}
+It follows that $s$ is an upper bound of $(\sqrt{2} \otimes i(x))$. Assume, for the sake of contradiction, that there exists some $u<s$ such that $u$ is an upper bound of $(\sqrt{2} \otimes i(x))$. Therefore, since $u< \frac{s}{x}$, then $u\in \sqrt{2}$ and so there exists an $a\in \sqrt{2}$ such that $u<a\leq \frac{s}{x}$. It follows that $ux<ax\leq s$, so therefore since $ax\in \sqrt{2} \otimes i(x)$ (using same logic as above), then $ux$ is not an upper bound of $(\sqrt{2} \otimes i(x))$.\\
+Thus, $s\in \bbQ$ is the supremum of $(\sqrt{2} \otimes i(x))$. It follows that since $Q = (\sqrt{2} \otimes i(x)) \cup {s\leq x}$. By the same logic as part 1, $Q$ is not disconnected, which is a contradiction. Therefore, $s\notin \bbQ$. Therefore, $\sqrt{2}\otimes i(x) \notin i(\bbQ)$, and thus $\sqrt{2}\otimes i(x) \in \bbR \sm i(\bbQ)$
+\\\\
+Alternate proof:\\
+    Because $\sqrt{2} \in \bbR$ and $i(x) \in \bbR$, then by Example \ref{7.40}, $\sqrt{2}\otimes i(x) \in \bbR$. 
+    \item Assume, for the sake of contradiction, that $\sqrt{2}\otimes i(x) \in i(\bbQ)$. Therefore, by Theorem \ref{7.30}, there is some $i(\sqrt{2} \cdot x) = \sqrt{2}\cdot i(x)$, where $\sqrt{2}, x \in \bbQ$. Therefore, $\sqrt{2}\cdot_\bbQ x \in \bbQ$. It follows that $\sqrt{2}\cdot x = \frac{a}{b}$, where since $\sqrt{2}, x>0$, then by Definition \ref{7.21}, $\frac{a}{b}>0$. Thus, it follows that $a>0$. Moreover, by multiplying by $x^{-1}$, the expression becomes, $(\sqrt{2}\cdot x) \cdot x^{-1}= \frac{a}{b}\cdot x^{-1}$. Thus, by the commutative and identity properties, this can be expressed as $(\sqrt{2}= \frac{a}{bx}$. Because $b>0$ and $x>0$, then $b\cdot x >0$ and $b\cdot x \in \bbQ$. Thus, $\sqrt{2}\in \bbQ$, which is a contradiction, since it is not rational (part a of this problem). Therefore, $\sqrt{2}\otimes i(x) \notin i(\bbQ)$.
+It follows that because $i(\bbQ) \subset \bbR$, then $\sqrt{2}\otimes i(x) \in \bbR\sm i(\bbQ)$
+\end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+
+\item[c)] Show that the irrationals are dense in the reals (i.e between any 2 reals you can find an irrational).
+\begin{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+Assume, for the sake of contradiction, that if $c\otimes \sqrt{2}\in \bbR$, and $c\otimes \sqrt{2}\in P$ then $c\otimes \sqrt{2} \notin LP(P)$, where $P = \bbR\sm i(\bbQ)$ denotes the set of all irrational numbers. Therefore, for some $R$ containing $c\otimes \sqrt{2}$, $R \cap P\sm \{c\otimes \sqrt{2}\} = \emptyset$. Let $R = \underline{A\otimes \sqrt{2},B\otimes \sqrt{2}}$, where $A\otimes \sqrt{2}<c\otimes \sqrt{2}<B\otimes \sqrt{2}$, where $c\otimes \sqrt{2},B \otimes \sqrt{2} \in \bbR$. By multiplying the expression by $\sqrt{2}^{-1}$, then using the properties defined earlier in the script, $A<c<B$. Thus, by Lemma 6.10, there exists some $i(x) \in \bbR$ such that $A<c<i(x)<B$. Moreover, because $\bbR$ is a field, then since $\textbf{0}<\sqrt{2}$, then $A\otimes \sqrt{2}< c\otimes \sqrt{2}< i(x) \otimes \sqrt{2}< B \otimes \sqrt{2}$. Thus, since $i(x) \otimes \sqrt{2}\in P$ (as proved above), the intersection of $R$ and $P\sm\{c\otimes \sqrt{2}\}$ contains $i(x) \otimes \sqrt{2}$, and is therefore nonempty, which is a contradiction. It follows that for all $c\in R$, $R\cap P\sm\{c\} \neq \emptyset$. Therefore, by Lemma 6.9, $P$ is dense in $\bbR$.
+\end{proof}
+\vspace{4pt}     \hrule   \vspace{4pt}
+\item[d)] {\em (Challenge)} Show that $\sqrt{2}\otimes \sqrt{2}=\{x\in\bbQ\mid x<2\}.$ 
+\end{enumerate}
+
+\item Let $A \subset \bbR$ and assume that $\sup A$ exists.  Define $-A := \{ x \in \bbR : -x \in A\}$.  Is it true that $-\sup A = \sup -A$?
+
+\item 
+\begin{enumerate}
+		\item Let $A,B$ be bounded subsets of $\bbR.$
+		
+			Define $A+B = \{c \in \bbR: c = a+b$ for some $a\in A, b\in B\}$.  Is it true that $\sup A + \sup B = \sup(A+B)$?
+		\item Let $f,g: \bbR \to \bbR$ be functions.  Is it true that $\sup f(\bbR) + \sup g(\bbR)= \sup (f+g)(\bbR)$?  (Note: here we define $f+g:\bbR \to \bbR$ to be the function $(f+g)(c) = f(c) + g(c)$ for all $c\in \bbR$.)
+	\end{enumerate}
+
+
+
+\end{enumerate}
+
+\section*{Acknowledgments} It is a pleasure to thank my professor, Dr. Oron Propp, for having the top 3 best office hours ever (seriously, they're a big help and a blast). Thanks to Victor Hugo Almendra Hernández, he's basically the GOAT when it comes to helping me out and in grading (I'm sorry you had to grade this script this must suck). I would also like to thank a few remarkable peers: Luke Harris (advice on 7.29 and showing me Euclid actually had a pretty slick solution for the $\sqrt{2}$ irrational problem), Richard Gale and Aybala Esmer (for telling me I did not need to do all that in 7.40 and could instead generalize my many cases to resemble $A\otimes B$ [that makes more sense if you read the proof]), and Proof of Concepts "Rethinking The Real Line" Youtube Video that made me realize how janky Dedecuts are (https://www.youtube.com/watch?v=uFWJuZQLKJs$\&$t=296s). Most of all, thanks to all my peers for being supportive and presenting the proofs on the board!
+
+\begin{thebibliography}{9}
+
+\bibitem{My brain} Agustin.org
+
+
+\end{thebibliography}
+
+\end{document}
+
